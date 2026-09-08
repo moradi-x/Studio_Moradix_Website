@@ -1,20 +1,52 @@
-import { Link } from '@inertiajs/react';
+import { Link } from "@inertiajs/react";
 
-export default function MainLayout({ children }) {
+
+export default function MainLayout({children}) {
 
     return (
-        <>
-            <header>
-                <nav>
-                    <Link href="/">Moradix</Link>
 
-                    <div>
-                        <Link href="/about">About</Link>
-                        <Link href="/projects">Projects</Link>
-                        <Link href="/contact">Contact</Link>
+        <div className="min-h-screen bg-white text-black">
+
+
+            <header className="px-8 py-8">
+
+                <nav className="max-w-6xl mx-auto flex justify-between items-center">
+
+
+                    <Link
+                        href="/"
+                        className="text-2xl font-bold tracking-tight"
+                    >
+                        Moradix
+                    </Link>
+
+
+                    <div className="flex gap-8 text-sm">
+
+
+                        <Link href="/about">
+                            About
+                        </Link>
+
+
+                        <Link href="/projects">
+                            Projects
+                        </Link>
+
+
+                        <Link href="/contact">
+                            Contact
+                        </Link>
+
+
                     </div>
+
+
                 </nav>
+
+
             </header>
+
 
 
             <main>
@@ -22,9 +54,19 @@ export default function MainLayout({ children }) {
             </main>
 
 
-            <footer>
-                © 2026 Moradix
+
+            <footer className="px-8 py-12 border-t mt-20">
+
+                <div className="max-w-6xl mx-auto">
+
+                    © 2026 Studio Moradix
+
+                </div>
+
             </footer>
-        </>
+
+
+        </div>
+
     );
 }
