@@ -9,11 +9,17 @@ class Project extends Model
 
     protected $fillable = [
 
-        'title',
-        'description',
-        'image',
-        'technology'
+    'title',
+    'slug',
+    'description',
+    'image',
+    'technology',
+    'client',
+    'category',
+    'demo_url',
+    'github_url',
+    'content'
 
-    ];
+];
 
 }

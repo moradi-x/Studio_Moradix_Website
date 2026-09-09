@@ -15,4 +15,13 @@ class ProjectController extends Controller
         ]);
     }
 
+    public function show($slug)
+{
+    $project = Project::where('slug',$slug)->firstOrFail();
+
+    return Inertia::render('ProjectDetail',[
+        'project'=>$project
+    ]);
+}
+
 }

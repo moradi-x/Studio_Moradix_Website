@@ -17,7 +17,6 @@ export default function Projects({ projects }) {
 
                     <div className="max-w-5xl mx-auto">
 
-
                         <p className="uppercase tracking-widest text-sm mb-6">
                             Portfolio
                         </p>
@@ -44,7 +43,6 @@ export default function Projects({ projects }) {
 
             <section className="px-8 pb-24">
 
-
                 <div className="max-w-5xl mx-auto">
 
 
@@ -65,6 +63,8 @@ export default function Projects({ projects }) {
 
                                 technology={project.technology}
 
+                                slug={project.slug}
+
                             />
 
                         ))}
@@ -77,7 +77,6 @@ export default function Projects({ projects }) {
 
 
             </section>
-
 
 
         </MainLayout>

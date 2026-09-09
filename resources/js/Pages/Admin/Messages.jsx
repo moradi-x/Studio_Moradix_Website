@@ -1,20 +1,29 @@
 import MainLayout from "../../Layouts/MainLayout";
+import { router } from "@inertiajs/react";
 
 
-export default function Messages({ messages }) {
+export default function Messages({messages}) {
+
+
+    function remove(id){
+
+        if(confirm("Delete this message?")){
+
+            router.delete(`/admin/messages/${id}`);
+
+        }
+
+    }
+
 
     return (
 
         <MainLayout>
 
+
             <section className="px-8 py-24">
 
                 <div className="max-w-5xl mx-auto">
-
-
-                    <p className="uppercase tracking-widest text-sm mb-6">
-                        Admin
-                    </p>
 
 
                     <h1 className="text-5xl font-bold mb-12">
@@ -26,47 +35,47 @@ export default function Messages({ messages }) {
                     <div className="space-y-6">
 
 
-                        {messages.length === 0 ? (
-
-                            <p className="text-gray-500">
-                                No messages yet.
-                            </p>
-
-                        ) : (
+                        {messages.map((message)=>(
 
 
-                            messages.map((message)=>(
+                            <div
+                                key={message.id}
+                                className="border rounded-2xl p-6"
+                            >
 
-                                <div
-                                    key={message.id}
-                                    className="border rounded-2xl p-6"
+                                <h2 className="text-2xl font-bold">
+                                    {message.name}
+                                </h2>
+
+
+                                <p className="mt-2">
+                                    {message.email}
+                                </p>
+
+
+                                <p className="mt-4">
+                                    {message.message}
+                                </p>
+
+
+
+                                <button
+
+                                    onClick={()=>remove(message.id)}
+
+                                    className="mt-5 px-5 py-2 bg-black text-white rounded-full"
+
                                 >
 
-                                    <h2 className="text-xl font-bold">
-                                        {message.name}
-                                    </h2>
+                                    Delete
+
+                                </button>
 
 
-                                    <p className="text-gray-500 mt-1">
-                                        {message.email}
-                                    </p>
+                            </div>
 
 
-                                    <p className="mt-4">
-                                        {message.message}
-                                    </p>
-
-
-                                    <p className="text-sm text-gray-400 mt-4">
-                                        {message.created_at}
-                                    </p>
-
-
-                                </div>
-
-                            ))
-
-                        )}
+                        ))}
 
 
                     </div>
@@ -74,9 +83,12 @@ export default function Messages({ messages }) {
 
                 </div>
 
+
             </section>
+
 
         </MainLayout>
 
     );
+
 }

@@ -1,22 +1,26 @@
-import MainLayout from "../../../Layouts/MainLayout";
+import AdminLayout from "../../../Layouts/AdminLayout";
 import { Link, router } from "@inertiajs/react";
 
 export default function Index({ projects }) {
 
+    function destroy(id) {
+
+        if(confirm("Delete this project?")) {
+            router.delete(`/admin/projects/${id}`);
+        }
+
+    }
+
 
     return (
+        <AdminLayout>
 
-        <MainLayout>
+            <section className="px-8 py-20">
 
-
-            <section className="px-8 py-24">
-
-
-                <div className="max-w-5xl mx-auto">
+                <div className="max-w-6xl mx-auto">
 
 
                     <div className="flex justify-between items-center mb-12">
-
 
                         <h1 className="text-5xl font-bold">
                             Projects
@@ -30,7 +34,6 @@ export default function Index({ projects }) {
                             New Project
                         </Link>
 
-
                     </div>
 
 
@@ -38,12 +41,11 @@ export default function Index({ projects }) {
                     <div className="space-y-6">
 
 
-                        {projects.map((project) => (
-
+                        {projects.map(project => (
 
                             <div
                                 key={project.id}
-                                className="border rounded-2xl p-6 flex justify-between"
+                                className="border rounded-3xl p-6 flex justify-between items-center"
                             >
 
 
@@ -54,14 +56,16 @@ export default function Index({ projects }) {
                                     </h2>
 
 
-                                    <p className="mt-2 text-gray-600">
-                                        {project.description}
+                                    <p className="text-gray-500 mt-2">
+                                        {project.technology}
                                     </p>
 
                                 </div>
 
 
-                                <div>
+
+                                <div className="flex gap-4">
+
 
                                     <Link
                                         href={`/admin/projects/${project.id}/edit`}
@@ -72,8 +76,8 @@ export default function Index({ projects }) {
 
 
                                     <button
-                                        onClick={() => router.delete(`/admin/projects/${project.id}`)}
-                                        className="ml-5 text-red-600"
+                                        onClick={() => destroy(project.id)}
+                                        className="text-red-600"
                                     >
                                         Delete
                                     </button>
@@ -84,7 +88,6 @@ export default function Index({ projects }) {
 
                             </div>
 
-
                         ))}
 
 
@@ -93,11 +96,8 @@ export default function Index({ projects }) {
 
                 </div>
 
-
             </section>
 
-
-        </MainLayout>
-
+        </AdminLayout>
     );
 }
