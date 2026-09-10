@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-use HasFactory;
+    use HasFactory;
     protected $fillable = [
 
         'title',
@@ -18,6 +18,8 @@ use HasFactory;
         'order',
 
     ];
-
-
+    protected $casts = [
+        'status' => 'boolean',
+        'order' => 'integer',
+    ];
 }

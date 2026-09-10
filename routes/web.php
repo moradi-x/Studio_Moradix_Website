@@ -1,13 +1,11 @@
 <?php
 
-use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
-use Inertia\Inertia;
 use App\Http\Controllers\Admin\DashboardController;
-
-
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\TechnologyController;
 
 Route::prefix('admin')
     ->name('admin.')
@@ -15,25 +13,30 @@ Route::prefix('admin')
 
 
         // Dashboard
-        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/', [DashboardController::class, 'index'])
+            ->name('dashboard');
 
 
-        // Categories
+        // Categories CRUD
         Route::resource('categories', CategoryController::class);
 
+
         // Technologies
+        Route::resource('technologies', TechnologyController::class);
 
 
         // Projects
+        // Route::resource('projects', ProjectController::class);
 
 
         // Services
+        Route::resource('services', ServiceController::class);
 
 
         // Requests
+        // Route::resource('requests', RequestController::class);
 
 
-        // Settings
-
-
+        // Settings 
+        Route::resource('settings', SettingController::class);
     });

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Inertia\Inertia;
+
 use App\Models\Project;
 use App\Models\Category;
 use App\Models\Technology;
@@ -15,8 +15,7 @@ class DashboardController extends Controller
 
     public function index()
     {
-
-        return Inertia::render('Admin/Dashboard/Index', [
+        return view('admin.dashboard', [
 
             'stats' => [
 
@@ -31,7 +30,6 @@ class DashboardController extends Controller
             ]
 
         ]);
-
     }
 
 }
