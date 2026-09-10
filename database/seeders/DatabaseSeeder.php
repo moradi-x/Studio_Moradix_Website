@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             ProjectRequestSeeder::class,
             SettingSeeder::class,
+            ProjectTechnologySeeder::class,
+
         ]);
     }
 }

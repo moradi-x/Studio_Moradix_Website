@@ -56,7 +56,7 @@
         </a>
 
         <!-- Requests -->
-        <a href="#"
+        <a href="{{ route('admin.project-requests.index') }}"
            class="block px-4 py-2.5 rounded-lg transition
                   {{ request()->routeIs('admin.requests.*') 
                       ? 'bg-green-100 text-green-700' 

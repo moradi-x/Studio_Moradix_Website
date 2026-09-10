@@ -12,20 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('project_requests', function (Blueprint $table) {
-
             $table->id();
 
             $table->string('name');
-
-            $table->string('email')
-                ->nullable();
-
+            $table->string('email')->nullable();
             $table->string('phone');
 
-            $table->string('project_type');
+            $table->foreignId('category_id')
+                ->constrained('categories')
+                ->cascadeOnDelete();
 
-            $table->string('budget')
-                ->nullable();
+            $table->string('budget')->nullable();
 
             $table->text('description');
 
