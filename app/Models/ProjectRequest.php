@@ -5,12 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ContactMessage extends Model
+class ProjectRequest extends Model
 {
-    use HasFactory;
+use HasFactory;
     protected $fillable = [
+
         'name',
         'email',
-        'message'
+        'phone',
+        'project_type',
+        'budget',
+        'description',
+        'status',
+
     ];
+
 }
