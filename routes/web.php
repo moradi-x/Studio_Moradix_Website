@@ -14,8 +14,7 @@ Route::prefix('admin')
     ->name('admin.')
     ->group(function () {
         // Dashboard
-        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-        // Categories CRUD
+        Route::get('/dashboard',  [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('categories', CategoryController::class);
         // Technologies
         Route::resource('technologies', TechnologyController::class);

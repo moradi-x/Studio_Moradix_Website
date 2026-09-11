@@ -8,35 +8,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>
-        @yield('title','Admin Panel')
+        @yield('title', 'Admin Panel')
     </title>
 
-
-    @vite(['resources/css/app.css'])
+    @vite([
+        'resources/css/app.css',
+        'resources/js/app.js'
+    ])
 
 </head>
 
-
 <body class="bg-gray-50">
 
-
 <div class="min-h-screen flex">
-
 
     {{-- Sidebar --}}
 
     @include('admin.sections.sidebar')
 
-
-
     <div class="flex-1 flex flex-col">
-
 
         {{-- Header --}}
 
         @include('admin.sections.topbar')
-
-
 
         {{-- Content --}}
 
@@ -46,19 +40,13 @@
 
         </main>
 
-
-
         {{-- Footer --}}
 
         @include('admin.sections.footer')
 
-
     </div>
 
-
-
 </div>
-
 
 </body>
 

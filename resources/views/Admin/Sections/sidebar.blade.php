@@ -11,7 +11,7 @@
     <nav class="px-3 py-4 space-y-1">
 
         <!-- Dashboard -->
-        <a href="#"
+        <a href="{{ route('admin.dashboard') }}"
            class="block px-4 py-2.5 rounded-lg transition
                   {{ request()->routeIs('admin.dashboard') 
                       ? 'bg-green-100 text-green-700' 
