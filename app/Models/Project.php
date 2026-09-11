@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-use HasFactory;
+    use HasFactory;
     protected $fillable = [
 
         'category_id',
@@ -39,42 +39,23 @@ use HasFactory;
     {
         return $this->belongsTo(Category::class);
     }
+   
+//  چند به چند با تکنولوژی‌ها
+    
+
+    public function technologies()
+    {
+        return $this->belongsToMany(
+            Technology::class,
+            'project_technology'
+        );
+    }
 
 
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | Images Relation
-    |--------------------------------------------------------------------------
-    |
-    | هر پروژه چند تصویر دارد
-    |
-    */
+        // | هر پروژه چند تصویر دارد
 
     public function images()
     {
         return $this->hasMany(ProjectImage::class);
     }
-
-
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | Technologies Relation
-    |--------------------------------------------------------------------------
-    |
-    | چند به چند با تکنولوژی‌ها
-    |
-    */
-
-    public function technologies()
-{
-    return $this->belongsToMany(
-        Technology::class,
-        'project_technology'
-    );
-}
-
 }

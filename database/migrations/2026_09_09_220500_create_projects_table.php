@@ -34,7 +34,7 @@ return new class extends Migration
 
 
             // تصویر اصلی پروژه
-            $table->string('primary_image');
+            $table->string('primary_image') ;
 
 
             // لینک سایت پروژه

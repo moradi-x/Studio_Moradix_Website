@@ -30,7 +30,7 @@ return new class extends Migration
                 'new',
                 'contacted',
                 'completed',
-                'rejected'
+                'rejected',
             ])->default('new');
 
             $table->timestamps();

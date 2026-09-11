@@ -17,52 +17,52 @@ class ProjectRequestSeeder extends Seeder
         $studentProjects = Category::where('slug', 'student-projects')->first();
 
         ProjectRequest::create([
-            'name' => 'Ali Ahmadi',
+            'name' => 'علی احمدی',
             'email' => 'ali@example.com',
             'phone' => '09123456789',
             'category_id' => $ecommerce->id,
-            'budget' => '1000 - 2000 USD',
-            'description' => 'I need a modern e-commerce website.',
+            'budget' => '۱۰۰ تا ۲۰۰ میلیون تومان',
+            'description' => 'برای کسب‌وکار خود به یک سایت فروشگاهی مدرن نیاز دارم.',
             'status' => 'new',
         ]);
 
         ProjectRequest::create([
-            'name' => 'Sara Mohammadi',
+            'name' => 'سارا محمدی',
             'email' => 'sara@example.com',
             'phone' => '09121234567',
             'category_id' => $corporate->id,
-            'budget' => '2000 - 4000 USD',
-            'description' => 'I need a professional corporate website.',
+            'budget' => '۲۰۰ تا ۴۰۰ میلیون تومان',
+            'description' => 'برای شرکت خود به یک سایت شرکتی حرفه‌ای نیاز دارم.',
             'status' => 'contacted',
         ]);
 
         ProjectRequest::create([
-            'name' => 'Reza Karimi',
+            'name' => 'رضا کریمی',
             'email' => null,
             'phone' => '09129876543',
             'category_id' => $portfolio->id,
-            'budget' => '500 - 1000 USD',
-            'description' => 'I need a portfolio website to showcase my work.',
+            'budget' => '۵۰ تا ۱۰۰ میلیون تومان',
+            'description' => 'برای نمایش نمونه‌کارهایم به یک سایت نمونه کار نیاز دارم.',
             'status' => 'new',
         ]);
 
         ProjectRequest::create([
-            'name' => 'Mina Hosseini',
+            'name' => 'مینا حسینی',
             'email' => 'mina@example.com',
             'phone' => '09122345678',
             'category_id' => $resume->id,
-            'budget' => '500 - 1000 USD',
-            'description' => 'I need a clean and professional resume website.',
+            'budget' => '۵۰ تا ۱۰۰ میلیون تومان',
+            'description' => 'یک سایت رزومه‌ای ساده و حرفه‌ای می‌خواهم.',
             'status' => 'completed',
         ]);
 
         ProjectRequest::create([
-            'name' => 'Mohammad Rezaei',
+            'name' => 'محمد رضایی',
             'email' => 'mohammad@example.com',
             'phone' => '09123456780',
             'category_id' => $studentProjects->id,
-            'budget' => '300 - 700 USD',
-            'description' => 'I need a website for a student project.',
+            'budget' => '۳۰ تا ۷۰ میلیون تومان',
+            'description' => 'برای پروژه دانشجویی خود به طراحی سایت نیاز دارم.',
             'status' => 'rejected',
         ]);
     }

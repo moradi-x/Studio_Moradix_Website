@@ -23,4 +23,18 @@ class ProjectRequest extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    /**
+     * تبدیل وضعیت انگلیسی به فارسی
+     */
+    public function getStatusLabelAttribute(): string
+    {
+        return match ($this->status) {
+            'new' => 'جدید',
+            'contacted' => 'در حال پیگیری',
+            'completed' => 'تکمیل شده',
+            'rejected' => 'رد شده',
+            default => $this->status,
+        };
+    }
 }
