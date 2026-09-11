@@ -38,7 +38,7 @@
         </a>
 
         <!-- Projects -->
-        <a href="#"
+        <a href="{{ route('admin.projects.index') }}"
            class="block px-4 py-2.5 rounded-lg transition
                   {{ request()->routeIs('admin.projects.*') 
                       ? 'bg-green-100 text-green-700' 
