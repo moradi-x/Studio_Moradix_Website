@@ -30,8 +30,9 @@ Route::prefix('admin')
         Route::resource('projects', ProjectController::class);
 
         // edit project images
-        // Route::get('/projects/{project}/images-edit',  [ProjectImageController::class, 'edit'])->name('projects.images.edit');
-        // Route::delete('/projects/{project}/images-destroy', [ProjectImageController::class, 'destroy'])->name('projects.images.destroy');
-        // Route::put('/projects/{project}/images-set-edit',  [ProjectImageController::class, 'setPrimary'])->name('projects.images.set_primary');
-        // Route::post('/projects/{project}/image-add', [ProjectImageController::class, 'add'])->name('projects.images.add');
+        Route::get('/projects/{project}/images-edit',   [ProjectImageController::class, 'edit'])->name('projects.images.edit');
+
+        Route::post('/projects/{project}/image-add', [ProjectImageController::class, 'add'])->name('projects.images.add');
+
+        Route::delete('/projects/{project}/images-destroy', [ProjectImageController::class, 'destroy'])->name('projects.images.destroy');
     });

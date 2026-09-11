@@ -11,16 +11,15 @@
 
             <div>
                 <h1 class="text-2xl font-bold text-gray-800">
-                    نمایش پروژه
+                    نمایش پروژه :
+                                        {{ $project->title }}
+
                 </h1>
             </div>
 
             <div class="flex items-center gap-2">
 
-                <a href="{{ route('admin.projects.edit', $project) }}"
-                    class="px-4 py-2 rounded-lg bg-green-600 text-white text-sm hover:bg-green-700">
-                    ویرایش پروژه
-                </a>
+                
 
                 <a href="{{ route('admin.projects.index') }}"
                     class="px-4 py-2 rounded-lg bg-gray-500 text-white text-sm hover:bg-gray-600">
@@ -328,9 +327,7 @@
                         تصاویر دیگر پروژه
                     </h2>
 
-                    <a href="#" class="text-sm text-green-600 hover:text-green-700">
-                        مدیریت تصاویر
-                    </a>
+                    
 
                 </div>
 
@@ -369,11 +366,6 @@
                 <a href="{{ route('admin.projects.index') }}"
                     class="px-5 py-2.5 rounded-lg bg-gray-100 text-gray-700 text-sm hover:bg-gray-200">
                     بازگشت
-                </a>
-
-                <a href="{{ route('admin.projects.edit', $project) }}"
-                    class="px-5 py-2.5 rounded-lg bg-green-600 text-white text-sm font-medium hover:bg-green-700">
-                    ویرایش پروژه
                 </a>
 
             </div>

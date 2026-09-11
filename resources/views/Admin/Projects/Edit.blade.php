@@ -1,7 +1,8 @@
 @extends('admin.layouts.layout')
-@section('content')
-    @include('admin.sections.errors')
 
+@section('title', 'ویرایش پروژه')
+
+@section('content')
 
     <div class="w-full min-h-screen p-6">
 
@@ -10,447 +11,404 @@
 
             <div>
                 <h1 class="text-2xl font-bold text-gray-800">
-                    افزودن پروژه
-                </h1>
+                    ویرایش پروژه :
+                                        {{ $project->title }}
 
-                <p class="text-sm text-gray-500 mt-1">
-                    اطلاعات پروژه جدید را وارد کنید
-                </p>
+                </h1>
             </div>
 
             <a href="{{ route('admin.projects.index') }}"
-                class="px-4 py-2 rounded-lg bg-gray-500 text-white text-sm hover:bg-gray-600">
+                class="px-4 py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-100 transition">
                 بازگشت
             </a>
 
         </div>
 
 
-        {{-- Validation Errors --}}
-        @if ($errors->any())
-            <div class="mb-6 rounded-lg bg-red-50 border border-red-200 p-4">
-
-                <h3 class="font-semibold text-red-700 mb-2">
-                    لطفاً خطاهای زیر را برطرف کنید:
-                </h3>
-
-                <ul class="list-disc list-inside text-sm text-red-600 space-y-1">
-
-                    @foreach ($errors->all() as $error)
-                        <li>
-                            {{ $error }}
-                        </li>
-                    @endforeach
-
-                </ul>
-
-            </div>
-        @endif
-
-
-        {{-- Session Error --}}
-        @if (session('error'))
-            <div class="mb-6 rounded-lg bg-red-50 border border-red-200 p-4 text-red-700">
-                {{ session('error') }}
-            </div>
-        @endif
+        {{-- Errors --}}
+        @include('admin.sections.errors')
 
 
         {{-- Form --}}
-        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+        <form action="{{ route('admin.projects.update', $project) }}" method="POST">
 
-            <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
-
-                @csrf
-
-
-                {{-- Basic Information --}}
-                <div class="mb-8">
-
-                    <h2 class="text-lg font-semibold text-gray-800 mb-5">
-                        اطلاعات پروژه
-                    </h2>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            @csrf
+            @method('PUT')
 
 
-                        {{-- Title --}}
-                        <div>
+            {{-- Row 1 --}}
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                نام پروژه
-                            </label>
+                {{-- Category --}}
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        دسته‌بندی
+                    </label>
 
-                            <input type="text" name="title" value="{{ old('title') }}" placeholder="نام پروژه"
-                                class="w-full rounded-lg border
-                            {{ $errors->has('title') ? 'border-red-500' : 'border-gray-300' }}
-                            focus:border-green-500 focus:ring-green-500">
+                    <select name="category_id"
+                        class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-green-500 focus:ring-green-500">
+                        <option value="">
+                            انتخاب دسته‌بندی
+                        </option>
 
-                            @error('title')
-                                <p class="text-red-500 text-sm mt-1">
-                                    {{ $message }}
-                                </p>
-                            @enderror
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}"
+                                {{ old('category_id', $project->category_id) == $category->id ? 'selected' : '' }}>
+                                {{ $category->name }}
+                            </option>
+                        @endforeach
+                    </select>
 
-                        </div>
-
-
-                        {{-- Slug --}}
-                        <div>
-
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                Slug
-                            </label>
-
-                            <input type="text" name="slug" value="{{ old('slug') }}" placeholder="project-slug"
-                                class="w-full rounded-lg border
-                            {{ $errors->has('slug') ? 'border-red-500' : 'border-gray-300' }}
-                            focus:border-green-500 focus:ring-green-500">
-
-                            @error('slug')
-                                <p class="text-red-500 text-sm mt-1">
-                                    {{ $message }}
-                                </p>
-                            @enderror
-
-                        </div>
-
-
-                        {{-- Category --}}
-                        <div>
-
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                دسته‌بندی
-                            </label>
-
-                            <select name="category_id"
-                                class="w-full rounded-lg border
-                            {{ $errors->has('category_id') ? 'border-red-500' : 'border-gray-300' }}
-                            focus:border-green-500 focus:ring-green-500">
-
-                                <option value="">
-                                    انتخاب دسته‌بندی
-                                </option>
-
-                                @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}" @selected(old('category_id') == $category->id)>
-                                        {{ $category->name }}
-                                    </option>
-                                @endforeach
-
-                            </select>
-
-                            @error('category_id')
-                                <p class="text-red-500 text-sm mt-1">
-                                    {{ $message }}
-                                </p>
-                            @enderror
-
-                            
-
-                        </div>
-
-
-                        {{-- Short Description --}}
-                        <div class="md:col-span-3">
-
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                توضیح کوتاه
-                            </label>
-
-                            <textarea name="short_description" rows="3" placeholder="توضیح کوتاهی درباره پروژه..."
-                                class="w-full rounded-lg border
-                            {{ $errors->has('short_description') ? 'border-red-500' : 'border-gray-300' }}
-                            focus:border-green-500 focus:ring-green-500">{{ old('short_description') }}</textarea>
-
-                            @error('short_description')
-                                <p class="text-red-500 text-sm mt-1">
-                                    {{ $message }}
-                                </p>
-                            @enderror
-
-                        </div>
-
-
-                        {{-- Description --}}
-                        <div class="md:col-span-3">
-
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                توضیحات کامل
-                            </label>
-
-                            <textarea name="description" rows="6" placeholder="توضیحات کامل پروژه..."
-                                class="w-full rounded-lg border
-                            {{ $errors->has('description') ? 'border-red-500' : 'border-gray-300' }}
-                            focus:border-green-500 focus:ring-green-500">{{ old('description') }}</textarea>
-
-                            @error('description')
-                                <p class="text-red-500 text-sm mt-1">
-                                    {{ $message }}
-                                </p>
-                            @enderror
-
-                        </div>
-
-                    </div>
-
+                    @error('category_id')
+                        <p class="text-red-500 text-sm mt-1">
+                            {{ $message }}
+                        </p>
+                    @enderror
                 </div>
 
 
-                {{-- Technologies --}}
-                <div class="mb-8">
+                {{-- Title --}}
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        نام پروژه
+                    </label>
 
-                    <h2 class="text-lg font-semibold text-gray-800 mb-5">
-                        تکنولوژی‌ها
-                    </h2>
+                    <input type="text" name="title" value="{{ old('title', $project->title) }}"
+                        class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-green-500 focus:ring-green-500"
+                        placeholder="نام پروژه">
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-                        <div class="md:col-span-3">
-
-                            <label class="block text-sm font-medium text-gray-700 mb-3">
-                                انتخاب تکنولوژی‌ها
-                            </label>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-
-                                @foreach ($technologies as $technology)
-                                    <label
-                                        class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:bg-gray-50 cursor-pointer">
-
-                                        <input type="checkbox" name="technologies[]" value="{{ $technology->id }}"
-                                            @checked(in_array($technology->id, old('technologies', [])))
-                                            class="rounded border-gray-300 text-green-600 focus:ring-green-500">
-
-                                        <span class="text-sm text-gray-700">
-                                            {{ $technology->name }}
-                                        </span>
-
-                                    </label>
-                                @endforeach
-
-                            </div>
-
-                            @error('technologies')
-                                <p class="text-red-500 text-sm mt-2">
-                                    {{ $message }}
-                                </p>
-                            @enderror
-
-                            @error('technologies.*')
-                                <p class="text-red-500 text-sm mt-2">
-                                    {{ $message }}
-                                </p>
-                            @enderror
-
-                        </div>
-
-                    </div>
-
+                    @error('title')
+                        <p class="text-red-500 text-sm mt-1">
+                            {{ $message }}
+                        </p>
+                    @enderror
                 </div>
 
 
-                {{-- Images --}}
-                <div class="mb-8">
+                {{-- Slug --}}
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        اسلاگ
+                    </label>
 
-                    <h2 class="text-lg font-semibold text-gray-800 mb-5">
-                        تصاویر پروژه
-                    </h2>
+                    <input type="text" name="slug" value="{{ old('slug', $project->slug) }}"
+                        class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-green-500 focus:ring-green-500"
+                        placeholder="project-slug">
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    @error('slug')
+                        <p class="text-red-500 text-sm mt-1">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </div>
 
-
-                        {{-- Primary Image --}}
-                        <div>
-
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                تصویر اصلی
-                            </label>
-
-                            <input type="file" name="primary_image" accept="image/jpeg,image/png,image/webp"
-                                class="w-full rounded-lg border
-                            {{ $errors->has('primary_image') ? 'border-red-500' : 'border-gray-300' }}
-                            bg-white p-2 text-sm">
-
-                            <p class="text-xs text-gray-400 mt-2">
-                                تصویر اصلی پروژه
-                            </p>
-
-                            @error('primary_image')
-                                <p class="text-red-500 text-sm mt-1">
-                                    {{ $message }}
-                                </p>
-                            @enderror
-
-                        </div>
+            </div>
 
 
-                        {{-- Other Images --}}
-                        <div class="md:col-span-2">
+            {{-- Row 2 --}}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
 
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                تصاویر پروژه
-                            </label>
+                {{-- Short Description --}}
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        توضیح کوتاه
+                    </label>
 
-                            <input type="file" name="images[]" multiple accept="image/jpeg,image/png,image/webp"
-                                class="w-full rounded-lg border
-                            {{ $errors->has('images') ? 'border-red-500' : 'border-gray-300' }}
-                            bg-white p-2 text-sm">
+                    <textarea name="short_description" rows="5"
+                        class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-green-500 focus:ring-green-500"
+                        placeholder="توضیح کوتاه پروژه">{{ old('short_description', $project->short_description) }}</textarea>
 
-                            <p class="text-xs text-gray-400 mt-2">
-                                امکان انتخاب چند تصویر وجود دارد.
-                            </p>
-
-                            @error('images')
-                                <p class="text-red-500 text-sm mt-1">
-                                    {{ $message }}
-                                </p>
-                            @enderror
-
-                            @error('images.*')
-                                <p class="text-red-500 text-sm mt-1">
-                                    {{ $message }}
-                                </p>
-                            @enderror
-
-                        </div>
-
-                    </div>
-
+                    @error('short_description')
+                        <p class="text-red-500 text-sm mt-1">
+                            {{ $message }}
+                        </p>
+                    @enderror
                 </div>
 
 
-                {{-- Links --}}
-                <div class="mb-8">
+                {{-- Description --}}
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        توضیحات کامل
+                    </label>
 
-                    <h2 class="text-lg font-semibold text-gray-800 mb-5">
-                        لینک‌ها
-                    </h2>
+                    <textarea name="description" rows="5"
+                        class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-green-500 focus:ring-green-500"
+                        placeholder="توضیحات کامل پروژه">{{ old('description', $project->description) }}</textarea>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    @error('description')
+                        <p class="text-red-500 text-sm mt-1">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </div>
 
-
-                        {{-- Project URL --}}
-                        <div>
-
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                لینک پروژه
-                            </label>
-
-                            <input type="url" name="project_url" value="{{ old('project_url') }}"
-                                placeholder="https://example.com"
-                                class="w-full rounded-lg border
-                            {{ $errors->has('project_url') ? 'border-red-500' : 'border-gray-300' }}
-                            focus:border-green-500 focus:ring-green-500">
-
-                            @error('project_url')
-                                <p class="text-red-500 text-sm mt-1">
-                                    {{ $message }}
-                                </p>
-                            @enderror
-
-                        </div>
+            </div>
 
 
-                        {{-- GitHub --}}
-                        <div>
+            {{-- Row 3 --}}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
 
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                لینک GitHub
-                            </label>
+                {{-- Project URL --}}
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        لینک پروژه
+                    </label>
 
-                            <input type="url" name="github_url" value="{{ old('github_url') }}"
-                                placeholder="https://github.com/..."
-                                class="w-full rounded-lg border
-                            {{ $errors->has('github_url') ? 'border-red-500' : 'border-gray-300' }}
-                            focus:border-green-500 focus:ring-green-500">
+                    <input type="url" name="project_url" value="{{ old('project_url', $project->project_url) }}"
+                        class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-green-500 focus:ring-green-500"
+                        placeholder="https://example.com">
 
-                            @error('github_url')
-                                <p class="text-red-500 text-sm mt-1">
-                                    {{ $message }}
-                                </p>
-                            @enderror
-
-                        </div>
+                    @error('project_url')
+                        <p class="text-red-500 text-sm mt-1">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </div>
 
 
-                        {{-- Status --}}
-                        <div>
+                {{-- Github URL --}}
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        لینک گیت‌هاب
+                    </label>
 
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                وضعیت
-                            </label>
+                    <input type="url" name="github_url" value="{{ old('github_url', $project->github_url) }}"
+                        class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-green-500 focus:ring-green-500"
+                        placeholder="https://github.com/...">
 
-                            <select name="status"
-                                class="w-full rounded-lg border
-                            {{ $errors->has('status') ? 'border-red-500' : 'border-gray-300' }}
-                            focus:border-green-500 focus:ring-green-500">
+                    @error('github_url')
+                        <p class="text-red-500 text-sm mt-1">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </div>
 
-                                <option value="1" @selected(old('status', 1) == 1)>
-                                    فعال
-                                </option>
+            </div>
 
-                                <option value="0" @selected(old('status') === '0')>
-                                    غیرفعال
-                                </option>
 
-                            </select>
+            {{-- Row 4 --}}
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
 
-                            @error('status')
-                                <p class="text-red-500 text-sm mt-1">
-                                    {{ $message }}
-                                </p>
-                            @enderror
+                {{-- Status --}}
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        وضعیت
+                    </label>
 
-                        </div>
+                    <select name="status"
+                        class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-green-500 focus:ring-green-500">
+                        <option value="1" {{ old('status', $project->status) == 1 ? 'selected' : '' }}>
+                            فعال
+                        </option>
 
-                    </div>
+                        <option value="0" {{ old('status', $project->status) == 0 ? 'selected' : '' }}>
+                            غیرفعال
+                        </option>
+                    </select>
 
+                    @error('status')
+                        <p class="text-red-500 text-sm mt-1">
+                            {{ $message }}
+                        </p>
+                    @enderror
                 </div>
 
 
                 {{-- Featured --}}
-                <div class="mb-8">
-
-                    <label class="inline-flex items-center gap-3 cursor-pointer">
-
-                        <input type="checkbox" name="featured" value="1" @checked(old('featured'))
-                            class="rounded border-gray-300 text-green-600 focus:ring-green-500">
-
-                        <span class="text-sm font-medium text-gray-700">
-                            پروژه ویژه
-                        </span>
-
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        پروژه ویژه
                     </label>
+
+                    <select name="featured"
+                        class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-green-500 focus:ring-green-500">
+                        <option value="1" {{ old('featured', $project->featured) == 1 ? 'selected' : '' }}>
+                            بله
+                        </option>
+
+                        <option value="0" {{ old('featured', $project->featured) == 0 ? 'selected' : '' }}>
+                            خیر
+                        </option>
+                    </select>
 
                     @error('featured')
                         <p class="text-red-500 text-sm mt-1">
                             {{ $message }}
                         </p>
                     @enderror
-
                 </div>
 
 
-                {{-- Buttons --}}
-                <div class="flex items-center justify-end gap-3 pt-5 border-t border-gray-200">
+                {{-- Technologies --}}
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        تکنولوژی‌ها
+                    </label>
 
-                    <a href="{{ route('admin.projects.index') }}"
-                        class="px-5 py-2.5 rounded-lg bg-gray-100 text-gray-700 text-sm hover:bg-gray-200">
-                        انصراف
-                    </a>
+                    @php
+                        $selectedTechnologies = old('technologies', $project->technologies->pluck('id')->toArray());
+                    @endphp
 
-                    <button type="submit"
-                        class="px-5 py-2.5 rounded-lg bg-green-600 text-white text-sm font-medium hover:bg-green-700">
-                        ثبت پروژه
-                    </button>
+                    <div class="relative" id="technologyDropdown">
 
+                        {{-- Selected Box --}}
+                        <button type="button" onclick="toggleTechnologyDropdown()"
+                            class="w-full min-h-[50px] rounded-lg border border-gray-300 bg-white px-4 py-3 flex items-center justify-between gap-3 text-right hover:border-green-500 focus:outline-none focus:border-green-500 transition">
+
+                            <div id="selectedTechnologies" class="flex flex-wrap items-center gap-2 flex-1">
+                                @if (count($selectedTechnologies))
+
+                                    @foreach ($technologies as $technology)
+                                        @if (in_array($technology->id, $selectedTechnologies))
+                                            <span data-selected-label="{{ $technology->id }}"
+                                                class="px-2 py-1 rounded-md bg-green-100 text-green-700 text-xs">
+                                                {{ $technology->name }}
+                                            </span>
+                                        @endif
+                                    @endforeach
+                                @else
+                                    <span class="text-gray-400 text-sm">
+                                        انتخاب تکنولوژی‌ها
+                                    </span>
+
+                                @endif
+                            </div>
+
+                            <svg class="w-5 h-5 text-gray-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+
+                        </button>
+
+
+                        {{-- Dropdown --}}
+                        <div id="technologyOptions"
+                            class="hidden absolute top-full right-0 left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 p-2">
+
+                            <div class="max-h-56 overflow-y-auto">
+
+                                @foreach ($technologies as $technology)
+                                    <label
+                                        class="flex items-center justify-between gap-3 px-3 py-2.5 rounded-md cursor-pointer hover:bg-green-50 transition">
+
+                                        <span class="text-sm text-gray-700">
+                                            {{ $technology->name }}
+                                        </span>
+
+                                        <input type="checkbox" name="technologies[]" value="{{ $technology->id }}"
+                                            {{ in_array($technology->id, $selectedTechnologies) ? 'checked' : '' }}
+                                            onchange="updateSelectedTechnologies()"
+                                            class="technology-checkbox w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
+
+                                    </label>
+                                @endforeach
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    @error('technologies')
+                        <p class="text-red-500 text-sm mt-1">
+                            {{ $message }}
+                        </p>
+                    @enderror
+
+                    @error('technologies.*')
+                        <p class="text-red-500 text-sm mt-1">
+                            {{ $message }}
+                        </p>
+                    @enderror
                 </div>
+            </div>
 
-            </form>
 
-        </div>
+
+            {{-- Buttons --}}
+            <div class="flex items-center gap-3 mt-8">
+
+                <button type="submit" class="px-6 py-3 rounded-lg bg-green-600 text-white hover:bg-green-700 transition">
+                    ذخیره تغییرات
+                </button>
+
+                <a href="{{ route('admin.projects.index') }}"
+                    class="px-6 py-3 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-100 transition">
+                    انصراف
+                </a>
+
+            </div>
+
+        </form>
 
     </div>
+
+
+    <script>
+    function toggleTechnologyDropdown() {
+        const dropdown = document.getElementById('technologyOptions');
+
+        dropdown.classList.toggle('hidden');
+    }
+
+
+    function updateSelectedTechnologies() {
+
+        const container = document.getElementById('selectedTechnologies');
+
+        const checkboxes = document.querySelectorAll(
+            '.technology-checkbox:checked'
+        );
+
+        container.innerHTML = '';
+
+        if (checkboxes.length === 0) {
+
+            container.innerHTML = `
+                <span class="text-gray-400 text-sm">
+                    انتخاب تکنولوژی‌ها
+                </span>
+            `;
+
+            return;
+        }
+
+
+        checkboxes.forEach(function (checkbox) {
+
+            const label = checkbox
+                .closest('label')
+                .querySelector('span')
+                .textContent
+                .trim();
+
+            const badge = document.createElement('span');
+
+            badge.className =
+                'px-2 py-1 rounded-md bg-green-100 text-green-700 text-xs';
+
+            badge.textContent = label;
+
+            container.appendChild(badge);
+        });
+    }
+
+
+    // بستن لیست وقتی بیرون از باکس کلیک شود
+    document.addEventListener('click', function (event) {
+
+        const dropdown = document.getElementById('technologyDropdown');
+
+        if (!dropdown.contains(event.target)) {
+
+            document
+                .getElementById('technologyOptions')
+                .classList.add('hidden');
+
+        }
+    });
+</script>
 
 @endsection

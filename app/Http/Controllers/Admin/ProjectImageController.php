@@ -6,185 +6,171 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\ProjectImage;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 class ProjectImageController extends Controller
 {
-    
+
+    //  Upload images
     public function upload($primaryimage, $images)
-{
-    $fileNamePrimaryImage =
-        now()->format('Ymd_His')
-        . '_'
-        . Str::random(3)
-        . '_'
-        . $primaryimage->getClientOriginalName();
-
-    $primaryimage->move( public_path(env('PROJECT_IMAGES_UPLOAD_PATH')), $fileNamePrimaryImage );
-    $fileNameImages = [];
-
-    foreach ($images as $image) {
-        $fileNameImage =
+    {
+        $fileNamePrimaryImage =
             now()->format('Ymd_His')
             . '_'
             . Str::random(3)
             . '_'
-            . $image->getClientOriginalName();
+            . $primaryimage->getClientOriginalName();
 
-        $image->move(
-            public_path(env('PROJECT_IMAGES_UPLOAD_PATH')),
-            $fileNameImage
+        $primaryimage->move(
+            public_path(
+                env('PROJECT_IMAGES_UPLOAD_PATH')
+            ),
+            $fileNamePrimaryImage
         );
 
-        array_push(
-            $fileNameImages,
-            $fileNameImage
-        );
+        $fileNameImages = [];
+
+        foreach ($images as $image) {
+
+            $fileNameImage =
+                now()->format('Ymd_His')
+                . '_'
+                . Str::random(3)
+                . '_'
+                . $image->getClientOriginalName();
+
+            $image->move(
+                public_path(
+                    env('PROJECT_IMAGES_UPLOAD_PATH')
+                ),
+                $fileNameImage
+            );
+
+            $fileNameImages[] = $fileNameImage;
+        }
+
+        return [
+            'fileNamePrimaryImage' => $fileNamePrimaryImage,
+            'fileNameImages' => $fileNameImages,
+        ];
     }
 
-    return [
-        'fileNamePrimaryImage' => $fileNamePrimaryImage,
-        'fileNameImages' => $fileNameImages,
-    ];
-}
-    /**
-     * صفحه مدیریت تصاویر پروژه
-     */
+    //  Edit images page
     public function edit(Project $project)
     {
         $project->load('images');
 
         return view(
-            'admin.projects.images-edit',
+            'admin.projects.edit_images',
             compact('project')
         );
     }
 
-    /**
-     * اضافه کردن تصاویر جدید
-     */
+    //  Add  Update images
     public function add(Request $request, Project $project)
     {
         $request->validate([
-            'primary_image' => [
-                'nullable',
-                'image',
-                'mimes:jpg,jpeg,png,webp',
-                'max:5120',
-            ],
-
-            'images' => [
-                'nullable',
-                'array',
-            ],
-
-            'images.*' => [
-                'image',
-                'mimes:jpg,jpeg,png,webp',
-                'max:5120',
-            ],
+            'primary_image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp',],
+            'images' => ['nullable', 'array',],
+            'images.*' => ['nullable',   'image', 'mimes:jpg,jpeg,png,webp',],
         ]);
 
-        /*
-        |--------------------------------------------------------------------------
-        | تغییر تصویر اصلی
-        |--------------------------------------------------------------------------
-        */
-
-        if ($request->hasFile('primary_image')) {
-
-            $oldPrimary = $project->primary_image;
-
-            $file = $request->file('primary_image');
-
-            $fileName =
-                now()->format('Ymd_His')
-                . '_'
-                . Str::random(3)
-                . '_'
-                . $file->getClientOriginalName();
-
-            $file->storeAs(
-                'projects',
-                $fileName,
-                'public'
-            );
-
-            /*
-            |--------------------------------------------------------------------------
-            | حذف تصویر اصلی قبلی اگر در project_images نباشد
-            |--------------------------------------------------------------------------
-            */
-
-            $oldPrimaryIsNormalImage = $project->images()
-                ->where('image', $oldPrimary)
-                ->exists();
-
-            if (
-                $oldPrimary &&
-                !$oldPrimaryIsNormalImage &&
-                Storage::disk('public')->exists(
-                    'projects/' . $oldPrimary
-                )
-            ) {
-                Storage::disk('public')->delete(
-                    'projects/' . $oldPrimary
-                );
-            }
-
-            $project->update([
-                'primary_image' => $fileName,
-            ]);
+        if ($request->primary_image == null &&  $request->images == null) {
+            return redirect()
+                ->back()
+                ->withErrors([
+                    'msg' => 'تصویر اصلی یا تصاویر پروژه الزامی هست',
+                ]);
         }
 
-        /*
-        |--------------------------------------------------------------------------
-        | اضافه کردن تصاویر معمولی
-        |--------------------------------------------------------------------------
-        */
+        try {
+            DB::beginTransaction();
+            //  آپلود عکس اصلی
+            if ($request->hasFile('primary_image')) {
+                $primaryImage = $request->file('primary_image');
 
-        if ($request->hasFile('images')) {
+                $oldImagePath = public_path(
+                    env('PROJECT_IMAGES_UPLOAD_PATH')  . '/' . $project->primary_image
+                );
 
-            foreach ($request->file('images') as $image) {
+                $existsInImages = ProjectImage::where('project_id',   $project->id)
+                    ->where('image', $project->primary_image)
+                    ->exists();
 
-                $fileName =
+                if (!$existsInImages && File::exists($oldImagePath)) {
+                    File::delete($oldImagePath);
+                }
+
+
+                $fileNamePrimaryImage =
                     now()->format('Ymd_His')
                     . '_'
                     . Str::random(3)
                     . '_'
-                    . $image->getClientOriginalName();
+                    . $primaryImage->getClientOriginalName();
 
-                $image->storeAs(
-                    'projects',
-                    $fileName,
-                    'public'
+
+
+                $primaryImage->move(
+                    public_path(
+                        env('PROJECT_IMAGES_UPLOAD_PATH')
+                    ),
+                    $fileNamePrimaryImage
                 );
-
-                $project->images()->create([
-                    'image' => $fileName,
+                //  ثبت عکس اصلی در Project
+                $project->update([
+                    'primary_image' => $fileNamePrimaryImage,
                 ]);
             }
+            //    آپلود عکس های فرعی
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $image) {
+                    $fileNameImage =
+                        now()->format('Ymd_His')
+                        . '_'
+                        . Str::random(3)
+                        . '_'
+                        . $image->getClientOriginalName();
+
+                    $image->move(
+                        public_path(
+                            env('PROJECT_IMAGES_UPLOAD_PATH')
+                        ),
+                        $fileNameImage
+                    );
+                    ProjectImage::create([
+                        'project_id' => $project->id,
+                        'image' => $fileNameImage,
+                    ]);
+                }
+            }
+
+            DB::commit();
+        } catch (\Throwable $ex) {
+
+            DB::rollBack();
+            return redirect()
+                ->back()
+                ->with(
+                    'error',
+                    'مشکلی در ویرایش تصاویر پروژه رخ داد: '
+                        . $ex->getMessage()
+                );
         }
+
+        DB::commit();
 
         return redirect()
-            ->route(
-                'admin.projects.images.edit',
-                $project
-            )
+            ->route('admin.projects.index')
             ->with(
                 'success',
-                'تصاویر پروژه با موفقیت اضافه شدند.'
+                'تصاویر پروژه «' . $project->title . '» با موفقیت ویرایش شد.'
             );
     }
-
-    /**
-     * حذف تصویر
-     */
-    public function destroy(
-        Request $request,
-        Project $project
-    ) {
+    public function destroy(Request $request, Project $project)
+    {
         $request->validate([
             'image_id' => [
                 'required',
@@ -192,122 +178,28 @@ class ProjectImageController extends Controller
             ],
         ]);
 
-        $image = ProjectImage::where(
+        $projectImage = ProjectImage::where(
             'project_id',
             $project->id
-        )->findOrFail(
-            $request->image_id
+        )->findOrFail($request->image_id);
+
+        $imagePath = public_path(
+            env('PROJECT_IMAGES_UPLOAD_PATH')
+                . '/'
+                . $projectImage->image
         );
 
-        /*
-        |--------------------------------------------------------------------------
-        | جلوگیری از حذف تصویر اصلی
-        |--------------------------------------------------------------------------
-        */
-
-        if (
-            $project->primary_image === $image->image
-        ) {
-            return back()->with(
-                'error',
-                'عکس اصلی پروژه را نمی‌توانید حذف کنید.'
-            );
+        if (File::exists($imagePath)) {
+            File::delete($imagePath);
         }
 
-        /*
-        |--------------------------------------------------------------------------
-        | حذف فایل از Storage
-        |--------------------------------------------------------------------------
-        */
+        $projectImage->delete();
 
-        if (
-            Storage::disk('public')->exists(
-                'projects/' . $image->image
-            )
-        ) {
-            Storage::disk('public')->delete(
-                'projects/' . $image->image
+        return redirect()
+            ->back()
+            ->with(
+                'success',
+                'تصویر با موفقیت حذف شد.'
             );
-        }
-
-        /*
-        |--------------------------------------------------------------------------
-        | حذف رکورد دیتابیس
-        |--------------------------------------------------------------------------
-        */
-
-        $image->delete();
-
-        return back()->with(
-            'success',
-            'تصویر با موفقیت حذف شد.'
-        );
-    }
-
-    /**
-     * تعیین تصویر اصلی
-     */
-    public function setPrimary(
-        Request $request,
-        Project $project
-    ) {
-        $request->validate([
-            'image_id' => [
-                'required',
-                'exists:project_images,id',
-            ],
-        ]);
-
-        $image = ProjectImage::where(
-            'project_id',
-            $project->id
-        )->findOrFail(
-            $request->image_id
-        );
-
-        $oldPrimary = $project->primary_image;
-
-        /*
-        |--------------------------------------------------------------------------
-        | بررسی اینکه تصویر قبلی، تصویر معمولی هم هست یا نه
-        |--------------------------------------------------------------------------
-        */
-
-        $oldPrimaryIsNormalImage = $project->images()
-            ->where('image', $oldPrimary)
-            ->exists();
-
-        /*
-        |--------------------------------------------------------------------------
-        | اگر تصویر قبلی فقط primary بوده، فایلش حذف شود
-        |--------------------------------------------------------------------------
-        */
-
-        if (
-            $oldPrimary &&
-            !$oldPrimaryIsNormalImage &&
-            Storage::disk('public')->exists(
-                'projects/' . $oldPrimary
-            )
-        ) {
-            Storage::disk('public')->delete(
-                'projects/' . $oldPrimary
-            );
-        }
-
-        /*
-        |--------------------------------------------------------------------------
-        | تنظیم تصویر جدید به عنوان primary
-        |--------------------------------------------------------------------------
-        */
-
-        $project->update([
-            'primary_image' => $image->image,
-        ]);
-
-        return back()->with(
-            'success',
-            'تصویر انتخاب‌شده به عنوان عکس اصلی تنظیم شد.'
-        );
     }
 }

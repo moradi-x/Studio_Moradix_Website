@@ -38,8 +38,7 @@
 
 
         {{-- Projects Table --}}
-        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-visible">
-
+        <div class="w-full">
             <div class="overflow-x-auto">
 
                 <table class="w-full text-sm text-right">
@@ -163,13 +162,13 @@
                                         <div
                                             class="absolute left-1/2 -translate-x-1/2 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 p-2 text-right">
 
-                                            <a href="#"
+                                            <a href="{{ route('admin.projects.edit', $project) }}"
                                                 class="block w-full px-3 py-2 rounded-md text-sm text-blue-600 hover:bg-blue-50">
                                                 ویرایش پروژه
                                             </a>
 
 
-                                            <a href="#"
+                                            <a href="{{ route('admin.projects.images.edit', $project) }}"
                                                 class="block w-full px-3 py-2 rounded-md text-sm text-purple-600 hover:bg-purple-50">
                                                 ویرایش تصاویر
                                             </a>
@@ -184,16 +183,15 @@
                                             <div class="my-1 border-t border-gray-100"></div>
 
 
-                                            <form action="#" method="POST">
-
+                                            <form action="{{ route('admin.projects.destroy', $project) }}" method="POST"
+                                                onsubmit="return confirm('آیا مطمئنی می‌خواهی پروژه «{{ $project->title }}» و تمام تصاویر آن حذف شود؟')">
                                                 @csrf
                                                 @method('DELETE')
 
                                                 <button type="submit"
-                                                    class="w-full text-right px-3 py-2 rounded-md text-sm text-red-600 hover:bg-red-50">
+                                                    class="block w-full text-right px-4 py-2 text-sm text-red-600 hover:bg-red-50">
                                                     حذف پروژه
                                                 </button>
-
                                             </form>
 
                                         </div>
@@ -221,10 +219,9 @@
 
             </div>
 
-
             {{-- Pagination --}}
             @if ($projects->hasPages())
-                <div class="px-4 py-4 border-t border-gray-200">
+                <div class="px-4 py-4">
                     {{ $projects->links() }}
                 </div>
             @endif

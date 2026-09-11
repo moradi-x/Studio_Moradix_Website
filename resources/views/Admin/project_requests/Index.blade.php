@@ -74,36 +74,36 @@
                         {{ $projectRequest->budget ?? '-' }}
                     </td>
 
-                   {{-- Status --}}
-<td class="px-5 py-4">
+                    {{-- Status --}}
+                    <td class="px-5 py-4">
 
-    @if($projectRequest->status === 'new')
+                        @if($projectRequest->status === 'جدید')
 
-        <span class="px-2.5 py-1 rounded-full text-xs bg-blue-100 text-blue-700">
-            {{ $projectRequest->status_label }}
-        </span>
+                            <span class="px-2.5 py-1 rounded-full text-xs bg-blue-100 text-blue-700">
+                                جدید
+                            </span>
 
-    @elseif($projectRequest->status === 'contacted')
+                        @elseif($projectRequest->status === 'در حال پیگیری')
 
-        <span class="px-2.5 py-1 rounded-full text-xs bg-yellow-100 text-yellow-700">
-            {{ $projectRequest->status_label }}
-        </span>
+                            <span class="px-2.5 py-1 rounded-full text-xs bg-yellow-100 text-yellow-700">
+                                در حال پیگیری
+                            </span>
 
-    @elseif($projectRequest->status === 'completed')
+                        @elseif($projectRequest->status === 'تکمیل شده')
 
-        <span class="px-2.5 py-1 rounded-full text-xs bg-green-100 text-green-700">
-            {{ $projectRequest->status_label }}
-        </span>
+                            <span class="px-2.5 py-1 rounded-full text-xs bg-green-100 text-green-700">
+                                تکمیل شده
+                            </span>
 
-    @elseif($projectRequest->status === 'rejected')
+                        @elseif($projectRequest->status === 'رد شده')
 
-        <span class="px-2.5 py-1 rounded-full text-xs bg-red-100 text-red-700">
-            {{ $projectRequest->status_label }}
-        </span>
+                            <span class="px-2.5 py-1 rounded-full text-xs bg-red-100 text-red-700">
+                                رد شده
+                            </span>
 
-    @endif
+                        @endif
 
-</td>
+                    </td>
 
                     {{-- Actions --}}
                     <td class="px-5 py-4">
