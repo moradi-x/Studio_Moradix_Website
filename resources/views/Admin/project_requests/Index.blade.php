@@ -75,35 +75,35 @@
                     </td>
 
                     {{-- Status --}}
-                    <td class="px-5 py-4">
+<td class="px-5 py-4">
 
-                        @if($projectRequest->status === 'جدید')
+    @if($projectRequest->status === 'new')
 
-                            <span class="px-2.5 py-1 rounded-full text-xs bg-blue-100 text-blue-700">
-                                جدید
-                            </span>
+        <span class="px-2.5 py-1 rounded-full text-xs bg-blue-100 text-blue-700">
+            جدید
+        </span>
 
-                        @elseif($projectRequest->status === 'در حال پیگیری')
+    @elseif($projectRequest->status === 'contacted')
 
-                            <span class="px-2.5 py-1 rounded-full text-xs bg-yellow-100 text-yellow-700">
-                                در حال پیگیری
-                            </span>
+        <span class="px-2.5 py-1 rounded-full text-xs bg-yellow-100 text-yellow-700">
+            در حال پیگیری
+        </span>
 
-                        @elseif($projectRequest->status === 'تکمیل شده')
+    @elseif($projectRequest->status === 'completed')
 
-                            <span class="px-2.5 py-1 rounded-full text-xs bg-green-100 text-green-700">
-                                تکمیل شده
-                            </span>
+        <span class="px-2.5 py-1 rounded-full text-xs bg-green-100 text-green-700">
+            تکمیل شده
+        </span>
 
-                        @elseif($projectRequest->status === 'رد شده')
+    @elseif($projectRequest->status === 'rejected')
 
-                            <span class="px-2.5 py-1 rounded-full text-xs bg-red-100 text-red-700">
-                                رد شده
-                            </span>
+        <span class="px-2.5 py-1 rounded-full text-xs bg-red-100 text-red-700">
+            رد شده
+        </span>
 
-                        @endif
+    @endif
 
-                    </td>
+</td>
 
                     {{-- Actions --}}
                     <td class="px-5 py-4">

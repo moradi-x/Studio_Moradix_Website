@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TechnologyController;
 use App\Http\Controllers\Admin\ProjectRequestController;
 use App\Http\Controllers\Admin\ProjectImageController;
+use App\Http\Controllers\Admin\NotificationController;
 
 Route::prefix('admin')
     ->name('admin.')
@@ -25,13 +26,15 @@ Route::prefix('admin')
         // Settings 
         Route::resource('settings', SettingController::class);
         // Projects
-
         Route::resource('projects', ProjectController::class);
 
         // edit project images
         Route::get('/projects/{project}/images-edit',   [ProjectImageController::class, 'edit'])->name('projects.images.edit');
-
         Route::post('/projects/{project}/image-add', [ProjectImageController::class, 'add'])->name('projects.images.add');
-
         Route::delete('/projects/{project}/images-destroy', [ProjectImageController::class, 'destroy'])->name('projects.images.destroy');
+
+        // notifications
+        Route::get('/notifications',   [NotificationController::class, 'index'])->name('notifications.index');
+        Route::patch('/notifications/{id}/read', [NotificationController::class, 'read'])->name('notifications.read');
+        Route::delete('/notifications/{id}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
     });

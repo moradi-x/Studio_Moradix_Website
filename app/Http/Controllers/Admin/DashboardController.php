@@ -37,6 +37,13 @@ class DashboardController extends Controller
             'status',
             'new'
         )->count();
+        // بازدید ۲۴ ساعت اخیر
+
+        $visitsLast24Hours = SiteVisit::where(
+            'created_at',
+            '>=',
+            now()->subHours(24)
+        )->count();
 
         $categoriesCount = Category::count();
 
@@ -217,7 +224,8 @@ class DashboardController extends Controller
                 'latestRequests',
                 'latestProjects',
                 'popularTechnologies',
-                'projectsByCategory'
+                'projectsByCategory' ,
+                'visitsLast24Hours',
             )
         );
     }
