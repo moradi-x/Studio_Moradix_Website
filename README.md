@@ -1,24 +1,24 @@
-# Studio Moradix
+# استودیو مورادیکس | Studio Moradix
 
-## 🚧 Project Status: In Development
+## 🚧 وضعیت پروژه: در حال توسعه
 
-Studio Moradix is a modern digital studio website currently under development.
+استودیو مورادیکس یک وب‌سایت مدرن برای معرفی و ارائه خدمات یک استودیوی دیجیتال است که در حال حاضر در مرحله توسعه قرار دارد.
 
-The goal of this project is to create a premium digital presence for brands, combining clean UI/UX design, strong branding, and modern web technologies.
+هدف این پروژه، ایجاد حضوری حرفه‌ای و متمایز در فضای دیجیتال برای برندهاست؛ با تمرکز بر طراحی رابط و تجربه کاربری، هویت بصری منسجم و استفاده از فناوری‌های مدرن وب.
 
-## ✨ About The Project
+## ✨ درباره پروژه
 
-Moradix focuses on creating digital experiences including:
+استودیو مورادیکس بر طراحی و ارائه تجربه‌های دیجیتال باکیفیت تمرکز دارد، از جمله:
 
-- Modern websites
-- Brand identity presentation
-- Digital portfolios
-- Client communication channels
-- SEO-friendly web structure
+- طراحی وب‌سایت‌های مدرن
+- معرفی و ارائه هویت بصری برندها
+- طراحی و نمایش نمونه‌کارهای دیجیتال
+- ایجاد راه‌های ارتباطی با مشتریان
+- پیاده‌سازی ساختار مناسب برای بهینه‌سازی موتورهای جستجو (SEO)
 
-## 🛠️ Technologies
+## 🛠️ تکنولوژی‌ها و ابزارها
 
-Built with:
+این پروژه با استفاده از فناوری‌های زیر توسعه داده می‌شود:
 
 - Laravel 12
 - React
@@ -26,22 +26,23 @@ Built with:
 - Tailwind CSS
 - Vite
 
-## 🎯 Planned Features
+## 🎯 قابلیت‌های برنامه‌ریزی‌شده
 
-- Responsive modern design
-- Brand story section
-- Portfolio showcase
-- Contact form
-- Social media integration
-- SEO optimization
-- Performance optimization
+- طراحی مدرن و واکنش‌گرا برای موبایل، تبلت و دسکتاپ
+- بخش معرفی داستان و هویت برند
+- نمایش نمونه‌کارها و پروژه‌های انجام‌شده
+- فرم تماس و ارتباط با مشتریان
+- اتصال به شبکه‌های اجتماعی
+- بهینه‌سازی برای موتورهای جستجو (SEO)
+- بهبود سرعت و عملکرد وب‌سایت
 
-## 📌 Current Status
+## 📌 وضعیت فعلی پروژه
 
-The project is currently in active development.
-The core architecture, Laravel backend setup, React integration, and Inertia.js structure have been completed.
+این پروژه در حال توسعه فعال است.
 
-More features and design improvements will be added gradually.
+ساختار اصلی پروژه، راه‌اندازی بخش بک‌اند با Laravel، اتصال React و پیاده‌سازی ساختار Inertia.js تکمیل شده است.
+
+قابلیت‌های جدید و بهبودهای طراحی به‌تدریج به پروژه اضافه خواهند شد.
 
 ---
 
