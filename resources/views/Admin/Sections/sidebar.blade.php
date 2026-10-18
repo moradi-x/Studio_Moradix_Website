@@ -16,7 +16,7 @@
                   {{ request()->routeIs('admin.dashboard')
                       ? 'bg-green-100 text-green-700'
                       : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
-            Dashboard
+            داشبرد
         </a>
 
         <!-- Categories -->
@@ -25,7 +25,7 @@
                   {{ request()->routeIs('admin.categories.*')
                       ? 'bg-green-100 text-green-700'
                       : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
-            Categories
+            دسته بندی ها
         </a>
 
         <!-- Technologies -->
@@ -34,7 +34,7 @@
                   {{ request()->routeIs('admin.technologies.*')
                       ? 'bg-green-100 text-green-700'
                       : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
-            Technologies
+            تکنولوژی ها
         </a>
 
         <!-- Projects -->
@@ -43,7 +43,7 @@
                   {{ request()->routeIs('admin.projects.*')
                       ? 'bg-green-100 text-green-700'
                       : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
-            Projects
+            پروژه ها 
         </a>
 
         <!-- Services -->
@@ -52,7 +52,7 @@
                   {{ request()->routeIs('admin.services.*')
                       ? 'bg-green-100 text-green-700'
                       : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
-            Services
+            سرویس
         </a>
 
         <!-- Requests -->
@@ -62,7 +62,7 @@
         {{ request()->routeIs('admin.project-requests.*')
             ? 'bg-green-100 text-green-700'
             : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
-            Requests
+            درخواست ها
         </a>
 
         <!-- Settings -->
@@ -71,7 +71,7 @@
                   {{ request()->routeIs('admin.settings.*')
                       ? 'bg-green-100 text-green-700'
                       : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
-            Settings
+            تنظیمات
         </a>
 
         <div class="p-2">
@@ -87,7 +87,7 @@
                            text-red-600
                            hover:bg-red-100 hover:text-red-700
                            transition">
-                Logout
+                خروج
             </button>
         </form>
 
