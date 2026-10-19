@@ -2,11 +2,6 @@
   <header class="header" role="banner">
       <div class="container">
           <div class="header-content">
-              <!-- Logo: PLACEHOLDER - جایگزین با لوگوی واقعی -->
-              {{-- <a href="{{ route('home') }}" class="logo" aria-label="Moradix Studio - صفحه اصلی">
-                  Moradix
-              </a> --}}
-
 
               <a href="{{ route('home') }}" class="logo" aria-label="Studio Moradix - صفحه اصلی">
                   <img src="{{ asset('site/images/logo.png') }}" alt="Studio Moradix" class="logo-image">
@@ -16,12 +11,30 @@
               <!-- Desktop Navigation -->
               <nav class="nav-desktop" aria-label="منوی اصلی">
                   <ul class="nav-links">
-                      <li>
-                          <a href="{{ route('services') }}">
-                              <span class="nav-icon">✦</span>
-                              خدمات
-                          </a>
+
+                      <li class="has-dropdown">
+                          <div class="nav-service-row">
+                              <a href="{{ route('services') }}" @class(['is-active' => request()->routeIs('services*')])
+                                  @if (request()->routeIs('services*')) aria-current="page" @endif>
+                                  <span class="nav-icon">✦</span>
+                                  خدمات
+                              </a>
+
+                              <button type="button" class="submenu-toggle" aria-label="نمایش زیرمنوی خدمات"
+                                  aria-expanded="false">
+                                  <span class="submenu-arrow"></span>
+                              </button>
+                          </div>
+
+                          <ul class="dropdown">
+                              <li><a href="{{ route('services') }}">طراحی وب‌سایت</a></li>
+                              <li><a href="{{ route('services') }}">طراحی فروشگاه اینترنتی</a></li>
+                              <li><a href="{{ route('services') }}">سئو</a></li>
+                              <li><a href="{{ route('services') }}">بازطراحی و ارتقای سایت</a></li>
+                              <li><a href="{{ route('services') }}">سیستم‌های اختصاصی</a></li>
+                          </ul>
                       </li>
+
                       <li>
                           <a href="#portfolio">
                               <span class="nav-icon">▦</span>
@@ -29,13 +42,15 @@
                           </a>
                       </li>
                       <li>
-                          <a href="{{ route('pricing') }}">
+                          <a href="{{ route('pricing') }}" @class(['is-active' => request()->routeIs('pricing')])
+                              @if (request()->routeIs('pricing')) aria-current="page" @endif>
                               <span class="nav-icon">◇</span>
                               تعرفه‌ها و پلن‌ها
                           </a>
                       </li>
                       <li>
-                          <a href="{{ route('about') }}">
+                          <a href="{{ route('about') }}" @class(['is-active' => request()->routeIs('about')])
+                              @if (request()->routeIs('about')) aria-current="page" @endif>
                               <span class="nav-icon">◎</span>
                               درباره ما
                           </a>
@@ -43,7 +58,8 @@
 
 
                       <li>
-                          <a href="{{ route('contact') }}">
+                          <a href="{{ route('contact') }}" @class(['is-active' => request()->routeIs('contact')])
+                              @if (request()->routeIs('contact')) aria-current="page" @endif>
                               <span class="nav-icon">☎</span>
                               تماس با ما
                           </a>
@@ -66,11 +82,32 @@
       <!-- Mobile Navigation -->
       <nav class="nav-mobile" id="nav-mobile" aria-label="منوی موبایل">
           <ul class="nav-links">
-              <li><a href="{{ route('services') }}">خدمات</a></li>
-              <li><a href="#portfolio">نمونه‌کارها</a></li>
-              <li><a href="{{ route('pricing') }}"> تعرفه ها و پلن ها</a></li>
-              <li><a href="{{ route('about') }}">درباره ما</a></li>
-              <li><a href="{{ route('contact') }}">☎ تماس با ما</a></li>
+
+
+              <li class="has-dropdown">
+
+
+                  <div class="nav-service-row">
+                      <button type="button" class="submenu-toggle" aria-expanded="false"
+                          aria-controls="mobile-services-submenu">
+                          <span>خدمات</span>
+                          <span class="submenu-arrow" aria-hidden="true"></span>
+                      </button>
+                  </div>
+
+                  <ul class="submenu" id="mobile-services-submenu">
+                      <li><a href="{{ route('services') }}">طراحی وب‌سایت</a></li>
+                      <li><a href="{{ route('services') }}">طراحی فروشگاه اینترنتی</a></li>
+                      <li><a href="{{ route('services') }}">سئو</a></li>
+                      <li><a href="{{ route('services') }}">بازطراحی و ارتقای سایت</a></li>
+                      <li><a href="{{ route('services') }}">سیستم‌های اختصاصی</a></li>
+                  </ul>
+
+              </li>
+
+              <li><a href="{{ route('pricing') }}" @class(['is-active' => request()->routeIs('pricing')])>تعرفه ها و پلن ها</a></li>
+              <li><a href="{{ route('about') }}" @class(['is-active' => request()->routeIs('about')])>درباره ما</a></li>
+              <li><a href="{{ route('contact') }}" @class(['is-active' => request()->routeIs('contact')])>☎ تماس با ما</a></li>
           </ul>
           <a href="#contact" class="btn btn-primary">ثبت درخواست پروژه</a>
       </nav>
