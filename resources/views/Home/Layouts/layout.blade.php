@@ -39,7 +39,7 @@
         @include('Home.Sections.footer')
 
         {{-- دکمه شناور تماس (واتساپ/تلگرام) --}}
-        @include('Home.Sections.Components.floating-contact')
+        @include('Home.Sections.floating-contact')
 
         @include('Home.Sections.scroll-top')
 

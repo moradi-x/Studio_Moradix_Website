@@ -1,0 +1,1064 @@
+/* public/site/pricing/pricing.css */
+/* Pricing Page Styles - Moradix Studio */
+
+/* ==================== Page Root ==================== */
+.pr-page {
+    background-color: var(--color-bg);
+}
+
+/* ==================== Hero Section ==================== */
+.pr-hero {
+    padding-block: 4rem 3rem;
+    background: linear-gradient(135deg, var(--color-primary-soft) 0%, var(--color-surface) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.pr-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(15, 118, 110, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+    z-index: 0;
+}
+
+@media (min-width: 768px) {
+    .pr-hero {
+        padding-block: 5rem 4rem;
+    }
+}
+
+.pr-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 48rem;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.pr-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    margin-block-end: 1rem;
+    color: var(--color-text);
+}
+
+.pr-hero-desc {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-base);
+    margin-block-end: 2.5rem;
+}
+
+/* Trust Bar */
+.pr-trust-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-block-end: 2rem;
+}
+
+@media (min-width: 768px) {
+    .pr-trust-bar {
+        gap: 3rem;
+    }
+}
+
+.pr-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    color: var(--color-text);
+}
+
+.pr-trust-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.pr-last-update {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-block-end: 0;
+}
+
+/* ==================== Category Toggle ==================== */
+.pr-category-section {
+    padding-block: 3rem;
+    background-color: var(--color-surface);
+}
+
+.pr-category-toggle {
+    position: relative;
+    display: inline-flex;
+    background-color: var(--color-bg);
+    border-radius: 6rem;
+    padding: 0.375rem;
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.pr-tab {
+    position: relative;
+    z-index: 2;
+    padding: 0.75rem 2rem;
+    border: none;
+    background: transparent;
+    font-family: var(--font-base);
+    font-size: 0.9375rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    border-radius: 6rem;
+    min-height: 44px;
+}
+
+.pr-tab[aria-selected="true"] {
+    color: var(--color-surface);
+}
+
+.pr-tab:hover {
+    color: var(--color-text);
+}
+
+.pr-tab:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.pr-tab-indicator {
+    position: absolute;
+    z-index: 1;
+    background-color: var(--color-primary);
+    border-radius: 6rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    inset-block: 0.375rem;
+}
+
+/* ==================== Plans Section ==================== */
+.pr-plans-section {
+    padding-block: 4rem;
+    background-color: var(--color-bg);
+}
+
+@media (min-width: 768px) {
+    .pr-plans-section {
+        padding-block: 5rem;
+    }
+}
+
+.pr-panel {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.pr-panel-hidden {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+.pr-plans-grid {
+    display: grid;
+    gap: 2rem;
+    margin-block-end: 3rem;
+}
+
+@media (min-width: 1024px) {
+    .pr-plans-grid {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: stretch;
+    }
+}
+
+/* ==================== Plan Card ==================== */
+.pr-plan-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-base);
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .pr-plan-card {
+        padding: 3rem;
+    }
+}
+
+.pr-plan-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Featured Plan */
+.pr-plan-featured {
+    border-color: var(--color-primary);
+    border-width: 2px;
+    box-shadow: 0 8px 20px rgba(15, 118, 110, 0.12);
+}
+
+.pr-featured-badge {
+    position: absolute;
+    top: -0.75rem;
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+    padding: 0.375rem 1.25rem;
+    border-radius: 6rem;
+    font-size: 0.8125rem;
+    font-weight: var(--font-weight-semibold);
+}
+
+[dir="rtl"] .pr-featured-badge {
+    transform: translateX(50%);
+}
+
+/* Plan Header */
+.pr-plan-header {
+    margin-block-end: 1.5rem;
+}
+
+.pr-plan-name {
+    font-size: 1.75rem;
+    font-weight: var(--font-weight-bold);
+    margin-block-end: 0.5rem;
+    color: var(--color-text);
+}
+
+.pr-plan-for {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    margin-block-end: 0;
+}
+
+/* Plan Price */
+.pr-plan-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-block-end: 0.75rem;
+}
+
+.pr-price-label {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+}
+
+.pr-price-amount {
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}
+
+.pr-price-currency {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+}
+
+.pr-price-note {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-block-end: 2rem;
+}
+
+/* Plan Meta */
+.pr-plan-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-block-end: 2rem;
+    padding-block-end: 2rem;
+    border-block-end: 1px solid var(--color-border);
+}
+
+.pr-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-text);
+}
+
+.pr-meta-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+/* Plan Features */
+.pr-plan-features {
+    flex: 1;
+    margin-block-end: 2rem;
+}
+
+.pr-features-title,
+.pr-not-included-title {
+    font-size: 0.9375rem;
+    font-weight: var(--font-weight-semibold);
+    margin-block-end: 1rem;
+    color: var(--color-text);
+}
+
+.pr-not-included-title {
+    margin-block-start: 1.5rem;
+}
+
+.pr-features-list,
+.pr-not-included-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+}
+
+.pr-features-list li,
+.pr-not-included-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+.pr-check-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--color-primary);
+    flex-shrink: 0;
+    margin-block-start: 0.125rem;
+}
+
+.pr-minus-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+    margin-block-start: 0.125rem;
+    opacity: 0.5;
+}
+
+/* Collapsible Features (Mobile) */
+@media (max-width: 767px) {
+    .pr-collapsible li:nth-child(n+7) {
+        display: none;
+    }
+
+    .pr-collapsible.expanded li {
+        display: flex;
+    }
+}
+
+.pr-show-more {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-block-start: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-button);
+    font-family: var(--font-base);
+    font-size: 0.875rem;
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: var(--transition-base);
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .pr-show-more:not([hidden]) {
+        display: flex;
+    }
+}
+
+.pr-show-more:hover {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+}
+
+.pr-show-more-icon {
+    width: 1rem;
+    height: 1rem;
+    transition: var(--transition-base);
+}
+
+.pr-show-more[aria-expanded="true"] .pr-show-more-icon {
+    transform: rotate(180deg);
+}
+
+.pr-show-more[aria-expanded="true"] .pr-show-more-text::after {
+    content: ' کمتر';
+}
+
+/* Plan Buttons */
+.pr-plan-btn {
+    display: block;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-button);
+    font-size: 1rem;
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+    text-decoration: none;
+    transition: var(--transition-base);
+    margin-block-end: 1rem;
+}
+
+.pr-plan-btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.pr-plan-btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+}
+
+.pr-plan-btn-primary:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.pr-plan-consult {
+    display: block;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+.pr-plan-consult:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* ==================== Custom Projects Card ==================== */
+.pr-custom-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 2.5rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .pr-custom-card {
+        padding: 3rem;
+    }
+}
+
+.pr-custom-title {
+    font-size: 1.75rem;
+    font-weight: var(--font-weight-bold);
+    margin-block-end: 2rem;
+    color: var(--color-text);
+}
+
+.pr-custom-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-block-end: 2rem;
+}
+
+@media (min-width: 768px) {
+    .pr-custom-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .pr-custom-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.pr-custom-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem 1rem;
+    background-color: var(--color-bg);
+    border-radius: var(--radius-button);
+    font-size: 0.875rem;
+    color: var(--color-text);
+    text-align: center;
+}
+
+.pr-custom-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.pr-custom-note {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin-block-end: 1.5rem;
+}
+
+.pr-custom-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+    border-radius: var(--radius-button);
+    font-size: 1rem;
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+.pr-custom-btn:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ==================== Which Plan Section ==================== */
+.pr-which-plan {
+    padding-block: 4rem;
+    background-color: var(--color-surface);
+}
+
+@media (min-width: 768px) {
+    .pr-which-plan {
+        padding-block: 5rem;
+    }
+}
+
+.pr-which-plan h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    margin-block-end: 3rem;
+    color: var(--color-text);
+}
+
+.pr-which-grid {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 56rem;
+    margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+    .pr-which-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.pr-which-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+}
+
+.pr-which-icon {
+    width: 2rem;
+    height: 2rem;
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.pr-which-item p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    margin-block-end: 0;
+    line-height: 1.6;
+}
+
+.pr-which-item strong {
+    color: var(--color-text);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* ==================== Price Factors Section ==================== */
+.pr-factors {
+    padding-block: 4rem;
+    background-color: var(--color-bg);
+}
+
+@media (min-width: 768px) {
+    .pr-factors {
+        padding-block: 5rem;
+    }
+}
+
+.pr-factors h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    margin-block-end: 3rem;
+    color: var(--color-text);
+}
+
+.pr-factors-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .pr-factors-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .pr-factors-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.pr-factor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    transition: var(--transition-base);
+}
+
+.pr-factor-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.pr-factor-icon {
+    width: 3rem;
+    height: 3rem;
+    color: var(--color-primary);
+    margin-block-end: 1rem;
+}
+
+.pr-factor-card h3 {
+    font-size: 1rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    margin-block-end: 0;
+    line-height: 1.5;
+}
+
+/* ==================== Included Section ==================== */
+.pr-included {
+    padding-block: 4rem;
+    background-color: var(--color-surface);
+}
+
+@media (min-width: 768px) {
+    .pr-included {
+        padding-block: 5rem;
+    }
+}
+
+.pr-included-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .pr-included-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.pr-included-card {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .pr-included-card {
+        padding: 3rem;
+    }
+}
+
+.pr-included-card h3 {
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    margin-block-end: 1.5rem;
+    color: var(--color-text);
+}
+
+.pr-included-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pr-included-card li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+}
+
+.pr-included-card svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    margin-block-start: 0.125rem;
+}
+
+.pr-included-yes li {
+    color: var(--color-text);
+}
+
+.pr-included-yes svg {
+    color: var(--color-primary);
+}
+
+.pr-included-no li {
+    color: var(--color-text-muted);
+}
+
+.pr-included-no svg {
+    color: var(--color-text-muted);
+    opacity: 0.5;
+}
+
+/* ==================== Support Section ==================== */
+.pr-support {
+    padding-block: 4rem;
+    background-color: var(--color-bg);
+}
+
+@media (min-width: 768px) {
+    .pr-support {
+        padding-block: 5rem;
+    }
+}
+
+.pr-support h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    margin-block-end: 3rem;
+    color: var(--color-text);
+}
+
+.pr-support-grid {
+    display: grid;
+    gap: 2rem;
+    max-width: 56rem;
+    margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+    .pr-support-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.pr-support-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 2rem;
+}
+
+@media (min-width: 768px) {
+    .pr-support-card {
+        padding: 2.5rem;
+    }
+}
+
+.pr-support-card h3 {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-bold);
+    margin-block-end: 0.75rem;
+    color: var(--color-text);
+}
+
+.pr-support-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: var(--color-primary-soft);
+    color: var(--color-primary);
+    border-radius: 6rem;
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-semibold);
+    margin-block-end: 1rem;
+}
+
+.pr-support-badge-paid {
+    background-color: #FFF7ED;
+    color: var(--color-warning);
+}
+
+.pr-support-desc {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-block-end: 0;
+}
+
+.pr-support-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-block-end: 1.5rem;
+}
+
+.pr-support-list li {
+    padding-inline-start: 1.5rem;
+    position: relative;
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+.pr-support-list li::before {
+    content: '•';
+    position: absolute;
+    inset-inline-start: 0;
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+}
+
+.pr-support-price {
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    margin-block-end: 1.5rem;
+}
+
+.pr-support-btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-button);
+    font-size: 0.9375rem;
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+.pr-support-btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+}
+
+/* ==================== FAQ Section ==================== */
+.pr-faq {
+    padding-block: 4rem;
+    background-color: var(--color-surface);
+}
+
+@media (min-width: 768px) {
+    .pr-faq {
+        padding-block: 5rem;
+    }
+}
+
+.pr-faq h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    margin-block-end: 3rem;
+    color: var(--color-text);
+}
+
+.pr-faq-list {
+    max-width: 50rem;
+    margin-inline: auto;
+}
+
+.pr-faq-item {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    margin-block-end: 1rem;
+    overflow: hidden;
+    background-color: var(--color-bg);
+}
+
+.pr-faq-question {
+    width: 100%;
+    padding: 1.5rem;
+    background: transparent;
+    border: none;
+    text-align: start;
+    font-size: 1.0625rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transition: var(--transition-base);
+    font-family: var(--font-base);
+}
+
+.pr-faq-question:hover {
+    background-color: var(--color-primary-soft);
+}
+
+.pr-faq-question:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
+}
+
+.pr-faq-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    color: var(--color-primary);
+    transition: var(--transition-base);
+}
+
+.pr-faq-item.active .pr-faq-icon {
+    transform: rotate(180deg);
+}
+
+.pr-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pr-faq-answer-content {
+    padding: 0 1.5rem 1.5rem;
+}
+
+.pr-faq-answer-content p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-block-end: 0;
+}
+
+/* ==================== Final CTA Section ==================== */
+.pr-final-cta {
+    padding-block: 4rem;
+    background-color: var(--color-dark);
+    color: var(--color-surface);
+}
+
+@media (min-width: 768px) {
+    .pr-final-cta {
+        padding-block: 5rem;
+    }
+}
+
+.pr-final-grid {
+    display: grid;
+    gap: 2rem;
+    max-width: 56rem;
+    margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+    .pr-final-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.pr-final-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-card);
+    padding: 2.5rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .pr-final-card {
+        padding: 3rem;
+    }
+}
+
+.pr-final-card h3 {
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    margin-block-end: 0.75rem;
+    color: var(--color-surface);
+}
+
+.pr-final-card p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-block-end: 2rem;
+}
+
+.pr-final-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: transparent;
+    color: var(--color-surface);
+    border: 2px solid var(--color-surface);
+    border-radius: var(--radius-button);
+    font-size: 1rem;
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+.pr-final-btn:hover {
+    background-color: var(--color-surface);
+    color: var(--color-dark);
+}
+
+.pr-final-btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+    border-color: var(--color-primary);
+}
+
+.pr-final-btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+}
+
+/* ==================== Reduced Motion ==================== */
+@media (prefers-reduced-motion: reduce) {
+    .pr-plan-card:hover,
+    .pr-plan-btn:hover,
+    .pr-custom-btn:hover,
+    .pr-final-btn:hover {
+        transform: none;
+    }
+
+    .pr-tab-indicator,
+    .pr-faq-icon,
+    .pr-show-more-icon {
+        transition: none;
+    }
+}

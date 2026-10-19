@@ -44,5 +44,5 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/services', [HomeController::class, 'services'])->name('services');
 
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-Route::post('/contact-us-form', [HomeController::class, 'contactUsForm'])
-    ->name('contact-us.form');
+Route::post('/contact-us-form', [HomeController::class, 'contactUsForm'])->name('contact-us.form');
+Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');

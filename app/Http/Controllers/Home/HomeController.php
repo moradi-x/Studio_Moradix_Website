@@ -36,7 +36,6 @@ class HomeController extends Controller
         return view('Home.contact', compact('settings'));
     }
 
-
     public function contactUsForm(Request $request)
     {
 
@@ -76,4 +75,12 @@ class HomeController extends Controller
             'پیام شما با موفقیت ارسال شد.'
         );
     }
+
+       public function pricing()
+    {
+
+
+        return view('Home.pricing');
+    }
+
 }

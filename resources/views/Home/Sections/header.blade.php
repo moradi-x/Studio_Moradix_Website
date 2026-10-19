@@ -29,7 +29,7 @@
                           </a>
                       </li>
                       <li>
-                          <a href="#aa">
+                          <a href="{{ route('pricing') }}">
                               <span class="nav-icon">◇</span>
                               تعرفه‌ها و پلن‌ها
                           </a>
@@ -68,7 +68,7 @@
           <ul class="nav-links">
               <li><a href="{{ route('services') }}">خدمات</a></li>
               <li><a href="#portfolio">نمونه‌کارها</a></li>
-              <li><a href="#aa"> تعرفه ها و پلن ها</a></li>
+              <li><a href="{{ route('pricing') }}"> تعرفه ها و پلن ها</a></li>
               <li><a href="{{ route('about') }}">درباره ما</a></li>
               <li><a href="{{ route('contact') }}">☎ تماس با ما</a></li>
           </ul>
