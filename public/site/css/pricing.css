@@ -323,25 +323,17 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.875rem;
+    gap: 0.4rem;
 }
 
-.pr-features-list li,
-.pr-not-included-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-    line-height: 1.6;
-}
+
 
 .pr-check-icon {
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1.1rem;
+    height: 1.1rem;
     color: var(--color-primary);
     flex-shrink: 0;
-    margin-block-start: 0.125rem;
+    margin-block-start: 0.3.5rem;
 }
 
 .pr-minus-icon {
@@ -1049,6 +1041,7 @@
 
 /* ==================== Reduced Motion ==================== */
 @media (prefers-reduced-motion: reduce) {
+
     .pr-plan-card:hover,
     .pr-plan-btn:hover,
     .pr-custom-btn:hover,
@@ -1061,4 +1054,114 @@
     .pr-show-more-icon {
         transition: none;
     }
+}
+
+
+
+/* Compact pricing sections */
+
+.pr-section-heading {
+    direction: rtl;
+    text-align: center;
+    max-width: 900px;
+    margin: 4rem auto 2.5rem;
+    padding: 1.5rem 1.25rem;
+
+    background: linear-gradient(135deg,
+            rgba(120, 100, 255, 0.08),
+            rgba(120, 100, 255, 0.03));
+
+    border: 1px solid rgba(120, 100, 255, 0.15);
+    border-radius: 18px;
+}
+
+.pr-section-heading h2 {
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    font-weight: 800;
+    line-height: 1.8;
+    margin: 0 0 0.6rem;
+}
+
+.pr-section-heading p {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    margin: 0;
+    opacity: 0.75;
+}
+
+@media (max-width: 700px) {
+    .pr-section-heading {
+        margin: 3rem 1rem 2rem;
+        padding: 1.1rem 1rem;
+        border-radius: 14px;
+    }
+}
+
+/* Narrower plan cards */
+.pr-plans-grid {
+    grid-template-columns: repeat(2, minmax(0, 380px));
+    justify-content: center;
+    gap: 1.25rem;
+    margin-block-end: 2rem;
+}
+
+.pr-plan-card {
+    padding: 1.25rem;
+}
+
+.pr-plan-header {
+    margin-bottom: 0.75rem;
+}
+
+.pr-plan-name {
+    font-size: 1.2rem;
+}
+
+.pr-plan-for,
+.pr-price-note {
+    font-size: 0.82rem;
+}
+
+.pr-plan-price {
+    margin-block: 0.75rem;
+}
+
+.pr-price-amount {
+    font-size: 1.65rem;
+}
+
+.pr-plan-meta {
+    gap: 0.5rem;
+}
+
+.pr-plan-features {
+    margin-top: 1rem;
+}
+
+.pr-features-list,
+.pr-not-included-list {
+    margin-block: 0.5rem;
+}
+
+.pr-features-list li,
+.pr-not-included-list li {
+    margin-bottom: 0.2rem;
+    font-size: 0.82rem;
+}
+
+
+@media (max-width: 700px) {
+    .pr-plans-grid {
+        grid-template-columns: minmax(0, 420px);
+        gap: 1rem;
+    }
+
+    .pr-plan-card {
+        padding: 1rem;
+    }
+}
+
+.pr-features-list li > span {
+    position: relative;
+    top: -2px;
 }

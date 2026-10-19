@@ -4,108 +4,108 @@
 (function() {
     'use strict';
 
-    // ==================== Tab Toggle (Category Switch) ====================
-    const tabs = document.querySelectorAll('.pr-tab');
-    const indicator = document.querySelector('.pr-tab-indicator');
-    const panels = document.querySelectorAll('.pr-panel');
+    // // ==================== Tab Toggle (Category Switch) ====================
+    // const tabs = document.querySelectorAll('.pr-tab');
+    // const indicator = document.querySelector('.pr-tab-indicator');
+    // const panels = document.querySelectorAll('.pr-panel');
 
-    function updateIndicator(activeTab) {
-        const tabRect = activeTab.getBoundingClientRect();
-        const containerRect = activeTab.parentElement.getBoundingClientRect();
+    // function updateIndicator(activeTab) {
+    //     const tabRect = activeTab.getBoundingClientRect();
+    //     const containerRect = activeTab.parentElement.getBoundingClientRect();
 
-        indicator.style.width = tabRect.width + 'px';
-        indicator.style.height = tabRect.height + 'px';
+    //     indicator.style.width = tabRect.width + 'px';
+    //     indicator.style.height = tabRect.height + 'px';
 
-        // Calculate position based on RTL/LTR
-        const isRTL = document.dir === 'rtl' || document.documentElement.dir === 'rtl';
-        if (isRTL) {
-            indicator.style.right = (containerRect.right - tabRect.right) + 'px';
-            indicator.style.left = 'auto';
-        } else {
-            indicator.style.left = (tabRect.left - containerRect.left) + 'px';
-            indicator.style.right = 'auto';
-        }
-    }
+    //     // Calculate position based on RTL/LTR
+    //     const isRTL = document.dir === 'rtl' || document.documentElement.dir === 'rtl';
+    //     if (isRTL) {
+    //         indicator.style.right = (containerRect.right - tabRect.right) + 'px';
+    //         indicator.style.left = 'auto';
+    //     } else {
+    //         indicator.style.left = (tabRect.left - containerRect.left) + 'px';
+    //         indicator.style.right = 'auto';
+    //     }
+    // }
 
-    function switchTab(selectedTab) {
-        const selectedCategory = selectedTab.dataset.category;
-        const selectedPanelId = selectedTab.getAttribute('aria-controls');
+    // function switchTab(selectedTab) {
+    //     const selectedCategory = selectedTab.dataset.category;
+    //     const selectedPanelId = selectedTab.getAttribute('aria-controls');
 
-        // Update tabs
-        tabs.forEach(tab => {
-            const isSelected = tab === selectedTab;
-            tab.setAttribute('aria-selected', isSelected);
-            tab.setAttribute('tabindex', isSelected ? '0' : '-1');
-        });
+    //     // Update tabs
+    //     tabs.forEach(tab => {
+    //         const isSelected = tab === selectedTab;
+    //         tab.setAttribute('aria-selected', isSelected);
+    //         tab.setAttribute('tabindex', isSelected ? '0' : '-1');
+    //     });
 
-        // Update panels
-        panels.forEach(panel => {
-            const shouldShow = panel.id === selectedPanelId;
-            if (shouldShow) {
-                panel.classList.remove('pr-panel-hidden');
-                panel.removeAttribute('hidden');
-            } else {
-                panel.classList.add('pr-panel-hidden');
-                panel.setAttribute('hidden', '');
-            }
-        });
+    //     // Update panels
+    //     panels.forEach(panel => {
+    //         const shouldShow = panel.id === selectedPanelId;
+    //         if (shouldShow) {
+    //             panel.classList.remove('pr-panel-hidden');
+    //             panel.removeAttribute('hidden');
+    //         } else {
+    //             panel.classList.add('pr-panel-hidden');
+    //             panel.setAttribute('hidden', '');
+    //         }
+    //     });
 
-        // Update indicator
-        updateIndicator(selectedTab);
-    }
+    //     // Update indicator
+    //     updateIndicator(selectedTab);
+    // }
 
-    // Initialize indicator position
-    if (indicator && tabs.length > 0) {
-        const activeTab = document.querySelector('.pr-tab[aria-selected="true"]') || tabs[0];
-        updateIndicator(activeTab);
-    }
+    // // Initialize indicator position
+    // if (indicator && tabs.length > 0) {
+    //     const activeTab = document.querySelector('.pr-tab[aria-selected="true"]') || tabs[0];
+    //     updateIndicator(activeTab);
+    // }
 
-    // Tab click handlers
-    tabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            switchTab(this);
-        });
+    // // Tab click handlers
+    // tabs.forEach(tab => {
+    //     tab.addEventListener('click', function() {
+    //         switchTab(this);
+    //     });
 
-        // Keyboard navigation
-        tab.addEventListener('keydown', function(e) {
-            let newTab = null;
+    //     // Keyboard navigation
+    //     tab.addEventListener('keydown', function(e) {
+    //         let newTab = null;
 
-            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-                e.preventDefault();
-                const currentIndex = Array.from(tabs).indexOf(this);
-                const isRTL = document.dir === 'rtl' || document.documentElement.dir === 'rtl';
+    //         if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+    //             e.preventDefault();
+    //             const currentIndex = Array.from(tabs).indexOf(this);
+    //             const isRTL = document.dir === 'rtl' || document.documentElement.dir === 'rtl';
 
-                if ((e.key === 'ArrowRight' && !isRTL) || (e.key === 'ArrowLeft' && isRTL)) {
-                    newTab = tabs[currentIndex + 1] || tabs[0];
-                } else {
-                    newTab = tabs[currentIndex - 1] || tabs[tabs.length - 1];
-                }
-            } else if (e.key === 'Home') {
-                e.preventDefault();
-                newTab = tabs[0];
-            } else if (e.key === 'End') {
-                e.preventDefault();
-                newTab = tabs[tabs.length - 1];
-            }
+    //             if ((e.key === 'ArrowRight' && !isRTL) || (e.key === 'ArrowLeft' && isRTL)) {
+    //                 newTab = tabs[currentIndex + 1] || tabs[0];
+    //             } else {
+    //                 newTab = tabs[currentIndex - 1] || tabs[tabs.length - 1];
+    //             }
+    //         } else if (e.key === 'Home') {
+    //             e.preventDefault();
+    //             newTab = tabs[0];
+    //         } else if (e.key === 'End') {
+    //             e.preventDefault();
+    //             newTab = tabs[tabs.length - 1];
+    //         }
 
-            if (newTab) {
-                switchTab(newTab);
-                newTab.focus();
-            }
-        });
-    });
+    //         if (newTab) {
+    //             switchTab(newTab);
+    //             newTab.focus();
+    //         }
+    //     });
+    // });
 
-    // Update indicator on window resize
-    let resizeTimer;
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
-            const activeTab = document.querySelector('.pr-tab[aria-selected="true"]');
-            if (activeTab && indicator) {
-                updateIndicator(activeTab);
-            }
-        }, 250);
-    });
+    // // Update indicator on window resize
+    // let resizeTimer;
+    // window.addEventListener('resize', function() {
+    //     clearTimeout(resizeTimer);
+    //     resizeTimer = setTimeout(function() {
+    //         const activeTab = document.querySelector('.pr-tab[aria-selected="true"]');
+    //         if (activeTab && indicator) {
+    //             updateIndicator(activeTab);
+    //         }
+    //     }, 250);
+    // });
 
     // ==================== Collapsible Features (Mobile) ====================
     const showMoreButtons = document.querySelectorAll('.pr-show-more');
