@@ -446,88 +446,246 @@
     text-decoration: underline;
 }
 
-/* ==================== Custom Projects Card ==================== */
+
+/* ==================== Custom Services ==================== */
+
 .pr-custom-card {
-    background-color: var(--color-surface);
+    padding: 1.5rem;
+    background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-card);
-    padding: 2.5rem;
+}
+
+.pr-custom-heading {
+    margin-bottom: 1.5rem;
     text-align: center;
 }
 
-@media (min-width: 768px) {
-    .pr-custom-card {
-        padding: 3rem;
-    }
+.pr-custom-title {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.7;
 }
 
-.pr-custom-title {
-    font-size: 1.75rem;
-    font-weight: var(--font-weight-bold);
-    margin-block-end: 2rem;
-    color: var(--color-text);
+.pr-custom-subtitle {
+    margin: 0.35rem 0 0;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    line-height: 1.8;
 }
 
 .pr-custom-grid {
     display: grid;
-    gap: 1.5rem;
-    margin-block-end: 2rem;
-}
-
-@media (min-width: 768px) {
-    .pr-custom-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 1024px) {
-    .pr-custom-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
 }
 
 .pr-custom-item {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    padding: 1.25rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    text-align: right;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.pr-custom-item:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.pr-custom-icon-wrap {
+    display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 1.5rem 1rem;
-    background-color: var(--color-bg);
-    border-radius: var(--radius-button);
-    font-size: 0.875rem;
-    color: var(--color-text);
-    text-align: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 0.85rem;
+    color: var(--color-primary);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
 }
 
 .pr-custom-icon {
-    width: 2.5rem;
-    height: 2.5rem;
-    color: var(--color-primary);
+    width: 1.4rem;
+    height: 1.4rem;
     flex-shrink: 0;
 }
 
-.pr-custom-note {
+.pr-custom-item-title {
+    margin: 0;
+    color: var(--color-text);
     font-size: 1rem;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.8;
+}
+
+.pr-custom-item-text {
+    margin: 0.35rem 0 0;
     color: var(--color-text-muted);
-    margin-block-end: 1.5rem;
+    font-size: 0.825rem;
+    line-height: 1.9;
+}
+
+.pr-custom-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    width: 100%;
+    margin: 1.15rem 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pr-custom-features li {
+    position: relative;
+    padding-right: 1.25rem;
+    color: var(--color-text);
+    font-size: 0.825rem;
+    line-height: 1.8;
+}
+
+.pr-custom-features li::before {
+    position: absolute;
+    top: 0.55rem;
+    right: 0;
+    width: 0.4rem;
+    height: 0.4rem;
+    content: "";
+    background: var(--color-primary);
+    border-radius: 50%;
+}
+
+.pr-custom-price {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100%;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.pr-custom-price-label {
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+}
+
+.pr-custom-price strong {
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.8;
+}
+
+.pr-custom-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.pr-custom-note {
+    max-width: 36rem;
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.825rem;
+    line-height: 1.9;
 }
 
 .pr-custom-btn {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background-color: var(--color-primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.7rem 1.25rem;
     color: var(--color-surface);
+    background: var(--color-primary);
+    border: 1px solid transparent;
     border-radius: var(--radius-button);
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: var(--font-weight-semibold);
     text-decoration: none;
     transition: var(--transition-base);
 }
 
+.pr-custom-btn svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    flex-shrink: 0;
+}
+
 .pr-custom-btn:hover {
-    background-color: var(--color-primary-hover);
+    color: var(--color-surface);
+    background: var(--color-primary-hover);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 600px) {
+    .pr-custom-card {
+        padding: 1.75rem;
+    }
+
+    .pr-custom-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.85rem;
+    }
+
+    .pr-custom-item {
+        padding: 1rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .pr-custom-card {
+        padding: 2rem;
+    }
+
+    .pr-custom-grid {
+        gap: 1rem;
+    }
+
+    .pr-custom-item {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .pr-custom-card {
+        padding: 1rem;
+    }
+
+    .pr-custom-item {
+        padding: 1rem;
+    }
+
+    .pr-custom-title {
+        font-size: 1.3rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pr-custom-item,
+    .pr-custom-btn {
+        transition: none;
+    }
+
+    .pr-custom-item:hover,
+    .pr-custom-btn:hover {
+        transform: none;
+    }
 }
 
 /* ==================== Which Plan Section ==================== */
@@ -1161,7 +1319,121 @@
     }
 }
 
-.pr-features-list li > span {
+.pr-features-list li>span {
     position: relative;
     top: -2px;
+}
+
+.pr-plan-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.85rem;
+}
+
+.pr-plan-tags span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    color: var(--color-text-muted);
+    background: transparent;
+    font-size: 0.75rem;
+    line-height: 1.7;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.pr-plan-card:hover .pr-plan-tags span {
+    border-color: var(--color-primary);
+}
+
+/* ==================== Plan Suitable Tags ==================== */
+
+.pr-plan-suitable {
+    width: 100%;
+    min-width: 0;
+    margin-top: 1.25rem;
+    padding: 1rem 0 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.pr-plan-suitable-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-semibold);
+}
+
+.pr-plan-suitable-mark {
+    width: 0.45rem;
+    height: 0.45rem;
+    flex: 0 0 0.45rem;
+    border-radius: 50%;
+    background: var(--color-primary);
+}
+
+.pr-plan-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.pr-plan-tags span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    min-width: 0;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.55rem;
+    color: var(--color-text);
+    background: var(--color-bg);
+    font-size: 0.75rem;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.pr-plan-tags span:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: var(--color-surface);
+}
+
+.pr-plan-suitable + .pr-plan-btn {
+    margin-top: 1rem;
+}
+
+@media (max-width: 380px) {
+    .pr-plan-suitable {
+        margin-top: 1rem;
+        padding-top: 0.85rem;
+    }
+
+    .pr-plan-tags {
+        gap: 0.4rem;
+    }
+
+    .pr-plan-tags span {
+        padding: 0.3rem 0.55rem;
+        font-size: 0.7rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pr-plan-tags span {
+        transition: none;
+    }
 }
