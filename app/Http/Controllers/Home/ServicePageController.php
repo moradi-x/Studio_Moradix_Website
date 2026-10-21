@@ -9,8 +9,7 @@ class ServicePageController extends Controller
 {
     public function index(): View
     {
-        // return view('Services.index');
-        return view('Services');
+        return view('Home.Services.index');
     }
 
     public function webDesign(): View

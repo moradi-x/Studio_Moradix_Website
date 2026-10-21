@@ -1129,3 +1129,24 @@ body.has-fab .sv-mobile-sticky {
         transition: none;
     }
 }
+
+.sv-fit-consult-link {
+
+    
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    transition: var(--transition-base);
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    width: fit-content;
+    margin-top: 2.5rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.sv-fit-consult-link :hover {
+    text-decoration: underline;
+}

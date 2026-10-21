@@ -17,6 +17,9 @@
         <nav class="sv-breadcrumb" aria-label="مسیر صفحه">
             <div class="container">
                 <ol class="sv-breadcrumb-list">
+                     <li class="sv-breadcrumb-item">
+                        <a href="{{ route('home') }}">صفحه اصلی</a>
+                    </li>
                     <li class="sv-breadcrumb-item">
                         <a href="{{ route('services') }}">خدمات</a>
                     </li>
@@ -130,8 +133,7 @@
             <div class="container">
                 <h2 class="sv-section-title">این خدمت مناسب توئه اگه...</h2>
                 <div class="sv-fit-grid">
-
-
+                    
                     {{-- Good Fit --}}
                     <div class="sv-fit-card sv-fit-yes">
                         <h3 class="sv-fit-title">مناسب توئه</h3>
@@ -173,7 +175,7 @@
 
                     {{-- Not a Fit --}}
                     <div class="sv-fit-card sv-fit-no">
-                        <h3 class="sv-fit-title">مناسب تو نیست اگه...</h3>
+                    <h3 class="sv-fit-title">مناسب تو نیست اگه...</h3>
                         <ul class="sv-fit-list">
                             <li>
                                 <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -430,7 +432,7 @@
         </section>
 
         {{-- Portfolio Section --}}
-        <section class="sv-section sv-portfolio">ecommerc.blade
+        <section class="sv-section sv-portfolio">
             <div class="container">
                 <h2 class="sv-section-title">نمونه‌کار مرتبط</h2>
                 <div class="sv-portfolio-grid">

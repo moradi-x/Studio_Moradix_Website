@@ -46,7 +46,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 
 
 
-
+// سرویس ها (خدمت ها)  
 Route::get('/services', [ServicePageController::class, 'index'])
     ->name('services');
 

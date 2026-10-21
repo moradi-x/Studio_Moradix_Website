@@ -33,13 +33,14 @@
                               <li>
                                   <a href="{{ route('services.ecommerce') }}">طراحی فروشگاه اینترنتی</a>
                               </li>
-                              <li><a href="{{ route('services.seo') }}">سئو</a></li>
+                              
                               <li>
                                   <a href="{{ route('services.redesign') }}">بازطراحی و ارتقای سایت</a>
                               </li>
                               <li>
                                   <a href="{{ route('services.custom-systems') }}">سیستم‌های اختصاصی</a>
                               </li>
+                              <li><a href="{{ route('services.seo') }}">سئو</a></li>
                           </ul>
                       </li>
 
@@ -75,7 +76,7 @@
 
                       {{-- <li><a href="#faq">سوالات متداول</a></li> --}}
                   </ul>
-                  <a href="#contact" class="btn btn-primary btn-header">ثبت درخواست پروژه</a>
+                  <a href="{{ route('contact') }}" class="btn btn-primary btn-header">ثبت درخواست پروژه</a>
               </nav>
 
               <!-- Mobile Menu Toggle -->
@@ -109,15 +110,15 @@
                       </li>
                       <li>
                           <a href="{{ route('services.ecommerce') }}">طراحی فروشگاه اینترنتی</a>
-                      </li>
-                      <li>
-                          <a href="{{ route('services.seo') }}">سئو</a>
-                      </li>
+                      </li>              
                       <li>
                           <a href="{{ route('services.redesign') }}">بازطراحی و ارتقای سایت</a>
                       </li>
                       <li>
                           <a href="{{ route('services.custom-systems') }}">سیستم‌های اختصاصی</a>
+                      </li>
+                      <li>
+                          <a href="{{ route('services.seo') }}">سئو</a>
                       </li>
                   </ul>
 
@@ -127,6 +128,6 @@
               <li><a href="{{ route('about') }}" @class(['is-active' => request()->routeIs('about')])>درباره ما</a></li>
               <li><a href="{{ route('contact') }}" @class(['is-active' => request()->routeIs('contact')])>☎ تماس با ما</a></li>
           </ul>
-          <a href="#contact" class="btn btn-primary">ثبت درخواست پروژه</a>
+          <a href="{{ route('contact') }}" class="btn btn-primary">ثبت درخواست پروژه</a>
       </nav>
   </header>
