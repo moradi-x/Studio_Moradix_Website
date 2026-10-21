@@ -1445,3 +1445,9 @@
         transform: rotate(135deg);
     }
 }
+@media (max-width: 1023px) {
+    #nav-mobile .submenu-toggle {
+        font-size: 1.125rem;
+        font-weight: var(--font-weight-medium);
+    }
+}

@@ -1,0 +1,896 @@
+/* =========================================================
+   Ecommerce Design Page
+   File: public/css/services/ecommerce-design.css
+   ========================================================= */
+
+/* ==================== General ==================== */
+
+.sv-ecommerce {
+    --eco-primary: var(--color-primary, #7c3aed);
+    --eco-primary-dark: var(--color-primary-dark, #5b21b6);
+    --eco-text: var(--color-text, #1f2937);
+    --eco-muted: var(--color-text-muted, #6b7280);
+    --eco-border: var(--color-border, #e5e7eb);
+    --eco-surface: var(--color-surface, #ffffff);
+    --eco-radius: var(--radius-card, 1rem);
+
+    color: var(--eco-text);
+    overflow: clip;
+}
+
+.sv-ecommerce *,
+.sv-ecommerce *::before,
+.sv-ecommerce *::after {
+    box-sizing: border-box;
+}
+
+.sv-ecommerce img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.sv-ecommerce a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.sv-ecommerce button {
+    font: inherit;
+}
+
+.sv-ecommerce .sv-container {
+    width: min(100% - 2rem, 1200px);
+    margin-inline: auto;
+}
+
+.sv-ecommerce .sv-section {
+    padding-block: clamp(3.5rem, 7vw, 6rem);
+}
+
+.sv-ecommerce .sv-section-header {
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}
+
+.sv-ecommerce .sv-section-title {
+    margin: 0 0 1rem;
+    font-size: clamp(1.7rem, 3vw, 2.6rem);
+    line-height: 1.5;
+    font-weight: 800;
+}
+
+.sv-ecommerce .sv-section-description {
+    margin: 0;
+    color: var(--eco-muted);
+    font-size: 1rem;
+    line-height: 2;
+}
+
+.sv-ecommerce .sv-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.45rem 0.9rem;
+    border: 1px solid var(--eco-border);
+    border-radius: 999px;
+    background: var(--eco-surface);
+    color: var(--eco-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.sv-ecommerce .sv-eyebrow::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.sv-ecommerce .sv-gradient-text {
+    color: var(--eco-primary);
+    background: linear-gradient(
+        120deg,
+        var(--eco-primary),
+        #a855f7
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ==================== Hero ==================== */
+
+.sv-ecommerce .sv-hero {
+    position: relative;
+    padding-block: clamp(3rem, 7vw, 6.5rem);
+    isolation: isolate;
+}
+
+.sv-ecommerce .sv-hero::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(124, 58, 237, 0.09),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 70%,
+            rgba(168, 85, 247, 0.08),
+            transparent 30%
+        );
+    pointer-events: none;
+}
+
+.sv-ecommerce .sv-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+}
+
+.sv-ecommerce .sv-hero-content {
+    min-width: 0;
+}
+
+.sv-ecommerce .sv-hero-title {
+    margin: 0 0 1.25rem;
+    font-size: clamp(2rem, 4.3vw, 3.7rem);
+    line-height: 1.45;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+}
+
+.sv-ecommerce .sv-hero-description,
+.sv-ecommerce .sv-hero-desc {
+    max-width: 620px;
+    margin: 0;
+    color: var(--eco-muted);
+    font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+    line-height: 2.1;
+}
+
+.sv-ecommerce .sv-hero-actions,
+.sv-ecommerce .sv-hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.85rem;
+    margin-top: 1.75rem;
+}
+
+.sv-ecommerce .sv-hero-visual {
+    position: relative;
+    min-width: 0;
+}
+
+.sv-ecommerce .sv-hero-visual img {
+    width: 100%;
+    border-radius: var(--eco-radius);
+    object-fit: cover;
+}
+
+.sv-ecommerce .sv-hero-badge {
+    position: absolute;
+    right: -1rem;
+    bottom: 1.5rem;
+    max-width: 220px;
+    padding: 1rem 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 1rem;
+    background: var(--eco-surface);
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.1);
+}
+
+/* ==================== Buttons ==================== */
+
+.sv-ecommerce .sv-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: 48px;
+    padding: 0.8rem 1.35rem;
+    border: 1px solid transparent;
+    border-radius: 0.8rem;
+    font-size: 0.95rem;
+    font-weight: 750;
+    line-height: 1.5;
+    text-align: center;
+    cursor: pointer;
+    transition:
+        color 180ms ease,
+        background-color 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        transform 180ms ease;
+}
+
+.sv-ecommerce .sv-btn:hover {
+    transform: translateY(-2px);
+}
+
+.sv-ecommerce .sv-btn-primary {
+    color: #fff;
+    background: var(--eco-primary);
+    box-shadow: 0 8px 22px rgba(124, 58, 237, 0.2);
+}
+
+.sv-ecommerce .sv-btn-primary:hover {
+    color: #fff;
+    background: var(--eco-primary-dark);
+}
+
+.sv-ecommerce .sv-btn-outline {
+    border-color: var(--eco-border);
+    background: var(--eco-surface);
+    color: var(--eco-text);
+}
+
+.sv-ecommerce .sv-btn-outline:hover {
+    border-color: var(--eco-primary);
+    color: var(--eco-primary);
+}
+
+.sv-ecommerce .sv-btn:focus-visible,
+.sv-ecommerce a:focus-visible,
+.sv-ecommerce button:focus-visible {
+    outline: 3px solid rgba(124, 58, 237, 0.45);
+    outline-offset: 3px;
+}
+
+/* ==================== Statistics ==================== */
+
+.sv-ecommerce .sv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+
+.sv-ecommerce .sv-stat-item {
+    padding: 1.2rem;
+    border: 1px solid var(--eco-border);
+    border-radius: var(--eco-radius);
+    background: var(--eco-surface);
+    text-align: center;
+}
+
+.sv-ecommerce .sv-stat-value {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--eco-primary);
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 900;
+}
+
+.sv-ecommerce .sv-stat-label {
+    color: var(--eco-muted);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+/* ==================== Cards & Grids ==================== */
+
+.sv-ecommerce .sv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.sv-ecommerce .sv-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sv-ecommerce .sv-grid-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.sv-ecommerce .sv-card {
+    min-width: 0;
+    padding: clamp(1.25rem, 2.5vw, 1.75rem);
+    border: 1px solid var(--eco-border);
+    border-radius: var(--eco-radius);
+    background: var(--eco-surface);
+    transition:
+        border-color 200ms ease,
+        box-shadow 200ms ease,
+        transform 200ms ease;
+}
+
+.sv-ecommerce .sv-card:hover {
+    border-color: rgba(124, 58, 237, 0.35);
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.06);
+    transform: translateY(-4px);
+}
+
+.sv-ecommerce .sv-card-icon {
+    display: grid;
+    width: 52px;
+    height: 52px;
+    place-items: center;
+    margin-bottom: 1.1rem;
+    border-radius: 1rem;
+    background: rgba(124, 58, 237, 0.09);
+    color: var(--eco-primary);
+}
+
+.sv-ecommerce .sv-card-icon svg {
+    width: 26px;
+    height: 26px;
+}
+
+.sv-ecommerce .sv-card-title {
+    margin: 0 0 0.75rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-weight: 800;
+}
+
+.sv-ecommerce .sv-card-description {
+    margin: 0;
+    color: var(--eco-muted);
+    font-size: 0.95rem;
+    line-height: 2;
+}
+
+/* ==================== Feature List ==================== */
+
+.sv-ecommerce .sv-feature-list {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sv-ecommerce .sv-feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    line-height: 1.9;
+}
+
+.sv-ecommerce .sv-feature-list li::before {
+    content: "✓";
+    display: grid;
+    width: 25px;
+    height: 25px;
+    flex: 0 0 25px;
+    place-items: center;
+    margin-top: 0.15rem;
+    border-radius: 50%;
+    background: rgba(124, 58, 237, 0.1);
+    color: var(--eco-primary);
+    font-size: 0.85rem;
+    font-weight: 900;
+}
+
+/* ==================== Split Sections ==================== */
+
+.sv-ecommerce .sv-split {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.sv-ecommerce .sv-split-content {
+    min-width: 0;
+}
+
+.sv-ecommerce .sv-split-visual {
+    min-width: 0;
+}
+
+.sv-ecommerce .sv-split-visual img {
+    width: 100%;
+    border-radius: var(--eco-radius);
+    object-fit: cover;
+}
+
+.sv-ecommerce .sv-split-title {
+    margin: 0 0 1rem;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 850;
+    line-height: 1.6;
+}
+
+.sv-ecommerce .sv-split-description {
+    margin: 0 0 1.5rem;
+    color: var(--eco-muted);
+    line-height: 2.1;
+}
+
+/* ==================== Pricing ==================== */
+
+.sv-ecommerce .sv-pricing-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem;
+    border: 1px solid var(--eco-border);
+    border-radius: var(--eco-radius);
+    background: var(--eco-surface);
+}
+
+.sv-ecommerce .sv-pricing-card.is-featured,
+.sv-ecommerce .sv-pricing-card.featured {
+    border-color: var(--eco-primary);
+    box-shadow: 0 15px 45px rgba(124, 58, 237, 0.1);
+}
+
+.sv-ecommerce .sv-pricing-badge {
+    position: absolute;
+    top: 0;
+    left: 1.25rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0 0 0.6rem 0.6rem;
+    background: var(--eco-primary);
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 750;
+}
+
+.sv-ecommerce .sv-pricing-title {
+    margin: 0 0 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 850;
+}
+
+.sv-ecommerce .sv-pricing-description {
+    margin: 0 0 1.25rem;
+    color: var(--eco-muted);
+    font-size: 0.92rem;
+    line-height: 1.9;
+}
+
+.sv-ecommerce .sv-pricing-price {
+    margin-bottom: 1.25rem;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 900;
+}
+
+.sv-ecommerce .sv-pricing-price small {
+    color: var(--eco-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.sv-ecommerce .sv-pricing-card .sv-feature-list {
+    margin-bottom: 1.5rem;
+}
+
+.sv-ecommerce .sv-pricing-card .sv-btn {
+    width: 100%;
+    margin-top: auto;
+}
+
+/* ==================== Timeline ==================== */
+
+.sv-ecommerce .sv-timeline {
+    position: relative;
+    display: grid;
+    gap: 1.5rem;
+    max-width: 850px;
+    margin-inline: auto;
+}
+
+.sv-ecommerce .sv-timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 1rem;
+}
+
+.sv-ecommerce .sv-timeline-number {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border: 1px solid rgba(124, 58, 237, 0.25);
+    border-radius: 50%;
+    background: rgba(124, 58, 237, 0.08);
+    color: var(--eco-primary);
+    font-weight: 900;
+}
+
+.sv-ecommerce .sv-timeline-content {
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--eco-border);
+}
+
+.sv-ecommerce .sv-timeline-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+.sv-ecommerce .sv-timeline-description {
+    margin: 0;
+    color: var(--eco-muted);
+    line-height: 2;
+}
+
+/* ==================== Portfolio ==================== */
+
+.sv-ecommerce .sv-portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.sv-ecommerce .sv-portfolio-card {
+    overflow: hidden;
+    border: 1px solid var(--eco-border);
+    border-radius: var(--eco-radius);
+    background: var(--eco-surface);
+}
+
+.sv-ecommerce .sv-portfolio-image {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: rgba(124, 58, 237, 0.05);
+}
+
+.sv-ecommerce .sv-portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 300ms ease;
+}
+
+.sv-ecommerce .sv-portfolio-card:hover .sv-portfolio-image img {
+    transform: scale(1.04);
+}
+
+.sv-ecommerce .sv-portfolio-content {
+    padding: 1.25rem;
+}
+
+.sv-ecommerce .sv-portfolio-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+.sv-ecommerce .sv-portfolio-description {
+    margin: 0;
+    color: var(--eco-muted);
+    font-size: 0.9rem;
+    line-height: 1.9;
+}
+
+/* ==================== FAQ ==================== */
+
+.sv-ecommerce .sv-faq,
+.sv-ecommerce .sv-faq-list {
+    display: grid;
+    gap: 1rem;
+    max-width: 850px;
+    margin-inline: auto;
+}
+
+.sv-ecommerce .sv-faq-item {
+    overflow: hidden;
+    border: 1px solid var(--eco-border);
+    border-radius: var(--eco-radius);
+    background: var(--eco-surface);
+    transition: border-color 180ms ease;
+}
+
+.sv-ecommerce .sv-faq-item.is-open {
+    border-color: rgba(124, 58, 237, 0.5);
+}
+
+.sv-ecommerce .sv-faq-question {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.4rem;
+    border: 0;
+    background: transparent;
+    color: var(--eco-text);
+    text-align: right;
+    cursor: pointer;
+    font-weight: 800;
+    line-height: 1.9;
+}
+
+.sv-ecommerce .sv-faq-icon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    color: var(--eco-primary);
+    transition: transform 200ms ease;
+}
+
+.sv-ecommerce .sv-faq-item.is-open .sv-faq-icon {
+    transform: rotate(180deg);
+}
+
+.sv-ecommerce .sv-faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 220ms ease;
+}
+
+.sv-ecommerce .sv-faq-item.is-open .sv-faq-answer {
+    grid-template-rows: 1fr;
+}
+
+.sv-ecommerce .sv-faq-answer > * {
+    overflow: hidden;
+}
+
+.sv-ecommerce .sv-faq-answer p {
+    margin: 0;
+    padding: 0 1.4rem 1.35rem;
+    color: var(--eco-muted);
+    line-height: 2.1;
+}
+
+/* ==================== Related Services ==================== */
+
+.sv-ecommerce .sv-related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.sv-ecommerce .sv-related-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    border: 1px solid var(--eco-border);
+    border-radius: var(--eco-radius);
+    background: var(--eco-surface);
+    transition:
+        border-color 180ms ease,
+        transform 180ms ease;
+}
+
+.sv-ecommerce .sv-related-card:hover {
+    border-color: var(--eco-primary);
+    transform: translateY(-3px);
+}
+
+.sv-ecommerce .sv-related-card svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: var(--eco-primary);
+}
+
+/* ==================== Note / Callout ==================== */
+
+.sv-ecommerce .sv-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: var(--eco-radius);
+    background: rgba(124, 58, 237, 0.05);
+}
+
+.sv-ecommerce .sv-note-icon {
+    flex: 0 0 auto;
+    color: var(--eco-primary);
+}
+
+.sv-ecommerce .sv-note p {
+    margin: 0;
+    line-height: 2;
+}
+
+/* ==================== Final CTA ==================== */
+
+.sv-ecommerce .sv-final-cta {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(2rem, 5vw, 4rem);
+    border-radius: calc(var(--eco-radius) + 0.5rem);
+    background: linear-gradient(
+        135deg,
+        var(--eco-primary-dark),
+        var(--eco-primary),
+        #9333ea
+    );
+    color: #fff;
+    text-align: center;
+}
+
+.sv-ecommerce .sv-final-cta h2 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.7rem, 3.5vw, 2.7rem);
+    line-height: 1.6;
+    font-weight: 900;
+}
+
+.sv-ecommerce .sv-final-cta p {
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 2;
+}
+
+.sv-ecommerce .sv-final-cta .sv-btn-primary {
+    background: #fff;
+    color: var(--eco-primary-dark);
+    box-shadow: none;
+}
+
+.sv-ecommerce .sv-final-cta .sv-btn-outline {
+    border-color: rgba(255, 255, 255, 0.5);
+    background: transparent;
+    color: #fff;
+}
+
+/* ==================== Mobile Sticky CTA ==================== */
+
+.sv-ecommerce .sv-mobile-sticky,
+.sv-ecommerce .sv-mobile-sticky-bar {
+    display: none;
+}
+
+/* ==================== Animations ==================== */
+
+.sv-ecommerce [data-animate] {
+    opacity: 1;
+    transform: none;
+}
+
+.sv-ecommerce .sv-fade-up {
+    animation: svFadeUp 500ms ease both;
+}
+
+@keyframes svFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== Responsive ==================== */
+
+@media (max-width: 1024px) {
+    .sv-ecommerce .sv-grid-4,
+    .sv-ecommerce .sv-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sv-ecommerce .sv-grid,
+    .sv-ecommerce .sv-portfolio-grid,
+    .sv-ecommerce .sv-related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sv-ecommerce .sv-hero-grid {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sv-ecommerce .sv-container {
+        width: min(100% - 1.5rem, 1200px);
+    }
+
+    .sv-ecommerce .sv-section {
+        padding-block: 3.25rem;
+    }
+
+    .sv-ecommerce .sv-hero {
+        padding-block: 3rem;
+    }
+
+    .sv-ecommerce .sv-hero-grid,
+    .sv-ecommerce .sv-split {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .sv-ecommerce .sv-hero-title {
+        font-size: clamp(1.9rem, 7vw, 2.8rem);
+    }
+
+    .sv-ecommerce .sv-hero-visual {
+        margin-top: 0.5rem;
+    }
+
+    .sv-ecommerce .sv-hero-badge {
+        right: 0.5rem;
+        bottom: 0.75rem;
+    }
+
+    .sv-ecommerce .sv-section-header {
+        margin-bottom: 2rem;
+    }
+
+    .sv-ecommerce .sv-grid,
+    .sv-ecommerce .sv-grid-2,
+    .sv-ecommerce .sv-grid-4,
+    .sv-ecommerce .sv-portfolio-grid,
+    .sv-ecommerce .sv-related-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .sv-ecommerce .sv-card {
+        padding: 1.25rem;
+    }
+
+    .sv-ecommerce .sv-hero-actions,
+    .sv-ecommerce .sv-hero-buttons {
+        align-items: stretch;
+    }
+
+    .sv-ecommerce .sv-hero-actions .sv-btn,
+    .sv-ecommerce .sv-hero-buttons .sv-btn {
+        flex: 1 1 100%;
+    }
+
+    .sv-ecommerce .sv-final-cta {
+        padding: 2rem 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sv-ecommerce .sv-stats {
+        gap: 0.65rem;
+    }
+
+    .sv-ecommerce .sv-stat-item {
+        padding: 0.9rem 0.6rem;
+    }
+
+    .sv-ecommerce .sv-stat-label {
+        font-size: 0.8rem;
+    }
+
+    .sv-ecommerce .sv-faq-question {
+        padding: 1rem;
+        font-size: 0.92rem;
+    }
+
+    .sv-ecommerce .sv-faq-answer p {
+        padding-inline: 1rem;
+        font-size: 0.92rem;
+    }
+
+    .sv-ecommerce .sv-timeline-item {
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 0.75rem;
+    }
+
+    .sv-ecommerce .sv-timeline-number {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sv-ecommerce *,
+    .sv-ecommerce *::before,
+    .sv-ecommerce *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

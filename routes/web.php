@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ProjectRequestController;
 use App\Http\Controllers\Admin\ProjectImageController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Home\ServicePageController;
 
 Route::prefix('admin')->name('admin.')->group(function () {
     // Dashboard
@@ -41,7 +42,31 @@ Route::prefix('admin')->name('admin.')->group(function () {
 // درباره ما  تماس با ما 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/services', [HomeController::class, 'services'])->name('services');
+// Route::get('/services', [HomeController::class, 'services'])->name('services');
+
+
+
+
+Route::get('/services', [ServicePageController::class, 'index'])
+    ->name('services');
+
+Route::get('/services/web-design', [ServicePageController::class, 'webDesign'])
+    ->name('services.web-design');
+
+Route::get('/services/ecommerce', [ServicePageController::class, 'ecommerce'])
+    ->name('services.ecommerce');
+
+Route::get('/services/seo', [ServicePageController::class, 'seo'])
+    ->name('services.seo');
+
+Route::get('/services/redesign', [ServicePageController::class, 'redesign'])
+    ->name('services.redesign');
+
+Route::get('/services/custom-systems', [ServicePageController::class, 'customSystems'])
+    ->name('services.custom-systems');
+
+
+
 
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contact-us-form', [HomeController::class, 'contactUsForm'])->name('contact-us.form');

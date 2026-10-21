@@ -27,8 +27,8 @@
                           </div>
 
                           <ul class="dropdown">
-                              <li><a href="{{ route('services') }}">طراحی وب‌سایت</a></li>
-                              <li><a href="{{ route('services') }}">طراحی فروشگاه اینترنتی</a></li>
+                              <li><a href="{{ route('services.web-design') }}">طراحی وب‌سایت</a></li>
+                              <li><a href="{{ route('services.ecommerce') }}">طراحی فروشگاه اینترنتی</a></li>
                               <li><a href="{{ route('services') }}">سئو</a></li>
                               <li><a href="{{ route('services') }}">بازطراحی و ارتقای سایت</a></li>
                               <li><a href="{{ route('services') }}">سیستم‌های اختصاصی</a></li>
@@ -96,8 +96,8 @@
                   </div>
 
                   <ul class="submenu" id="mobile-services-submenu">
-                      <li><a href="{{ route('services') }}">طراحی وب‌سایت</a></li>
-                      <li><a href="{{ route('services') }}">طراحی فروشگاه اینترنتی</a></li>
+                      <li><a href="{{ route('services.web-design') }}">طراحی وب‌سایت</a></li>
+                      <li><a href="{{ route('services.ecommerce') }}">طراحی فروشگاه اینترنتی</a></li>
                       <li><a href="{{ route('services') }}">سئو</a></li>
                       <li><a href="{{ route('services') }}">بازطراحی و ارتقای سایت</a></li>
                       <li><a href="{{ route('services') }}">سیستم‌های اختصاصی</a></li>
