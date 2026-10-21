@@ -20,7 +20,7 @@ class ServicePageController extends Controller
 
     public function ecommerce(): View
     {
-        return view('Home.Services.ecommerce');
+        return view('Home.Services.ecommerc');
     }
 
     public function seo(): View

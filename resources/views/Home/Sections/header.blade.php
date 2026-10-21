@@ -27,11 +27,19 @@
                           </div>
 
                           <ul class="dropdown">
-                              <li><a href="{{ route('services.web-design') }}">طراحی وب‌سایت</a></li>
-                              <li><a href="{{ route('services.ecommerce') }}">طراحی فروشگاه اینترنتی</a></li>
-                              <li><a href="{{ route('services') }}">سئو</a></li>
-                              <li><a href="{{ route('services') }}">بازطراحی و ارتقای سایت</a></li>
-                              <li><a href="{{ route('services') }}">سیستم‌های اختصاصی</a></li>
+                              <li>
+                                  <a href="{{ route('services.web-design') }}">طراحی وب‌سایت</a>
+                              </li>
+                              <li>
+                                  <a href="{{ route('services.ecommerce') }}">طراحی فروشگاه اینترنتی</a>
+                              </li>
+                              <li><a href="{{ route('services.seo') }}">سئو</a></li>
+                              <li>
+                                  <a href="{{ route('services.redesign') }}">بازطراحی و ارتقای سایت</a>
+                              </li>
+                              <li>
+                                  <a href="{{ route('services.custom-systems') }}">سیستم‌های اختصاصی</a>
+                              </li>
                           </ul>
                       </li>
 
@@ -96,11 +104,21 @@
                   </div>
 
                   <ul class="submenu" id="mobile-services-submenu">
-                      <li><a href="{{ route('services.web-design') }}">طراحی وب‌سایت</a></li>
-                      <li><a href="{{ route('services.ecommerce') }}">طراحی فروشگاه اینترنتی</a></li>
-                      <li><a href="{{ route('services') }}">سئو</a></li>
-                      <li><a href="{{ route('services') }}">بازطراحی و ارتقای سایت</a></li>
-                      <li><a href="{{ route('services') }}">سیستم‌های اختصاصی</a></li>
+                      <li>
+                          <a href="{{ route('services.web-design') }}">طراحی وب‌سایت</a>
+                      </li>
+                      <li>
+                          <a href="{{ route('services.ecommerce') }}">طراحی فروشگاه اینترنتی</a>
+                      </li>
+                      <li>
+                          <a href="{{ route('services.seo') }}">سئو</a>
+                      </li>
+                      <li>
+                          <a href="{{ route('services.redesign') }}">بازطراحی و ارتقای سایت</a>
+                      </li>
+                      <li>
+                          <a href="{{ route('services.custom-systems') }}">سیستم‌های اختصاصی</a>
+                      </li>
                   </ul>
 
               </li>
