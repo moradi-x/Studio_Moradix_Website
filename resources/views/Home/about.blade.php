@@ -9,6 +9,21 @@
 @section('content')
     <main class="about-page" dir="rtl">
 
+         {{-- Breadcrumb --}}
+
+        <nav class="sv-breadcrumb" aria-label="مسیر صفحه">
+            <div class="container">
+                <ol class="sv-breadcrumb-list">
+                    <li class="sv-breadcrumb-item">
+                        <a href="{{ route('home') }}">صفحه اصلی</a>
+                    </li>
+                    <li class="sv-breadcrumb-item">
+                        <a href="{{ route('services') }}">درباره ما</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+
         {{-- 1. Brand Hero --}}
         <section class="about-hero">
             <div class="about-container about-hero-grid">

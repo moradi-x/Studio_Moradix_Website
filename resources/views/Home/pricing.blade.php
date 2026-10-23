@@ -14,6 +14,21 @@
 
 @section('content')
     <div class="pr-page">
+
+         {{-- Breadcrumb --}}
+
+        <nav class="sv-breadcrumb" aria-label="مسیر صفحه">
+            <div class="container">
+                <ol class="sv-breadcrumb-list">
+                    <li class="sv-breadcrumb-item">
+                        <a href="{{ route('home') }}">صفحه اصلی</a>
+                    </li>
+                    <li class="sv-breadcrumb-item">
+                        <a href="{{ route('services') }}">تعرفه ها و پلن ها</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
         {{-- Hero Section --}}
         <section class="pr-hero">
             <div class="container">
