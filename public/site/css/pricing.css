@@ -44,10 +44,12 @@
     color: var(--color-text);
     font-weight: var(--font-weight-medium);
 }
-
-
-/* public/site/pricing/pricing.css */
-/* Pricing Page Styles - Moradix Studio */
+/* مخفی کردن Breadcrumb در موبایل */
+@media (max-width: 767px) {
+    .sv-breadcrumb {
+        display: none !important;
+    }
+}
 
 /* ==================== Page Root ==================== */
 .pr-page {

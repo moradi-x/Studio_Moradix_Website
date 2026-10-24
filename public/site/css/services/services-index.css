@@ -1,90 +1,115 @@
 
-/* ============================
-   Services Index Breadcrumb
-============================ */
-
-.si-breadcrumb {
-    position: relative;
-    z-index: 2;
-    direction: rtl;
-    padding: 0;
-    margin: 0;
-    background: transparent;
-    border: 0;
+/* ==================== Breadcrumb ==================== */
+.sv-breadcrumb {
+    padding-block: 1.5rem;
+    background-color: var(--color-surface);
+    border-block-end: 1px solid var(--color-border);
 }
 
-.si-breadcrumb .container {
-    max-width: 1200px;
-    margin-inline: auto;
-    padding-inline: 20px;
-}
-
-.si-breadcrumb .si-breadcrumb-list {
+.sv-breadcrumb-list {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
-    gap: 6px;
+    align-items: center;
+    gap: 0.75rem;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.si-breadcrumb .si-breadcrumb-item {
-    display: inline-flex;
+.sv-breadcrumb-item {
+    display: flex;
     align-items: center;
+    font-size: 0.875rem;
     color: var(--color-text-muted);
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.5;
 }
 
-.si-breadcrumb .si-breadcrumb-item a {
+.sv-breadcrumb-item:not(:last-child)::after {
+    content: '←';
+    margin-inline-start: 0.75rem;
+    color: var(--color-text-muted);
+    opacity: 0.5;
+}
+
+.sv-breadcrumb-item a {
     color: var(--color-text-muted);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: var(--transition-base);
 }
 
-.si-breadcrumb .si-breadcrumb-item a:hover {
+.sv-breadcrumb-item a:hover {
     color: var(--color-primary);
 }
 
-.si-breadcrumb .si-breadcrumb-separator {
-    display: inline-flex;
-    align-items: center;
-    color: var(--color-text-muted);
-    opacity: 0.55;
-}
-
-.si-breadcrumb .si-breadcrumb-separator svg {
-    display: block;
-    width: 12px;
-    height: 12px;
-}
-
-.si-breadcrumb .si-breadcrumb-current {
+.sv-breadcrumb-item[aria-current="page"] {
     color: var(--color-text);
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
 }
-
-/* Mobile */
-@media (max-width: 600px) {
-    .si-breadcrumb .container {
-        padding-inline: 16px;
-    }
-
-    .si-breadcrumb .si-breadcrumb-item {
-        font-size: 11px;
-    }
-
-    .si-breadcrumb .si-breadcrumb-list {
-        gap: 4px;
+/* مخفی کردن Breadcrumb در موبایل */
+@media (max-width: 767px) {
+    .sv-breadcrumb {
+        display: none !important;
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .si-breadcrumb .si-breadcrumb-item a {
-        transition: none;
+/* ==================== Hero Section ==================== */
+.sv-hero {
+    padding-block: 4rem 3rem;
+    background: linear-gradient(135deg, var(--color-primary-soft) 0%, var(--color-surface) 100%);
+}
+
+@media (min-width: 768px) {
+    .sv-hero {
+        padding-block: 5rem 4rem;
     }
+}
+
+.sv-hero-content {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .sv-hero-content {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 4rem;
+    }
+}
+
+.sv-hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    margin-block-end: 0.75rem;
+    color: var(--color-text);
+}
+
+.sv-hero-subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.3;
+    margin-block-end: 1.25rem;
+    color: var(--color-text);
+}
+
+.sv-hero-desc {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-base);
+    margin-block-end: 2rem;
+}
+
+.sv-hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-block-end: 1rem;
+}
+
+.sv-hero-note {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-block-end: 0;
 }
 
 
@@ -95,7 +120,13 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    padding-block: clamp(4rem, 8vw, 7rem);
+    padding-block: clamp(3rem, 8vw, 7rem);
+}
+
+@media (min-width: 1024px) {
+    .si-hero {
+        padding-top: 2rem;
+    }
 }
 
 .si-hero-inner {
@@ -601,6 +632,12 @@
 
     .si-hero-floating-bottom {
         bottom: 0.25rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .si-hero-inner {
+        padding-top: 1rem;
     }
 }
 

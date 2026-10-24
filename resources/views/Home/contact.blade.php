@@ -23,8 +23,8 @@
                     <li class="sv-breadcrumb-item">
                         <a href="{{ route('home') }}">صفحه اصلی</a>
                     </li>
-                    <li class="sv-breadcrumb-item">
-                        <a href="{{ route('services') }}">تماس با ما </a>
+                <li class="sv-breadcrumb-item" aria-current="page">
+                        تماس با ما 
                     </li>
                 </ol>
             </div>

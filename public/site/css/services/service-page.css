@@ -52,6 +52,12 @@
     color: var(--color-text);
     font-weight: var(--font-weight-medium);
 }
+/* مخفی کردن Breadcrumb در موبایل */
+@media (max-width: 767px) {
+    .sv-breadcrumb {
+        display: none !important;
+    }
+}
 
 /* ==================== Hero Section ==================== */
 .sv-hero {

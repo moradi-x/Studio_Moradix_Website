@@ -45,7 +45,7 @@
 
         <script src="{{ asset('site/js/site.js') }}" defer></script>
         @stack('scripts')
-        @sweetAlert
+        {{-- @sweetAlert --}}
 </body>
 
 </html>

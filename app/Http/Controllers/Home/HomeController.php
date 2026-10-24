@@ -83,4 +83,9 @@ class HomeController extends Controller
         return view('Home.pricing');
     }
 
+    public function portfolio()
+{
+    return view('Home.Portfolio.index');
+}
+
 }

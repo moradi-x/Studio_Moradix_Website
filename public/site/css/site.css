@@ -1342,7 +1342,7 @@
          font: inherit;
          text-align: right;
          cursor: pointer;
-         
+
      }
 
      #nav-mobile .submenu-arrow {
@@ -1389,65 +1389,67 @@
 
 
  /* زیرمنوی خدمات دسکتاپ */
-@media (min-width: 1024px) {
-    .nav-desktop .nav-service-row {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
+ @media (min-width: 1024px) {
+     .nav-desktop .nav-service-row {
+         display: flex;
+         align-items: center;
+         gap: 8px;
+     }
 
-    .nav-desktop .submenu-toggle {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 6px;
-        border: 0;
-        background: transparent;
-        color: var(--color-text);
-        cursor: pointer;
-    }
+     .nav-desktop .submenu-toggle {
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         padding: 6px;
+         border: 0;
+         background: transparent;
+         color: var(--color-text);
+         cursor: pointer;
+     }
 
-   .nav-desktop .submenu-arrow {
-    width: 8px;
-    height: 8px;
-    flex-shrink: 0;
-    border-left: 2px solid currentColor;
-    border-bottom: 2px solid currentColor;
-    transform: rotate(-45deg) translate(-2px, -2px);
-    transition: transform 0.25s ease;
-}
+     .nav-desktop .submenu-arrow {
+         width: 8px;
+         height: 8px;
+         flex-shrink: 0;
+         border-left: 2px solid currentColor;
+         border-bottom: 2px solid currentColor;
+         transform: rotate(-45deg) translate(-2px, -2px);
+         transition: transform 0.25s ease;
+     }
 
-    .nav-desktop .submenu-toggle[aria-expanded="true"] .submenu-arrow {
-    transform: rotate(135deg);
-    }
+     .nav-desktop .submenu-toggle[aria-expanded="true"] .submenu-arrow {
+         transform: rotate(135deg);
+     }
 
-    .nav-desktop .has-dropdown > .dropdown {
-        display: none;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(6px);
-        transition: opacity 0.2s ease, transform 0.2s ease;
-    }
+     .nav-desktop .has-dropdown>.dropdown {
+         display: none;
+         opacity: 0;
+         visibility: hidden;
+         transform: translateY(6px);
+         transition: opacity 0.2s ease, transform 0.2s ease;
+     }
 
-    .nav-desktop .has-dropdown:hover > .dropdown,
-    .nav-desktop .has-dropdown:focus-within > .dropdown,
-    .nav-desktop .has-dropdown.submenu-open > .dropdown {
-        display: block;
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-}
+     .nav-desktop .has-dropdown:hover>.dropdown,
+     .nav-desktop .has-dropdown:focus-within>.dropdown,
+     .nav-desktop .has-dropdown.submenu-open>.dropdown {
+         display: block;
+         opacity: 1;
+         visibility: visible;
+         transform: translateY(0);
+     }
+ }
 
-@media (min-width: 1024px) {
-    .nav-desktop .has-dropdown:hover > .nav-service-row .submenu-arrow,
-    .nav-desktop .has-dropdown:focus-within > .nav-service-row .submenu-arrow {
-        transform: rotate(135deg);
-    }
-}
-@media (max-width: 1023px) {
-    #nav-mobile .submenu-toggle {
-        font-size: 1.125rem;
-        font-weight: var(--font-weight-medium);
-    }
-}
+ @media (min-width: 1024px) {
+
+     .nav-desktop .has-dropdown:hover>.nav-service-row .submenu-arrow,
+     .nav-desktop .has-dropdown:focus-within>.nav-service-row .submenu-arrow {
+         transform: rotate(135deg);
+     }
+ }
+
+ @media (max-width: 1023px) {
+     #nav-mobile .submenu-toggle {
+         font-size: 1.125rem;
+         font-weight: var(--font-weight-medium);
+     }
+ }

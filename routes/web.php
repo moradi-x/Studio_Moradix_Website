@@ -39,11 +39,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::delete('/notifications/{id}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
 });
 
-// درباره ما  تماس با ما 
+// درباره ما  و تماس با و ما نمونه کارها و پلن ها و قیمت ها
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
-// Route::get('/services', [HomeController::class, 'services'])->name('services');
-
+Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
+Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');
 
 
 // سرویس ها (خدمت ها)  
@@ -67,7 +67,6 @@ Route::get('/services/custom-systems', [ServicePageController::class, 'customSys
 
 
 
-
+// فرم تماس با ما
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contact-us-form', [HomeController::class, 'contactUsForm'])->name('contact-us.form');
-Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');

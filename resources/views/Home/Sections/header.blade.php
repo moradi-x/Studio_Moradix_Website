@@ -33,7 +33,7 @@
                               <li>
                                   <a href="{{ route('services.ecommerce') }}">طراحی فروشگاه اینترنتی</a>
                               </li>
-                              
+
                               <li>
                                   <a href="{{ route('services.redesign') }}">بازطراحی و ارتقای سایت</a>
                               </li>
@@ -45,7 +45,7 @@
                       </li>
 
                       <li>
-                          <a href="#portfolio">
+                          <a href="{{ route('portfolio') }} ">
                               <span class="nav-icon">▦</span>
                               نمونه‌کارها
                           </a>
@@ -110,7 +110,7 @@
                       </li>
                       <li>
                           <a href="{{ route('services.ecommerce') }}">طراحی فروشگاه اینترنتی</a>
-                      </li>              
+                      </li>
                       <li>
                           <a href="{{ route('services.redesign') }}">بازطراحی و ارتقای سایت</a>
                       </li>
@@ -124,10 +124,25 @@
 
               </li>
 
-              <li><a href="{{ route('pricing') }}" @class(['is-active' => request()->routeIs('pricing')])>تعرفه ها و پلن ها</a></li>
-              <li><a href="{{ route('about') }}" @class(['is-active' => request()->routeIs('about')])>درباره ما</a></li>
-              <li><a href="{{ route('contact') }}" @class(['is-active' => request()->routeIs('contact')])>☎ تماس با ما</a></li>
+              <li>
+                  <a href="{{ route('portfolio') }}" @class(['is-active' => request()->routeIs('portfolio')])>
+                    نمونه‌کارها
+                    </a>
+              </li>
+
+              <li>
+                  <a href="{{ route('pricing') }}" @class(['is-active' => request()->routeIs('pricing')])>تعرفه ها و پلن ها</a>
+              </li>
+
+              <li>
+                  <a href="{{ route('about') }}" @class(['is-active' => request()->routeIs('about')])>درباره ما</a>
+              </li>
+
+              <li>
+                  <a href="{{ route('contact') }}" @class(['is-active' => request()->routeIs('contact')])>☎ تماس با ما</a>
+              </li>
           </ul>
+
           <a href="{{ route('contact') }}" class="btn btn-primary">ثبت درخواست پروژه</a>
       </nav>
   </header>

@@ -17,8 +17,8 @@
                     <li class="sv-breadcrumb-item">
                         <a href="{{ route('home') }}">صفحه اصلی</a>
                     </li>
-                    <li class="sv-breadcrumb-item">
-                        <a href="{{ route('services') }}">درباره ما</a>
+                <li class="sv-breadcrumb-item" aria-current="page">                        
+                        درباره ما
                     </li>
                 </ol>
             </div>
