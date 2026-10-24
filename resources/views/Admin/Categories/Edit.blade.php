@@ -9,8 +9,7 @@
 <div class="flex items-center justify-between mb-6">
 
     <h1 class="text-lg font-bold text-gray-800">
-        Edit Category
-    </h1>
+ویرایش دسته بندی     </h1>
 
 </div>
 
@@ -27,7 +26,7 @@
     <div class="mb-5">
 
         <label class="block mb-2 font-medium text-gray-700">
-            Name
+            نام
         </label>
 
         <input
@@ -50,7 +49,7 @@
     <div class="mb-5">
 
         <label class="block mb-2 font-medium text-gray-700">
-            Slug
+            اسلاگ
         </label>
 
         <input
@@ -75,12 +74,12 @@
         <button
             type="submit"
             class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition">
-            Update
+            ویرایش
         </button>
 
         <a href="{{ route('admin.categories.index') }}"
            class="px-6 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition">
-             Back
+             برگشت
         </a>
 
     </div>

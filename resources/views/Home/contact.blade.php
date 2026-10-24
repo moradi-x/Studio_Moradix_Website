@@ -15,7 +15,7 @@
 @section('content')
     <div class="ct-page">
 
-         {{-- Breadcrumb --}}
+        {{-- Breadcrumb --}}
 
         <nav class="sv-breadcrumb" aria-label="مسیر صفحه">
             <div class="container">
@@ -23,36 +23,12 @@
                     <li class="sv-breadcrumb-item">
                         <a href="{{ route('home') }}">صفحه اصلی</a>
                     </li>
-                <li class="sv-breadcrumb-item" aria-current="page">
-                        تماس با ما 
+                    <li class="sv-breadcrumb-item" aria-current="page">
+                        تماس با ما
                     </li>
                 </ol>
             </div>
         </nav>
-        {{-- Hero Section --}}
-        <section class="ct-hero">
-            <div class="container">
-                <div class="ct-hero-content">
-                    <div class="ct-hero-text">
-                        <h1>بیا باهم حرف بزنیم</h1>
-                        <p>لازم نیست چیزی از فنی بدونی؛ فقط بگو چی تو ذهنته. مشاوره‌ی اولیه رایگانه . ساده
-                            شروع می‌کنیم.</p>
-                    </div>
-
-                    <div class="ct-hero-visual">
-                        {{-- PLACEHOLDER: جایگزین با تصویر واقعی --}}
-                        {{-- <img src="{{ asset('site/images/contact-hero.jpg') }}" alt="تماس با Moradix Studio" class="ct-hero-image"> --}}
-                        <div class="ct-hero-placeholder">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         {{-- Main Section: Form + Contact Info --}}
         <section class="ct-main">
             <div class="container">
@@ -418,7 +394,7 @@
                                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                         </svg>
                         <p class="ct-reassurance-text">
-                        بررسی دقیق نیازهای پروژه
+                            بررسی دقیق نیازهای پروژه
                         </p>
                     </div>
                 </div>

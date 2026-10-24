@@ -15,7 +15,7 @@
 
             <a href="{{ route('admin.projects.create') }}"
                 class="px-4 py-2 rounded-lg bg-green-600 text-white text-sm font-medium hover:bg-green-700">
-                Create Project
+                پروژه جدید 
             </a>
 
         </div>
@@ -137,19 +137,19 @@
                                             class="absolute left-1/2 -translate-x-1/2 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 p-2 text-right">
 
                                             <a href="{{ route('admin.projects.edit', $project) }}"
-                                                class="block w-full px-3 py-2 rounded-md text-sm text-blue-600 hover:bg-blue-50">
+                                                class="block w-full px-3 py-2 rounded-md text-sm  hover:bg-blue-50">
                                                 ویرایش پروژه
                                             </a>
 
 
                                             <a href="{{ route('admin.projects.images.edit', $project) }}"
-                                                class="block w-full px-3 py-2 rounded-md text-sm text-purple-600 hover:bg-purple-50">
+                                                class="block w-full px-3 py-2 rounded-md text-sm  hover:bg-purple-50">
                                                 ویرایش تصاویر
                                             </a>
 
 
                                             <a href="{{ route('admin.projects.show', $project) }}"
-                                                class="block w-full px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-100">
+                                                class="block w-full px-3 py-2 rounded-md text-sm  hover:bg-gray-100">
                                                 نمایش
                                             </a>
 

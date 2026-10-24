@@ -73,8 +73,5 @@ class SettingController extends Controller
             );
     }
 
-    public function show(Setting $setting)
-{
-    return view('admin.settings.show', compact('setting'));
-}
+   
 }

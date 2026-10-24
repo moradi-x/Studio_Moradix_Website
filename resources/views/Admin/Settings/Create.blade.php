@@ -21,7 +21,7 @@
     <div class="mb-5">
 
         <label class="block mb-2 font-medium text-gray-700">
-            Key
+            نام
         </label>
 
         <input
@@ -43,7 +43,7 @@
     <div class="mb-5">
 
         <label class="block mb-2 font-medium text-gray-700">
-            Value
+            مقدار
         </label>
 
         <textarea
@@ -66,12 +66,12 @@
         <button
             type="submit"
             class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition">
-            Create
+            ایجاد
         </button>
 
          <a href="{{ route('admin.settings.index') }}"
            class="px-6 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition">
-             Back
+             بازگشت
         </a>
 
     </div>

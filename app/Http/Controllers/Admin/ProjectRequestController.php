@@ -14,7 +14,7 @@ class ProjectRequestController extends Controller
             ->paginate(10);
 
         return view(
-            'admin.project_requests.index',
+            'admin.ContactMessage.index',
             compact('projectRequests')
         );
     }
@@ -22,7 +22,7 @@ class ProjectRequestController extends Controller
     public function show(ContactMessage $projectRequest)
     {
         return view(
-            'admin.project_requests.show',
+            'admin.ContactMessage.show',
             compact('projectRequest')
         );
     }
@@ -34,7 +34,7 @@ class ProjectRequestController extends Controller
         $projectRequest->delete();
 
         return redirect()
-            ->route('admin.project-requests.index')
+            ->route('admin.ContactMessage.index')
             ->with(
                 'success',
                 'پیام «' . $name . '» با موفقیت حذف شد.'

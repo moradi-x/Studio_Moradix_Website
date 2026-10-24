@@ -46,7 +46,7 @@
 
 
         <h2 class="text-lg font-semibold text-gray-800">
-            Admin Dashboard
+            داشبرد ادمین 
         </h2>
 
 

@@ -9,13 +9,12 @@
     <div class="flex items-center justify-between mb-5">
 
         <h1 class="text-lg font-bold text-gray-800">
-            Categories
+            دسته بندی ها
         </h1>
 
         <a href="{{ route('admin.categories.create') }}"
             class="px-4 py-2 rounded-lg bg-green-600 text-white text-sm font-medium hover:bg-green-700 transition shadow-sm">
-            Create Category
-        </a>
+ایجاد دسته بندی جدید        </a>
 
     </div>
 
@@ -33,15 +32,15 @@
                     </th>
 
                     <th class="px-4 py-2.5 text-left font-semibold text-gray-600">
-                        Name
+                        نام
                     </th>
 
                     <th class="px-4 py-2.5 text-left font-semibold text-gray-600">
-                        Slug
+                        اسلاگ
                     </th>
 
                     <th class="px-4 py-2.5 text-center font-semibold text-gray-600">
-                        Actions
+                        عملیات
                     </th>
 
                 </tr>
@@ -71,7 +70,7 @@
 
                                 <a href="{{ route('admin.categories.edit', $category) }}"
                                     class="px-3 py-1.5 rounded-md bg-blue-500 text-white text-xs hover:bg-blue-600">
-                                    Edit
+                                    ویرایش
                                 </a>
 
                                 <form action="{{ route('admin.categories.destroy', $category) }}" method="POST">
@@ -81,7 +80,7 @@
 
                                     <button type="submit"
                                         class="px-3 py-1.5 rounded-md bg-red-500 text-white text-xs hover:bg-red-600">
-                                        Delete
+                                        حذف
                                     </button>
 
                                 </form>

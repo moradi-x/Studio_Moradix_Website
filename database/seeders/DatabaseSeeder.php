@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             ProjectSeeder::class,
             ProjectImageSeeder::class,
-            ProjectRequestSeeder::class,
+            ContactMessageSeeder::class,
             SettingSeeder::class,
 
         ]);

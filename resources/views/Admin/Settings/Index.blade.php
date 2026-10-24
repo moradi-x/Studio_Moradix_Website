@@ -8,12 +8,12 @@
 
     <div class="flex items-center justify-between mb-5">
         <h1 class="text-lg font-bold text-gray-800">
-            Settings
+            تنظیمات
         </h1>
 
         <a href="{{ route('admin.settings.create') }}"
             class="px-4 py-2 rounded-lg bg-green-600 text-white text-sm font-medium hover:bg-green-700 transition shadow-sm">
-            Create Setting
+            تنظیمات جدید
         </a>
     </div>
 
@@ -28,15 +28,15 @@
                     </th>
 
                     <th class="px-4 py-2.5 text-left font-semibold text-gray-600">
-                        Key
+                        نام
                     </th>
 
                     <th class="px-4 py-2.5 text-left font-semibold text-gray-600">
-                        Value
+                        مقدار
                     </th>
 
                     <th class="px-4 py-2.5 text-center font-semibold text-gray-600">
-                        Actions
+                        عملیات
                     </th>
                 </tr>
             </thead>
@@ -60,16 +60,9 @@
 
                         <td class="px-4 py-2.5">
                             <div class="flex justify-center gap-2">
-
-                                <a href="{{ route('admin.settings.show', $setting) }}"
-                                    class="px-3 py-1.5 rounded-md bg-gray-500 text-white text-xs hover:bg-gray-600">
-                                    Show
-                                </a>
-
-
                                 <a href="{{ route('admin.settings.edit', $setting) }}"
                                     class="px-3 py-1.5 rounded-md bg-blue-500 text-white text-xs hover:bg-blue-600">
-                                    Edit
+                                    ویرایش
                                 </a>
 
                                 <form action="{{ route('admin.settings.destroy', $setting) }}" method="POST">
@@ -79,7 +72,7 @@
 
                                     <button type="submit"
                                         class="px-3 py-1.5 rounded-md bg-red-500 text-white text-xs hover:bg-red-600">
-                                        Delete
+                                        حذف
                                     </button>
 
                                 </form>

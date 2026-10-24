@@ -3,7 +3,7 @@
     <!-- Logo -->
     <div class="px-5 py-4 border-b">
         <h1 class="text-xl font-bold text-gray-800">
-            Moradix
+           Studio Moradix
         </h1>
     </div>
 
@@ -47,7 +47,7 @@
         {{ request()->routeIs('admin.project-requests.*')
             ? 'bg-green-100 text-green-700'
             : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
-            درخواست ها
+            پیام ها
         </a>
 
         <!-- Settings -->
