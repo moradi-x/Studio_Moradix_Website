@@ -215,34 +215,6 @@
                 </div>
 
 
-                {{-- Featured --}}
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">
-                        پروژه ویژه
-                    </label>
-
-                    <select name="featured"
-                        class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-green-500 focus:ring-green-500">
-                        <option value="1" {{ old('featured', $project->featured) == 1 ? 'selected' : '' }}>
-                            بله
-                        </option>
-
-                        <option value="0" {{ old('featured', $project->featured) == 0 ? 'selected' : '' }}>
-                            خیر
-                        </option>
-                    </select>
-
-                    @error('featured')
-                        <p class="text-red-500 text-sm mt-1">
-                            {{ $message }}
-                        </p>
-                    @enderror
-                </div>
-
-
-
-
-
                 {{-- Buttons --}}
                 <div class="flex items-center gap-3 mt-8">
 

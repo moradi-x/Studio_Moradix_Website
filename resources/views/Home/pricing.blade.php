@@ -490,12 +490,7 @@
                         <article class="pr-plan-card pr-plan-featured">
                             <span class="pr-featured-badge">پیشنهاد ما</span>
                             <div class="pr-plan-header">
-                                <h3 class="pr-plan-name">حرفه‌ای</h3>
-
-
-
-
-
+                                <h3 class="pr-plan-name">حرفه‌ا
 
                             </div>
 

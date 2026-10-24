@@ -54,10 +54,6 @@
                             <th class="px-4 py-3 font-semibold text-gray-700">
                                 اسم پروژه
                             </th>
-
-                            <th class="px-6 py-3 font-semibold text-gray-700 text-center translate-x-9">
-                                تکنولوژی‌ها
-                            </th>
                             <th class="px-6 py-3 font-semibold text-gray-700 text-center">
                                 دسته‌بندی
                             </th>

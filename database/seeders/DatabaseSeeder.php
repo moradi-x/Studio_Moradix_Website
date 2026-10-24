@@ -13,7 +13,6 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             ProjectSeeder::class,
             ProjectImageSeeder::class,
-            ServiceSeeder::class,
             ProjectRequestSeeder::class,
             SettingSeeder::class,
 

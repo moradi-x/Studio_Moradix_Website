@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\ContactMessage;
 use App\Models\Project;
-use App\Models\ProjectRequest;
-use App\Models\Service;
 use App\Models\SiteVisit;
 use Illuminate\Support\Facades\DB;
 
@@ -14,25 +13,25 @@ class DashboardController extends Controller
 {
     public function index()
     {
-
+        // پروژه‌ها
         $projectsCount = Project::count();
 
-        $featuredProjectsCount = Project::where(
-            'featured',
-            true
-        )->count();
+        $activeProjectsCount = Project::where('status', true)->count();
 
-        $activeProjectsCount = Project::where(
-            'status',
-            true
-        )->count();
+        // پیام‌ها و درخواست‌های واقعی
+        $newRequestsCount = ContactMessage::count();
 
-        $newRequestsCount = ProjectRequest::where(
-            'status',
-            'new'
-        )->count();
+        $messagesByType = ContactMessage::query()
+            ->select('request_type', DB::raw('COUNT(*) as total'))
+            ->groupBy('request_type')
+            ->get();
+
+        $latestRequests = ContactMessage::query()
+            ->latest()
+            ->take(6)
+            ->get();
+
         // بازدید ۲۴ ساعت اخیر
-
         $visitsLast24Hours = SiteVisit::where(
             'created_at',
             '>=',
@@ -41,28 +40,13 @@ class DashboardController extends Controller
 
         $categoriesCount = Category::count();
 
-
-        $servicesCount = Service::count();
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | بازدید امروز
-        |--------------------------------------------------------------------------
-        */
-
+        // بازدید امروز
         $todayVisits = SiteVisit::whereDate(
             'visit_date',
             today()
         )->count();
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | بازدیدکننده یکتا در 30 روز اخیر
-        |--------------------------------------------------------------------------
-        */
-
+        // بازدیدکننده یکتا در ۳۰ روز اخیر
         $uniqueVisitors = SiteVisit::where(
             'visit_date',
             '>=',
@@ -71,138 +55,53 @@ class DashboardController extends Controller
             ->distinct('session_hash')
             ->count('session_hash');
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | نمودار بازدید 30 روز اخیر
-        |--------------------------------------------------------------------------
-        */
-
+        // نمودار بازدید ۳۰ روز اخیر
         $visitData = SiteVisit::query()
-            ->select(
-                'visit_date',
-                DB::raw('COUNT(*) as visits')
-            )
-            ->where(
-                'visit_date',
-                '>=',
-                today()->subDays(29)
-            )
+            ->select('visit_date', DB::raw('COUNT(*) as visits'))
+            ->where('visit_date', '>=', today()->subDays(29))
             ->groupBy('visit_date')
             ->orderBy('visit_date')
             ->get();
 
-        $visitsChart = collect(
-            range(29, 0)
-        )->map(function ($daysAgo) use ($visitData) {
+        $visitsChart = collect(range(29, 0))->map(
+            function ($daysAgo) use ($visitData) {
+                $date = today()->subDays($daysAgo)->toDateString();
 
-            $date = today()
-                ->subDays($daysAgo)
-                ->toDateString();
+                $item = $visitData->firstWhere('visit_date', $date);
 
-            $item = $visitData->firstWhere(
-                'visit_date',
-                $date
-            );
+                return [
+                    'date' => $date,
+                    'visits' => $item ? (int) $item->visits : 0,
+                ];
+            }
+        );
 
-            return [
-                'date' => $date,
-                'visits' => $item
-                    ? (int) $item->visits
-                    : 0,
-            ];
-        });
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | وضعیت درخواست‌ها
-        |--------------------------------------------------------------------------
-        */
-
-        $requestsByStatus = [
-            'new' => ProjectRequest::where(
-                'status',
-                'new'
-            )->count(),
-
-            'contacted' => ProjectRequest::where(
-                'status',
-                'contacted'
-            )->count(),
-
-            'completed' => ProjectRequest::where(
-                'status',
-                'completed'
-            )->count(),
-
-            'rejected' => ProjectRequest::where(
-                'status',
-                'rejected'
-            )->count(),
-        ];
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | آخرین درخواست‌ها
-        |--------------------------------------------------------------------------
-        */
-
-        $latestRequests = ProjectRequest::with(
-            'category'
-        )
+        // پروژه‌های اخیر
+        $latestProjects = Project::with('category')
             ->latest()
             ->take(6)
             ->get();
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | آخرین پروژه‌ها
-        |--------------------------------------------------------------------------
-        */
-
-        $latestProjects = Project::with([
-            'category',
-            
-        ])
-            ->latest()
-            ->take(6)
-            ->get();
-
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | پروژه‌ها بر اساس دسته‌بندی
-        |--------------------------------------------------------------------------
-        */
-
-        $projectsByCategory = Category::withCount(
-            'projects'
-        )
+        // پروژه‌ها بر اساس دسته‌بندی
+        $projectsByCategory = Category::withCount('projects')
             ->orderByDesc('projects_count')
             ->take(6)
             ->get();
-
 
         return view(
             'admin.dashboard',
             compact(
                 'projectsCount',
-                'featuredProjectsCount',
                 'activeProjectsCount',
                 'newRequestsCount',
+                'messagesByType',
                 'categoriesCount',
-                'servicesCount',
                 'todayVisits',
                 'uniqueVisitors',
                 'visitsChart',
-                'requestsByStatus',
                 'latestRequests',
                 'latestProjects',
-                'projectsByCategory' ,
+                'projectsByCategory',
                 'visitsLast24Hours',
             )
         );

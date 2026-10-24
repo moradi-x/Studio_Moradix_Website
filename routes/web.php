@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProjectController;
-use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\ProjectRequestController;
 use App\Http\Controllers\Admin\ProjectImageController;
@@ -16,10 +15,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // Dashboard
     Route::get('/dashboard',  [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('categories', CategoryController::class);
-    // Services
-    Route::resource('services', ServiceController::class);
+    
     // Requests
-    Route::resource('project-requests', ProjectRequestController::class);
+   Route::resource('project-requests', ProjectRequestController::class)
+    ->only(['index', 'show', 'destroy']);
     // Settings 
     Route::resource('settings', SettingController::class);
     // Projects

@@ -20,10 +20,7 @@ class HomeController extends Controller
     {
         return view('Home.about');
     }
-    public function services()
-    {
-        return view('Home.services');
-    }
+    
     // app/Http/Controllers/Home/HomeController.php
     public function contact()
     {

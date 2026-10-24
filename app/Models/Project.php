@@ -20,7 +20,6 @@ class Project extends Model
         'project_url',
         'github_url',
         'status',
-        'featured',
 
     ];
 

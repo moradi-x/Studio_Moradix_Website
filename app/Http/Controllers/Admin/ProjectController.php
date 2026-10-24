@@ -46,7 +46,6 @@ class ProjectController extends Controller
             'project_url' => ['nullable'],
             'github_url' => ['nullable'],
             'status' => ['required',    'boolean',],
-            'featured' => ['nullable', 'boolean',],
         ]);
 
         try {
@@ -70,7 +69,6 @@ class ProjectController extends Controller
                 'project_url' => $request->project_url,
                 'github_url' => $request->github_url,
                 'status' => $request->status,
-                'featured' => $request->featured ?? false,
             ]);
 
             // ایجاد تصاویر پروژه
@@ -174,10 +172,7 @@ class ProjectController extends Controller
                 'boolean',
             ],
 
-            'featured' => [
-                'nullable',
-                'boolean',
-            ],
+            
         ]);
 
         try {
@@ -194,7 +189,6 @@ class ProjectController extends Controller
                 'project_url' => $request->project_url,
                 'github_url' => $request->github_url,
                 'status' => $request->status,
-                'featured' => $request->featured ?? false,
             ]);
 
           

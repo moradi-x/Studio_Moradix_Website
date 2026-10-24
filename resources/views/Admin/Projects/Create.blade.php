@@ -297,26 +297,6 @@
             </div>
 
 
-            {{-- Featured --}}
-            <div class="mb-8">
-
-                <label class="inline-flex items-center gap-3 cursor-pointer">
-
-                    <input
-                        type="checkbox"
-                        name="featured"
-                        value="1"
-                        @checked(old('featured'))
-                        class="rounded border-gray-300 text-green-600 focus:ring-green-500"
-                    >
-
-                    <span class="text-sm font-medium text-gray-700">
-                        پروژه ویژه
-                    </span>
-
-                </label>
-
-            </div>
 
 
             {{-- Buttons --}}

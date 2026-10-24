@@ -228,26 +228,6 @@
                     </div>
 
 
-                    {{-- Featured --}}
-                    <div>
-
-                        <label class="block text-sm font-medium text-gray-500 mb-2">
-                            وضعیت ویژه
-                        </label>
-
-                        <div class="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm">
-
-                            @if ($project->featured)
-                                <span class="text-green-600 font-medium">
-                                    ★ پروژه ویژه است
-                                </span>
-                            @else
-                                <span class="text-gray-500">
-                                    پروژه معمولی است
-                                </span>
-                            @endif
-
-                        </div>
 
                     </div>
 

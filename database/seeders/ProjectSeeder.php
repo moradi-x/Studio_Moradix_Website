@@ -19,7 +19,6 @@ class ProjectSeeder extends Seeder
             'project_url' => 'https://example.com',
             'github_url' => 'https://github.com/example/ecommerce',
             'status' => true,
-            'featured' => true,
         ]);
 
         Project::create([
@@ -32,7 +31,6 @@ class ProjectSeeder extends Seeder
             'project_url' => 'https://example.com',
             'github_url' => null,
             'status' => true,
-            'featured' => true,
         ]);
 
         Project::create([
@@ -45,7 +43,6 @@ class ProjectSeeder extends Seeder
             'project_url' => 'https://example.com',
             'github_url' => 'https://github.com/example/portfolio',
             'status' => true,
-            'featured' => false,
         ]);
 
         Project::create([
@@ -58,7 +55,6 @@ class ProjectSeeder extends Seeder
             'project_url' => null,
             'github_url' => 'https://github.com/example/resume',
             'status' => true,
-            'featured' => false,
         ]);
 
         Project::create([
@@ -71,7 +67,6 @@ class ProjectSeeder extends Seeder
             'project_url' => null,
             'github_url' => null,
             'status' => true,
-            'featured' => false,
         ]);
     }
 }

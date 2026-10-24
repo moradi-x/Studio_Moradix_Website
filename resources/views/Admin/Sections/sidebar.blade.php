@@ -38,14 +38,7 @@
             پروژه ها 
         </a>
 
-        <!-- Services -->
-        <a href="{{ route('admin.services.index') }}"
-            class="block px-4 py-2.5 rounded-lg transition
-                  {{ request()->routeIs('admin.services.*')
-                      ? 'bg-green-100 text-green-700'
-                      : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
-            سرویس
-        </a>
+       
 
         <!-- Requests -->
 

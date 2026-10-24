@@ -71,28 +71,7 @@
             </div>
 
 
-            {{-- Featured --}}
-            <div class="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
 
-                <div class="flex items-center justify-between">
-
-                    <div>
-                        <p class="text-sm text-gray-500">
-                            پروژه‌های ویژه
-                        </p>
-
-                        <p class="text-3xl font-bold text-gray-800 mt-2">
-                            {{ number_format($featuredProjectsCount) }}
-                        </p>
-                    </div>
-
-                    <div class="w-11 h-11 rounded-xl bg-yellow-50 text-yellow-600 flex items-center justify-center">
-                        ★
-                    </div>
-
-                </div>
-
-            </div>
 
 
             {{-- Requests --}}
@@ -102,8 +81,7 @@
 
                     <div>
                         <p class="text-sm text-gray-500">
-                            درخواست‌های جدید
-                        </p>
+                            کل پیام‌ها و درخواست‌ها </p>
 
                         <p class="text-3xl font-bold text-gray-800 mt-2">
                             {{ number_format($newRequestsCount) }}
@@ -218,53 +196,52 @@
 
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
 
-            {{-- Requests --}}
+
+            {{-- Message Types --}}
             <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-6">
 
                 <div class="mb-6">
                     <h2 class="text-lg font-bold text-gray-800">
-                        وضعیت درخواست‌ها
+                        تفکیک پیام‌ها
                     </h2>
 
                     <p class="text-sm text-gray-500 mt-1">
-                        وضعیت فعلی درخواست‌های پروژه
+                        تعداد پیام‌ها بر اساس نوع درخواست
                     </p>
                 </div>
 
                 <div class="space-y-4">
+                    @forelse ($messagesByType as $item)
+                        @php
+                            $typeLabel = match ($item->request_type) {
+                                'project' => 'درخواست پروژه',
+                                'contact' => 'پیام عمومی',
+                                default => $item->request_type,
+                            };
+                        @endphp
 
-                    @php
-                        $requestStatuses = [
-                            'new' => ['label' => 'جدید', 'color' => 'blue'],
-                            'contacted' => ['label' => 'در حال پیگیری', 'color' => 'yellow'],
-                            'completed' => ['label' => 'تکمیل شده', 'color' => 'green'],
-                            'rejected' => ['label' => 'رد شده', 'color' => 'red'],
-                        ];
-                    @endphp
-
-                    @foreach ($requestStatuses as $status => $item)
-                        <div class="flex items-center justify-between">
-
+                        <div class="flex items-center justify-between gap-4">
                             <div class="flex items-center gap-3">
-
-                                <span class="w-2.5 h-2.5 rounded-full bg-{{ $item['color'] }}-500"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
 
                                 <span class="text-sm text-gray-600">
-                                    {{ $item['label'] }}
+                                    {{ $typeLabel }}
                                 </span>
-
                             </div>
 
                             <span class="font-bold text-gray-800">
-                                {{ number_format($requestsByStatus[$status]) }}
+                                {{ number_format($item->total) }}
                             </span>
-
                         </div>
-                    @endforeach
-
+                    @empty
+                        <p class="text-sm text-gray-400 text-center py-4">
+                            هنوز پیامی ثبت نشده است.
+                        </p>
+                    @endforelse
                 </div>
 
             </div>
+
 
 
             {{-- Categories --}}
@@ -349,27 +326,11 @@
                     <thead class="bg-gray-50 border-y border-gray-100">
 
                         <tr>
-
-                            <th class="px-6 py-4">
-                                نام
-                            </th>
-
-                            <th class="px-6 py-4">
-                                دسته‌بندی
-                            </th>
-
-                            <th class="px-6 py-4">
-                                تلفن
-                            </th>
-
-                            <th class="px-6 py-4">
-                                وضعیت
-                            </th>
-
-                            <th class="px-6 py-4">
-                                تاریخ
-                            </th>
-
+                            <th class="px-6 py-4">نام</th>
+                            <th class="px-6 py-4">نوع درخواست</th>
+                            <th class="px-6 py-4">نوع پروژه</th>
+                            <th class="px-6 py-4">تلفن</th>
+                            <th class="px-6 py-4">تاریخ</th>
                         </tr>
 
                     </thead>
@@ -384,23 +345,19 @@
                                 </td>
 
                                 <td class="px-6 py-4 text-gray-500">
-                                    {{ $request->category?->name ?? '—' }}
+                                    {{ $request->request_type }}
+                                </td>
+
+                                <td class="px-6 py-4 text-gray-500">
+                                    {{ $request->project_type }}
                                 </td>
 
                                 <td class="px-6 py-4 text-gray-500">
                                     {{ $request->phone }}
                                 </td>
 
-                                <td class="px-6 py-4">
-
-                                    <span class="px-2.5 py-1 rounded-full text-xs bg-gray-100 text-gray-600">
-                                        {{ $request->status_label }}
-                                    </span>
-
-                                </td>
-
                                 <td class="px-6 py-4 text-gray-400">
-                                    {{ $request->created_at->format('Y/m/d') }}
+                                    {{ $request->created_at?->format('Y/m/d') ?? '—' }}
                                 </td>
 
                             </tr>
@@ -487,67 +444,57 @@
 
 
 
-        {{-- ========================================================= --}}
-        {{-- System Overview --}}
-        {{-- ========================================================= --}}
+            {{-- ========================================================= --}}
+            {{-- System Overview --}}
+            {{-- ========================================================= --}}
 
-        <div class="bg-gray-900 rounded-2xl p-6 text-white">
+            <div class="bg-gray-900 rounded-2xl p-6 text-white">
 
-            <div class="mb-6">
+                <div class="mb-6">
 
-                <h2 class="text-lg font-bold">
-                    خلاصه سیستم
-                </h2>
+                    <h2 class="text-lg font-bold">
+                        خلاصه سیستم
+                    </h2>
 
-                <p class="text-sm text-gray-400 mt-1">
-                    وضعیت کلی بخش‌های مدیریتی
-                </p>
-
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-
-                <div class="bg-white/5 rounded-xl p-4">
-                    <p class="text-xs text-gray-400">
-                        پروژه‌ها
+                    <p class="text-sm text-gray-400 mt-1">
+                        وضعیت کلی بخش‌های مدیریتی
                     </p>
 
-                    <p class="text-xl font-bold mt-2">
-                        {{ $projectsCount }}
-                    </p>
                 </div>
 
-                <div class="bg-white/5 rounded-xl p-4">
-                    <p class="text-xs text-gray-400">
-                        دسته‌بندی‌ها
-                    </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 
-                    <p class="text-xl font-bold mt-2">
-                        {{ $categoriesCount }}
-                    </p>
-                </div>
+                    <div class="bg-white/5 rounded-xl p-4">
+                        <p class="text-xs text-gray-400">
+                            پروژه‌ها
+                        </p>
 
-                <div class="bg-white/5 rounded-xl p-4">
-                    <p class="text-xs text-gray-400">
-                        سرویس‌ها
-                    </p>
+                        <p class="text-xl font-bold mt-2">
+                            {{ $projectsCount }}
+                        </p>
+                    </div>
 
-                    <p class="text-xl font-bold mt-2">
-                        {{ $servicesCount }}
-                    </p>
+                    <div class="bg-white/5 rounded-xl p-4">
+                        <p class="text-xs text-gray-400">
+                            دسته‌بندی‌ها
+                        </p>
+
+                        <p class="text-xl font-bold mt-2">
+                            {{ $categoriesCount }}
+                        </p>
+                    </div>
+
                 </div>
 
             </div>
 
         </div>
 
-    </div>
 
-
-    {{-- ============================================================= --}}
-    {{-- Chart.js --}}
-    {{-- ============================================================= --}}
+        {{-- ============================================================= --}}
+        {{-- Chart.js --}}
+        {{-- ============================================================= --}}
 
 
 
-@endsection
+    @endsection

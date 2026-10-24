@@ -53,8 +53,7 @@ return new class extends Migration
 
 
             // نمایش در صفحه اصلی
-            $table->boolean('featured')
-                ->default(false);
+            
 
 
             $table->timestamps();
