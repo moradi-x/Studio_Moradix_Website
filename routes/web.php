@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\Admin\ProjectRequestController;
 use App\Http\Controllers\Admin\ProjectImageController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Home\HomeController;
@@ -17,7 +17,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('categories', CategoryController::class);
     
     // Requests
-   Route::resource('project-requests', ProjectRequestController::class)
+   Route::resource('contact-messages', ContactMessageController::class)
     ->only(['index', 'show', 'destroy']);
     // Settings 
     Route::resource('settings', SettingController::class);

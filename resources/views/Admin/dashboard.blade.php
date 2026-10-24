@@ -94,7 +94,7 @@
 
                 </div>
 
-                <a href="{{ route('admin.project-requests.index') }}"
+                <a href="{{ route('admin.contact-messages.index') }}"
                     class="inline-block mt-4 text-xs text-blue-600 hover:text-blue-700">
                     مشاهده درخواست‌ها →
                 </a>
@@ -313,7 +313,7 @@
                     </p>
                 </div>
 
-                <a href="{{ route('admin.project-requests.index') }}" class="text-sm text-green-600 hover:text-green-700">
+                <a href="{{ route('admin.contact-messages.index') }}" class="text-sm text-green-600 hover:text-green-700">
                     مشاهده همه
                 </a>
 

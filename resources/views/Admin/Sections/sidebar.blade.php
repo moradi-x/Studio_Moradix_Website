@@ -42,9 +42,9 @@
 
         <!-- Requests -->
 
-        <a href="{{ route('admin.project-requests.index') }}"
+        <a href="{{ route('admin.contact-messages.index') }}"
             class="block px-4 py-2.5 rounded-lg transition
-        {{ request()->routeIs('admin.project-requests.*')
+        {{ request()->routeIs('admin.contact-messages.*')
             ? 'bg-green-100 text-green-700'
             : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
             پیام ها

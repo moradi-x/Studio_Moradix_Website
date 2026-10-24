@@ -5,36 +5,36 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\ContactMessage;
 
-class ProjectRequestController extends Controller
+class ContactMessageController extends Controller
 {
     public function index()
     {
-        $projectRequests = ContactMessage::query()
+        $contactMessages = ContactMessage::query()
             ->latest()
             ->paginate(10);
 
         return view(
             'admin.ContactMessage.index',
-            compact('projectRequests')
+            compact('contactMessages')
         );
     }
 
-    public function show(ContactMessage $projectRequest)
+    public function show(ContactMessage $contactMessage)
     {
         return view(
             'admin.ContactMessage.show',
-            compact('projectRequest')
+            compact('contactMessage')
         );
     }
 
-    public function destroy(ContactMessage $projectRequest)
+    public function destroy(ContactMessage $contactMessage)
     {
-        $name = $projectRequest->name;
+        $name = $contactMessage->name;
 
-        $projectRequest->delete();
+        $contactMessage->delete();
 
-        return redirect()
-            ->route('admin.ContactMessage.index')
+        return redirect()   
+            ->route('admin.contact-messages.index')
             ->with(
                 'success',
                 'پیام «' . $name . '» با موفقیت حذف شد.'

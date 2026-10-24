@@ -39,46 +39,46 @@
         </thead>
 
         <tbody>
-            @forelse($projectRequests as $projectRequest)
+            @forelse($contactMessages as $contactMessage)
 
                 <tr class="border-b last:border-0">
 
                     <td class="px-5 py-4">
-                        {{ $projectRequests->firstItem() + $loop->index }}
+                        {{ $contactMessages->firstItem() + $loop->index }}
                     </td>
 
                     <td class="px-5 py-4 font-medium text-gray-800">
-                        {{ $projectRequest->name }}
+                        {{ $contactMessage->name }}
                     </td>
 
                     <td class="px-5 py-4" dir="ltr">
-                        {{ $projectRequest->phone }}
+                        {{ $contactMessage->phone }}
                     </td>
 
                     <td class="px-5 py-4">
-                        {{ $projectRequest->request_type }}
+                        {{ $contactMessage->request_type }}
                     </td>
 
                     <td class="px-5 py-4">
-                        {{ $projectRequest->project_type }}
+                        {{ $contactMessage->project_type }}
                     </td>
 
                     <td class="px-5 py-4">
-                        {{ $projectRequest->created_at?->format('Y/m/d H:i') ?? '-' }}
+                        {{ $contactMessage->created_at?->format('Y/m/d H:i') ?? '-' }}
                     </td>
 
                     <td class="px-5 py-4">
                         <div class="flex justify-center gap-2">
 
                             <a
-                                href="{{ route('admin.project-requests.show', $projectRequest->id) }}"
+                                href="{{ route('admin.contact-messages.show', $contactMessage->id) }}"
                                 class="px-3 py-1.5 rounded-md bg-gray-500 text-white text-xs hover:bg-gray-600"
                             >
                                 مشاهده
                             </a>
 
                             <form
-                                action="{{ route('admin.project-requests.destroy', $projectRequest->id) }}"
+                                action="{{ route('admin.contact-messages.destroy', $contactMessage->id) }}"
                                 method="POST"
                                 onsubmit="return confirm('از حذف این پیام مطمئن هستید؟')"
                             >
@@ -114,7 +114,7 @@
 </div>
 
 <div class="mt-5">
-    {{ $projectRequests->links() }}
+    {{ $contactMessages->links() }}
 </div>
 
 @endsection

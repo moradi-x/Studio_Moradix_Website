@@ -22,7 +22,7 @@
             </label>
 
             <div class="border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 bg-gray-50">
-                {{ $projectRequest->name }}
+                {{ $contactMessage->name }}
             </div>
         </div>
 
@@ -36,7 +36,7 @@
                 dir="ltr"
                 class="border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 bg-gray-50 text-left"
             >
-                {{ $projectRequest->phone }}
+                {{ $contactMessage->phone }}
             </div>
         </div>
 
@@ -47,7 +47,7 @@
             </label>
 
             <div class="border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 bg-gray-50">
-                {{ $projectRequest->request_type ?: '-' }}
+                {{ $contactMessage->request_type ?: '-' }}
             </div>
         </div>
 
@@ -58,7 +58,7 @@
             </label>
 
             <div class="border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 bg-gray-50">
-                {{ $projectRequest->project_type ?: '-' }}
+                {{ $contactMessage->project_type ?: '-' }}
             </div>
         </div>
 
@@ -69,7 +69,7 @@
             </label>
 
             <div class="border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 bg-gray-50">
-                {{ $projectRequest->created_at?->format('Y/m/d H:i') ?? '-' }}
+                {{ $contactMessage->created_at?->format('Y/m/d H:i') ?? '-' }}
             </div>
         </div>
 
@@ -79,7 +79,7 @@
                 پیام
             </label>
 
-            <div class="border border-gray-300 rounded-lg px-4 py-3 text-gray-800 bg-gray-50 whitespace-pre-line min-h-[160px]">{{ $projectRequest->message ?: 'No message provided.' }}</div>
+            <div class="border border-gray-300 rounded-lg px-4 py-3 text-gray-800 bg-gray-50 whitespace-pre-line min-h-[160px]">{{ $contactMessage->message ?: 'No message provided.' }}</div>
         </div>
 
     </div>
@@ -88,7 +88,7 @@
     <div class="flex items-center gap-3 mt-6">
 
         <a
-            href="{{ route('admin.project-requests.index') }}"
+            href="{{ route('admin.contact-messages.index') }}"
             class="px-6 py-2.5 rounded-lg bg-red-500 text-white  hover:bg-red-600 transition"
         >
             بازگشت
