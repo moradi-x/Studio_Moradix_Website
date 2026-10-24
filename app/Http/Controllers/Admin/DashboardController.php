@@ -8,18 +8,12 @@ use App\Models\Project;
 use App\Models\ProjectRequest;
 use App\Models\Service;
 use App\Models\SiteVisit;
-use App\Models\Technology;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        /*
-        |--------------------------------------------------------------------------
-        | آمار اصلی
-        |--------------------------------------------------------------------------
-        */
 
         $projectsCount = Project::count();
 
@@ -47,7 +41,6 @@ class DashboardController extends Controller
 
         $categoriesCount = Category::count();
 
-        $technologiesCount = Technology::count();
 
         $servicesCount = Service::count();
 
@@ -172,25 +165,12 @@ class DashboardController extends Controller
 
         $latestProjects = Project::with([
             'category',
-            'technologies',
+            
         ])
             ->latest()
             ->take(6)
             ->get();
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | محبوب‌ترین تکنولوژی‌ها
-        |--------------------------------------------------------------------------
-        */
-
-        $popularTechnologies = Technology::withCount(
-            'projects'
-        )
-            ->orderByDesc('projects_count')
-            ->take(6)
-            ->get();
 
 
         /*
@@ -215,7 +195,6 @@ class DashboardController extends Controller
                 'activeProjectsCount',
                 'newRequestsCount',
                 'categoriesCount',
-                'technologiesCount',
                 'servicesCount',
                 'todayVisits',
                 'uniqueVisitors',
@@ -223,7 +202,6 @@ class DashboardController extends Controller
                 'requestsByStatus',
                 'latestRequests',
                 'latestProjects',
-                'popularTechnologies',
                 'projectsByCategory' ,
                 'visitsLast24Hours',
             )

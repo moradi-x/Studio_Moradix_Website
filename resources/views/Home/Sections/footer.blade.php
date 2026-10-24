@@ -4,7 +4,7 @@
         <div class="footer-content">
             <!-- About -->
             <div class="footer-about">
-                <div class="logo">Moradix</div>
+                <div class="logo"> Studio Moradix</div>
                 <p>استودیوی تخصصی توسعه‌ی وب با Laravel. ساخت فروشگاه اینترنتی، سایت شرکتی و سیستم‌های سفارشی با کیفیت
                     بالا و پشتیبانی قابل اعتماد.</p>
             </div>

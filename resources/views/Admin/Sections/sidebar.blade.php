@@ -28,15 +28,7 @@
             دسته بندی ها
         </a>
 
-        <!-- Technologies -->
-        <a href="{{ route('admin.technologies.index') }}"
-            class="block px-4 py-2.5 rounded-lg transition
-                  {{ request()->routeIs('admin.technologies.*')
-                      ? 'bg-green-100 text-green-700'
-                      : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
-            تکنولوژی ها
-        </a>
-
+       
         <!-- Projects -->
         <a href="{{ route('admin.projects.index') }}"
             class="block px-4 py-2.5 rounded-lg transition

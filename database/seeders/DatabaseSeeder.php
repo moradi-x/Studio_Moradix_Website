@@ -11,13 +11,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AdminSeeder::class,
             CategorySeeder::class,
-            TechnologySeeder::class,
             ProjectSeeder::class,
             ProjectImageSeeder::class,
             ServiceSeeder::class,
             ProjectRequestSeeder::class,
             SettingSeeder::class,
-            ProjectTechnologySeeder::class,
 
         ]);
     }

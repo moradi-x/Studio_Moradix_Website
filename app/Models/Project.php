@@ -40,16 +40,6 @@ class Project extends Model
         return $this->belongsTo(Category::class);
     }
    
-//  چند به چند با تکنولوژی‌ها
-    
-
-    public function technologies()
-    {
-        return $this->belongsToMany(
-            Technology::class,
-            'project_technology'
-        );
-    }
 
 
         // | هر پروژه چند تصویر دارد

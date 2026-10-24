@@ -165,55 +165,6 @@
             </div>
 
 
-            {{-- Technologies --}}
-            <div class="mb-8">
-
-                <h2 class="text-lg font-semibold text-gray-800 mb-5">
-                    تکنولوژی‌ها
-                </h2>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-                    <div class="md:col-span-3">
-
-                        <label class="block text-sm font-medium text-gray-700 mb-3">
-                            انتخاب تکنولوژی‌ها
-                        </label>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-
-                            @foreach($technologies as $technology)
-
-                                <label
-                                    class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:bg-gray-50 cursor-pointer"
-                                >
-
-                                    <input
-                                        type="checkbox"
-                                        name="technologies[]"
-                                        value="{{ $technology->id }}"
-                                        @checked(in_array(
-                                            $technology->id,
-                                            old('technologies', [])
-                                        ))
-                                        class="rounded border-gray-300 text-green-600 focus:ring-green-500"
-                                    >
-
-                                    <span class="text-sm text-gray-700">
-                                        {{ $technology->name }}
-                                    </span>
-
-                                </label>
-
-                            @endforeach
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
 
 
             {{-- Images --}}

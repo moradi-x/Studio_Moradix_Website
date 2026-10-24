@@ -13,16 +13,28 @@
 
 <main class="pf-page" dir="rtl">
 
+    {{-- Breadcrumb --}}
+
+        <nav class="sv-breadcrumb" aria-label="مسیر صفحه">
+            <div class="container">
+                <ol class="sv-breadcrumb-list">
+                    <li class="sv-breadcrumb-item">
+                        <a href="{{ route('home') }}">صفحه اصلی</a>
+                    </li>
+                <li class="sv-breadcrumb-item" aria-current="page">                        
+                         نمونه کارها 
+                    </li>
+                </ol>
+            </div>
+        </nav>
+
+
     {{-- Hero --}}
     <section class="pf-hero">
         <div class="container pf-container">
 
             <div class="pf-hero-content">
-                <span class="pf-eyebrow">
-                    <span class="pf-eyebrow-dot"></span>
-                    PORTFOLIO / MORADIX STUDIO
-                </span>
-
+               
                 <h1>
                     ایده‌هایی که
                     <span class="pf-gradient-text">در مسیر ساخت</span>
@@ -47,12 +59,7 @@
                     </a>
                 </div>
 
-                <div class="pf-hero-note">
-                    <span class="pf-note-icon" aria-hidden="true">✳</span>
-                    <span>
-                        پروژه‌های این بخش هنوز به‌عنوان نسخه نهایی منتشر نشده‌اند.
-                    </span>
-                </div>
+               
             </div>
 
             {{-- Decorative visual --}}
@@ -123,17 +130,13 @@
 
             <div class="pf-section-heading">
                 <div>
-                    <span class="pf-section-kicker">THE WORK IN PROGRESS</span>
-                    <h2>پروژه‌های در حال توسعه</h2>
-                    <p>
-                        سه ایده متفاوت با تمرکز بر تجربه کاربری،
-                        ساختار مناسب و نیازهای واقعی کسب‌وکار.
-                    </p>
+                    <h2>نمونه کار های Studio Moradix</h2>
+                    
                 </div>
 
                 <div class="pf-project-count">
                     <strong>03</strong>
-                    <span>پروژه آینده</span>
+                    <span>پروژه </span>
                 </div>
             </div>
 
@@ -384,12 +387,6 @@
 
             </div>
 
-            <p class="pf-project-disclaimer">
-                <span aria-hidden="true">ⓘ</span>
-                تصاویر و پیش‌نمایش‌های این بخش، طرح‌های مفهومی برای نمایش
-                جهت‌گیری بصری پروژه‌ها هستند و لزوماً نمایی از نسخه نهایی نیستند.
-            </p>
-
         </div>
     </section>
 
@@ -398,7 +395,6 @@
     <section class="pf-process">
         <div class="container pf-container">
             <div class="pf-process-heading">
-                <span class="pf-section-kicker">FROM IDEA TO LAUNCH</span>
                 <h2>هر پروژه، یک مسیر مشخص دارد.</h2>
                 <p>
                     طراحی خوب فقط ظاهر زیبا نیست؛ باید به نیاز کاربر پاسخ
@@ -455,7 +451,6 @@
                 <div class="pf-cta-decoration pf-cta-decoration-two"></div>
 
                 <div class="pf-cta-content">
-                    <span class="pf-section-kicker">HAVE A PROJECT IN MIND?</span>
                     <h2>
                         ایده شما می‌تواند<br>
                         <span>شروع پروژه بعدی باشد.</span>

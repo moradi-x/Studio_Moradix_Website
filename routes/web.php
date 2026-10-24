@@ -6,7 +6,6 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\Admin\TechnologyController;
 use App\Http\Controllers\Admin\ProjectRequestController;
 use App\Http\Controllers\Admin\ProjectImageController;
 use App\Http\Controllers\Admin\NotificationController;
@@ -17,8 +16,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // Dashboard
     Route::get('/dashboard',  [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('categories', CategoryController::class);
-    // Technologies
-    Route::resource('technologies', TechnologyController::class);
     // Services
     Route::resource('services', ServiceController::class);
     // Requests

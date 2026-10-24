@@ -202,38 +202,7 @@
                 {{-- Row 4: Technologies / Status / Featured --}}
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                    {{-- Technologies --}}
-                    <div>
-
-                        <label class="block text-sm font-medium text-gray-500 mb-2">
-                            تکنولوژی‌ها
-                        </label>
-
-                        <div class="w-full min-h-[48px] rounded-lg border border-gray-200 bg-gray-50 px-4 py-3">
-
-                            @if ($project->technologies->count())
-
-                                <div class="flex flex-wrap gap-2">
-
-                                    @foreach ($project->technologies as $technology)
-                                        <span
-                                            class="px-3 py-1.5 rounded-lg bg-white border border-gray-200 text-sm text-gray-700">
-                                            {{ $technology->name }}
-                                        </span>
-                                    @endforeach
-
-                                </div>
-                            @else
-                                <span class="text-sm text-gray-400">
-                                    تکنولوژی‌ای ثبت نشده است.
-                                </span>
-
-                            @endif
-
-                        </div>
-
-                    </div>
-
+                  
 
                     {{-- Status --}}
                     <div>

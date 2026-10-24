@@ -486,59 +486,6 @@
             </div>
 
 
-            {{-- Technologies --}}
-            <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-6">
-
-                <div class="mb-6">
-
-                    <h2 class="text-lg font-bold text-gray-800">
-                        تکنولوژی‌های محبوب
-                    </h2>
-
-                    <p class="text-sm text-gray-500 mt-1">
-                        بیشترین استفاده در پروژه‌ها
-                    </p>
-
-                </div>
-
-                <div class="space-y-5">
-
-                    @foreach ($popularTechnologies as $technology)
-                        <div>
-
-                            <div class="flex items-center justify-between mb-2">
-
-                                <span class="text-sm font-medium text-gray-700">
-                                    {{ $technology->name }}
-                                </span>
-
-                                <span class="text-xs text-gray-400">
-                                    {{ $technology->projects_count }} پروژه
-                                </span>
-
-                            </div>
-
-                            @php
-                                $maxProjects = max($popularTechnologies->max('projects_count'), 1);
-
-                                $percentage = round(($technology->projects_count / $maxProjects) * 100);
-                            @endphp
-
-                            <div class="w-full h-2 bg-gray-100 rounded-full">
-
-                                <div class="h-full bg-gray-700 rounded-full" style="width: {{ $percentage }}%"></div>
-
-                            </div>
-
-                        </div>
-                    @endforeach
-
-                </div>
-
-            </div>
-
-        </div>
-
 
         {{-- ========================================================= --}}
         {{-- System Overview --}}
@@ -577,16 +524,6 @@
 
                     <p class="text-xl font-bold mt-2">
                         {{ $categoriesCount }}
-                    </p>
-                </div>
-
-                <div class="bg-white/5 rounded-xl p-4">
-                    <p class="text-xs text-gray-400">
-                        تکنولوژی‌ها
-                    </p>
-
-                    <p class="text-xl font-bold mt-2">
-                        {{ $technologiesCount }}
                     </p>
                 </div>
 

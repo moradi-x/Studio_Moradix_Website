@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Project;
-use App\Models\Technology;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -17,7 +16,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::with(['category', 'technologies'])
+        $projects = Project::with(['category'])
             ->oldest()
             ->paginate(10);
 
@@ -27,11 +26,10 @@ class ProjectController extends Controller
     {
         $categories = Category::orderBy('name')->get();
 
-        $technologies = Technology::orderBy('name')->get();
 
         return view('admin.projects.create', compact(
             'categories',
-            'technologies'
+            
         ));
     }
     public function store(Request $request)
@@ -49,8 +47,6 @@ class ProjectController extends Controller
             'github_url' => ['nullable'],
             'status' => ['required',    'boolean',],
             'featured' => ['nullable', 'boolean',],
-            'technologies' => ['required',  'array',],
-            'technologies.*' => ['required', 'exists:technologies,id',],
         ]);
 
         try {
@@ -85,8 +81,6 @@ class ProjectController extends Controller
                 ]);
             }
 
-            // اتصال تکنولوژی‌ها
-            $project->technologies()->attach($request->technologies);
             DB::commit();
         } catch (\Throwable $ex) {
             DB::rollBack();
@@ -113,7 +107,6 @@ class ProjectController extends Controller
     {
         $project->load([
             'category',
-            'technologies',
             'images',
         ]);
 
@@ -124,17 +117,13 @@ class ProjectController extends Controller
     {
         $categories = Category::all();
 
-        $technologies = Technology::all();
-
-        $project->load([
-            'technologies',
-        ]);
+       
 
         return view(
             'admin.projects.edit',
             compact(
                 'categories',
-                'technologies',
+                
                 'project'
             )
         );
@@ -189,16 +178,6 @@ class ProjectController extends Controller
                 'nullable',
                 'boolean',
             ],
-
-            'technologies' => [
-                'required',
-                'array',
-                'min:1',
-            ],
-
-            'technologies.*' => [
-                'exists:technologies,id',
-            ],
         ]);
 
         try {
@@ -218,10 +197,7 @@ class ProjectController extends Controller
                 'featured' => $request->featured ?? false,
             ]);
 
-            // ویرایش تکنولوژی‌های پروژه
-            $project->technologies()->sync(
-                $request->technologies
-            );
+          
 
             DB::commit();
         } catch (\Throwable $ex) {
@@ -285,9 +261,7 @@ class ProjectController extends Controller
             // حذف عکس‌های فرعی از جدول project_images
             $project->images()->delete();
 
-            // حذف ارتباط پروژه با تکنولوژی‌ها
-            $project->technologies()->detach();
-
+            
             // حذف خود پروژه
             $project->delete();
 

@@ -92,28 +92,6 @@
                                 </td>
 
 
-                                {{-- Technologies --}}
-                                <td class="px-6 py-4 text-center align-middle">
-                                    <div class="relative translate-x-9">
-
-                                        @if ($project->technologies->count())
-                                            <div class="flex flex-wrap justify-center items-center gap-2">
-
-                                                @foreach ($project->technologies as $technology)
-                                                    <span class="px-2 py-1 rounded-md bg-gray-100 text-gray-600 text-xs">
-                                                        {{ $technology->name }}
-                                                    </span>
-                                                @endforeach
-
-                                            </div>
-                                        @else
-                                            <span class="text-gray-400">
-                                                —
-                                            </span>
-                                        @endif
-
-                                    </div>
-                                </td>
                                 {{-- Category --}}
                                 <td class="px-6 py-4 text-gray-700 text-center">
                                     @if ($project->category)
