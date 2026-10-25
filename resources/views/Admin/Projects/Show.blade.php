@@ -12,19 +12,19 @@
             <div>
                 <h1 class="text-2xl font-bold text-gray-800">
                     نمایش پروژه :
-                                        {{ $project->title }}
+                    {{ $project->title }}
 
                 </h1>
             </div>
 
             <div class="flex items-center gap-2">
 
-                
 
-                <a href="{{ route('admin.projects.index') }}"
-                    class="px-4 py-2 rounded-lg bg-gray-500 text-white text-sm hover:bg-gray-600">
-                    بازگشت
-                </a>
+
+                  <a href="{{ route('admin.projects.index') }}"
+                        class="px-6 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition">
+                        برگشت
+                    </a>
 
             </div>
         </div>
@@ -94,34 +94,32 @@
                 {{-- Row 2: Short Description / Description --}}
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
 
-    {{-- Short Description --}}
-    <div>
+                    {{-- Short Description --}}
+                    <div>
 
-        <label class="block text-sm font-medium text-gray-500 mb-2">
-            توضیح کوتاه
-        </label>
+                        <label class="block text-sm font-medium text-gray-500 mb-2">
+                            توضیح کوتاه
+                        </label>
 
-        <div class="w-full min-h-[100px] rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700 leading-6 whitespace-pre-line">
-            {{ $project->short_description }}
-        </div>
+                        <div
+                            class="w-full min-h-[100px] rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700 leading-6 whitespace-pre-line">{{ $project->short_description }}</div>
 
-    </div>
+                    </div>
 
 
-    {{-- Description --}}
-    <div>
+                    {{-- Description --}}
+                    <div>
 
-        <label class="block text-sm font-medium text-gray-500 mb-2">
-            توضیحات کامل
-        </label>
+                        <label class="block text-sm font-medium text-gray-500 mb-2">
+                            توضیحات کامل
+                        </label>
 
-        <div class="w-full min-h-[100px] rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700 leading-6 whitespace-pre-line">
-            {{ $project->description }}
-        </div>
+                        <div
+                            class="w-full min-h-[100px] rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700 leading-6 whitespace-pre-line">{{ $project->description }}</div>
 
-    </div>
+                    </div>
 
-</div>
+                </div>
 
             </div>
 
@@ -202,7 +200,48 @@
                 {{-- Row 4: Technologies / Status / Featured --}}
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                  
+
+
+                    {{-- Features --}}
+                    <div class="mb-6">
+
+                        <label class="block text-sm font-medium text-gray-500 mb-3">
+                            ویژگی‌های پروژه
+                        </label>
+
+                        @if ($project->features->count())
+
+                            <div class="flex flex-wrap gap-2">
+
+                                @foreach ($project->features as $feature)
+                                    <span
+                                        class="inline-flex items-center gap-2 rounded-lg border border-blue-200 bg-blue-50 px-3 py-2 text-sm text-blue-700">
+
+                                        <svg class="w-4 h-4 text-blue-500 flex-shrink-0" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7">
+                                            </path>
+
+                                        </svg>
+
+                                        {{ $feature->name }}
+
+                                    </span>
+                                @endforeach
+
+                            </div>
+                        @else
+                            <div
+                                class="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-400">
+                                ویژگی‌ای برای این پروژه ثبت نشده است.
+                            </div>
+
+                        @endif
+
+                    </div>
+
 
                     {{-- Status --}}
                     <div>
@@ -229,97 +268,97 @@
 
 
 
-                    </div>
-
                 </div>
-
-            </div>
-
-
-
-            {{-- ========================================= --}}
-            {{-- تصویر اصلی --}}
-            {{-- ========================================= --}}
-
-            <div class="mb-8">
-
-                <h2 class="text-lg font-semibold text-gray-800 mb-5">
-                    تصویر اصلی پروژه
-                </h2>
-
-                <div class="w-full rounded-xl border border-gray-200 overflow-hidden bg-gray-50">
-
-                    @if ($project->primary_image)
-                        <img src="{{ asset(env('PROJECT_IMAGES_UPLOAD_PATH') . '/' . $project->primary_image) }}"
-                            alt="{{ $project->title }}" class="w-full h-64 object-contain">
-                    @else
-                        <div class="h-64 flex items-center justify-center text-gray-400 text-sm">
-                            تصویر اصلی وجود ندارد
-                        </div>
-                    @endif
-
-                </div>
-
-            </div>
-
-
-
-            {{-- ========================================= --}}
-            {{-- تصاویر دیگر --}}
-            {{-- ========================================= --}}
-
-            <div class="mb-8">
-
-                <div class="flex items-center justify-between mb-5">
-
-                    <h2 class="text-lg font-semibold text-gray-800">
-                        تصاویر دیگر پروژه
-                    </h2>
-
-                    
-
-                </div>
-
-
-                @if ($project->images->count())
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-
-                        @foreach ($project->images as $image)
-                            <div class="rounded-xl border border-gray-200 overflow-hidden bg-gray-50">
-
-                                <img src="{{ asset(env('PROJECT_IMAGES_UPLOAD_PATH') . '/' . $image->image) }}"
-                                    alt="{{ $project->title }}" class="w-full h-32 object-cover">
-
-                            </div>
-                        @endforeach
-
-                    </div>
-                @else
-                    <div class="rounded-lg border border-gray-200 bg-gray-50 p-6 text-center text-sm text-gray-400">
-                        تصویر دیگری برای این پروژه ثبت نشده است.
-                    </div>
-
-                @endif
-
-            </div>
-
-
-
-            {{-- ========================================= --}}
-            {{-- Footer --}}
-            {{-- ========================================= --}}
-
-            <div class="flex items-center justify-end gap-3 pt-5 border-t border-gray-200">
-
-                <a href="{{ route('admin.projects.index') }}"
-                    class="px-5 py-2.5 rounded-lg bg-gray-100 text-gray-700 text-sm hover:bg-gray-200">
-                    بازگشت
-                </a>
 
             </div>
 
         </div>
+
+
+
+        {{-- ========================================= --}}
+        {{-- تصویر اصلی --}}
+        {{-- ========================================= --}}
+
+        <div class="mb-8">
+
+            <h2 class="text-lg font-semibold text-gray-800 mb-5">
+                تصویر اصلی پروژه
+            </h2>
+
+            <div class="w-full rounded-xl border border-gray-200 overflow-hidden bg-gray-50">
+
+                @if ($project->primary_image)
+                    <img src="{{ asset(env('PROJECT_IMAGES_UPLOAD_PATH') . '/' . $project->primary_image) }}"
+                        alt="{{ $project->title }}" class="w-full h-64 object-contain">
+                @else
+                    <div class="h-64 flex items-center justify-center text-gray-400 text-sm">
+                        تصویر اصلی وجود ندارد
+                    </div>
+                @endif
+
+            </div>
+
+        </div>
+
+
+
+        {{-- ========================================= --}}
+        {{-- تصاویر دیگر --}}
+        {{-- ========================================= --}}
+
+        <div class="mb-8">
+
+            <div class="flex items-center justify-between mb-5">
+
+                <h2 class="text-lg font-semibold text-gray-800">
+                    تصاویر دیگر پروژه
+                </h2>
+
+
+
+            </div>
+
+
+            @if ($project->images->count())
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+
+                    @foreach ($project->images as $image)
+                        <div class="rounded-xl border border-gray-200 overflow-hidden bg-gray-50">
+
+                            <img src="{{ asset(env('PROJECT_IMAGES_UPLOAD_PATH') . '/' . $image->image) }}"
+                                alt="{{ $project->title }}" class="w-full h-32 object-cover">
+
+                        </div>
+                    @endforeach
+
+                </div>
+            @else
+                <div class="rounded-lg border border-gray-200 bg-gray-50 p-6 text-center text-sm text-gray-400">
+                    تصویر دیگری برای این پروژه ثبت نشده است.
+                </div>
+
+            @endif
+
+        </div>
+
+
+
+        {{-- ========================================= --}}
+        {{-- Footer --}}
+        {{-- ========================================= --}}
+
+        <div class="flex items-center justify-end gap-3 pt-5 border-t border-gray-200">
+
+             <a href="{{ route('admin.projects.index') }}"
+                        class="px-6 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition">
+                        برگشت
+                    </a>
+
+        </div>
+
+    </div>
 
     </div>
 

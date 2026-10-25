@@ -4,69 +4,42 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Project;
+use App\Models\Feature;
 
 class ProjectSeeder extends Seeder
 {
     public function run(): void
     {
-        Project::create([
+        $project = Project::create([
             'category_id' => 1,
             'title' => 'فروشگاه اینترنتی',
             'slug' => 'ecommerce-website',
             'short_description' => 'یک فروشگاه اینترنتی مدرن و حرفه‌ای.',
             'description' => 'طراحی و توسعه یک فروشگاه اینترنتی مدرن با امکانات کامل.',
-            'primary_image' => 'img.png',
+            'primary_image' => 'fake-project-1.png',
             'project_url' => 'https://example.com',
             'github_url' => 'https://github.com/example/ecommerce',
             'status' => true,
         ]);
 
-        Project::create([
+        $project->features()->sync(
+            Feature::inRandomOrder()->take(5)->pluck('id')
+        );
+
+        $project = Project::create([
             'category_id' => 2,
             'title' => 'سایت شرکتی',
             'slug' => 'corporate-website',
             'short_description' => 'وب‌سایت معرفی یک شرکت.',
             'description' => 'طراحی و توسعه یک وب‌سایت شرکتی برای معرفی خدمات و فعالیت‌های شرکت.',
-            'primary_image' => 'img.png',
+            'primary_image' => 'fake-project-2.png',
             'project_url' => 'https://example.com',
             'github_url' => null,
             'status' => true,
         ]);
 
-        Project::create([
-            'category_id' => 3,
-            'title' => 'سایت نمونه کار',
-            'slug' => 'portfolio-website',
-            'short_description' => 'وب‌سایت حرفه‌ای برای نمایش نمونه‌کارها.',
-            'description' => 'طراحی یک وب‌سایت نمونه کار مدرن برای نمایش پروژه‌ها و مهارت‌ها.',
-            'primary_image' => 'img.png',
-            'project_url' => 'https://example.com',
-            'github_url' => 'https://github.com/example/portfolio',
-            'status' => true,
-        ]);
-
-        Project::create([
-            'category_id' => 4,
-            'title' => 'سایت رزومه‌ای',
-            'slug' => 'resume-website',
-            'short_description' => 'وب‌سایت رزومه و معرفی مهارت‌ها.',
-            'description' => 'یک وب‌سایت رزومه‌ای برای معرفی مهارت‌ها، سوابق کاری و تجربیات.',
-            'primary_image' => 'img.png',
-            'project_url' => null,
-            'github_url' => 'https://github.com/example/resume',
-            'status' => true,
-        ]);
-
-        Project::create([
-            'category_id' => 5,
-            'title' => 'پروژه دانشجویی',
-            'slug' => 'student-project',
-            'short_description' => 'یک پروژه دانشجویی وب.',
-            'description' => 'یک پروژه دانشجویی با طراحی ساده و کاربردی.',
-            'primary_image' => 'img.png',
-            'project_url' => null,
-            'github_url' => null,
-            'status' => true,
-        ]);
+        $project->features()->sync(
+            Feature::inRandomOrder()->take(5)->pluck('id')
+        );
     }
 }

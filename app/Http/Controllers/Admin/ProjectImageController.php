@@ -163,12 +163,14 @@ class ProjectImageController extends Controller
         DB::commit();
 
         return redirect()
-            ->route('admin.projects.index')
+            ->back()
             ->with(
                 'success',
                 'تصاویر پروژه «' . $project->title . '» با موفقیت ویرایش شد.'
             );
     }
+
+
     public function destroy(Request $request, Project $project)
     {
         $request->validate([

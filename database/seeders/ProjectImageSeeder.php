@@ -11,27 +11,22 @@ class ProjectImageSeeder extends Seeder
     {
         ProjectImage::create([
             'project_id' => 1,
-            'image' => 'img.png',
+            'image' => 'fake-gallery-1.png',
+        ]);
+
+        ProjectImage::create([
+            'project_id' => 1,
+            'image' => 'fake-gallery-2.png',
         ]);
 
         ProjectImage::create([
             'project_id' => 2,
-            'image' => 'img.png',
+            'image' => 'fake-project-1.png',
         ]);
 
         ProjectImage::create([
-            'project_id' => 3,
-            'image' => 'img.png',
-        ]);
-
-        ProjectImage::create([
-            'project_id' => 4,
-            'image' => 'img.png',
-        ]);
-
-        ProjectImage::create([
-            'project_id' => 5,
-            'image' => 'img.png',
+            'project_id' => 2,
+            'image' => 'fake-project-2.png',
         ]);
     }
 }

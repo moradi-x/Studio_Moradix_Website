@@ -2,27 +2,36 @@
 
 
 @section('script')
-    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
+   
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.feature-multiselect').forEach(function(element) {
-                new TomSelect(element, {
-                    plugins: ['remove_button'],
-                    create: false,
-                    persist: false,
-                    closeAfterSelect: false,
-                    hideSelected: true,
-                    placeholder: 'جست‌وجو و انتخاب ویژگی...',
-                    render: {
-                        no_results: function() {
-                            return '<div class="no-results p-2">موردی پیدا نشد</div>';
-                        }
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.feature-multiselect').forEach(function (element) {
+            // جلوگیری از مقداردهی چندباره
+            if (element.tomselect) {
+                return;
+            }
+
+            new TomSelect(element, {
+                plugins: ['remove_button'],
+                create: false,
+                persist: false,
+                closeAfterSelect: false,
+                hideSelected: true,
+                maxOptions: 200,
+                placeholder: 'جست‌وجو و انتخاب ویژگی...',
+
+                render: {
+                    no_results: function () {
+                        return '<div class="no-results p-2">موردی پیدا نشد</div>';
                     }
-                });
+                }
             });
         });
-    </script>
+    });
+</script>
+
 @endsection
 
 
@@ -68,7 +77,7 @@
         {{-- Form --}}
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
 
-            <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data"  autocomplete="off" >
 
                 @csrf
 

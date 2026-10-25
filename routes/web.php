@@ -10,15 +10,19 @@ use App\Http\Controllers\Admin\ProjectImageController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\ServicePageController;
+use App\Http\Controllers\Admin\PlanPriceController;
+
+
+
 
 Route::prefix('admin')->name('admin.')->group(function () {
     // Dashboard
     Route::get('/dashboard',  [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('categories', CategoryController::class);
-    
+
     // Requests
-   Route::resource('contact-messages', ContactMessageController::class)
-    ->only(['index', 'show', 'destroy']);
+    Route::resource('contact-messages', ContactMessageController::class)
+        ->only(['index', 'show', 'destroy']);
     // Settings 
     Route::resource('settings', SettingController::class);
     // Projects
@@ -28,6 +32,17 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/projects/{project}/images-edit',   [ProjectImageController::class, 'edit'])->name('projects.images.edit');
     Route::post('/projects/{project}/image-add', [ProjectImageController::class, 'add'])->name('projects.images.add');
     Route::delete('/projects/{project}/images-destroy', [ProjectImageController::class, 'destroy'])->name('projects.images.destroy');
+
+
+    // قیمت پلن ها
+    Route::get('/plan-prices', [PlanPriceController::class, 'index'])
+        ->name('plan-prices.index');
+
+    Route::get('/plan-prices/{planPrice}/edit', [PlanPriceController::class, 'edit'])
+        ->name('plan-prices.edit');
+
+    Route::put('/plan-prices/{planPrice}', [PlanPriceController::class, 'update'])
+        ->name('plan-prices.update');
 
     // notifications
     Route::get('/notifications',   [NotificationController::class, 'index'])->name('notifications.index');

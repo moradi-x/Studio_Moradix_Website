@@ -6,12 +6,15 @@
 
 
 @section('script')
-   <script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('.feature-multiselect').forEach(function (element) {
-            if (element.tomselect) return;
+            // جلوگیری از مقداردهی چندباره
+            if (element.tomselect) {
+                return;
+            }
 
             new TomSelect(element, {
                 plugins: ['remove_button'],
@@ -19,7 +22,9 @@
                 persist: false,
                 closeAfterSelect: false,
                 hideSelected: true,
+                maxOptions: 200,
                 placeholder: 'جست‌وجو و انتخاب ویژگی...',
+
                 render: {
                     no_results: function () {
                         return '<div class="no-results p-2">موردی پیدا نشد</div>';
@@ -66,7 +71,7 @@
 
 
         {{-- Form --}}
-        <form action="{{ route('admin.projects.update', $project) }}" method="POST">
+        <form action="{{ route('admin.projects.update', $project) }}" method="POST"  autocomplete="off" >
 
             @csrf
             @method('PUT')
