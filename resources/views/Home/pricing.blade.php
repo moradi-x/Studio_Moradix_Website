@@ -15,7 +15,7 @@
 @section('content')
     <div class="pr-page">
 
-         {{-- Breadcrumb --}}
+        {{-- Breadcrumb --}}
 
         <nav class="sv-breadcrumb" aria-label="مسیر صفحه">
             <div class="container">
@@ -23,8 +23,8 @@
                     <li class="sv-breadcrumb-item">
                         <a href="{{ route('home') }}">صفحه اصلی</a>
                     </li>
-                <li class="sv-breadcrumb-item" aria-current="page">
-                      تعرفه ها و پلن ها
+                    <li class="sv-breadcrumb-item" aria-current="page">
+                        تعرفه ها و پلن ها
                     </li>
                 </ol>
             </div>
@@ -93,9 +93,10 @@
                             </div>
 
                             <div class="pr-plan-price">
-                                {{-- PRICE: قیمت پایه طراحی سایت --}}
+                                {{-- PRICE: قیمت  طراحی سایت پایه --}}
                                 <span class="pr-price-label">از</span>
-                                <span class="pr-price-amount">۴۰,۰۰۰,۰۰۰</span>
+                                <span class="pr-price-amount">{{ number_format($plans->get('website')?->basic_price ?? 0) }}
+                                </span>
                                 <span class="pr-price-currency">تومان</span>
                             </div>
 
@@ -152,8 +153,8 @@
                                         <span> ۶ صفحه: خانه، درباره ما، خدمات، گالری و نمونه‌کار، تماس</span>
                                     </li>
                                     <li>
-                                        <svg class="pr-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            aria-hidden="true">
+                                        <svg class="pr-check-icon" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24" aria-hidden="true">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M5 13l4 4L19 7" />
                                         </svg>
@@ -222,9 +223,13 @@
                             </div>
 
                             <div class="pr-plan-price">
-                                {{-- PRICE: قیمت پایه طراحی سایت حرفه‌ای --}}
+                                {{-- PRICE: قیمت  طراحی سایت حرفه‌ای --}}
                                 <span class="pr-price-label">از</span>
-                                <span class="pr-price-amount">۸۰,۰۰۰,۰۰۰</span>
+                                <span
+                                    class="pr-price-amount">{{ number_format($plans->get('website')?->professional_price ?? 0) }}
+
+
+                                </span>
                                 <span class="pr-price-currency">تومان</span>
                             </div>
 
@@ -358,9 +363,11 @@
                             </div>
 
                             <div class="pr-plan-price">
-                                {{-- PRICE: قیمت پایه فروشگاه --}}
+                                {{-- PRICE: قیمت پایه فروشگاهی --}}
                                 <span class="pr-price-label">از</span>
-                                <span class="pr-price-amount">۷۰,۰۰۰,۰۰۰</span>
+                                <span
+                                    class="pr-price-amount">{{ number_format($plans->get('ecommerce')?->professional_price ?? 0) }}
+                                </span>
                                 <span class="pr-price-currency">تومان</span>
                             </div>
 
@@ -495,9 +502,12 @@
                             </div>
 
                             <div class="pr-plan-price">
-                                {{-- PRICE: قیمت پایه فروشگاه حرفه‌ای --}}
+                                {{-- PRICE: قیمت  فروشگاه حرفه‌ای --}}
                                 <span class="pr-price-label">از</span>
-                                <span class="pr-price-amount">۱۵۰,۰۰۰,۰۰۰</span>
+                                <span
+                                    class="pr-price-amount">
+                                    {{ number_format($plans->get('ecommerce')?->basic_price ?? 0) }}
+                                </span>
                                 <span class="pr-price-currency">تومان</span>
                             </div>
 

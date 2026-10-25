@@ -22,13 +22,7 @@ class Project extends Model
         'status',
 
     ];
-
-
-
-
     // | هر پروژه متعلق به یک دسته بندی است
-
-
 
     public function category()
     {
@@ -52,4 +46,17 @@ class Project extends Model
             'feature_project'
         )->withTimestamps();
     }
+
+    
+
+public function getStatusLabelAttribute(): string
+{
+    return (int) $this->status === 1
+        ? 'تکمیل شده'
+        : 'در حال توسعه';
+}
+
+
+
+
 }

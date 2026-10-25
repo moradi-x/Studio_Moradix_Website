@@ -3,7 +3,7 @@
     <!-- Logo -->
     <div class="px-5 py-4 border-b">
         <h1 class="text-xl font-bold text-gray-800">
-           Studio Moradix
+            Studio Moradix
         </h1>
     </div>
 
@@ -28,17 +28,25 @@
             دسته بندی ها
         </a>
 
-       
+
         <!-- Projects -->
         <a href="{{ route('admin.projects.index') }}"
             class="block px-4 py-2.5 rounded-lg transition
                   {{ request()->routeIs('admin.projects.*')
                       ? 'bg-green-100 text-green-700'
                       : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
-            پروژه ها 
+            پروژه ها
         </a>
 
-       
+        <!-- PlanPrice -->
+        <a href="{{ route('admin.plan-prices.index') }}"
+            class="block px-4 py-2.5 rounded-lg transition
+                  {{ request()->routeIs('admin.plan-prices.*')
+                      ? 'bg-green-100 text-green-700'
+                      : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
+            قیمت پلن ها 
+        </a>
+
 
         <!-- Requests -->
 

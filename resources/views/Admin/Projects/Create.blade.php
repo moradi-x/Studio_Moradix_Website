@@ -2,36 +2,34 @@
 
 
 @section('script')
-   
-<script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.feature-multiselect').forEach(function (element) {
-            // جلوگیری از مقداردهی چندباره
-            if (element.tomselect) {
-                return;
-            }
-
-            new TomSelect(element, {
-                plugins: ['remove_button'],
-                create: false,
-                persist: false,
-                closeAfterSelect: false,
-                hideSelected: true,
-                maxOptions: 200,
-                placeholder: 'جست‌وجو و انتخاب ویژگی...',
-
-                render: {
-                    no_results: function () {
-                        return '<div class="no-results p-2">موردی پیدا نشد</div>';
-                    }
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.feature-multiselect').forEach(function(element) {
+                // جلوگیری از مقداردهی چندباره
+                if (element.tomselect) {
+                    return;
                 }
+
+                new TomSelect(element, {
+                    plugins: ['remove_button'],
+                    create: false,
+                    persist: false,
+                    closeAfterSelect: false,
+                    hideSelected: true,
+                    maxOptions: 200,
+                    placeholder: 'جست‌وجو و انتخاب ویژگی...',
+
+                    render: {
+                        no_results: function() {
+                            return '<div class="no-results p-2">موردی پیدا نشد</div>';
+                        }
+                    }
+                });
             });
         });
-    });
-</script>
-
+    </script>
 @endsection
 
 
@@ -77,7 +75,8 @@
         {{-- Form --}}
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
 
-            <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data"  autocomplete="off" >
+            <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data"
+                autocomplete="off">
 
                 @csrf
 
@@ -119,28 +118,37 @@
 
 
                         {{-- Category --}}
-                        <div>
 
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                        {{-- Category --}}
+                        <div class="w-full">
+
+                            <label for="category_id" class="mb-2 block text-sm font-semibold text-gray-700">
                                 دسته‌بندی
                             </label>
 
-                            <select name="category_id"
-                                class="w-full rounded-lg border-gray-300 focus:border-green-500 focus:ring-green-500">
+                            <div class="relative">
 
-                                <option value="">
-                                    انتخاب دسته‌بندی
-                                </option>
-
-                                @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}" @selected(old('category_id') == $category->id)>
-                                        {{ $category->name }}
+                                <select name="category_id" id="category_id"
+                                    class="w-full appearance-none rounded-xl border border-gray-200 bg-white px-4 py-3 pl-10 text-sm font-medium text-gray-700 shadow-sm outline-none transition duration-200 hover:border-teal-500 focus:border-teal-600 focus:ring-4 focus:ring-teal-600/10">
+                                    <option value="">
+                                        انتخاب دسته‌بندی
                                     </option>
-                                @endforeach
 
-                            </select>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}" @selected(old('category_id') == $category->id)>
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
+
+                                </select>
+
+                                
+
+                            </div>
+
 
                         </div>
+
 
 
                         {{-- Short Description --}}
@@ -235,84 +243,80 @@
 
 
 
-{{-- Images --}}
-<div class="mb-8">
+                {{-- Images --}}
+                <div class="mb-8">
 
-    <div class="mb-5  mt-5">
-        <h2 class="text-lg font-bold text-gray-800">
-            تصاویر پروژه
-        </h2>
+                    <div class="mb-5  mt-5">
+                        <h2 class="text-lg font-bold text-gray-800">
+                            تصاویر پروژه
+                        </h2>
 
-        
-    </div>
 
-    <div class="grid grid-cols-1 gap-5 lg:grid-cols-3">
+                    </div>
 
-        {{-- Primary Image --}}
-        <div class="rounded-2xl border border-gray-200 bg-white p-5 transition hover:border-indigo-200">
+                    <div class="grid grid-cols-1 gap-5 lg:grid-cols-3">
 
-            <div class="mb-5 flex items-center gap-3">
-               
+                        {{-- Primary Image --}}
+                        <div class="rounded-2xl border border-gray-200 bg-white p-5 transition hover:border-indigo-200">
 
-                <div>
-                    <h3 class="font-semibold text-gray-800">
-                        تصویر اصلی
-                    </h3>
-                   
+                            <div class="mb-5 flex items-center gap-3">
+
+
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">
+                                        تصویر اصلی
+                                    </h3>
+
+                                </div>
+                            </div>
+
+                            <label
+                                class="flex min-h-40 cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 px-4 py-6 text-center transition hover:border-indigo-400 hover:bg-indigo-50/50">
+
+
+
+
+
+
+
+                                <input type="file" name="primary_image" accept="image/jpeg,image/png,image/webp"
+                                    class="sr-only">
+                            </label>
+
+
+                        </div>
+
+                        {{-- Other Images --}}
+                        <div
+                            class="rounded-2xl border border-gray-200 bg-white p-5 transition hover:border-indigo-200 lg:col-span-2">
+
+                            <div class="mb-5 flex items-center gap-3">
+
+
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">
+                                        گالری تصاویر
+                                    </h3>
+
+                                </div>
+                            </div>
+
+                            <label
+                                class="flex min-h-40 cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 px-4 py-6 text-center transition hover:border-purple-400 hover:bg-purple-50/40">
+
+
+
+
+
+                                <input type="file" name="images[]" multiple accept="image/jpeg,image/png,image/webp"
+                                    class="sr-only">
+                            </label>
+
+
+                        </div>
+
+                    </div>
                 </div>
-            </div>
-
-            <label class="flex min-h-40 cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 px-4 py-6 text-center transition hover:border-indigo-400 hover:bg-indigo-50/50">
-
-               
-
-                
-
-                
-
-                <input
-                    type="file"
-                    name="primary_image"
-                    accept="image/jpeg,image/png,image/webp"
-                    class="sr-only">
-            </label>
-
-           
-        </div>
-
-        {{-- Other Images --}}
-        <div class="rounded-2xl border border-gray-200 bg-white p-5 transition hover:border-indigo-200 lg:col-span-2">
-
-            <div class="mb-5 flex items-center gap-3">
-               
-
-                <div>
-                    <h3 class="font-semibold text-gray-800">
-                        گالری تصاویر
-                    </h3>
-                    
-                </div>
-            </div>
-
-            <label class="flex min-h-40 cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 px-4 py-6 text-center transition hover:border-purple-400 hover:bg-purple-50/40">
-
-                
-
-             
-
-                <input
-                    type="file"
-                    name="images[]"
-                    multiple
-                    accept="image/jpeg,image/png,image/webp"
-                    class="sr-only">
-            </label>
-
-           
-        </div>
-
-    </div>
-</div>
 
 
 
@@ -354,26 +358,30 @@
 
 
                         {{-- Status --}}
-                        <div>
 
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                وضعیت
+                        <div class="w-full">
+                            <label for="status" class="mb-2 block text-sm font-semibold text-gray-700">
+                                وضعیت پروژه
                             </label>
 
-                            <select name="status"
-                                class="w-full rounded-lg border-gray-300 focus:border-green-500 focus:ring-green-500">
+                            <div class="relative">
+                                <select name="status" id="status"
+                                    class="w-full appearance-none rounded-xl border border-gray-200 bg-white px-4 py-3 pl-10 text-sm font-medium text-gray-700 shadow-sm outline-none transition duration-200 hover:border-teal-500 focus:border-teal-600 focus:ring-4 focus:ring-teal-600/10">
+                                    <option value="0" {{ old('status', '0') == '0' ? 'selected' : '' }}>
+                                        در حال توسعه
+                                    </option>
 
-                                <option value="1" @selected(old('status', 1) == 1)>
-                                    فعال
-                                </option>
+                                    <option value="1" {{ old('status') == '1' ? 'selected' : '' }}>
+                                        تکمیل شده
+                                    </option>
+                                </select>
 
-                                <option value="0" @selected(old('status') === '0')>
-                                    غیرفعال
-                                </option>
+                               
+                            </div>
 
-                            </select>
-
+                           
                         </div>
+
 
                     </div>
 

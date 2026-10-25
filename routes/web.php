@@ -35,12 +35,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 
     // قیمت پلن ها
-    Route::get('/plan-prices', [PlanPriceController::class, 'index'])
-        ->name('plan-prices.index');
-
+    Route::get('/plan-prices', [PlanPriceController::class, 'index'])->name('plan-prices.index');
     Route::get('/plan-prices/{planPrice}/edit', [PlanPriceController::class, 'edit'])
         ->name('plan-prices.edit');
-
     Route::put('/plan-prices/{planPrice}', [PlanPriceController::class, 'update'])
         ->name('plan-prices.update');
 
@@ -50,11 +47,18 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::delete('/notifications/{id}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
 });
 
-// درباره ما  و تماس با و ما نمونه کارها و پلن ها و قیمت ها
+// درباره ما  و تماس با و ما پلن ها و قیمت ها
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
 Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');
+
+
+
+// نمونه کار ها 
+Route::get('/portfolio', [HomeController::class, 'portfolioIndex'])->name('portfolio');
+Route::get('/portfolio/{slug}', [HomeController::class, 'portfolioShow'])
+    ->name('portfolio.show');
+
 
 
 // سرویس ها (خدمت ها)  

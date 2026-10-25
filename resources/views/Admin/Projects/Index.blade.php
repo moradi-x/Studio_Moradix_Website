@@ -1,7 +1,6 @@
 @extends('admin.layouts.layout')
 
 @section('content')
-
     <div class="p-6">
 
         {{-- Header --}}
@@ -15,7 +14,7 @@
 
             <a href="{{ route('admin.projects.create') }}"
                 class="px-4 py-2 rounded-lg bg-green-600 text-white text-sm font-medium hover:bg-green-700">
-                پروژه جدید 
+                پروژه جدید
             </a>
 
         </div>
@@ -98,20 +97,29 @@
                                 </td>
 
 
-                                {{-- Status --}}
-                                <td class="px-8 py-4 ">
 
-                                    @if ($project->status)
-                                        <span class="text-green-600">
-                                            فعال
+
+                                {{-- Project Status --}}
+
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    @if ((int) $project->status === 1)
+                                        <span
+                                            class="inline-flex items-center gap-2 rounded-full bg-green-100 px-3 py-1.5 text-xs font-semibold text-green-700">
+                                            <span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                                            تکمیل شده
                                         </span>
                                     @else
-                                        <span class="text-red-600">
-                                            غیرفعال
+                                        <span
+                                            class="inline-flex items-center gap-2 rounded-full bg-yellow-100 px-3 py-1.5 text-xs font-semibold text-yellow-700">
+                                            <span class="h-1.5 w-1.5 rounded-full bg-yellow-500"></span>
+                                            در حال توسعه
                                         </span>
                                     @endif
-
                                 </td>
+
+
+
+
 
 
                                 {{-- Actions --}}
@@ -203,5 +211,4 @@
         </div>
 
     </div>
-
 @endsection

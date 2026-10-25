@@ -7,6 +7,10 @@ use App\Models\ContactMessage;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
+use App\Models\PlanPrice;
+use App\Models\Project;
+
+
 
 class HomeController extends Controller
 {
@@ -20,7 +24,7 @@ class HomeController extends Controller
     {
         return view('Home.about');
     }
-    
+
     // app/Http/Controllers/Home/HomeController.php
     public function contact()
     {
@@ -73,16 +77,44 @@ class HomeController extends Controller
         );
     }
 
-       public function pricing()
+    public function pricing()
     {
 
-
-        return view('Home.pricing');
+        $plans = PlanPrice::all()->keyBy('service_type');
+        return view('Home.pricing', compact('plans'));
     }
 
-    public function portfolio()
+    public function portfolioIndex()
+    {
+        $projects = Project::with(['category', 'features'])
+            ->latest()
+            ->get();
+
+        return view('Home.Portfolio.index', compact('projects'));
+    }
+
+
+  
+public function portfolioShow(string $slug)
 {
-    return view('Home.Portfolio.index');
+    $project = Project::with([
+        'category',
+        'features',
+        'images',
+    ])
+        ->where('slug', $slug)
+        ->firstOrFail();
+
+    $relatedProjects = Project::with('category')
+        ->where('id', '!=', $project->id)
+        ->latest()
+        ->take(3)
+        ->get();
+
+    return view('Home.Portfolio.show', compact(
+        'project',
+        'relatedProjects'
+    ));
 }
 
 }
