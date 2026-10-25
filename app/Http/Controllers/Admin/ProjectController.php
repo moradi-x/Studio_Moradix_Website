@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Admin\ProjectImageController;
 use App\Models\ProjectImage;
 use Illuminate\Support\Facades\File;
+use App\Models\FeatureCategory;
+
 
 class ProjectController extends Controller
 {
@@ -22,16 +24,41 @@ class ProjectController extends Controller
 
         return view('admin.projects.index', compact('projects'));
     }
+
+
+    // public function create()
+    // {
+    //     $categories = Category::orderBy('name')->get();
+
+
+    //     return view('admin.projects.create', compact(
+    //         'categories',
+
+    //     ));
+    // }
+
+
     public function create()
     {
         $categories = Category::orderBy('name')->get();
 
+        $featureCategories = FeatureCategory::with([
+            'features' => function ($query) {
+                $query->where('is_active', true)
+                    ->orderBy('sort_order');
+            },
+        ])
+            ->where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
 
         return view('admin.projects.create', compact(
             'categories',
-            
+            'featureCategories'
         ));
     }
+
+
     public function store(Request $request)
     {
         $request->validate([
@@ -46,6 +73,12 @@ class ProjectController extends Controller
             'project_url' => ['nullable'],
             'github_url' => ['nullable'],
             'status' => ['required',    'boolean',],
+            'feature_ids' => ['nullable', 'array'],
+            'feature_ids.*' => [
+                'integer',
+                'distinct',
+                'exists:features,id',
+            ],
         ]);
 
         try {
@@ -79,6 +112,10 @@ class ProjectController extends Controller
                 ]);
             }
 
+            $project->features()->sync(
+                $request->input('feature_ids', [])
+            );
+
             DB::commit();
         } catch (\Throwable $ex) {
             DB::rollBack();
@@ -111,21 +148,48 @@ class ProjectController extends Controller
         return view('admin.projects.show', compact('project'));
     }
 
+    // public function edit(Project $project)
+    // {
+    //     $categories = Category::all();
+
+
+
+    //     return view(
+    //         'admin.projects.edit',
+    //         compact(
+    //             'categories',
+
+    //             'project'
+    //         )
+    //     );
+    // }
+
+
+
     public function edit(Project $project)
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('name')->get();
 
-       
+        $featureCategories = FeatureCategory::with([
+            'features' => function ($query) {
+                $query->where('is_active', true)
+                    ->orderBy('sort_order');
+            },
+        ])
+            ->where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
 
-        return view(
-            'admin.projects.edit',
-            compact(
-                'categories',
-                
-                'project'
-            )
-        );
+        $project->load('features');
+
+        return view('admin.projects.edit', compact(
+            'categories',
+            'featureCategories',
+            'project'
+        ));
     }
+
+
     public function update(Request $request, Project $project)
     {
         $request->validate([
@@ -171,8 +235,13 @@ class ProjectController extends Controller
                 'required',
                 'boolean',
             ],
+            'feature_ids' => ['nullable', 'array'],
+            'feature_ids.*' => [
+                'integer',
+                'distinct',
+                'exists:features,id',
+            ],
 
-            
         ]);
 
         try {
@@ -191,7 +260,9 @@ class ProjectController extends Controller
                 'status' => $request->status,
             ]);
 
-          
+            $project->features()->sync(
+                $request->input('feature_ids', [])
+            );
 
             DB::commit();
         } catch (\Throwable $ex) {
@@ -255,7 +326,7 @@ class ProjectController extends Controller
             // حذف عکس‌های فرعی از جدول project_images
             $project->images()->delete();
 
-            
+
             // حذف خود پروژه
             $project->delete();
 

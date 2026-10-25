@@ -47,7 +47,7 @@
             </label>
 
             <div class="border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 bg-gray-50">
-                {{ $contactMessage->request_type ?: '-' }}
+                {{ $contactMessage->request_type_label ?: '-' }}
             </div>
         </div>
 
@@ -58,7 +58,7 @@
             </label>
 
             <div class="border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 bg-gray-50">
-                {{ $contactMessage->project_type ?: '-' }}
+                {{ $contactMessage->project_type_label ?: '-' }}
             </div>
         </div>
 

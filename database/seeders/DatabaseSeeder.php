@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
             ProjectImageSeeder::class,
             ContactMessageSeeder::class,
             SettingSeeder::class,
-
+            FeatureSeeder::class,
         ]);
     }
 }

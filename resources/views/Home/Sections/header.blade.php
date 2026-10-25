@@ -45,10 +45,14 @@
                       </li>
 
                       <li>
-                          <a href="{{ route('portfolio') }} ">
+
+                           <a href="{{ route('portfolio') }}" @class(['is-active' => request()->routeIs('portfolio')])
+                              @if (request()->routeIs('portfolio')) aria-current="page" @endif>
                               <span class="nav-icon">▦</span>
-                              نمونه‌کارها
+                           نمونه‌کارها
                           </a>
+
+
                       </li>
                       <li>
                           <a href="{{ route('pricing') }}" @class(['is-active' => request()->routeIs('pricing')])
@@ -74,7 +78,6 @@
                           </a>
                       </li>
 
-                      {{-- <li><a href="#faq">سوالات متداول</a></li> --}}
                   </ul>
                   <a href="{{ route('contact') }}" class="btn btn-primary btn-header">ثبت درخواست پروژه</a>
               </nav>

@@ -108,11 +108,6 @@
                                 <input type="text" id="ct-name" name="name" class="ct-form-input"
                                     value="{{ old('name') }}" required aria-required="true" placeholder="مثال: علی احمدی">
 
-                                {{-- @error('name')
-                                    <div class="ct-form-error">
-                                        {{ $message }}
-                                    </div>
-                                @enderror --}}
 
                                 @error('name')
                                     <div class="ct-form-error">
@@ -148,6 +143,10 @@
                                     aria-required="true">
                                     <option value="">انتخاب کنید</option>
 
+                                     <option value="not-sure" {{ old('project_type') === 'not-sure' ? 'selected' : '' }}>
+                                        نمی‌دونم
+                                    </option>
+
                                     <option value="website-design"
                                         {{ old('project_type') === 'website-design' ? 'selected' : '' }}>
                                         طراحی وب‌سایت
@@ -155,31 +154,26 @@
 
                                     <option value="online-shop"
                                         {{ old('project_type') === 'online-shop' ? 'selected' : '' }}>
-                                        فروشگاه اینترنتی
+                                         طراحی فروشگاه اینترنتی
                                     </option>
 
                                     <option value="wordpress-upgrade"
                                         {{ old('project_type') === 'wordpress-upgrade' ? 'selected' : '' }}>
-                                        ارتقای سایت وردپرسی
+                                         باز طراحی و ارتقای سایت 
                                     </option>
 
-                                    <option value="ui-ux-redesign"
-                                        {{ old('project_type') === 'ui-ux-redesign' ? 'selected' : '' }}>
-                                        بازطراحی و UI/UX
-                                    </option>
 
-                                    <option value="seo-speed" {{ old('project_type') === 'seo-speed' ? 'selected' : '' }}>
-                                        سئو و سرعت
-                                    </option>
-
+                                    
                                     <option value="custom-system"
-                                        {{ old('project_type') === 'custom-system' ? 'selected' : '' }}>
-                                        پنل و سیستم اختصاصی
-                                    </option>
+                                    {{ old('project_type') === 'custom-system' ? 'selected' : '' }}>
+                                      سیستم  های اختصاصی
+                                </option>
+                                
+                                <option value="seo-speed" {{ old('project_type') === 'seo-speed' ? 'selected' : '' }}>
+                                    سئو  
+                                </option>
 
-                                    <option value="not-sure" {{ old('project_type') === 'not-sure' ? 'selected' : '' }}>
-                                        نمی‌دونم
-                                    </option>
+                                   
                                 </select>
 
 

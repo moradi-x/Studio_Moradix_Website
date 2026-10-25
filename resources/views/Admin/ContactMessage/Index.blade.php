@@ -56,11 +56,11 @@
                     </td>
 
                     <td class="px-5 py-4">
-                        {{ $contactMessage->request_type }}
+                        {{ $contactMessage->request_type_label }}
                     </td>
 
                     <td class="px-5 py-4">
-                        {{ $contactMessage->project_type }}
+                        {{ $contactMessage->project_type_label}}
                     </td>
 
                     <td class="px-5 py-4">

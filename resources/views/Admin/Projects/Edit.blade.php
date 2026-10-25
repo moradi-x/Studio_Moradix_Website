@@ -2,7 +2,43 @@
 
 @section('title', 'ویرایش پروژه')
 
+
+
+
+@section('script')
+   <script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.feature-multiselect').forEach(function (element) {
+            if (element.tomselect) return;
+
+            new TomSelect(element, {
+                plugins: ['remove_button'],
+                create: false,
+                persist: false,
+                closeAfterSelect: false,
+                hideSelected: true,
+                placeholder: 'جست‌وجو و انتخاب ویژگی...',
+                render: {
+                    no_results: function () {
+                        return '<div class="no-results p-2">موردی پیدا نشد</div>';
+                    }
+                }
+            });
+        });
+    });
+</script>
+@endsection
+
+
 @section('content')
+
+<link
+    href="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/css/tom-select.css"
+    rel="stylesheet"
+>
+
 
     <div class="w-full min-h-screen p-6">
 
@@ -144,6 +180,76 @@
                 </div>
 
             </div>
+
+
+
+            {{-- Project Features --}}
+            @php
+                $oldFeatureIds = old('feature_ids', $project->features->pluck('id')->toArray());
+
+                $selectedFeatureIds = is_array($oldFeatureIds) ? array_map('intval', $oldFeatureIds) : [];
+            @endphp
+
+            <div class="mt-8 rounded-2xl border border-gray-200 bg-white p-5 md:p-6">
+
+                <div class="mb-6">
+                    <h2 class="text-lg font-bold text-gray-800">
+                        امکانات و ویژگی‌های پروژه
+                    </h2>
+
+                    <p class="mt-1 text-sm text-gray-500">
+                        ویژگی‌های مرتبط با این پروژه را انتخاب یا ویرایش کنید.
+                    </p>
+                </div>
+
+                @error('feature_ids')
+                    <p class="mb-4 text-sm text-red-600">{{ $message }}</p>
+                @enderror
+
+                <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+                    @forelse ($featureCategories as $featureCategory)
+
+                        @if ($featureCategory->features->isNotEmpty())
+                            <div class="rounded-xl border border-gray-200 bg-gray-50/70 p-4">
+
+                                <label for="features-category-{{ $featureCategory->id }}"
+                                    class="mb-3 block font-semibold text-gray-800">
+                                    {{ $featureCategory->name }}
+                                </label>
+
+                                @if ($featureCategory->description)
+                                    <p class="mb-3 text-xs leading-5 text-gray-500">
+                                        {{ $featureCategory->description }}
+                                    </p>
+                                @endif
+
+                                <select id="features-category-{{ $featureCategory->id }}" name="feature_ids[]"
+                                    class="feature-multiselect w-full" multiple placeholder="جست‌وجو و انتخاب ویژگی...">
+                                    @foreach ($featureCategory->features as $feature)
+                                        <option value="{{ $feature->id }}" @selected(in_array($feature->id, $selectedFeatureIds, true))>
+                                            {{ $feature->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+
+                                <p class="mt-2 text-xs text-gray-400">
+                                    امکان انتخاب چند ویژگی وجود دارد.
+                                </p>
+
+                            </div>
+                        @endif
+
+                    @empty
+                        <p class="text-sm text-gray-500">
+                            دسته‌بندی فعالی برای ویژگی‌ها وجود ندارد.
+                        </p>
+                    @endforelse
+
+                </div>
+            </div>
+
+
 
 
             {{-- Row 3 --}}
