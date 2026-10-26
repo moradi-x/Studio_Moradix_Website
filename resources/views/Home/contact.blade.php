@@ -143,7 +143,7 @@
                                     aria-required="true">
                                     <option value="">انتخاب کنید</option>
 
-                                     <option value="not-sure" {{ old('project_type') === 'not-sure' ? 'selected' : '' }}>
+                                    <option value="not-sure" {{ old('project_type') === 'not-sure' ? 'selected' : '' }}>
                                         نمی‌دونم
                                     </option>
 
@@ -154,26 +154,26 @@
 
                                     <option value="online-shop"
                                         {{ old('project_type') === 'online-shop' ? 'selected' : '' }}>
-                                         طراحی فروشگاه اینترنتی
+                                        طراحی فروشگاه اینترنتی
                                     </option>
 
                                     <option value="wordpress-upgrade"
                                         {{ old('project_type') === 'wordpress-upgrade' ? 'selected' : '' }}>
-                                         باز طراحی و ارتقای سایت 
+                                        باز طراحی و ارتقای سایت
                                     </option>
 
 
-                                    
-                                    <option value="custom-system"
-                                    {{ old('project_type') === 'custom-system' ? 'selected' : '' }}>
-                                      سیستم  های اختصاصی
-                                </option>
-                                
-                                <option value="seo-speed" {{ old('project_type') === 'seo-speed' ? 'selected' : '' }}>
-                                    سئو  
-                                </option>
 
-                                   
+                                    <option value="custom-system"
+                                        {{ old('project_type') === 'custom-system' ? 'selected' : '' }}>
+                                        سیستم های اختصاصی
+                                    </option>
+
+                                    <option value="seo-speed" {{ old('project_type') === 'seo-speed' ? 'selected' : '' }}>
+                                        سئو
+                                    </option>
+
+
                                 </select>
 
 

@@ -22,6 +22,24 @@
 
     <main class="pd-page">
 
+        {{-- Breadcrumb --}}
+
+        <nav class="sv-breadcrumb" aria-label="مسیر صفحه">
+            <div class="container">
+                <ol class="sv-breadcrumb-list">
+                    <li class="sv-breadcrumb-item">
+                        <a href="{{ route('home') }}">صفحه اصلی</a>
+                    </li>
+                    <li class="sv-breadcrumb-item">
+                        <a href="{{ route('portfolio') }}"> نمونه کار ها </a>
+                    </li>
+                    <li class="sv-breadcrumb-item" aria-current="page">
+                        پروژه {{ $project->title }}
+                    </li>
+                </ol>
+            </div>
+        </nav>
+
         {{-- Hero --}}
         @php
             $heroImage = $project->primary_image ? asset('uploads/projects/images/' . $project->primary_image) : null;
@@ -127,6 +145,7 @@
         </section>
 
 
+
         {{-- Project Overview --}}
         <section class="pf-overview-section" id="project-details">
 
@@ -227,30 +246,32 @@
         </section>
 
 
-
         {{-- Project Gallery --}}
         @php
+            $uploadPath = trim(env('PROJECT_IMAGES_UPLOAD_PATH'), '/');
+
             $galleryImages = collect();
 
-            // Main image from projects table
-            if (!empty($project->image)) {
+            // تصویر اصلی پروژه
+            if ($project->primary_image) {
                 $galleryImages->push([
-                    'path' => $project->image,
+                    'path' => asset($uploadPath . '/' . $project->primary_image),
                     'alt' => $project->title . ' - تصویر اصلی پروژه',
-                    'primary' => true,
                 ]);
             }
 
-            // Additional images from project_images table
-            foreach ($project->images ?? [] as $image) {
-                if (!empty($image->image)) {
+            // تصاویر اضافه پروژه
+            foreach ($project->images as $image) {
+                if ($image->image) {
                     $galleryImages->push([
-                        'path' => $image->image,
-                        'alt' => $image->alt_text ?? $project->title . ' - تصویر پروژه',
-                        'primary' => false,
+                        'path' => asset($uploadPath . '/' . $image->image),
+                        'alt' => $project->title . ' - تصویر پروژه',
                     ]);
                 }
             }
+
+            // جلوگیری از نمایش دوباره یک فایل
+            $galleryImages = $galleryImages->unique('path')->values();
         @endphp
 
         @if ($galleryImages->isNotEmpty())
@@ -275,47 +296,11 @@
 
                     <div class="pf-gallery-grid">
                         @foreach ($galleryImages as $index => $image)
-                            <button type="button" class="pf-gallery-item"
-                                data-gallery-image="{{ \Illuminate\Support\Facades\Storage::url($image['path']) }}"
+                            <button type="button" class="pf-gallery-item" data-gallery-image="{{ $image['path'] }}"
                                 data-gallery-alt="{{ $image['alt'] }}"
                                 aria-label="نمایش بزرگ‌تر تصویر {{ $index + 1 }}">
-
-                                @php
-                                    $uploadPath = trim(env('PROJECT_IMAGES_UPLOAD_PATH'), '/');
-
-                                    $galleryImages = collect();
-
-                                    if ($project->primary_image) {
-                                        $galleryImages->push([
-                                            'path' => asset($uploadPath . '/' . $project->primary_image),
-                                            'alt' => $project->title . ' - تصویر اصلی',
-                                        ]);
-                                    }
-
-                                    foreach ($project->images as $image) {
-                                        if ($image->image) {
-                                            $galleryImages->push([
-                                                'path' => asset($uploadPath . '/' . $image->image),
-                                                'alt' => $project->title . ' - تصویر پروژه',
-                                            ]);
-                                        }
-                                    }
-                                @endphp
-
-                                @if ($galleryImages->isNotEmpty())
-                                    <div class="pf-gallery-grid">
-                                        @foreach ($galleryImages as $index => $image)
-                                            <button type="button" class="pf-gallery-item"
-                                                data-gallery-image="{{ $image['path'] }}"
-                                                data-gallery-alt="{{ $image['alt'] }}"
-                                                aria-label="نمایش تصویر {{ $index + 1 }}">
-                                                <img src="{{ $image['path'] }}" alt="{{ $image['alt'] }}"
-                                                    loading="lazy" decoding="async">
-                                            </button>
-                                        @endforeach
-                                    </div>
-                                @endif
-
+                                <img src="{{ $image['path'] }}" alt="{{ $image['alt'] }}" loading="lazy"
+                                    decoding="async">
 
                                 <span class="pf-gallery-zoom" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" fill="none">
@@ -335,7 +320,6 @@
             {{-- Image lightbox --}}
             <div class="pf-gallery-lightbox" data-gallery-lightbox aria-hidden="true" role="dialog" aria-modal="true"
                 aria-label="نمایش تصویر پروژه">
-
                 <button type="button" class="pf-lightbox-close" data-gallery-close aria-label="بستن تصویر">
                     &times;
                 </button>
@@ -351,6 +335,208 @@
         @endif
 
 
+        {{-- Project Metadata --}}
+        @php
+            $projectCategory = $project->category;
+            $projectFeatures = $project->features ?? collect();
+
+            $categoryName = $projectCategory->name ?? ($projectCategory->title ?? null);
+
+            $metadataItems = [
+                [
+                    'label' => 'دسته‌بندی پروژه',
+                    'value' => $categoryName,
+                    'icon' => 'grid',
+                ],
+                [
+                    'label' => 'وضعیت پروژه',
+                    'value' => $project->status == 1 ? 'تکمیل شده' : 'در حال توسعه',
+                    'icon' => 'check-circle',
+                ],
+                [
+                    'label' => 'تعداد ویژگی‌ها',
+                    'value' => $projectFeatures->count() ? $projectFeatures->count() . ' ویژگی ثبت‌شده' : null,
+                    'icon' => 'layers',
+                ],
+                [
+                    'label' => 'وب‌سایت پروژه',
+                    'value' => $project->project_url ? 'مشاهده وب‌سایت' : null,
+                    'icon' => 'external-link',
+                ],
+            ];
+
+            $metadataItems = collect($metadataItems)->filter(fn($item) => filled($item['value']))->values();
+        @endphp
+
+        @if ($metadataItems->isNotEmpty())
+            <section class="pf-metadata-section" aria-label="مشخصات پروژه">
+                <div class="container">
+
+                    <div class="pf-metadata-heading">
+                        <span class="pf-metadata-eyebrow">PROJECT DETAILS</span>
+                        <h2>مشخصات پروژه</h2>
+                        <p>
+                            نگاهی کوتاه به اطلاعات و جزئیات این پروژه داشته باشید.
+                        </p>
+                    </div>
+
+                    <div class="pf-metadata-grid">
+                        @foreach ($metadataItems as $item)
+                            <div class="pf-metadata-card">
+
+                                <span class="pf-metadata-icon" aria-hidden="true">
+                                    @if ($item['icon'] === 'grid')
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                                            <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                                            <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                                            <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                                        </svg>
+                                    @elseif ($item['icon'] === 'check-circle')
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <circle cx="12" cy="12" r="9" />
+                                            <path d="m8 12 2.5 2.5L16 9" />
+                                        </svg>
+                                    @elseif ($item['icon'] === 'layers')
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <path d="m12 3 9 5-9 5-9-5 9-5Z" />
+                                            <path d="m3 12 9 5 9-5M3 16l9 5 9-5" />
+                                        </svg>
+                                    @else
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <path d="M14 3h7v7M21 3l-10 10" />
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                        </svg>
+                                    @endif
+                                </span>
+
+                                <div class="pf-metadata-text">
+                                    <span class="pf-metadata-label">
+                                        {{ $item['label'] }}
+                                    </span>
+
+                                    @if ($item['icon'] === 'external-link' && $project->project_url)
+                                        <a href="{{ $project->project_url }}" target="_blank" rel="noopener noreferrer"
+                                            class="pf-metadata-value pf-metadata-link">
+                                            {{ $item['value'] }}
+                                        </a>
+                                    @else
+                                        <span class="pf-metadata-value">
+                                            {{ $item['value'] }}
+                                        </span>
+                                    @endif
+                                </div>
+
+                            </div>
+                        @endforeach
+                    </div>
+
+                </div>
+            </section>
+        @endif
+
+
+
+        
+
+
+        {{-- Related Projects --}}
+        @if (isset($relatedProjects) && $relatedProjects->isNotEmpty())
+            <section class="pf-related-section" id="related-projects">
+                <div class="container">
+
+                    <div class="pf-related-heading">
+                        <div>
+                            <span class="pf-related-eyebrow">EXPLORE MORE WORK</span>
+                            <h2>پروژه‌های مرتبط</h2>
+                            <p>
+                                نمونه‌کارهای بیشتری را در همین زمینه بررسی کنید.
+                            </p>
+                        </div>
+
+                        <a href="{{ route('portfolio') }}" class="pf-related-all">
+                            مشاهده همه پروژه‌ها
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M19 12H5M11 18l-6-6 6-6" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="pf-related-grid">
+                        @foreach ($relatedProjects as $relatedProject)
+                            <a href="{{ route('portfolio.show', $relatedProject->slug) }}" class="pf-related-card">
+
+                                <div class="pf-related-image">
+                                    @if ($relatedProject->primary_image)
+                                        <img src="{{ asset('uploads/projects/images/' . $relatedProject->primary_image) }}"
+                                            alt="{{ $relatedProject->title }}" loading="lazy">
+                                    @else
+                                        <div class="pf-related-placeholder">
+                                            <span>Moradix Studio</span>
+                                        </div>
+                                    @endif
+
+                                    <span class="pf-related-arrow" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <path d="M7 17 17 7M7 7h10v10" />
+                                        </svg>
+                                    </span>
+                                </div>
+
+                                <div class="pf-related-content">
+                                    @if ($relatedProject->category)
+                                        <span class="pf-related-category">
+                                            {{ $relatedProject->category->name }}
+                                        </span>
+                                    @endif
+
+                                    <h3>{{ $relatedProject->title }}</h3>
+
+                                    @if ($relatedProject->short_description)
+                                        <p>{{ $relatedProject->short_description }}</p>
+                                    @endif
+                                </div>
+
+                            </a>
+                        @endforeach
+                    </div>
+
+                </div>
+            </section>
+        @endif
+
+        {{-- CTA --}}
+        <section class="pf-cta" id="pf-contact">
+            <div class="container pf-container">
+                <div class="pf-cta-card">
+                    <div class="pf-cta-decoration pf-cta-decoration-one"></div>
+                    <div class="pf-cta-decoration pf-cta-decoration-two"></div>
+
+                    <div class="pf-cta-content">
+                        <h2>
+                            ایده شما می‌تواند<br>
+                            <span>شروع پروژه بعدی باشد.</span>
+                        </h2>
+                        <p>
+                            اگر برای کسب‌وکار خود به وب‌سایت یا فروشگاه اینترنتی
+                            نیاز دارید، می‌توانیم درباره ایده و نیازهای شما صحبت کنیم.
+                        </p>
+
+                        <a href="{{ url('/contact') }}" class="pf-btn pf-btn-light">
+                            شروع گفتگو
+                            <span aria-hidden="true">←</span>
+                        </a>
+                    </div>
+
+                    <div class="pf-cta-mark" aria-hidden="true">
+                        <span>M</span>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
 @endsection

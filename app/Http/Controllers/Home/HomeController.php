@@ -9,15 +9,35 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use App\Models\PlanPrice;
 use App\Models\Project;
-
-
+use App\Models\StudioService;
+use App\Models\StudioTechnology;
 
 class HomeController extends Controller
 {
     // app/Http/Controllers/Home/HomeController.php
     public function index()
     {
-        return view('Home.index');
+
+        $studioServices = StudioService::query()
+            ->where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
+
+        $techStack = StudioTechnology::query()
+            ->where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
+
+        $featuredProjects = Project::with(['category', 'features'])
+            ->latest()
+            ->take(3)
+            ->get();
+
+        return view('home.index', compact(
+            'studioServices',
+            'techStack' ,
+            'featuredProjects'
+        ));
     }
 
     public function about()
@@ -94,27 +114,30 @@ class HomeController extends Controller
     }
 
 
-  
-public function portfolioShow(string $slug)
-{
-    $project = Project::with([
-        'category',
-        'features',
-        'images',
-    ])
-        ->where('slug', $slug)
-        ->firstOrFail();
 
-    $relatedProjects = Project::with('category')
-        ->where('id', '!=', $project->id)
-        ->latest()
-        ->take(3)
-        ->get();
+    public function portfolioShow(string $slug)
+    {
+        $project = Project::with([
+            'category',
+            'features',
+            'images',
+        ])
+            ->where('slug', $slug)
+            ->firstOrFail();
 
-    return view('Home.Portfolio.show', compact(
-        'project',
-        'relatedProjects'
-    ));
-}
+        $relatedProjects = Project::with('category')
+            ->where('id', '!=', $project->id)
+            ->latest()
+            ->take(3)
+            ->get();
 
+
+
+
+
+        return view('Home.Portfolio.show', compact(
+            'project',
+            'relatedProjects'
+        ));
+    }
 }

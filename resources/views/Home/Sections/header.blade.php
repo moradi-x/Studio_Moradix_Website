@@ -46,11 +46,15 @@
 
                       <li>
 
-                           <a href="{{ route('portfolio') }}" @class(['is-active' => request()->routeIs('portfolio')])
-                              @if (request()->routeIs('portfolio')) aria-current="page" @endif>
+
+                          <a href="{{ route('portfolio') }}" @class([
+                              'is-active' => request()->routeIs('portfolio', 'portfolio.show'),
+                          ])
+                              @if (request()->routeIs('portfolio', 'portfolio.show')) aria-current="page" @endif>
                               <span class="nav-icon">▦</span>
-                           نمونه‌کارها
+                              نمونه‌کارها
                           </a>
+
 
 
                       </li>
@@ -128,9 +132,14 @@
               </li>
 
               <li>
-                  <a href="{{ route('portfolio') }}" @class(['is-active' => request()->routeIs('portfolio')])>
-                    نمونه‌کارها
-                    </a>
+
+                  <a href="{{ route('portfolio') }}" @class([
+                      'is-active' => request()->routeIs('portfolio', 'portfolio.show'),
+                  ])
+                      @if (request()->routeIs('portfolio', 'portfolio.show')) aria-current="page" @endif>
+                      نمونه‌کارها
+                  </a>
+
               </li>
 
               <li>

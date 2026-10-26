@@ -55,7 +55,7 @@
                             <span aria-hidden="true">←</span>
                         </a>
 
-                        <a href="#pf-contact" class="pf-btn pf-btn-secondary">
+                        <a href="{{ route('contact') }}" class="pf-btn pf-btn-secondary">
                             درباره پروژه خودتان صحبت کنیم
                         </a>
                     </div>
