@@ -55,7 +55,7 @@
                         </a>
                     </div>
 
-                    
+
                 </div>
 
 
@@ -145,7 +145,6 @@
             <div class="about-container about-story-grid">
 
                 <div class="about-section-heading">
-
                     <h2>
                         ما به چیزی بیشتر از
                         <span class="about-gradient">ساختن یک وب‌سایت</span>
@@ -155,22 +154,20 @@
 
                 <div class="about-story-content">
                     <p class="about-story-intro">
-                        Studio Moradix با یک نگاه ساده شکل گرفته است:
-                        فناوری زمانی ارزشمند است که مسئله‌ای واقعی را حل کند.
+                        در Studio Moradix، فناوری زمانی ارزشمند است
+                        که مسئله‌ای واقعی را حل کند.
                     </p>
 
                     <p>
-                        برای ما، هر پروژه فرصتی است برای ترکیب تفکر فنی،
-                        طراحی سنجیده و شناخت نیازهای یک کسب‌وکار.
-                        به‌جای راه‌حل‌های شتاب‌زده و پیچیدگی‌های غیرضروری،
-                        به ساخت محصولاتی فکر می‌کنیم که قابل اتکا،
-                        قابل توسعه و متناسب با هدفشان باشند.
+                        هر پروژه برای ما ترکیبی از طراحی سنجیده،
+                        مهندسی دقیق و شناخت نیازهای کسب‌وکار است.
+                        هدفمان ساخت محصولاتی کاربردی، قابل اتکا
+                        و آماده‌ی توسعه است.
                     </p>
 
                     <p>
-                        می‌خواهیم Studio Moradix استودیویی باشد که کیفیت کار،
-                        شفافیت در ارتباط و مسئولیت‌پذیری، بخش جدایی‌ناپذیر
-                        تجربه‌ی همکاری با آن است.
+                        کیفیت، ارتباط شفاف و مسئولیت‌پذیری،
+                        پایه‌ی همکاری ما با هر مشتری است.
                     </p>
 
                     <div class="about-quote">
@@ -360,78 +357,6 @@
                             یک مسیر مشترک، کیفیتی ماندگار.
                         </span>
                     </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        {{-- 5. Commitments --}}
-        <section class="about-section about-commitments">
-            <div class="about-container about-commitments-grid">
-
-                <div class="about-section-heading">
-
-                    <h2>حرفی که می‌زنیم، باید در عمل دیده شود.</h2>
-
-                    <p>
-                        اعتماد با شعار ساخته نمی‌شود؛ با انتظارات روشن
-                        و پایبندی به آن‌ها شکل می‌گیرد.
-                    </p>
-                </div>
-
-
-                <div class="about-commitments-list">
-
-                    <article class="about-commitment">
-                        <span class="about-check-icon">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="m5 12 4 4L19 6" />
-                            </svg>
-                        </span>
-
-                        <div>
-                            <h3>شفافیت در تصمیم‌ها</h3>
-                            <p>
-                                درباره‌ی محدوده‌ی کار، زمان‌بندی و هزینه‌ها
-                                روشن و صریح صحبت می‌کنیم.
-                            </p>
-                        </div>
-                    </article>
-
-
-                    <article class="about-commitment">
-                        <span class="about-check-icon">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="m5 12 4 4L19 6" />
-                            </svg>
-                        </span>
-
-                        <div>
-                            <h3>احترام به زمان و توافق‌ها</h3>
-                            <p>
-                                برنامه‌ریزی واقع‌بینانه و اطلاع‌رسانی به‌موقع
-                                را بخشی از مسئولیت حرفه‌ای می‌دانیم.
-                            </p>
-                        </div>
-                    </article>
-
-
-                    <article class="about-commitment">
-                        <span class="about-check-icon">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="m5 12 4 4L19 6" />
-                            </svg>
-                        </span>
-
-                        <div>
-                            <h3>پاسخ‌گویی پس از تحویل</h3>
-                            <p>
-                                محدوده‌ی پشتیبانی و تعهدات پس از تحویل را
-                                از ابتدا مشخص می‌کنیم و به توافق پایبند می‌مانیم.
-                            </p>
-                        </div>
-                    </article>
 
                 </div>
             </div>

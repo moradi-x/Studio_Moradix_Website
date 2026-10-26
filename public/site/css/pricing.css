@@ -56,87 +56,593 @@
     background-color: var(--color-bg);
 }
 
-/* ==================== Hero Section ==================== */
-.pr-hero {
-    padding-block: 4rem 3rem;
-    background: linear-gradient(135deg, var(--color-primary-soft) 0%, var(--color-surface) 100%);
+
+/* =========================
+   Pricing Hero — Refined & Compact
+========================= */
+
+/* =========================================
+   Pricing Hero — Moradix
+   Colors: White / Black / #0F766E
+========================================= */
+
+.ph {
+    --ph-primary: #0F766E;
+    --ph-primary-dark: #0b5f59;
+    --ph-text: #171a1a;
+    --ph-muted: #626b6a;
+    --ph-border: #e5e9e8;
+    --ph-soft: #f4f9f8;
+
     position: relative;
+    isolation: isolate;
     overflow: hidden;
+    padding: 54px 0 48px;
+    background: #fff;
+    color: var(--ph-text);
 }
 
-.pr-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle, rgba(15, 118, 110, 0.08) 1px, transparent 1px);
-    background-size: 24px 24px;
-    z-index: 0;
+.ph *,
+.ph *::before,
+.ph *::after {
+    box-sizing: border-box;
 }
 
-@media (min-width: 768px) {
-    .pr-hero {
-        padding-block: 5rem 4rem;
-    }
-}
-
-.pr-hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 48rem;
+.ph-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: clamp(36px, 5vw, 76px);
+    max-width: 1200px;
     margin-inline: auto;
-    text-align: center;
 }
 
-.pr-hero h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: var(--font-weight-bold);
-    line-height: 1.2;
-    margin-block-end: 1rem;
-    color: var(--color-text);
+
+/* =========================================
+   Text Content
+========================================= */
+
+.ph-text {
+    min-width: 0;
+    text-align: right;
 }
 
-.pr-hero-desc {
-    font-size: var(--font-size-lg);
-    color: var(--color-text-muted);
-    line-height: var(--line-height-base);
-    margin-block-end: 2.5rem;
+.ph-kicker {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0 17px;
+    padding: 8px 12px;
+    border: 1px solid #d8eae7;
+    border-radius: 7px;
+    background: #f5faf9;
+    color: var(--ph-primary);
+    font-size: 0.77rem;
+    font-weight: 650;
+    line-height: 1.7;
 }
 
-/* Trust Bar */
-.pr-trust-bar {
+.ph-text h1 {
+    margin: 0;
+    color: var(--ph-text);
+    font-size: clamp(2rem, 3.4vw, 2.85rem);
+    font-weight: 850;
+    line-height: 1.75;
+    letter-spacing: -0.7px;
+}
+
+.ph-mark {
+    padding: 0;
+    background: transparent;
+    color: var(--ph-primary);
+    text-decoration: none;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+.ph-lead {
+    max-width: 520px;
+    margin: 15px 0 23px;
+    color: var(--ph-muted);
+    font-size: 0.94rem;
+    line-height: 2;
+}
+
+/* =========================================
+   Buttons
+========================================= */
+
+.ph-actions {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-block-end: 2rem;
+    align-items: center;
+    gap: 11px;
 }
 
-@media (min-width: 768px) {
-    .pr-trust-bar {
-        gap: 3rem;
+.ph-btn {
+    display: inline-flex;
+    min-height: 47px;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 19px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 0.84rem;
+    font-weight: 750;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background-color 0.22s ease,
+        border-color 0.22s ease,
+        color 0.22s ease,
+        box-shadow 0.22s ease,
+        transform 0.22s ease;
+}
+
+.ph-btn--primary {
+    gap: 9px;
+    background: var(--ph-primary);
+    color: #fff;
+    box-shadow: 0 5px 14px rgba(15, 118, 110, 0.12);
+}
+
+.ph-btn--primary::after {
+    content: "←";
+    font-size: 1.05rem;
+    line-height: 1;
+    transition: transform 0.22s ease;
+}
+
+.ph-btn--primary:hover {
+    transform: translateY(-2px);
+    background: var(--ph-primary-dark);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(15, 118, 110, 0.2);
+}
+
+.ph-btn--primary:hover::after {
+    transform: translateX(-3px);
+}
+
+.ph-btn--ghost {
+    border-color: #dfe5e3;
+    background: #fff;
+    color: #242a29;
+}
+
+.ph-btn--ghost:hover {
+    border-color: var(--ph-primary);
+    background: #f6fbfa;
+    color: var(--ph-primary);
+}
+
+/* Keyboard accessibility */
+
+.ph-btn:focus-visible {
+    outline: 3px solid rgba(15, 118, 110, 0.3);
+    outline-offset: 4px;
+}
+
+/* =========================================
+   Trust Points
+========================================= */
+
+.ph-points {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;
+    margin: 26px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ph-points li {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #535d5b;
+    font-size: 0.77rem;
+    line-height: 1.8;
+}
+
+.ph-points svg {
+    display: block;
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    color: var(--ph-primary);
+}
+
+/* =========================================
+   Minimal CSS Illustration
+========================================= */
+
+.ph-art {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    min-height: 340px;
+    align-items: center;
+    justify-content: center;
+    isolation: isolate;
+    padding: 35px 12px;
+}
+
+/* Soft teal decorative orb */
+
+.ph-orb {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    width: min(80%, 340px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(15, 118, 110, 0.10) 0%,
+        rgba(15, 118, 110, 0.045) 48%,
+        transparent 72%
+    );
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* Plan cards */
+
+.ph-card {
+    position: relative;
+    width: 48%;
+    min-width: 0;
+    padding: 24px 19px 19px;
+    border: 1px solid var(--ph-border);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 12px 32px rgba(20, 39, 36, 0.055);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.ph-card--a {
+    z-index: 1;
+    margin-left: -14px;
+    transform: translateY(13px) rotate(-3deg);
+}
+
+.ph-card--b {
+    z-index: 2;
+    border-color: rgba(15, 118, 110, 0.38);
+    background: linear-gradient(155deg, #fff 45%, #f4faf9);
+    box-shadow:
+        0 18px 42px rgba(15, 55, 50, 0.09),
+        0 0 0 4px rgba(15, 118, 110, 0.035);
+    transform: translateY(-8px) rotate(2deg);
+}
+
+.ph-card--a:hover {
+    transform: translateY(5px) rotate(-1deg);
+    border-color: #cbd9d6;
+}
+
+.ph-card--b:hover {
+    transform: translateY(-13px) rotate(0deg);
+    box-shadow: 0 22px 48px rgba(15, 55, 50, 0.12);
+}
+
+/* Card heading */
+
+.ph-name {
+    display: block;
+    margin-bottom: 24px;
+    color: #252b2a;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.ph-card--b .ph-name {
+    color: var(--ph-primary);
+}
+
+/* Recommended badge */
+
+.ph-badge {
+    position: absolute;
+    top: -13px;
+    right: 17px;
+    padding: 5px 10px;
+    border: 1px solid rgba(15, 118, 110, 0.15);
+    border-radius: 6px;
+    background: var(--ph-primary);
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Feature rows */
+
+.ph-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.ph-row {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 9px;
+}
+
+.ph-row svg {
+    display: block;
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    color: var(--ph-primary);
+}
+
+.ph-row b {
+    display: block;
+    width: var(--w, 65%);
+    max-width: 100%;
+    height: 6px;
+    border-radius: 99px;
+    background: #e8edeb;
+}
+
+.ph-card--b .ph-row b {
+    background: #d9ebe7;
+}
+
+/* Featured card bottom accent */
+
+.ph-bar {
+    display: block;
+    width: 100%;
+    height: 5px;
+    margin-top: 27px;
+    overflow: hidden;
+    border-radius: 99px;
+    background: #e5f1ef;
+}
+
+.ph-bar::before {
+    display: block;
+    width: 68%;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--ph-primary);
+    content: "";
+}
+
+/* =========================================
+   Tablet
+========================================= */
+
+@media (max-width: 1000px) {
+    .ph {
+        padding: 42px 0 36px;
+    }
+
+    .ph-inner {
+        gap: 25px;
+    }
+
+    .ph-text h1 {
+        font-size: clamp(1.8rem, 3.4vw, 2.35rem);
+    }
+
+    .ph-lead {
+        font-size: 0.88rem;
+    }
+
+    .ph-art {
+        min-height: 300px;
+        padding-inline: 7px;
+    }
+
+    .ph-card {
+        padding: 21px 14px 17px;
+    }
+
+    .ph-points {
+        gap: 10px 13px;
     }
 }
 
-.pr-trust-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.9375rem;
-    color: var(--color-text);
+/* =========================================
+   Mobile
+========================================= */
+
+@media (max-width: 700px) {
+    .ph {
+        padding: 30px 0 25px;
+    }
+
+    .ph-inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    .ph-text {
+        text-align: center;
+    }
+
+    .ph-kicker {
+        margin-bottom: 10px;
+        font-size: 0.72rem;
+    }
+
+    .ph-text h1 {
+        font-size: clamp(1.7rem, 5.8vw, 2.2rem);
+        line-height: 1.7;
+        letter-spacing: -0.3px;
+    }
+
+    .ph-lead {
+        margin: 10px auto 18px;
+        font-size: 0.83rem;
+        line-height: 1.95;
+    }
+
+    .ph-actions {
+        justify-content: center;
+        gap: 9px;
+    }
+
+    .ph-btn {
+        min-height: 43px;
+        padding: 10px 14px;
+        font-size: 0.78rem;
+    }
+
+    .ph-points {
+        justify-content: center;
+        gap: 9px 14px;
+        margin-top: 19px;
+    }
+
+    .ph-points li {
+        gap: 5px;
+        font-size: 0.7rem;
+    }
+
+    .ph-points svg {
+        width: 15px;
+        height: 15px;
+    }
+
+    .ph-art {
+        width: 100%;
+        max-width: 450px;
+        min-height: 290px;
+        margin-inline: auto;
+        padding: 25px 7px;
+    }
+
+    .ph-card {
+        width: 47%;
+        padding: 22px 14px 17px;
+    }
+
+    .ph-card--a {
+        margin-left: -9px;
+    }
+
+    .ph-name {
+        margin-bottom: 21px;
+        font-size: 1rem;
+    }
+
+    .ph-rows {
+        gap: 15px;
+    }
 }
 
-.pr-trust-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    color: var(--color-primary);
-    flex-shrink: 0;
+/* =========================================
+   Small Phones
+========================================= */
+
+@media (max-width: 390px) {
+    .ph {
+        padding: 24px 0 20px;
+    }
+
+    .ph-inner {
+        gap: 15px;
+    }
+
+    .ph-kicker {
+        padding: 6px 9px;
+        font-size: 0.66rem;
+    }
+
+    .ph-text h1 {
+        font-size: 1.55rem;
+        line-height: 1.75;
+    }
+
+    .ph-lead {
+        font-size: 0.77rem;
+        line-height: 1.9;
+    }
+
+    .ph-btn {
+        padding: 9px 11px;
+        font-size: 0.72rem;
+    }
+
+    .ph-points {
+        gap: 8px 10px;
+    }
+
+    .ph-points li {
+        font-size: 0.64rem;
+    }
+
+    .ph-art {
+        min-height: 245px;
+        padding: 22px 4px;
+    }
+
+    .ph-card {
+        padding: 19px 11px 15px;
+        border-radius: 12px;
+    }
+
+    .ph-card--a {
+        margin-left: -7px;
+    }
+
+    .ph-name {
+        margin-bottom: 19px;
+        font-size: 0.9rem;
+    }
+
+    .ph-badge {
+        right: 10px;
+        font-size: 0.61rem;
+    }
+
+    .ph-row {
+        gap: 6px;
+    }
+
+    .ph-row svg {
+        width: 15px;
+        height: 15px;
+    }
+
+    .ph-row b {
+        height: 5px;
+    }
+
+    .ph-rows {
+        gap: 14px;
+    }
+
+    .ph-bar {
+        margin-top: 22px;
+    }
 }
 
-.pr-last-update {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-    margin-block-end: 0;
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+    .ph-card,
+    .ph-btn,
+    .ph-btn--primary::after {
+        transition: none;
+    }
 }
+
+
 
 /* ==================== Category Toggle ==================== */
 .pr-category-section {
@@ -192,6 +698,8 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     inset-block: 0.375rem;
 }
+
+
 
 /* ==================== Plans Section ==================== */
 .pr-plans-section {
@@ -497,6 +1005,623 @@
 }
 
 
+/* ==================== Compact Plans ==================== */
+
+.pr-plans-section {
+    padding-block: 3rem;
+}
+
+@media (min-width: 768px) {
+    .pr-plans-section {
+        padding-block: 3.5rem;
+    }
+}
+
+.pr-section-heading {
+    margin-block: 0 1.25rem;
+}
+
+.pr-section-heading h2 {
+    font-size: clamp(1.35rem, 2vw, 1.8rem);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.pr-plans-grid {
+    gap: 1.25rem;
+    margin-block-end: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .pr-plans-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 1.25rem;
+    }
+}
+
+/* Cards */
+.pr-plan-card {
+    padding: 1.5rem;
+    border-radius: 1.15rem;
+    min-width: 0;
+}
+
+.pr-plan-card:hover {
+    transform: translateY(-2px);
+}
+
+.pr-plan-featured {
+    border-width: 2px;
+}
+
+.pr-featured-badge {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.9rem;
+}
+
+/* Header */
+.pr-plan-header {
+    margin-block-end: 0.85rem;
+}
+
+.pr-plan-name {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    margin-block-end: 0.25rem;
+}
+
+/* Price */
+.pr-plan-price {
+    flex-wrap: wrap;
+    gap: 0.3rem 0.45rem;
+    margin-block-end: 0.85rem;
+}
+
+.pr-price-label,
+.pr-price-currency {
+    font-size: 0.875rem;
+}
+
+.pr-price-amount {
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+/* Time and support */
+.pr-plan-meta {
+    gap: 0.6rem;
+    margin-block-end: 1.25rem;
+    padding-block-end: 1.25rem;
+}
+
+.pr-meta-item {
+    gap: 0.55rem;
+    font-size: 0.82rem;
+    line-height: 1.8;
+}
+
+.pr-meta-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+/* Features */
+.pr-plan-features {
+    margin-block-end: 1.25rem;
+}
+
+.pr-features-title,
+.pr-not-included-title {
+    font-size: 0.9rem;
+    margin-block-end: 0.7rem;
+}
+
+.pr-features-list,
+.pr-not-included-list {
+    padding-inline-start: 0;
+    margin-block: 0;
+    gap: 0.35rem;
+}
+
+.pr-features-list li,
+.pr-not-included-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.84rem;
+    line-height: 1.9;
+}
+
+.pr-check-icon {
+    width: 1rem;
+    height: 1rem;
+    margin-block-start: 0.42rem;
+}
+
+/* Suitable for */
+.pr-plan-suitable {
+    margin-block-start: 1.15rem;
+}
+
+.pr-plan-suitable-heading {
+    margin-block-end: 0.65rem;
+    font-size: 0.84rem;
+}
+
+.pr-plan-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.pr-plan-tags span {
+    font-size: 0.75rem;
+    line-height: 1.7;
+    padding: 0.25rem 0.6rem;
+}
+
+/* Buttons */
+.pr-plan-btn {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    margin-block-end: 0.75rem;
+}
+
+.pr-plan-consult {
+    font-size: 0.8rem;
+    line-height: 1.8;
+}
+
+/* ==================== Mobile Slider ==================== */
+
+@media (max-width: 767px) {
+    .pr-plans-section {
+        padding-block: 2.25rem;
+        overflow: hidden;
+    }
+
+    .pr-section-heading {
+        margin-block: 0 1rem;
+    }
+
+    .pr-plans-grid {
+        display: flex;
+        gap: 0.85rem;
+        overflow-x: auto;
+        overflow-y: visible;
+        padding: 0.85rem 0.15rem 1rem;
+        margin-inline: -0.15rem;
+        margin-block-end: 1.75rem;
+
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        overscroll-behavior-inline: contain;
+        -webkit-overflow-scrolling: touch;
+
+        scrollbar-width: none;
+    }
+
+    .pr-plans-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .pr-plan-card {
+        flex: 0 0 88%;
+        width: 88%;
+        min-width: 0;
+        padding: 1.25rem;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+    }
+
+    .pr-plan-name {
+        font-size: 1.3rem;
+    }
+
+    .pr-price-amount {
+        font-size: 1.9rem;
+    }
+
+    .pr-plan-meta {
+        margin-block-end: 1rem;
+        padding-block-end: 1rem;
+    }
+
+    .pr-plan-features {
+        margin-block-end: 1rem;
+    }
+
+    .pr-plan-btn {
+        padding: 0.75rem 0.9rem;
+    }
+
+    /* Prevent hover effects from sticking on touch screens */
+    .pr-plan-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .pr-plan-featured {
+        box-shadow: 0 8px 20px rgba(15, 118, 110, 0.12);
+    }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .pr-plans-grid {
+        scroll-behavior: auto;
+    }
+
+    .pr-plan-card,
+    .pr-plan-btn {
+        transition: none;
+    }
+}
+
+
+/* ==================== Extra Compact Plans ==================== */
+
+.pr-plans-section {
+    padding-block: 1.5rem;
+}
+
+.pr-section-heading {
+    margin-block: 0 0.75rem;
+}
+
+.pr-section-heading h2 {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.pr-plans-grid {
+    gap: 0.85rem;
+    margin-block-end: 1.5rem;
+}
+
+.pr-plan-card {
+    padding: 1rem;
+    border-radius: 0.85rem;
+}
+
+@media (min-width: 768px) {
+    .pr-plans-section {
+        padding-block: 2rem;
+    }
+
+    .pr-plans-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+    }
+
+    .pr-plan-card {
+        padding: 1.15rem;
+    }
+}
+
+/* Header */
+.pr-plan-header {
+    margin-block-end: 0.5rem;
+}
+
+.pr-plan-name {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-block-end: 0.2rem;
+}
+
+/* Price */
+.pr-plan-price {
+    gap: 0.25rem;
+    margin-block-end: 0.5rem;
+}
+
+.pr-price-label,
+.pr-price-currency {
+    font-size: 0.75rem;
+}
+
+.pr-price-amount {
+    font-size: 1.55rem;
+    line-height: 1.5;
+}
+
+/* Meta */
+.pr-plan-meta {
+    gap: 0.35rem;
+    margin-block-end: 0.75rem;
+    padding-block-end: 0.75rem;
+}
+
+.pr-meta-item {
+    gap: 0.4rem;
+    font-size: 0.73rem;
+    line-height: 1.7;
+}
+
+.pr-meta-icon {
+    width: 0.9rem;
+    height: 0.9rem;
+}
+
+/* Features */
+.pr-plan-features {
+    margin-block-end: 0.75rem;
+}
+
+.pr-features-title,
+.pr-not-included-title {
+    font-size: 0.8rem;
+    margin-block-end: 0.4rem;
+}
+
+.pr-features-list,
+.pr-not-included-list {
+    gap: 0.15rem;
+    padding-inline-start: 0;
+    margin-block: 0;
+}
+
+.pr-features-list li,
+.pr-not-included-list li {
+    gap: 0.35rem;
+    font-size: 0.73rem;
+    line-height: 1.65;
+}
+
+.pr-check-icon {
+    width: 0.85rem;
+    height: 0.85rem;
+    margin-block-start: 0.3rem;
+}
+
+/* Suitable for */
+.pr-plan-suitable {
+    margin-block-start: 0.65rem;
+}
+
+.pr-plan-suitable-heading {
+    font-size: 0.75rem;
+    margin-block-end: 0.4rem;
+}
+
+.pr-plan-tags {
+    gap: 0.3rem;
+}
+
+.pr-plan-tags span {
+    font-size: 0.65rem;
+    line-height: 1.6;
+    padding: 0.15rem 0.4rem;
+}
+
+/* Buttons */
+.pr-plan-btn {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.8rem;
+    margin-block-end: 0.45rem;
+    border-width: 1px;
+}
+
+.pr-plan-consult {
+    font-size: 0.7rem;
+    line-height: 1.7;
+}
+
+/* Featured badge */
+.pr-featured-badge {
+    top: -0.6rem;
+    font-size: 0.65rem;
+    padding: 0.2rem 0.65rem;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .pr-plans-section {
+        padding-block: 1.25rem;
+    }
+
+    .pr-section-heading h2 {
+        font-size: 1.05rem;
+    }
+
+    .pr-plans-grid {
+        gap: 0.65rem;
+    }
+
+    .pr-plan-card {
+        padding: 0.85rem;
+    }
+
+    .pr-plan-name {
+        font-size: 1rem;
+    }
+
+    .pr-price-amount {
+        font-size: 1.35rem;
+    }
+
+    .pr-meta-item {
+        font-size: 0.68rem;
+    }
+
+    .pr-features-list li,
+    .pr-not-included-list li {
+        font-size: 0.68rem;
+        line-height: 1.6;
+    }
+
+    .pr-plan-btn {
+        padding: 0.55rem;
+        font-size: 0.75rem;
+    }
+}
+
+
+/* فضای کافی برای خطوط بیرون کارت‌ها */
+.pr-plans-section,
+.pr-plans-section .container,
+.pr-plans-grid {
+    overflow: visible;
+}
+
+.pr-plans-grid {
+    position: relative;
+}
+
+/* مبنای موقعیت برچسب‌ها */
+
+/* بلوک برچسب‌ها */
+.pr-plan-callouts {
+    position: absolute;
+    top: 105px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 175px;
+    pointer-events: none;
+}
+
+/* برچسب‌های سمت راست کارت */
+.pr-callout-right .pr-plan-callouts {
+    left: calc(100% + -10px);
+}
+
+/* برچسب‌های سمت چپ کارت */
+.pr-callout-left .pr-plan-callouts {
+    right: calc(100% + 24px);
+}
+
+/* ظاهر هر برچسب */
+.pr-callout {
+    position: relative;
+    display: block;
+    width: fit-content;
+    max-width: 175px;
+    padding: 9px 12px;
+    border: 1px solid rgba(100, 116, 139, 0.28);
+    border-radius: 10px;
+    background: #fff;
+    color: #334155;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.8;
+    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.06);
+    white-space: normal;
+}
+
+/* خط اتصال */
+.pr-callout::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 24px;
+    border-top: 1px solid #94a3b8;
+    transform: translateY(-50%);
+}
+
+/* نقطه انتهای خط */
+.pr-callout::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #64748b;
+    transform: translateY(-50%);
+}
+
+/* اتصال برچسب‌های سمت راست به کارت */
+.pr-callout-right .pr-callout::before {
+    left: -24px;
+    width: 24px;
+}
+
+.pr-callout-right .pr-callout::after {
+    left: -27px;
+}
+
+/* اتصال برچسب‌های سمت چپ به کارت */
+.pr-callout-left .pr-callout::before {
+    right: -24px;
+    width: 24px;
+}
+
+.pr-callout-left .pr-callout::after {
+    right: -27px;
+}
+
+/* رنگ تأکیدی پلن حرفه‌ای */
+.pr-plan-featured .pr-callout {
+    border-color: rgba(99, 102, 241, 0.25);
+    background: #f8faff;
+}
+
+.pr-plan-featured .pr-callout::before {
+    border-color: #818cf8;
+}
+
+.pr-plan-featured .pr-callout::after {
+    background: #6366f1;
+}
+
+/* نمایش موبایل و تبلت */
+@media (max-width: 900px) {
+    .pr-plan-callouts {
+        position: static;
+        width: auto;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .pr-callout {
+        max-width: 100%;
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .pr-callout::before,
+    .pr-callout::after {
+        display: none;
+    }
+}
+
+
+
+
+/* نمایش موبایل: برچسب‌ها زیر کارت، بدون خط */
+@media (max-width: 900px) {
+    .pr-plan-callouts {
+        position: static;
+        width: auto;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .pr-callout {
+        max-width: 100%;
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .pr-callout::before,
+    .pr-callout::after {
+        display: none;
+    }
+}
+
+
 /* ==================== Custom Services ==================== */
 
 .pr-custom-card {
@@ -738,68 +1863,6 @@
     }
 }
 
-/* ==================== Which Plan Section ==================== */
-.pr-which-plan {
-    padding-block: 4rem;
-    background-color: var(--color-surface);
-}
-
-@media (min-width: 768px) {
-    .pr-which-plan {
-        padding-block: 5rem;
-    }
-}
-
-.pr-which-plan h2 {
-    font-size: clamp(1.75rem, 4vw, 2.25rem);
-    font-weight: var(--font-weight-bold);
-    text-align: center;
-    margin-block-end: 3rem;
-    color: var(--color-text);
-}
-
-.pr-which-grid {
-    display: grid;
-    gap: 1.5rem;
-    max-width: 56rem;
-    margin-inline: auto;
-}
-
-@media (min-width: 768px) {
-    .pr-which-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-.pr-which-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.5rem;
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-card);
-}
-
-.pr-which-icon {
-    width: 2rem;
-    height: 2rem;
-    color: var(--color-primary);
-    flex-shrink: 0;
-}
-
-.pr-which-item p {
-    font-size: 0.9375rem;
-    color: var(--color-text-muted);
-    margin-block-end: 0;
-    line-height: 1.6;
-}
-
-.pr-which-item strong {
-    color: var(--color-text);
-    font-weight: var(--font-weight-semibold);
-}
-
 /* ==================== Price Factors Section ==================== */
 .pr-factors {
     padding-block: 4rem;
@@ -949,131 +2012,6 @@
 .pr-included-no svg {
     color: var(--color-text-muted);
     opacity: 0.5;
-}
-
-/* ==================== Support Section ==================== */
-.pr-support {
-    padding-block: 4rem;
-    background-color: var(--color-bg);
-}
-
-@media (min-width: 768px) {
-    .pr-support {
-        padding-block: 5rem;
-    }
-}
-
-.pr-support h2 {
-    font-size: clamp(1.75rem, 4vw, 2.25rem);
-    font-weight: var(--font-weight-bold);
-    text-align: center;
-    margin-block-end: 3rem;
-    color: var(--color-text);
-}
-
-.pr-support-grid {
-    display: grid;
-    gap: 2rem;
-    max-width: 56rem;
-    margin-inline: auto;
-}
-
-@media (min-width: 1024px) {
-    .pr-support-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-.pr-support-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-card);
-    padding: 2rem;
-}
-
-@media (min-width: 768px) {
-    .pr-support-card {
-        padding: 2.5rem;
-    }
-}
-
-.pr-support-card h3 {
-    font-size: 1.25rem;
-    font-weight: var(--font-weight-bold);
-    margin-block-end: 0.75rem;
-    color: var(--color-text);
-}
-
-.pr-support-badge {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    background-color: var(--color-primary-soft);
-    color: var(--color-primary);
-    border-radius: 6rem;
-    font-size: 0.75rem;
-    font-weight: var(--font-weight-semibold);
-    margin-block-end: 1rem;
-}
-
-.pr-support-badge-paid {
-    background-color: #FFF7ED;
-    color: var(--color-warning);
-}
-
-.pr-support-desc {
-    font-size: 0.9375rem;
-    color: var(--color-text-muted);
-    line-height: 1.7;
-    margin-block-end: 0;
-}
-
-.pr-support-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-block-end: 1.5rem;
-}
-
-.pr-support-list li {
-    padding-inline-start: 1.5rem;
-    position: relative;
-    font-size: 0.9375rem;
-    color: var(--color-text-muted);
-    line-height: 1.6;
-}
-
-.pr-support-list li::before {
-    content: '•';
-    position: absolute;
-    inset-inline-start: 0;
-    color: var(--color-primary);
-    font-weight: var(--font-weight-bold);
-}
-
-.pr-support-price {
-    font-size: 1.125rem;
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-text);
-    margin-block-end: 1.5rem;
-}
-
-.pr-support-btn {
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    background-color: transparent;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
-    border-radius: var(--radius-button);
-    font-size: 0.9375rem;
-    font-weight: var(--font-weight-semibold);
-    text-decoration: none;
-    transition: var(--transition-base);
-}
-
-.pr-support-btn:hover {
-    background-color: var(--color-primary);
-    color: var(--color-surface);
 }
 
 /* ==================== FAQ Section ==================== */
@@ -1245,6 +2183,49 @@
 .pr-final-btn-primary:hover {
     background-color: var(--color-primary-hover);
     border-color: var(--color-primary-hover);
+}
+
+
+/* اصلاح چیدمان کارت‌ها */
+.pr-plans-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+    overflow: visible;
+}
+
+.pr-panel {
+    overflow: visible !important;
+}
+
+.pr-plan-card {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* در نمایشگرهای کوچک، برچسب‌ها داخل جریان صفحه قرار بگیرند */
+@media (max-width: 900px) {
+    .pr-plan-callouts {
+        position: static !important;
+        width: auto !important;
+        margin: 20px 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .pr-callout-right .pr-plan-callouts,
+    .pr-callout-left .pr-plan-callouts {
+        left: auto;
+        right: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .pr-plans-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
 }
 
 /* ==================== Reduced Motion ==================== */
@@ -1485,5 +2466,630 @@
 @media (prefers-reduced-motion: reduce) {
     .pr-plan-tags span {
         transition: none;
+    }
+}
+
+/* برچسب‌های سمت راست کارت */
+.pr-callout-right .pr-plan-callouts {
+    left: calc(100% + 12px);
+}
+
+.pr-callout-right .pr-callout {
+    position: relative;
+    box-sizing: border-box;
+}
+
+.pr-callout-right .pr-callout::before {
+    left: -12px;
+    width: 12px;
+}
+
+.pr-callout-right .pr-callout::after {
+    left: -15px;
+}
+
+/* نمایشگرهای کوچک */
+@media (max-width: 900px) {
+    .pr-plan-callouts {
+        position: static !important;
+        width: auto !important;
+        margin: 20px 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .pr-callout-right .pr-plan-callouts,
+    .pr-callout-left .pr-plan-callouts {
+        left: auto;
+        right: auto;
+    }
+}
+
+/* یکسان شدن لبه چپ تمام برچسب‌ها */
+.pr-callout-right .pr-plan-callouts {
+    left: calc(100% + 12px);
+    width: 175px;
+    align-items: flex-start;
+}
+
+.pr-callout-right .pr-callout {
+    box-sizing: border-box;
+    width: 175px;
+    max-width: 175px;
+    text-align: right;
+}
+.pr-callout-right .pr-callout {
+    text-align: center;
+}
+
+.pr-callout-right .pr-plan-callouts {
+    align-items: center;
+}
+
+.pr-callout-right .pr-callout {
+    width: fit-content !important;
+    min-width: 0 !important;
+    max-width: 270px;
+    display: inline-block;
+    padding: 6px 12px;
+    box-sizing: border-box;
+}
+
+.pr-callout-right .pr-plan-callouts {
+    align-items: flex-end;
+}
+
+.pr-callout-right .pr-callout {
+    width: fit-content !important;
+    text-align: center;
+}
+/* یکسان‌سازی رنگ خط و نقطه سمت راست با سمت چپ */
+.pr-callout-right .pr-callout::before {
+    border-top: 1px solid #94a3b8 !important;
+}
+
+.pr-callout-right .pr-callout::after {
+    background: #64748b !important;
+}
+
+/* رنگ یکسان خط اتصال در هر دو سمت */
+.pr-callout-left .pr-callout::before,
+.pr-callout-right .pr-callout::before {
+    border-top: 1px solid #94a3b8 !important;
+}
+
+.pr-callout-left .pr-callout::after,
+.pr-callout-right .pr-callout::after {
+    background-color: #64748b !important;
+}
+
+/* =========================
+   خدمات اختصاصی
+========================= */
+
+.pr-custom-card {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 18px;
+}
+
+.pr-custom-heading {
+    margin: 0 0 18px;
+    text-align: center;
+}
+
+.pr-custom-title {
+    margin: 0 0 5px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.pr-custom-subtitle {
+    margin: 0;
+    font-size: 0.82rem;
+    line-height: 1.7;
+}
+
+/* دسکتاپ: کارت‌های باریک‌تر با فاصله */
+.pr-custom-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 280px));
+    justify-content: center;
+    align-items: stretch;
+    gap: 24px;
+}
+
+.pr-custom-item {
+    min-width: 0;
+    padding: 13px;
+    box-sizing: border-box;
+}
+
+.pr-custom-icon-wrap {
+    width: 32px;
+    height: 32px;
+    margin: 0 0 8px;
+}
+
+.pr-custom-icon {
+    width: 19px;
+    height: 19px;
+}
+
+.pr-custom-item-title {
+    margin: 0 0 5px;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.pr-custom-item-text {
+    margin: 0 0 8px;
+    font-size: 0.78rem;
+    line-height: 1.7;
+}
+
+.pr-custom-features {
+    margin: 0 0 10px;
+    padding-right: 16px;
+}
+
+.pr-custom-features li {
+    margin-bottom: 3px;
+    font-size: 0.77rem;
+    line-height: 1.75;
+}
+
+.pr-custom-price {
+    margin-top: 8px;
+    padding-top: 8px;
+}
+
+.pr-custom-price-label {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 0.72rem;
+}
+
+.pr-custom-price strong {
+    font-size: 0.8rem;
+    line-height: 1.7;
+}
+
+.pr-custom-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.pr-custom-note {
+    margin: 0;
+    font-size: 0.78rem;
+    line-height: 1.8;
+}
+
+.pr-custom-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 13px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.pr-custom-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* تبلت */
+@media (max-width: 950px) {
+    .pr-custom-grid {
+        grid-template-columns: repeat(2, minmax(0, 280px));
+        gap: 16px;
+    }
+}
+
+/* موبایل: دو کارت در ردیف اول، سومی زیر آن */
+@media (max-width: 600px) {
+    .pr-custom-card {
+        padding: 12px;
+    }
+
+    .pr-custom-heading {
+        margin-bottom: 12px;
+    }
+
+    .pr-custom-title {
+        font-size: 1rem;
+    }
+
+    .pr-custom-subtitle {
+        font-size: 0.76rem;
+    }
+
+    .pr-custom-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        direction: rtl;
+    }
+
+    .pr-custom-item {
+        padding: 10px;
+    }
+
+    .pr-custom-icon-wrap {
+        width: 28px;
+        height: 28px;
+        margin-bottom: 6px;
+    }
+
+    .pr-custom-icon {
+        width: 17px;
+        height: 17px;
+    }
+
+    .pr-custom-item-title {
+        font-size: 0.82rem;
+        line-height: 1.7;
+    }
+
+    .pr-custom-item-text {
+        font-size: 0.73rem;
+        line-height: 1.7;
+    }
+
+    .pr-custom-features {
+        padding-right: 14px;
+    }
+
+    .pr-custom-features li {
+        font-size: 0.7rem;
+        line-height: 1.8;
+        overflow-wrap: anywhere;
+    }
+
+    .pr-custom-price-label {
+        font-size: 0.68rem;
+    }
+
+    .pr-custom-price strong {
+        font-size: 0.72rem;
+        overflow-wrap: anywhere;
+    }
+
+    .pr-custom-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        margin-top: 12px;
+    }
+
+    .pr-custom-note {
+        font-size: 0.73rem;
+        text-align: center;
+    }
+
+    .pr-custom-btn {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 9px 8px;
+        font-size: 0.76rem;
+    }
+}
+
+/* Price Factors - Compact */
+.pr-factors {
+    padding: 28px 0;
+}
+
+.pr-factors h2 {
+    font-size: 1.4rem;
+    margin-bottom: 22px;
+    text-align: center;
+}
+
+.pr-factors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.pr-factor-card {
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 16px 12px;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.pr-factor-icon {
+    width: 27px;
+    height: 27px;
+    margin-bottom: 8px;
+}
+
+.pr-factor-card h3 {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .pr-factors {
+        padding: 16px 0;
+    }
+
+    .pr-factors h2 {
+        font-size: 1.05rem;
+        margin-bottom: 12px;
+    }
+
+    .pr-factors-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        direction: rtl;
+    }
+
+    .pr-factor-card {
+        padding: 10px 5px;
+        border-radius: 9px;
+    }
+
+    .pr-factor-icon {
+        width: 21px;
+        height: 21px;
+        margin-bottom: 5px;
+    }
+
+    .pr-factor-card h3 {
+        font-size: 0.68rem;
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+    }
+}
+
+
+/* Included vs Separate - Compact */
+.pr-included {
+    padding: 22px 0;
+}
+
+.pr-included-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    align-items: start;
+}
+
+.pr-included-card {
+    min-width: 0;
+    padding: 16px 18px;
+    box-sizing: border-box;
+    border-radius: 12px;
+}
+
+.pr-included-card h3 {
+    font-size: 1rem;
+    margin: 0 0 12px;
+    line-height: 1.6;
+}
+
+.pr-included-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pr-included-card li {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    margin: 0;
+    font-size: 0.84rem;
+    line-height: 1.7;
+}
+
+.pr-included-card li svg {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    margin-top: 3px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .pr-included {
+        padding: 12px 0;
+    }
+
+    .pr-included-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .pr-included-card {
+        padding: 10px 8px;
+        border-radius: 9px;
+    }
+
+    .pr-included-card h3 {
+        font-size: 0.78rem;
+        margin-bottom: 8px;
+        line-height: 1.6;
+    }
+
+    .pr-included-card ul {
+        gap: 6px;
+    }
+
+    .pr-included-card li {
+        gap: 4px;
+        font-size: 0.68rem;
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+    }
+
+    .pr-included-card li svg {
+        width: 13px;
+        height: 13px;
+        flex-basis: 13px;
+        margin-top: 3px;
+    }
+}
+
+/* دسکتاپ: محدود کردن عرض کلی کارت‌ها */
+@media (min-width: 601px) {
+    .pr-included-grid {
+        max-width: 820px;
+        margin: 0 auto;
+        gap: 18px;
+    }
+
+    .pr-included-card {
+        padding: 15px 16px;
+    }
+}
+
+/* موبایل: فضای بیشتر برای متن‌ها */
+@media (max-width: 600px) {
+    .pr-included-card {
+        padding: 14px 10px;
+    }
+
+    .pr-included-card h3 {
+        margin-bottom: 11px;
+        line-height: 1.8;
+    }
+
+    .pr-included-card ul {
+        gap: 10px;
+    }
+
+    .pr-included-card li {
+        line-height: 2;
+        font-size: 0.7rem;
+    }
+}
+@media (max-width: 600px) {
+    .pr-included-card {
+        padding-top: 20px;
+        padding-bottom: 24px;
+        min-height: 300px;
+    }
+
+    .pr-included-card h3 {
+        margin-bottom: 14px;
+        line-height: 1.9;
+    }
+
+    .pr-included-card ul {
+        gap: 12px;
+    }
+
+    .pr-included-card li {
+        line-height: 2.1;
+        font-size: 0.72rem;
+    }
+}
+
+/* Final CTA - Compact Mobile */
+@media (max-width: 600px) {
+    .pr-final-cta {
+        padding: 16px 0;
+    }
+
+    .pr-final-grid {
+        gap: 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pr-final-card {
+        min-width: 0;
+        padding: 14px 9px;
+        border-radius: 10px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .pr-final-card h3 {
+        font-size: 0.85rem;
+        line-height: 1.7;
+        margin: 0 0 6px;
+    }
+
+    .pr-final-card p {
+        font-size: 0.7rem;
+        line-height: 1.8;
+        margin: 0 0 10px;
+    }
+
+    .pr-final-btn {
+        display: inline-block;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 8px 9px;
+        font-size: 0.7rem;
+        line-height: 1.6;
+        white-space: normal;
+        border-radius: 7px;
+    }
+}
+
+/* FAQ - Compact Mobile */
+@media (max-width: 600px) {
+    .pr-faq {
+        padding: 18px 0;
+    }
+
+    .pr-faq h2 {
+        font-size: 1.1rem;
+        margin-bottom: 14px;
+    }
+
+    .pr-faq-list {
+        gap: 8px;
+    }
+
+    .pr-faq-item {
+        border-radius: 9px;
+        overflow: hidden;
+    }
+
+    .pr-faq-question {
+        width: 100%;
+        padding: 11px 12px;
+        gap: 8px;
+        font-size: 0.78rem;
+        line-height: 1.8;
+    }
+
+    .pr-faq-question span {
+        min-width: 0;
+    }
+
+    .pr-faq-icon {
+        width: 17px;
+        height: 17px;
+        flex-shrink: 0;
+    }
+
+    .pr-faq-answer-content {
+        padding: 0 12px 11px;
+    }
+
+    .pr-faq-answer-content p {
+        margin: 0;
+        font-size: 0.74rem;
+        line-height: 1.9;
     }
 }
