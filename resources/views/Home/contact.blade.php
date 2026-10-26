@@ -29,12 +29,64 @@
                 </ol>
             </div>
         </nav>
+
+
+
+        {{-- Mobile Only Contact Hero --}}
+        <section class="ct-mobile-hero">
+            <div class="ct-mobile-hero-content">
+
+               
+
+                <h1>
+                    بیایید درباره پروژه‌ات صحبت کنیم.
+                </h1>
+
+                <p>
+                    برای شروع همکاری، دریافت مشاوره یا پرسیدن سوال،
+                    مسیر ارتباطی موردنظرت را انتخاب کن.
+                </p>
+
+                <div class="ct-mobile-hero-actions">
+                    <a href="#contact-form" class="ct-mobile-btn ct-mobile-btn-primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="m22 2-7 20-4-9-9-4Z" />
+                            <path d="M22 2 11 13" />
+                        </svg>
+                        ارسال پیام
+                    </a>
+
+                    <a href="#contact-methods" class="ct-mobile-btn ct-mobile-btn-secondary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2
+                        19.79 19.79 0 0 1-8.63-3.07
+                        19.5 19.5 0 0 1-6-6
+                        A19.79 19.79 0 0 1 2.12 4.18
+                        2 2 0 0 1 4.11 2h3
+                        a2 2 0 0 1 2 1.72
+                        c.12.96.36 1.9.7 2.8
+                        a2 2 0 0 1-.45 2.11L8.09 9.91
+                        a16 16 0 0 0 6 6l1.27-1.27
+                        a2 2 0 0 1 2.11-.45
+                        c.9.34 1.84.58 2.8.7
+                        a2 2 0 0 1 1.73 2.03Z" />
+                        </svg>
+                        راه‌های ارتباطی
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
         {{-- Main Section: Form + Contact Info --}}
         <section class="ct-main">
             <div class="container">
                 <div class="ct-main-grid">
                     {{-- Form Column --}}
-                    <div class="ct-form-card" id="contact-form-section">
+                    <div class="ct-form-card" id="contact-form">
                         <h2 class="ct-form-title">فرم تماس</h2>
                         <p class="ct-form-subtitle">فرم رو پر کن تا در اسرع وقت باهات تماس بگیریم</p>
 
@@ -215,146 +267,122 @@
 
                     </div>
 
-                    {{-- Contact Info Column --}}
+
+
+
 
                     {{-- Contact Info Column --}}
-                    <div class="ct-info-column">
+                    <div class="ct-info-column" id="contact-methods" >
 
                         {{-- Phone --}}
                         <div class="ct-info-card">
                             <div class="ct-info-icon-wrapper">
-                                <svg class="ct-info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                <svg class="ct-info-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M7.2 3.5H4.8a1.8 1.8 0 0 0-1.8 1.8
+                                     C3 13.6 10.4 21 18.7 21a1.8 1.8 0 0 0
+                                     1.8-1.8v-2.4l-4.3-1.7-2.1 2.1a14.1
+                                     14.1 0 0 1-5.3-5.3l2.1-2.1-1.7-4.3Z" stroke="currentColor" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                             </div>
 
                             <div class="ct-info-content">
-                                <p class="ct-info-label">تلفن تماس</p>
-                                <p class="ct-info-value" id="phone-value">
-                                    <a href="tel:{{ $settings['phone'] ?? '' }}">
-                                        {{ $settings['phone'] ?? '' }}
+                                <p class="ct-info-label">تلفن</p>
+                                <p class="ct-info-value">
+                                    <a href="tel:{{ preg_replace('/[^0-9+]/', '', $settings['phone'] ?? '') }}">
+                                        {{ $settings['phone'] ?? 'شماره ثبت نشده' }}
                                     </a>
                                 </p>
                             </div>
-
-                            <button class="ct-copy-btn" data-copy="{{ $settings['phone'] ?? '' }}"
-                                aria-label="کپی شماره تلفن">
-                                کپی
-                            </button>
                         </div>
 
                         {{-- Telegram --}}
-                        <div class="ct-info-card">
-                            <div class="ct-info-icon-wrapper">
-                                <svg class="ct-info-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path
-                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z" />
+                        <a href="https://t.me/{{ ltrim($settings['telegram'] ?? '', '@') }}" class="ct-info-card"
+                            target="_blank" rel="noopener noreferrer">
+
+                            <div class="ct-info-icon-wrapper ct-info-icon-telegram">
+                                <svg class="ct-info-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M21.8 3.2 18.6 20c-.2 1.2-.9 1.5-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1
+                    9.3-8.4c.4-.4-.1-.6-.6-.2L6 13.5 1.1 12
+                    c-1.1-.3-1.1-1 .2-1.5L20 3.2c.9-.3 2-.1 1.8 0Z" />
                                 </svg>
                             </div>
 
                             <div class="ct-info-content">
                                 <p class="ct-info-label">تلگرام</p>
                                 <p class="ct-info-value">
-                                    <a href="https://t.me/{{ ltrim($settings['telegram'] ?? '', '@') }}" target="_blank"
-                                        rel="noopener noreferrer">
-                                        {{ $settings['telegram'] ?? '' }}
-                                    </a>
+                                    {{ $settings['telegram'] ?? '' }}
                                 </p>
                             </div>
-                        </div>
+                        </a>
+
 
                         {{-- Instagram --}}
-                        <div class="ct-info-card">
-                            <div class="ct-info-icon-wrapper">
-                                <svg class="ct-info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"
-                                        stroke-width="2" />
-                                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke-width="2" />
-                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"
-                                        stroke-linecap="round" stroke-width="2" />
+                        <a href="https://instagram.com/{{ ltrim($settings['instagram'] ?? '', '@') }}"
+                            class="ct-info-card" target="_blank" rel="noopener noreferrer">
+
+                            <div class="ct-info-icon-wrapper ct-info-icon-instagram">
+                                <svg class="ct-info-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor"
+                                        stroke-width="1.8" />
+                                    <circle cx="12" cy="12" r="4" stroke="currentColor"
+                                        stroke-width="1.8" />
+                                    <circle cx="17.5" cy="6.8" r="1.1" fill="currentColor" />
                                 </svg>
                             </div>
 
                             <div class="ct-info-content">
                                 <p class="ct-info-label">اینستاگرام</p>
                                 <p class="ct-info-value">
-                                    <a href="https://instagram.com/{{ ltrim($settings['instagram'] ?? '', '@') }}"
-                                        target="_blank" rel="noopener noreferrer">
-                                        {{ $settings['instagram'] ?? '' }}
-                                    </a>
+                                    {{ $settings['instagram'] ?? '' }}
                                 </p>
                             </div>
-                        </div>
+                        </a>
 
-                        {{-- LinkedIn --}}
-                        <div class="ct-info-card">
-                            <div class="ct-info-icon-wrapper">
-                                <svg class="ct-info-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path
-                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                                </svg>
-                            </div>
-
-                            <div class="ct-info-content">
-                                <p class="ct-info-label">لینکدین</p>
-                                <p class="ct-info-value">
-                                    <a href="https://{{ ltrim($settings['linkedin'] ?? '', '/') }}" target="_blank"
-                                        rel="noopener noreferrer">
-                                        {{ $settings['linkedin'] ?? '' }}
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-
-                        {{-- Email --}}
-                        <div class="ct-info-card">
-                            <div class="ct-info-icon-wrapper">
-                                <svg class="ct-info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                            </div>
-
-                            <div class="ct-info-content">
-                                <p class="ct-info-label">ایمیل</p>
-                                <p class="ct-info-value" id="email-value">
-                                    <a href="mailto:{{ $settings['email'] ?? '' }}">
-                                        {{ $settings['email'] ?? '' }}
-                                    </a>
-                                </p>
-                            </div>
-
-                            <button class="ct-copy-btn" data-copy="{{ $settings['email'] ?? '' }}"
-                                aria-label="کپی ایمیل">
-                                کپی
-                            </button>
-                        </div>
 
                         {{-- Bale --}}
-                        <div class="ct-info-card">
-                            <div class="ct-info-icon-wrapper">
-                                <svg class="ct-info-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <path fill="white" d="M8 8h8v2H8zm0 3h8v2H8zm0 3h5v2H8z" />
-                                </svg>
+                        <a href="https://ble.ir/{{ ltrim($settings['bale'] ?? '', '@') }}" class="ct-info-card"
+                            target="_blank" rel="noopener noreferrer">
+
+                            <div class="ct-info-icon-wrapper ct-info-icon-bale">
+                                <img class="ct-info-app-icon"
+                                    src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Bale_logo.png"
+                                    alt="لوگوی اپلیکیشن بله" width="40" height="40" loading="lazy">
                             </div>
 
                             <div class="ct-info-content">
                                 <p class="ct-info-label">بله</p>
                                 <p class="ct-info-value">
-                                    <a href="https://ble.ir/{{ ltrim($settings['bale'] ?? '', '@') }}" target="_blank"
-                                        rel="noopener noreferrer">
-                                        {{ $settings['bale'] ?? '' }}
-                                    </a>
+                                    {{ $settings['bale'] ?? '' }}
                                 </p>
                             </div>
-                        </div>
+                        </a>
+
+
+                        {{-- Rubika --}}
+                        <a href="https://rubika.ir/{{ ltrim($settings['rubika'] ?? '', '@') }}" class="ct-info-card"
+                            target="_blank" rel="noopener noreferrer">
+
+                            <div class="ct-info-icon-wrapper ct-info-icon-rubika">
+                                <img class="ct-info-app-icon"
+                                    src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Rubika_Icon.png"
+                                    alt="لوگوی اپلیکیشن روبیکا" width="40" height="40" loading="lazy">
+                            </div>
+
+                            <div class="ct-info-content">
+                                <p class="ct-info-label">روبیکا</p>
+                                <p class="ct-info-value">
+                                    {{ $settings['rubika'] ?? '' }}
+                                </p>
+                            </div>
+                        </a>
 
                     </div>
+
+
+
+
+                </div>
 
         </section>
 

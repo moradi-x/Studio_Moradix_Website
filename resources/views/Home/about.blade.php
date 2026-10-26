@@ -9,7 +9,7 @@
 @section('content')
     <main class="about-page" dir="rtl">
 
-         {{-- Breadcrumb --}}
+        {{-- Breadcrumb --}}
 
         <nav class="sv-breadcrumb" aria-label="مسیر صفحه">
             <div class="container">
@@ -17,7 +17,7 @@
                     <li class="sv-breadcrumb-item">
                         <a href="{{ route('home') }}">صفحه اصلی</a>
                     </li>
-                <li class="sv-breadcrumb-item" aria-current="page">                        
+                    <li class="sv-breadcrumb-item" aria-current="page">
                         درباره ما
                     </li>
                 </ol>
@@ -55,41 +55,86 @@
                         </a>
                     </div>
 
-                    <div class="about-hero-signature">
-                        <span></span>
-                        اندیشه‌ی دقیق، اجرای مسئولانه
-                    </div>
+                    
                 </div>
 
-                <div class="about-hero-visual" aria-hidden="true">
-                    <div class="about-orbit about-orbit-outer"></div>
-                    <div class="about-orbit about-orbit-inner"></div>
 
-                    <div class="about-monogram">M<span>.</span></div>
+                {{-- جایگزین کل <div class="about-hero-visual about-visual-pro"> قبلی. تزئینی است: aria-hidden --}}
+                <div class="abx" aria-hidden="true">
+                    <div class="abx-grid"></div>
+                    <div class="abx-glow"></div>
 
-                    <div class="about-float-card about-float-top">
-                        <span class="about-float-icon">
-                            <svg viewBox="0 0 24 24">
+                    {{-- ویرایشگر کد (چپ‌چین، چون کد LTR است) --}}
+                    <div class="abx-editor">
+                        <div class="abx-bar"><i></i><i></i><i></i><span>Studio.php</span></div>
+                        <div class="abx-code" dir="ltr">
+                            <div class="abx-row"><span class="abx-line" style="--n:22;--d:.30s"><span class="c">// from
+                                        idea to launch</span></span></div>
+                            <div class="abx-row"><span class="abx-line" style="--n:12;--d:.76s"><span
+                                        class="k">class</span> <span class="t">Studio</span></span></div>
+                            <div class="abx-row"><span class="abx-line" style="--n:1;--d:1.04s">{</span></div>
+                            <div class="abx-row"><span class="abx-line" style="--n:37;--d:1.12s"> <span
+                                        class="k">public function</span> <span class="f">build</span>(<span
+                                        class="t">Idea</span> <span class="v">$idea</span>)</span></div>
+                            <div class="abx-row"><span class="abx-line" style="--n:5;--d:1.85s"> {</span></div>
+                            <div class="abx-row"><span class="abx-line" style="--n:20;--d:2.00s"> <span
+                                        class="k">return</span> <span class="v">$idea</span></span></div>
+                            <div class="abx-row"><span class="abx-line" style="--n:22;--d:2.42s"> -&gt;<span
+                                        class="f">design</span>()</span></div>
+                            <div class="abx-row"><span class="abx-line" style="--n:23;--d:2.88s"> -&gt;<span
+                                        class="f">develop</span>()</span></div>
+                            <div class="abx-row"><span class="abx-line" style="--n:24;--d:3.35s"> -&gt;<span
+                                        class="f">deliver</span>();</span></div>
+                            <div class="abx-row"><span class="abx-line" style="--n:5;--d:3.84s"> }</span></div>
+                            <div class="abx-row"><span class="abx-line" style="--n:1;--d:3.99s">}</span><i
+                                    class="abx-cursor"></i></div>
+                        </div>
+                    </div>
+
+                    {{-- پیش‌نمایش سایت: بعد از تایپ کد ظاهر می‌شود --}}
+                    <div class="abx-preview abx-reveal" style="--rd:4.1s">
+                        <div class="abx-pbar"><i></i><i></i><i></i><span dir="ltr">moradix.studio</span></div>
+                        <div class="abx-pbody">
+                            <div class="abx-pnav"><b dir="ltr">Moradix<em>.</em></b><u></u><u></u><u></u></div>
+                            <div class="abx-phero">
+                                <span class="abx-pkick"></span>
+                                <span class="abx-pl w1"></span>
+                                <span class="abx-pl w2"></span>
+                                <span class="abx-pbtn"></span>
+                            </div>
+                            <div class="abx-pcards"><i></i><i></i><i></i></div>
+                        </div>
+                    </div>
+
+                    {{-- نسخه‌ی موبایل --}}
+                    <div class="abx-phone abx-reveal" style="--rd:4.4s">
+                        <span class="abx-ph-notch"></span>
+                        <span class="abx-pl w1"></span>
+                        <span class="abx-pl w2"></span>
+                        <span class="abx-pbtn"></span>
+                        <div class="abx-pcards"><i></i><i></i></div>
+                    </div>
+
+                    {{-- ترمینال --}}
+                    <div class="abx-term abx-reveal" style="--rd:4.7s" dir="ltr">
+                        <p><span class="g">$</span> php artisan serve</p>
+                        <p class="ok">✓ Server running on http://127.0.0.1:8000</p>
+                    </div>
+
+                    {{-- کارت‌های شناور --}}
+                    <div class="abx-chip abx-chip-a abx-reveal" style="--rd:4.9s">
+                        <span class="abx-chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="m5 12 4 4L19 6" />
-                            </svg>
-                        </span>
-                        <span>
-                            <strong>ساخت اصولی</strong>
-                            <small>از ایده تا اجرا</small>
-                        </span>
+                            </svg></span>
+                        <span><strong>ساخت اصولی</strong><small>از فکر تا محصول</small></span>
                     </div>
-
-                    <div class="about-float-card about-float-bottom">
-                        <span class="about-code-icon">&lt;/&gt;</span>
-                        <span>
-                            <strong>جزئیات مهم‌اند</strong>
-                            <small>کیفیت در هر مرحله</small>
-                        </span>
+                    <div class="abx-chip abx-chip-b abx-reveal" style="--rd:5.1s">
+                        <span class="abx-chk abx-code-ic" dir="ltr">&lt;/&gt;</span>
+                        <span><strong>جزئیات مهم‌اند</strong><small dir="ltr">DESIGN &amp; DEVELOPMENT</small></span>
                     </div>
-
-                    <span class="about-spark about-spark-one">✳</span>
-                    <span class="about-spark about-spark-two">✦</span>
                 </div>
+
 
             </div>
         </section>
@@ -145,10 +190,10 @@
             <div class="about-why__container">
 
                 <div class="about-why__heading" data-why-reveal>
-                  
+
 
                     <h2 id="about-why-title">
-                        چرا <span>Studio Moradix</span> ؟ 
+                        چرا <span>Studio Moradix</span> ؟
                     </h2>
 
                     <p>
@@ -160,7 +205,7 @@
                 <div class="about-why__grid">
 
                     <article class="about-why__card" data-why-reveal>
-                        <span class="about-why__number">01</span>
+                        <span class="about-why__number">1</span>
 
                         <div class="about-why__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none">
@@ -178,7 +223,7 @@
                     </article>
 
                     <article class="about-why__card" data-why-reveal>
-                        <span class="about-why__number">02</span>
+                        <span class="about-why__number">2</span>
 
                         <div class="about-why__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none">
@@ -196,14 +241,14 @@
                     </article>
 
                     <article class="about-why__card" data-why-reveal>
-                        <span class="about-why__number">03</span>
+                        <span class="about-why__number">3</span>
 
                         <div class="about-why__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none">
                                 <path d="M12 3L19 6V11C19 15.4 16.1 19.2 12 21C7.9 19.2 5 15.4 5 11V6L12 3Z"
                                     stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-                                <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
+                                <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
 
@@ -216,13 +261,14 @@
                     </article>
 
                     <article class="about-why__card" data-why-reveal>
-                        <span class="about-why__number">04</span>
+                        <span class="about-why__number">4</span>
 
                         <div class="about-why__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none">
                                 <path d="M4 5H20V16H13L8 20V16H4V5Z" stroke="currentColor" stroke-width="1.5"
                                     stroke-linejoin="round" />
-                                <path d="M8 9H16M8 12H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                <path d="M8 9H16M8 12H13" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" />
                             </svg>
                         </div>
 
@@ -285,7 +331,7 @@
 
                         <div class="about-person-info">
                             <div>
-                                <h3>محمد مرادی</h3>
+                                <h3> مهندس محمد مرادی</h3>
                                 <p>بنیان‌گذار و مدیر استودیو</p>
                             </div>
 

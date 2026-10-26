@@ -111,3 +111,22 @@ document.addEventListener('DOMContentLoaded', () => {
         initWhyMoradix();
     }
 })();
+
+
+/* هیروی درباره ما: شروع انیمیشن وقتی بخش دیده شد */
+(function () {
+    'use strict';
+    var el = document.querySelector('.abx');
+    if (!el) return;
+    // بدون IntersectionObserver یا با reduced-motion: حالت نهایی ثابت می‌ماند
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    el.classList.add('is-armed');
+    new IntersectionObserver(function (entries, obs) {
+        if (entries[0].isIntersecting) {
+            el.classList.add('is-live');
+            obs.disconnect();
+        }
+    }, { threshold: 0.35 }).observe(el);
+})();
+

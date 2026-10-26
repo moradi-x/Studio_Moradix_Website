@@ -712,3 +712,335 @@
     margin-top: 6px;
     text-align: right;
 }
+
+/* فقط رنگ آیکون‌های ارتباطی؛ بدون تغییر ظاهر کارت‌ها */
+.ct-info-icon-wrapper.ct-info-icon-telegram .ct-info-icon {
+    color: #229ED9;
+}
+
+.ct-info-icon-wrapper.ct-info-icon-instagram .ct-info-icon {
+    color: #D94683;
+}
+
+.ct-info-card {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================================
+   Simple White Mobile Contact Hero
+========================================= */
+
+.ct-mobile-hero {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .ct-hero {
+        display: none;
+    }
+
+    .ct-mobile-hero {
+        display: block;
+        margin: 16px 16px 28px;
+        padding: 26px 20px;
+        background: #fff;
+        color: #1f2937;
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        box-shadow: none;
+    }
+
+    .ct-mobile-hero::before {
+        display: none;
+    }
+
+    .ct-mobile-hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        text-align: right;
+    }
+
+    .ct-mobile-hero-eyebrow {
+        color: var(--primary-color, #0f766e);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    .ct-mobile-hero h1 {
+        margin: 0;
+        color: #111827;
+        font-size: 25px;
+        font-weight: 800;
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+    }
+
+    .ct-mobile-hero p {
+        margin: 0;
+        color: #6b7280;
+        font-size: 14px;
+        line-height: 2;
+    }
+
+    .ct-mobile-hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 8px;
+    }
+
+    .ct-mobile-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        min-height: 48px;
+        padding: 12px 16px;
+        box-sizing: border-box;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.5;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+    }
+
+    .ct-mobile-btn svg {
+        width: 19px;
+        height: 19px;
+        flex-shrink: 0;
+    }
+
+    .ct-mobile-btn-primary {
+        background: var(--primary-color, #0f766e);
+        color: #fff;
+        border-color: var(--primary-color, #0f766e);
+    }
+
+    .ct-mobile-btn-secondary {
+        background: #fff;
+        color: #374151;
+        border-color: #d1d5db;
+    }
+
+    .ct-mobile-btn-primary:hover {
+        filter: brightness(0.96);
+    }
+
+    .ct-mobile-btn-secondary:hover {
+        background: #f9fafb;
+    }
+
+    .ct-mobile-btn:focus-visible {
+        outline: 2px solid var(--primary-color, #0f766e);
+        outline-offset: 3px;
+    }
+
+    #contact-form,
+    #contact-methods {
+        scroll-margin-top: 24px;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        html {
+            scroll-behavior: smooth;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .ct-mobile-hero {
+        margin-right: 12px;
+        margin-left: 12px;
+        padding: 22px 16px;
+    }
+
+    .ct-mobile-hero h1 {
+        font-size: 23px;
+    }
+}
+
+
+
+/* Mobile: Request type options in one row */
+@media (max-width: 767px) {
+    .ct-form-card .ct-request-type .ct-pills {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+    }
+
+    .ct-form-card .ct-request-type .ct-pill-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-width: 0;
+        min-height: 42px;
+        padding: 8px 5px;
+        box-sizing: border-box;
+        border-width: 1px;
+        border-radius: 10px;
+        font-size: 12px;
+        line-height: 1.6;
+        text-align: center;
+        white-space: normal;
+    }
+
+    .ct-form-card .ct-request-type {
+        margin-bottom: 1.25rem;
+    }
+
+    .ct-form-card .ct-request-type-label {
+        margin-bottom: 8px;
+        font-size: 13px;
+    }
+}
+
+
+
+/* =========================================
+   Compact Contact Form - Mobile Only
+========================================= */
+
+@media (max-width: 767px) {
+
+    /* Form card */
+    .ct-form-card {
+        padding: 18px 14px;
+        border-radius: 14px;
+    }
+
+    /* Form heading */
+    .ct-form-title {
+        margin-bottom: 6px;
+        font-size: 21px;
+        line-height: 1.6;
+    }
+
+    .ct-form-subtitle {
+        margin-bottom: 18px;
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    /* Request type */
+    .ct-form-card .ct-request-type {
+        margin-bottom: 16px;
+    }
+
+    /* All form fields */
+    .ct-form-card .ct-form-group {
+        margin-bottom: 14px;
+    }
+
+    .ct-form-card .ct-form-label {
+        margin-bottom: 6px;
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    /* Inputs and select */
+    .ct-form-card .ct-form-input,
+    .ct-form-card .ct-form-select {
+        min-height: 42px;
+        padding: 9px 11px;
+        font-size: 14px;
+        border-radius: 9px;
+    }
+
+    /* Message textarea */
+    .ct-form-card .ct-form-textarea {
+        min-height: 90px;
+        padding: 10px 11px;
+        font-size: 14px;
+        line-height: 1.8;
+        border-radius: 9px;
+    }
+
+    /* Submit button */
+    .ct-form-card .ct-form-submit {
+        min-height: 44px;
+        padding: 11px 14px;
+        font-size: 14px;
+        border-radius: 9px;
+    }
+
+    /* Reduce excess space inside the form */
+    .ct-form-card .ct-form-error {
+        margin-top: 4px;
+        font-size: 12px;
+        line-height: 1.7;
+    }
+}
+
+/* Extra-small phones */
+@media (max-width: 360px) {
+    .ct-form-card {
+        padding: 16px 12px;
+    }
+
+    .ct-form-card .ct-form-group {
+        margin-bottom: 12px;
+    }
+
+    .ct-form-card .ct-form-input,
+    .ct-form-card .ct-form-select,
+    .ct-form-card .ct-form-textarea {
+        font-size: 14px;
+    }
+}
+
+/* Compact Contact Methods - Mobile Only */
+@media (max-width: 767px) {
+    .ct-info-column {
+        gap: 12px;
+    }
+
+    .ct-info-column > * {
+        margin-bottom: 0;
+    }
+
+    .ct-info-column .ct-info-card {
+        padding: 14px 12px;
+        border-radius: 12px;
+    }
+
+    .ct-info-column .ct-info-card h3 {
+        margin-bottom: 5px;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .ct-info-column .ct-info-card p {
+        margin-bottom: 4px;
+        font-size: 13px;
+        line-height: 1.8;
+        overflow-wrap: anywhere;
+    }
+
+    .ct-info-column .ct-info-card svg {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 360px) {
+    .ct-info-column {
+        gap: 10px;
+    }
+
+    .ct-info-column .ct-info-card {
+        padding: 12px 10px;
+    }
+}

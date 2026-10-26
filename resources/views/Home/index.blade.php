@@ -540,7 +540,10 @@
     <section class="section why-us" id="why-us">
         <div class="container">
             <div class="section-header">
-                <h2>چرا Moradix Studio؟</h2>
+                <h2>چرا
+
+                      Studio Moradix ؟ 
+                    </h2>
                 <p>مزیت‌های واقعی همکاری با ما</p>
             </div>
 
