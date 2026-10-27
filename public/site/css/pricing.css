@@ -545,6 +545,39 @@
     }
 }
 
+
+.ph #ph-title {
+    display: block !important;
+    text-align: center !important;
+}
+
+.ph #ph-title .ph-title-line {
+    display: block !important;
+    width: 100% !important;
+    white-space: nowrap !important;
+}
+
+
+
+/* دسکتاپ */
+.ph #ph-title {
+    display: block !important;
+    text-align: right !important;
+}
+
+.ph #ph-title .ph-title-line {
+    display: block !important;
+    width: 100% !important;
+    white-space: nowrap !important;
+}
+
+/* موبایل */
+@media (max-width: 768px) {
+    .ph #ph-title {
+        text-align: center !important;
+    }
+}
+
 /* =========================================
    Small Phones
 ========================================= */
@@ -2014,176 +2047,7 @@
     opacity: 0.5;
 }
 
-/* ==================== FAQ Section ==================== */
-.pr-faq {
-    padding-block: 4rem;
-    background-color: var(--color-surface);
-}
 
-@media (min-width: 768px) {
-    .pr-faq {
-        padding-block: 5rem;
-    }
-}
-
-.pr-faq h2 {
-    font-size: clamp(1.75rem, 4vw, 2.25rem);
-    font-weight: var(--font-weight-bold);
-    text-align: center;
-    margin-block-end: 3rem;
-    color: var(--color-text);
-}
-
-.pr-faq-list {
-    max-width: 50rem;
-    margin-inline: auto;
-}
-
-.pr-faq-item {
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-card);
-    margin-block-end: 1rem;
-    overflow: hidden;
-    background-color: var(--color-bg);
-}
-
-.pr-faq-question {
-    width: 100%;
-    padding: 1.5rem;
-    background: transparent;
-    border: none;
-    text-align: start;
-    font-size: 1.0625rem;
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-text);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    transition: var(--transition-base);
-    font-family: var(--font-base);
-}
-
-.pr-faq-question:hover {
-    background-color: var(--color-primary-soft);
-}
-
-.pr-faq-question:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: -2px;
-}
-
-.pr-faq-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    flex-shrink: 0;
-    color: var(--color-primary);
-    transition: var(--transition-base);
-}
-
-.pr-faq-item.active .pr-faq-icon {
-    transform: rotate(180deg);
-}
-
-.pr-faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.pr-faq-answer-content {
-    padding: 0 1.5rem 1.5rem;
-}
-
-.pr-faq-answer-content p {
-    font-size: 0.9375rem;
-    color: var(--color-text-muted);
-    line-height: 1.7;
-    margin-block-end: 0;
-}
-
-/* ==================== Final CTA Section ==================== */
-.pr-final-cta {
-    padding-block: 4rem;
-    background-color: var(--color-dark);
-    color: var(--color-surface);
-}
-
-@media (min-width: 768px) {
-    .pr-final-cta {
-        padding-block: 5rem;
-    }
-}
-
-.pr-final-grid {
-    display: grid;
-    gap: 2rem;
-    max-width: 56rem;
-    margin-inline: auto;
-}
-
-@media (min-width: 768px) {
-    .pr-final-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-.pr-final-card {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-card);
-    padding: 2.5rem;
-    text-align: center;
-}
-
-@media (min-width: 768px) {
-    .pr-final-card {
-        padding: 3rem;
-    }
-}
-
-.pr-final-card h3 {
-    font-size: 1.5rem;
-    font-weight: var(--font-weight-bold);
-    margin-block-end: 0.75rem;
-    color: var(--color-surface);
-}
-
-.pr-final-card p {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.8);
-    margin-block-end: 2rem;
-}
-
-.pr-final-btn {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background-color: transparent;
-    color: var(--color-surface);
-    border: 2px solid var(--color-surface);
-    border-radius: var(--radius-button);
-    font-size: 1rem;
-    font-weight: var(--font-weight-semibold);
-    text-decoration: none;
-    transition: var(--transition-base);
-}
-
-.pr-final-btn:hover {
-    background-color: var(--color-surface);
-    color: var(--color-dark);
-}
-
-.pr-final-btn-primary {
-    background-color: var(--color-primary);
-    color: var(--color-surface);
-    border-color: var(--color-primary);
-}
-
-.pr-final-btn-primary:hover {
-    background-color: var(--color-primary-hover);
-    border-color: var(--color-primary-hover);
-}
 
 
 /* اصلاح چیدمان کارت‌ها */
@@ -3045,51 +2909,179 @@
     }
 }
 
-/* FAQ - Compact Mobile */
-@media (max-width: 600px) {
+/* ==============================
+   FAQ - Base Styles
+============================== */
+
+.pr-faq {
+    padding: 64px 0;
+    direction: rtl;
+}
+
+.pr-faq .container {
+    width: 100%;
+    max-width: 900px;
+    margin-inline: auto;
+    padding-inline: 20px;
+    box-sizing: border-box;
+}
+
+.pr-faq h2 {
+    margin: 0 0 28px;
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+/* FAQ List */
+
+.pr-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* FAQ Item */
+
+.pr-faq-item {
+    min-width: 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #fff;
+    overflow: hidden;
+}
+
+/* Question Button */
+
+.pr-faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    min-height: 60px;
+    padding: 16px 20px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.8;
+    text-align: right;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.pr-faq-question span {
+    flex: 1;
+    min-width: 0;
+}
+
+.pr-faq-question:focus-visible {
+    outline: 2px solid #64748b;
+    outline-offset: -4px;
+}
+
+/* Arrow Icon */
+
+.pr-faq-icon {
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.pr-faq-item.active .pr-faq-icon {
+    transform: rotate(180deg);
+}
+
+/* Answer
+   Compatible with the existing JS using max-height */
+
+.pr-faq-answer {
+    display: block;
+    max-height: 0;
+    height: auto;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pr-faq-answer-content {
+    display: block;
+    padding: 0 20px 18px;
+    box-sizing: border-box;
+}
+
+.pr-faq-answer-content p {
+    margin: 0;
+    color: var(--color-text-muted, #64748b);
+    font-size: 0.9375rem;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+/* Active State */
+
+.pr-faq-item.active .pr-faq-answer {
+    /* Height is controlled by JavaScript */
+}
+
+/* ==============================
+   Mobile
+============================== */
+
+@media (max-width: 767px) {
     .pr-faq {
-        padding: 18px 0;
+        padding: 32px 0;
+    }
+
+    .pr-faq .container {
+        padding-inline: 14px;
     }
 
     .pr-faq h2 {
-        font-size: 1.1rem;
-        margin-bottom: 14px;
+        margin-bottom: 18px;
+        font-size: 1.3rem;
+        line-height: 1.7;
     }
 
     .pr-faq-list {
-        gap: 8px;
+        gap: 9px;
     }
 
     .pr-faq-item {
-        border-radius: 9px;
-        overflow: hidden;
+        border-radius: 10px;
     }
 
     .pr-faq-question {
-        width: 100%;
-        padding: 11px 12px;
-        gap: 8px;
-        font-size: 0.78rem;
+        min-height: 48px;
+        padding: 12px;
+        gap: 10px;
+        font-size: 0.82rem;
         line-height: 1.8;
     }
 
-    .pr-faq-question span {
-        min-width: 0;
-    }
-
     .pr-faq-icon {
+        flex-basis: 17px;
         width: 17px;
         height: 17px;
-        flex-shrink: 0;
     }
 
     .pr-faq-answer-content {
-        padding: 0 12px 11px;
+        padding: 0 12px 12px;
     }
 
     .pr-faq-answer-content p {
-        margin: 0;
-        font-size: 0.74rem;
+        font-size: 0.78rem;
         line-height: 1.9;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pr-faq-answer,
+    .pr-faq-icon {
+        transition: none;
     }
 }

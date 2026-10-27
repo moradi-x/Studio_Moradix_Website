@@ -216,6 +216,8 @@
     outline-offset: 4px;
 }
 
+
+
 /* Project Preview */
 
 .ph-visual {
@@ -511,10 +513,6 @@
 }
 
 
-
-/* =========================================
-   Portfolio Overview & Features
-========================================= */
 
 
 /* =========================================
@@ -1689,6 +1687,165 @@
     inset-inline-end: 5rem;
 }
 
+@media (max-width: 768px) {
+    .pf-cta {
+        padding: 24px 0;
+        overflow: hidden;
+    }
 
+    .pf-cta .container.pf-container {
+        width: 100%;
+        max-width: 100%;
+        margin-inline: auto;
+        padding-inline: 12px;
+        box-sizing: border-box;
+    }
 
+    .pf-cta-card {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        min-height: auto;
+        padding: 28px 16px;
+        box-sizing: border-box;
+        text-align: center;
+    }
 
+    .pf-cta-content {
+        position: relative;
+        z-index: 2;
+        display: block;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        justify-self: auto;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .pf-cta-content h2 {
+        width: 100%;
+        max-width: none;
+        margin: 0 0 14px;
+        font-size: clamp(21px, 5.5vw, 28px);
+        line-height: 1.8;
+        letter-spacing: 0;
+        text-align: center;
+        word-break: normal;
+        overflow-wrap: normal;
+    }
+
+    .pf-cta-content h2 span {
+        display: inline;
+    }
+
+    .pf-cta-content p {
+        width: 100%;
+        max-width: none;
+        margin: 0 0 18px;
+        font-size: 13px;
+        line-height: 2;
+        text-align: center;
+    }
+
+    .pf-cta-content .pf-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .pf-cta-mark {
+        display: none;
+    }
+}
+
+@media (max-width: 380px) {
+    .pf-cta-card {
+        padding: 24px 12px;
+    }
+
+    .pf-cta-content h2 {
+        font-size: 21px;
+    }
+}
+
+/* ==========================================
+   CTA BUTTON — شروع گفتگو
+   ========================================== */
+
+.pf-cta-content .pf-btn-light {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 50px;
+    padding: 13px 24px;
+
+    background: #0F766E;
+    color: #FFFFFF;
+    border: 1px solid #0F766E;
+    border-radius: 12px;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-decoration: none;
+    white-space: nowrap;
+
+    box-shadow: 0 5px 14px rgb(15 118 110 / 18%);
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.pf-cta-content .pf-btn-light span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    line-height: 1;
+    transition: transform 0.25s ease;
+}
+
+/* Hover — Desktop */
+@media (hover: hover) {
+    .pf-cta-content .pf-btn-light:hover {
+        background: #115E59;
+        border-color: #115E59;
+        box-shadow: 0 8px 20px rgb(15 118 110 / 25%);
+        transform: translateY(-2px);
+    }
+
+    .pf-cta-content .pf-btn-light:hover span {
+        transform: translateX(-4px);
+    }
+}
+
+/* Keyboard accessibility */
+.pf-cta-content .pf-btn-light:focus-visible {
+    outline: 3px solid rgb(15 118 110 / 35%);
+    outline-offset: 4px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .pf-cta-content .pf-btn-light {
+        min-height: 46px;
+        padding: 11px 20px;
+        gap: 10px;
+        border-radius: 10px;
+        font-size: 13px;
+    }
+
+    .pf-cta-content .pf-btn-light span {
+        font-size: 18px;
+    }
+}
+
+/* Touch feedback */
+.pf-cta-content .pf-btn-light:active {
+    transform: scale(0.97);
+}

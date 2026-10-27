@@ -35,7 +35,7 @@
                     <div class="border rounded-lg p-4">
                         <p class="text-sm text-gray-500 mb-2">پلن پایه‌ای</p>
                         <p class="text-lg font-bold text-gray-800">
-                            {{ number_format($website->basic_price) }}
+                            {{ $plans->get('website')?->basic_price_formatted ?? '۰' }}
                         </p>
                         <span class="text-xs text-gray-500">تومان</span>
                     </div>
@@ -43,7 +43,7 @@
                     <div class="border rounded-lg p-4">
                         <p class="text-sm text-gray-500 mb-2">پلن حرفه‌ای</p>
                         <p class="text-lg font-bold text-gray-800">
-                            {{ number_format($website->professional_price) }}
+                            {{ $plans->get('website')?->professional_price_formatted ?? '۰' }}
                         </p>
                         <span class="text-xs text-gray-500">تومان</span>
                     </div>
@@ -82,7 +82,8 @@
                     <div class="border rounded-lg p-4">
                         <p class="text-sm text-gray-500 mb-2">پلن پایه‌ای</p>
                         <p class="text-lg font-bold text-gray-800">
-                            {{ number_format($ecommerce->basic_price) }}
+                           {{ $ecommerce?->basic_price_formatted ?? '۰' }}
+
                         </p>
                         <span class="text-xs text-gray-500">تومان</span>
                     </div>
@@ -90,7 +91,7 @@
                     <div class="border rounded-lg p-4">
                         <p class="text-sm text-gray-500 mb-2">پلن حرفه‌ای</p>
                         <p class="text-lg font-bold text-gray-800">
-                            {{ number_format($ecommerce->professional_price) }}
+                           {{ $ecommerce?->professional_price_formatted ?? '۰' }}
                         </p>
                         <span class="text-xs text-gray-500">تومان</span>
                     </div>

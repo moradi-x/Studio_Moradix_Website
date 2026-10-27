@@ -18,6 +18,63 @@
         $galleryImages = $project->images ?? collect();
 
         $description = $project->description ?? '';
+
+        $heroImage = $project->primary_image ? asset('uploads/projects/images/' . $project->primary_image) : null;
+
+        $uploadPath = trim(env('PROJECT_IMAGES_UPLOAD_PATH'), '/');
+
+        $galleryImages = collect();
+
+        // تصویر اصلی پروژه
+        if ($project->primary_image) {
+            $galleryImages->push([
+                'path' => asset($uploadPath . '/' . $project->primary_image),
+                'alt' => $project->title . ' - تصویر اصلی پروژه',
+            ]);
+        }
+
+        // تصاویر اضافه پروژه
+        foreach ($project->images as $image) {
+            if ($image->image) {
+                $galleryImages->push([
+                    'path' => asset($uploadPath . '/' . $image->image),
+                    'alt' => $project->title . ' - تصویر پروژه',
+                ]);
+            }
+        }
+
+        // جلوگیری از نمایش دوباره یک فایل
+        $galleryImages = $galleryImages->unique('path')->values();
+
+        $projectCategory = $project->category;
+        $projectFeatures = $project->features ?? collect();
+
+        $categoryName = $projectCategory->name ?? ($projectCategory->title ?? null);
+
+        $metadataItems = [
+            [
+                'label' => 'دسته‌بندی پروژه',
+                'value' => $categoryName,
+                'icon' => 'grid',
+            ],
+            [
+                'label' => 'وضعیت پروژه',
+                'value' => $project->status == 1 ? 'تکمیل شده' : 'در حال توسعه',
+                'icon' => 'check-circle',
+            ],
+            [
+                'label' => 'تعداد ویژگی‌ها',
+                'value' => $projectFeatures->count() ? $projectFeatures->count() . ' ویژگی ثبت‌شده' : null,
+                'icon' => 'layers',
+            ],
+            [
+                'label' => 'وب‌سایت پروژه',
+                'value' => $project->project_url ? 'مشاهده وب‌سایت' : null,
+                'icon' => 'external-link',
+            ],
+        ];
+
+        $metadataItems = collect($metadataItems)->filter(fn($item) => filled($item['value']))->values();
     @endphp
 
     <main class="pd-page">
@@ -41,9 +98,7 @@
         </nav>
 
         {{-- Hero --}}
-        @php
-            $heroImage = $project->primary_image ? asset('uploads/projects/images/' . $project->primary_image) : null;
-        @endphp
+
 
         <section class="ph-hero" aria-labelledby="ph-title">
             <div class="ph-container">
@@ -53,10 +108,7 @@
                     {{-- Project Information --}}
                     <div class="ph-content">
 
-                        <span class="ph-eyebrow">
-                            <span class="ph-eyebrow-dot"></span>
-                            نمونه‌کارهای Moradix Studio
-                        </span>
+
 
                         <h1 class="ph-title" id="ph-title">
                             {{ $project->title }}
@@ -176,9 +228,7 @@
 
                     <div class="container">
                         <div class="pf-features-heading">
-                            <span class="pf-section-eyebrow">
-                                قابلیت‌های اجراشده
-                            </span>
+
 
                             <h3 class="pf-features-title">
                                 ویژگی‌ها و امکانات پروژه
@@ -247,32 +297,7 @@
 
 
         {{-- Project Gallery --}}
-        @php
-            $uploadPath = trim(env('PROJECT_IMAGES_UPLOAD_PATH'), '/');
 
-            $galleryImages = collect();
-
-            // تصویر اصلی پروژه
-            if ($project->primary_image) {
-                $galleryImages->push([
-                    'path' => asset($uploadPath . '/' . $project->primary_image),
-                    'alt' => $project->title . ' - تصویر اصلی پروژه',
-                ]);
-            }
-
-            // تصاویر اضافه پروژه
-            foreach ($project->images as $image) {
-                if ($image->image) {
-                    $galleryImages->push([
-                        'path' => asset($uploadPath . '/' . $image->image),
-                        'alt' => $project->title . ' - تصویر پروژه',
-                    ]);
-                }
-            }
-
-            // جلوگیری از نمایش دوباره یک فایل
-            $galleryImages = $galleryImages->unique('path')->values();
-        @endphp
 
         @if ($galleryImages->isNotEmpty())
             <section class="pf-gallery-section" id="project-gallery">
@@ -336,44 +361,13 @@
 
 
         {{-- Project Metadata --}}
-        @php
-            $projectCategory = $project->category;
-            $projectFeatures = $project->features ?? collect();
 
-            $categoryName = $projectCategory->name ?? ($projectCategory->title ?? null);
-
-            $metadataItems = [
-                [
-                    'label' => 'دسته‌بندی پروژه',
-                    'value' => $categoryName,
-                    'icon' => 'grid',
-                ],
-                [
-                    'label' => 'وضعیت پروژه',
-                    'value' => $project->status == 1 ? 'تکمیل شده' : 'در حال توسعه',
-                    'icon' => 'check-circle',
-                ],
-                [
-                    'label' => 'تعداد ویژگی‌ها',
-                    'value' => $projectFeatures->count() ? $projectFeatures->count() . ' ویژگی ثبت‌شده' : null,
-                    'icon' => 'layers',
-                ],
-                [
-                    'label' => 'وب‌سایت پروژه',
-                    'value' => $project->project_url ? 'مشاهده وب‌سایت' : null,
-                    'icon' => 'external-link',
-                ],
-            ];
-
-            $metadataItems = collect($metadataItems)->filter(fn($item) => filled($item['value']))->values();
-        @endphp
 
         @if ($metadataItems->isNotEmpty())
             <section class="pf-metadata-section" aria-label="مشخصات پروژه">
                 <div class="container">
 
                     <div class="pf-metadata-heading">
-                        <span class="pf-metadata-eyebrow">PROJECT DETAILS</span>
                         <h2>مشخصات پروژه</h2>
                         <p>
                             نگاهی کوتاه به اطلاعات و جزئیات این پروژه داشته باشید.
@@ -381,7 +375,7 @@
                     </div>
 
                     <div class="pf-metadata-grid">
-                        @foreach ($metadataItems as $item)
+                        @foreach ($metadataItems->take(3) as $item)
                             <div class="pf-metadata-card">
 
                                 <span class="pf-metadata-icon" aria-hidden="true">
@@ -425,19 +419,36 @@
                                             {{ $item['value'] }}
                                         </span>
                                     @endif
+
                                 </div>
 
                             </div>
                         @endforeach
+
+                         <div class="pf-metadata-card">
+                            <span class="pf-metadata-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <rect x="2.5" y="3.5" width="19" height="13" rx="2" />
+                                    <path d="M8 20.5h8M12 16.5v4" />
+                                    <rect x="5.5" y="6.5" width="13" height="7" rx="1" />
+                                </svg>
+                            </span>
+
+                            <div class="pf-metadata-text">
+                                <span class="pf-metadata-label">
+                                    طراحی واکنش‌گرا
+                                </span>
+
+                                <span class="pf-metadata-value">
+                                    موبایل، تبلت و لپ‌تاپ
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
-                </div>
+                    </div>
             </section>
         @endif
-
-
-
-        
 
 
         {{-- Related Projects --}}
@@ -447,7 +458,6 @@
 
                     <div class="pf-related-heading">
                         <div>
-                            <span class="pf-related-eyebrow">EXPLORE MORE WORK</span>
                             <h2>پروژه‌های مرتبط</h2>
                             <p>
                                 نمونه‌کارهای بیشتری را در همین زمینه بررسی کنید.

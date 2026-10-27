@@ -30,100 +30,183 @@
         </nav>
 
 
-        {{-- Hero --}}
-        <section class="pf-hero">
-            <div class="container pf-container">
+        {{-- Portfolio Hero — place after $projects is prepared --}}
 
-                <div class="pf-hero-content">
 
-                    <h1>
-                        ایده‌هایی که
-                        <span class="pf-gradient-text">در مسیر ساخت</span>
-                        هستند.
+        @php
+            $pfhBuilt = isset($projects)
+                ? $projects->filter(fn($p) => in_array(data_get($p, 'status'), ['personal', 'technical']))->count()
+                : null;
+
+            $pfhLive = isset($projects)
+                ? $projects->filter(fn($p) => in_array(data_get($p, 'status'), ['development', 'soon']))->count()
+                : null;
+
+            $pfhFa = fn($n) => strtr((string) $n, [
+                '0' => '۰',
+                '1' => '۱',
+                '2' => '۲',
+                '3' => '۳',
+                '4' => '۴',
+                '5' => '۵',
+                '6' => '۶',
+                '7' => '۷',
+                '8' => '۸',
+                '9' => '۹',
+            ]);
+        @endphp
+
+        {{--  hero --}}
+        <section class="pfh" aria-labelledby="pfh-title">
+            <div class="container pfh-inner">
+
+                {{-- Text content --}}
+                <div class="pfh-text">
+
+
+                    <h1 id="pfh-title">
+                        از ایده تا اجرا؛
+                        <span class="pfh-grad">مسیر خلق پروژه‌های ما</span>
                     </h1>
 
-                    <p class="pf-hero-description">
-                        در Moradix، هر پروژه با شناخت نیازها، برنامه‌ریزی و
-                        توجه به تجربه کاربر شکل می‌گیرد. اینجا می‌توانید
-                        پروژه‌های در حال توسعه ما را بشناسید و با مسیر
-                        شکل‌گیری آن‌ها آشنا شوید.
+                    <p class="pfh-lead">
+                        ما تازه مسیر را شروع کرده‌ایم، برای همین هر پروژه را با وضعیت واقعی‌اش نشان می‌دهیم:
+                        پروژه‌های ساخته‌شده، و کارهایی که الان برای کارفرما در حال توسعه‌اند.
                     </p>
 
-                    <div class="pf-hero-actions">
-                        <a href="#pf-projects" class="pf-btn pf-btn-primary">
-                            مشاهده پروژه‌ها
+                    <div class="pfh-actions">
+                        <a href="#pf-projects" class="pfh-btn pfh-btn--primary">
+                            مشاهده‌ی پروژه‌ها
                             <span aria-hidden="true">←</span>
                         </a>
 
-                        <a href="{{ route('contact') }}" class="pf-btn pf-btn-secondary">
-                            درباره پروژه خودتان صحبت کنیم
+                        <a href="{{ route('contact') }}" class="pfh-btn pfh-btn--ghost">
+                            درباره‌ی پروژه‌ی تو صحبت کنیم
                         </a>
                     </div>
 
+                    @if ($pfhBuilt !== null)
+                        <dl class="pfh-stats">
+                            <div>
+                                <dt>پروژه‌ی ساخته‌شده</dt>
+                                <dd>{{ $completedProjects }}</dd>
+                            </div>
 
+                            <div>
+                                <dt>در حال توسعه برای کارفرما</dt>
+                                <dd>{{ $developmentProjects }}</dd>
+                            </div>
+                        </dl>
+                    @endif
                 </div>
 
-                {{-- Decorative visual --}}
-                <div class="pf-hero-visual" aria-hidden="true">
-                    <div class="pf-orbit pf-orbit-one"></div>
-                    <div class="pf-orbit pf-orbit-two"></div>
+                {{-- Animated project cards --}}
+                <div class="pfh-art" aria-label="پیش‌نمایش پروژه‌ها">
+                    <span class="pfh-glow" aria-hidden="true"></span>
+                    <span class="pfh-ring" aria-hidden="true"></span>
 
-                    <div class="pf-visual-window">
-                        <div class="pf-window-top">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <div class="pf-window-address">moradix.studio / projects</div>
-                        </div>
+                    <div class="pfh-stack">
 
-                        <div class="pf-window-content">
-                            <div class="pf-window-sidebar">
-                                <div class="pf-sidebar-logo"></div>
-                                <i></i>
-                                <i></i>
-                                <i></i>
-                                <i></i>
+                        {{-- Card 1: Online store --}}
+                        <figure class="pfh-card" data-pos="0">
+                            <div class="pfh-bar">
+                                <i></i><i></i><i></i>
+                                <span dir="ltr">store / products</span>
                             </div>
 
-                            <div class="pf-window-main">
-                                <div class="pf-window-label">PROJECT OVERVIEW</div>
-                                <div class="pf-window-title"></div>
-                                <div class="pf-window-line"></div>
-
-                                <div class="pf-window-cards">
-                                    <div class="pf-window-card pf-window-card-a">
-                                        <span></span>
-                                        <i></i>
-                                    </div>
-                                    <div class="pf-window-card pf-window-card-b">
-                                        <span></span>
-                                        <i></i>
-                                    </div>
+                            <div class="pfh-screen">
+                                <div class="pfh-nav">
+                                    <b></b><u></u><u></u><u></u><em></em>
                                 </div>
 
-                                <div class="pf-window-bottom">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
+                                <div class="pfh-banner"></div>
+
+                                <div class="pfh-tiles">
+                                    <div><i></i><b></b><s></s></div>
+                                    <div><i></i><b></b><s></s></div>
+                                    <div><i></i><b></b><s></s></div>
                                 </div>
                             </div>
-                        </div>
+
+                            <figcaption class="pfh-meta">
+                                <b>فروشگاه اینترنتی</b>
+                                <span class="pfh-st pfh-st--dev">
+                                    <i></i>
+                                    در حال توسعه
+                                </span>
+                            </figcaption>
+                        </figure>
+
+                        {{-- Card 2: Website --}}
+                        <figure class="pfh-card" data-pos="1">
+                            <div class="pfh-bar">
+                                <i></i><i></i><i></i>
+                                <span dir="ltr">moradix.studio</span>
+                            </div>
+
+                            <div class="pfh-screen">
+                                <div class="pfh-nav">
+                                    <b></b><u></u><u></u><u></u><em></em>
+                                </div>
+
+                                <div class="pfh-hero2">
+                                    <div>
+                                        <b></b>
+                                        <b class="w"></b>
+                                        <u></u>
+                                    </div>
+                                    <span></span>
+                                </div>
+
+                                <div class="pfh-tiles pfh-tiles--row">
+                                    <div><b></b><s></s></div>
+                                    <div><b></b><s></s></div>
+                                    <div><b></b><s></s></div>
+                                </div>
+                            </div>
+
+                            <figcaption class="pfh-meta">
+                                <b>طراحی وب‌سایت</b>
+                                <span class="pfh-st pfh-st--own">
+                                    <i></i>
+                                    پروژه‌ی شخصی
+                                </span>
+                            </figcaption>
+                        </figure>
+
+                        {{-- Card 3: Technical project --}}
+                        <figure class="pfh-card pfh-card--dark" data-pos="2">
+                            <div class="pfh-bar">
+                                <i></i><i></i><i></i>
+                                <span dir="ltr">Router.php</span>
+                            </div>
+
+                            <div class="pfh-screen pfh-code" dir="ltr">
+                                <p><i class="k"></i><i class="v"></i><i class="s"></i></p>
+                                <p><i class="s"></i><i class="f"></i></p>
+                                <p class="in"><i class="k"></i><i class="v"></i></p>
+                                <p class="in"><i class="f"></i><i class="s"></i><i class="v"></i></p>
+                                <p><i class="s"></i></p>
+                            </div>
+
+                            <figcaption class="pfh-meta">
+                                <b>پروژه‌ی فنی</b>
+                                <span class="pfh-st pfh-st--tech">
+                                    <i></i>
+                                    معماری MVC
+                                </span>
+                            </figcaption>
+                        </figure>
+
                     </div>
 
-                    <div class="pf-floating-tag pf-floating-tag-top">
-                        <span class="pf-floating-icon">✦</span>
-                        Thoughtful design
-                    </div>
-
-                    <div class="pf-floating-tag pf-floating-tag-bottom">
-                        <span class="pf-live-dot"></span>
-                        Currently in progress
-                    </div>
+                    <span class="pfh-count" dir="ltr" aria-live="off">
+                        <b data-cur>01</b> / {{ sprintf('%02d', 3) }}
+                    </span>
                 </div>
 
             </div>
         </section>
-
 
 
         {{-- Projects --}}
@@ -132,16 +215,12 @@
 
                 <div class="pf-section-heading">
                     <div>
-                        <span class="pf-eyebrow">نمونه‌کارهای Studio Moradix</span>
+                        
                         <h2 class="pf-section-title">
                             پروژه‌هایی که ساخته‌ایم
                         </h2>
                     </div>
 
-                    <div class="pf-project-count">
-                        <strong>{{ sprintf('%02d', $projects->count()) }}</strong>
-                        <span>پروژه</span>
-                    </div>
                 </div>
 
                 <div class="pf-project-grid">
@@ -193,13 +272,10 @@
                                 @endif
 
 
-                                @if ($project->project_url)
-                                    <a href="{{ route('portfolio.show', $project->slug) }}" class="pf-project-link" target="_blank"
-                                        rel="noopener noreferrer">
+                                    <a href="{{ route('portfolio.show', $project->slug) }}" class="pf-project-link"
+                                        target="_blank" rel="noopener noreferrer">
                                         مشاهده جزئیات پروژه
                                     </a>
-
-                                @endif
 
                             </div>
 
@@ -230,7 +306,7 @@
 
                 <div class="pf-process-grid">
                     <div class="pf-process-item" data-reveal>
-                        <span class="pf-process-number">01</span>
+                        <span class="pf-process-number">1</span>
                         <div class="pf-process-icon" aria-hidden="true">⌕</div>
                         <h3>شناخت نیاز</h3>
                         <p>
@@ -239,7 +315,7 @@
                     </div>
 
                     <div class="pf-process-item" data-reveal>
-                        <span class="pf-process-number">02</span>
+                        <span class="pf-process-number">2</span>
                         <div class="pf-process-icon" aria-hidden="true">◇</div>
                         <h3>طراحی تجربه</h3>
                         <p>
@@ -248,7 +324,7 @@
                     </div>
 
                     <div class="pf-process-item" data-reveal>
-                        <span class="pf-process-number">03</span>
+                        <span class="pf-process-number">3</span>
                         <div class="pf-process-icon" aria-hidden="true">⌘</div>
                         <h3>پیاده‌سازی</h3>
                         <p>
@@ -257,7 +333,7 @@
                     </div>
 
                     <div class="pf-process-item" data-reveal>
-                        <span class="pf-process-number">04</span>
+                        <span class="pf-process-number">4</span>
                         <div class="pf-process-icon" aria-hidden="true">↗</div>
                         <h3>بررسی و انتشار</h3>
                         <p>

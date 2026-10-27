@@ -38,7 +38,14 @@
 
                 <div class="ph-text">
 
-                    <h1 id="ph-title">پلن <mark class="ph-mark">مناسب</mark> کسب‌وکارت را پیدا کن</h1>
+                    <h1 id="ph-title">
+                        <span class="ph-title-line">
+                            پلن <mark class="ph-mark">مناسب</mark> کسب‌ و کارت
+                        </span>
+                        <span class="ph-title-line">
+                            را پیدا کن
+                        </span>
+                    </h1>
 
                     <p class="ph-lead">
                         پلن‌ها را کنار هم مقایسه کن. قیمت نهایی بعد از تعیین محدوده‌ی کار و قبل از شروع، شفاف مشخص می‌شود.
@@ -142,7 +149,7 @@
                                 {{-- PRICE: قیمت  طراحی سایت پایه --}}
                                 <span class="pr-price-label">از</span>
                                 <span
-                                    class="pr-price-amount">{{ number_format($plans->get('website')?->basic_price ?? 0) }}
+                                    class="pr-price-amount">{{ $plans->get('website')?->basic_price_formatted ?? '۰' }}
                                 </span>
                                 <span class="pr-price-currency">تومان</span>
                             </div>
@@ -238,7 +245,7 @@
 
                             </div>
 
-                            <a href="{{ route('contact') }}?plan=website-basic" class="pr-plan-btn">
+                            <a href="{{ route('contact') }}" class="pr-plan-btn">
                                 شروع این پلن
                             </a>
                             <a href="{{ route('contact') }}" class="pr-plan-consult">
@@ -264,7 +271,7 @@
                                 {{-- PRICE: قیمت  طراحی سایت حرفه‌ای --}}
                                 <span class="pr-price-label">از</span>
                                 <span
-                                    class="pr-price-amount">{{ number_format($plans->get('website')?->professional_price ?? 0) }}
+                                    class="pr-price-amount">{{ $plans->get('website')?->professional_price_formatted ?? '۰' }}
 
 
                                 </span>
@@ -345,17 +352,10 @@
                                         <span>بهینه‌سازی سرعت</span>
                                     </li>
                                 </ul>
-                                <button class="pr-show-more" aria-expanded="false" hidden>
-                                    <span class="pr-show-more-text">نمایش همه‌ی امکانات</span>
-                                    <svg class="pr-show-more-icon" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
+
                                 {{-- Suitable For --}}
                             </div>
-                            <a href="{{ route('contact') }}?plan=website-pro" class="pr-plan-btn pr-plan-btn-primary">
+                            <a href="{{ route('contact') }}" class="pr-plan-btn pr-plan-btn-primary">
                                 شروع این پلن
                             </a>
                             <a href="{{ route('contact') }}" class="pr-plan-consult">
@@ -372,7 +372,7 @@
 
                 {{-- Shop Plans --}}
                 <div class="pr-section-heading">
-                    <h2>پلن‌های طراحی فروشگاهی</h2>
+                    <h2>پلن‌های طراحی سایت فروشگاهی</h2>
                 </div>
                 {{-- <div class="pr-panel pr-panel-hidden" role="tabpanel" id="panel-shop" aria-labelledby="tab-shop" hidden> --}}
                 <div class="pr-panel" id="panel-shop">
@@ -388,7 +388,9 @@
                                 {{-- PRICE: قیمت پایه فروشگاهی --}}
                                 <span class="pr-price-label">از</span>
                                 <span
-                                    class="pr-price-amount">{{ number_format($plans->get('ecommerce')?->professional_price ?? 0) }}
+                                    class="pr-price-amount">{{ $plans->get('ecommerce')?->basic_price_formatted ?? '۰' }}
+
+
                                 </span>
                                 <span class="pr-price-currency">تومان</span>
                             </div>
@@ -479,15 +481,7 @@
                                         <span>ساختار آماده‌ی سئو</span>
                                     </li>
                                 </ul>
-                                <button class="pr-show-more" aria-expanded="false" hidden>
-                                    <span class="pr-show-more-text">نمایش همه‌ی امکانات</span>
-                                    <svg class="pr-show-more-icon" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
 
-                                </button>
 
 
                                 {{-- Suitable For --}}
@@ -495,7 +489,7 @@
 
                             </div>
 
-                            <a href="{{ route('contact') }}?plan=shop-basic" class="pr-plan-btn">
+                            <a href="{{ route('contact') }}" class="pr-plan-btn">
                                 شروع این پلن
                             </a>
                             <a href="{{ route('contact') }}" class="pr-plan-consult">
@@ -512,7 +506,7 @@
                         <article class="pr-plan-card pr-plan-featured pr-callout-left">
                             <span class="pr-featured-badge">پیشنهاد ما</span>
                             <div class="pr-plan-header">
-                                <h3 class="pr-plan-name">حرفه‌ا
+                                <h3 class="pr-plan-name">حرفه‌ای
 
                             </div>
 
@@ -520,7 +514,7 @@
                                 {{-- PRICE: قیمت  فروشگاه حرفه‌ای --}}
                                 <span class="pr-price-label">از</span>
                                 <span class="pr-price-amount">
-                                    {{ number_format($plans->get('ecommerce')?->basic_price ?? 0) }}
+                                   {{ $plans->get('ecommerce')?->professional_price_formatted ?? '۰' }}
                                 </span>
                                 <span class="pr-price-currency">تومان</span>
                             </div>
@@ -614,20 +608,12 @@
                                         <span>بهینه‌سازی سرعت</span>
                                     </li>
                                 </ul>
-                                <button class="pr-show-more" aria-expanded="false" hidden>
-                                    <span class="pr-show-more-text">نمایش همه‌ی امکانات</span>
-                                    <svg class="pr-show-more-icon" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
 
                                 {{-- Suitable For --}}
 
                             </div>
 
-                            <a href="{{ route('contact') }}?plan=shop-pro" class="pr-plan-btn pr-plan-btn-primary">
+                            <a href="{{ route('contact') }}" class="pr-plan-btn pr-plan-btn-primary">
                                 شروع این پلن
                             </a>
                             <a href="{{ route('contact') }}" class="pr-plan-consult">
@@ -908,7 +894,7 @@
         </div>
     </section>
 
-  
+
 
     {{-- FAQ --}}
     <section class="pr-faq">
@@ -1001,24 +987,7 @@
         </div>
     </section>
 
-    {{-- Final CTA --}}
-    <section class="pr-final-cta">
-        <div class="container">
-            <div class="pr-final-grid">
-                <div class="pr-final-card">
-                    <h3>آماده‌ای؟</h3>
-                    <p>پلنت رو انتخاب کن و شروع کن</p>
-                    <a href="#plans" class="pr-final-btn pr-final-btn-primary">انتخاب پلن</a>
-                </div>
 
-                <div class="pr-final-card">
-                    <h3>هنوز مطمئن نیستی؟</h3>
-                    <p>بیا یه گپ بزنیم، مشاوره رایگانه</p>
-                    <a href="{{ route('contact') }}" class="pr-final-btn">مشاوره‌ی رایگان</a>
-                </div>
-            </div>
-        </div>
-    </section>
     </div>
 @endsection
 

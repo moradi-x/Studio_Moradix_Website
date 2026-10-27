@@ -35,7 +35,7 @@ class HomeController extends Controller
 
         return view('home.index', compact(
             'studioServices',
-            'techStack' ,
+            'techStack',
             'featuredProjects'
         ));
     }
@@ -110,7 +110,16 @@ class HomeController extends Controller
             ->latest()
             ->get();
 
-        return view('Home.Portfolio.index', compact('projects'));
+
+        $completedProjects = $projects->where('status', 1)->count();
+
+        $developmentProjects = $projects->where('status', 0)->count();
+
+        return view('Home.Portfolio.index', compact(
+            'projects',
+            'completedProjects',
+            'developmentProjects'
+        ));
     }
 
 
