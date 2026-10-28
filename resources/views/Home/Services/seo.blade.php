@@ -238,120 +238,110 @@
             </div>
         </section>
 
-        <section class="sv-section sv-fit">
-            <div class="container">
-                <h2 class="sv-section-title"> سئو برای شما مناسب است اگر... </h2>
-                <div class="sv-fit-grid">
-                    <div class="sv-fit-card sv-fit-yes">
-                        <h3 class="sv-fit-title"> سئو مناسب توئه</h3>
+      {{-- Is This For You Section --}}
+<section class="sv-section sv-fit">
+    <div class="container">
+        <h2 class="sv-section-title">سئو برای شما مناسب است اگر...</h2>
 
-                        <ul class="sv-fit-list">
-                            <li>
-                                <span class="sv-fit-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                                <span>
-                                    سایت دارید و می‌خواهید مشتریان بالقوه از طریق جست‌وجوی
-                                    گوگل شما را پیدا کنند.
-                                </span>
-                            </li>
+        <div class="sv-fit-grid">
 
-                            <li>
-                                <span class="sv-fit-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                                <span>
-                                    صفحات خدمات یا محصولاتتان بازدید و جایگاه مناسبی در
-                                    نتایج جست‌وجو ندارند.
-                                </span>
-                            </li>
+            {{-- Good Fit --}}
+            <div class="sv-fit-card sv-fit-yes">
+                <h3 class="sv-fit-title">سئو مناسب توئه</h3>
 
-                            <li>
-                                <span class="sv-fit-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                                <span>
-                                    برای تولید محتوای هدفمند و بهبود مستمر سایت آمادگی دارید.
-                                </span>
-                            </li>
+                <ul class="sv-fit-list">
+                    <li>
+                        <svg class="sv-fit-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>
+                            سایت دارید و می‌خواهید مشتریان بالقوه از طریق جست‌وجوی گوگل شما را پیدا کنند.
+                        </span>
+                    </li>
 
-                            <li>
-                                <span class="sv-fit-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                                <span>
-                                    می‌خواهید عملکرد سایت را با داده‌هایی مانند کلیک،
-                                    نمایش، رتبه و سرنخ‌های ورودی ارزیابی کنید.
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
+                    <li>
+                        <svg class="sv-fit-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>
+                            صفحات خدمات یا محصولاتتان بازدید و جایگاه مناسبی در نتایج جست‌وجو ندارند.
+                        </span>
+                    </li>
 
-                    <div class="sv-fit-card sv-fit-no">
-                        <h3 class="sv-fit-title">شاید ابتدا به خدمت دیگری نیاز دارید</h3>
+                    <li>
+                        <svg class="sv-fit-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>
+                            برای تولید محتوای هدفمند و بهبود مستمر سایت آمادگی دارید.
+                        </span>
+                    </li>
 
-                        <ul class="sv-fit-list">
-                            <li>
-                                <span class="sv-fit-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                </span>
-                                <span>
-                                    هنوز سایت ندارید و برای شروع به طراحی و توسعه وب‌سایت
-                                    نیاز دارید.
-                                </span>
-                            </li>
-
-                            <li>
-                                <span class="sv-fit-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                </span>
-                                <span>
-                                    سایت مشکلات اساسی در دسترسی، عملکرد یا ساختار دارد و
-                                    پیش از سئو باید اصلاح شود.
-                                </span>
-                            </li>
-
-                            <li>
-                                <span class="sv-fit-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                </span>
-                                <span>
-                                    انتظار دارید بدون زمان، بودجه و همکاری مستمر، نتیجه
-                                    قطعی و فوری به دست آورید.
-                                </span>
-                            </li>
-
-                        </ul>
-
-                        <a href="{{ route('contact') }}" class="sv-fit-consult-link">
-                            برای انتخاب مسیر مناسب مشورت کنید
-                            <span aria-hidden="true">←</span>
-                        </a>
-                    </div>
-                </div>
+                    <li>
+                        <svg class="sv-fit-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>
+                            می‌خواهید عملکرد سایت را با داده‌هایی مانند کلیک، نمایش، رتبه و سرنخ‌های ورودی ارزیابی کنید.
+                        </span>
+                    </li>
+                </ul>
             </div>
-        </section>
+
+            {{-- Not a Fit --}}
+            <div class="sv-fit-card sv-fit-no">
+                <h3 class="sv-fit-title">شاید ابتدا به خدمت دیگری نیاز دارید</h3>
+
+                <ul class="sv-fit-list">
+                    <li>
+                        <svg class="sv-fit-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M6 6l12 12M18 6L6 18" />
+                        </svg>
+                        <span>
+                            هنوز سایت ندارید و برای شروع به طراحی و توسعه وب‌سایت نیاز دارید.
+                            <a href="{{ route('services.web-design') }}" class="sv-alt-link">
+                                طراحی سایت ←
+                            </a>
+                        </span>
+                    </li>
+
+                    <li>
+                        <svg class="sv-fit-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M6 6l12 12M18 6L6 18" />
+                        </svg>
+                        <span>
+                            سایت مشکلات اساسی در دسترسی، عملکرد یا ساختار دارد و پیش از سئو باید اصلاح شود.
+                        </span>
+                    </li>
+
+                    <li>
+                        <svg class="sv-fit-icon" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M6 6l12 12M18 6L6 18" />
+                        </svg>
+                        <span>
+                            انتظار دارید بدون زمان، بودجه و همکاری مستمر، نتیجه قطعی و فوری به دست آورید.
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
 
         {{-- SEO Services --}}
 
@@ -427,75 +417,7 @@
             </div>
         </section>
 
-        {{-- Plans / Engagement Levels --}}
-        <section class="sv-section sv-plans">
-            <div class="sv-section-heading">
-                <h2 class="sv-section-title">
-                    برنامه سئو را از کجا شروع می‌کنیم؟
-                </h2>
-            </div>
-
-            <div class="sv-plans-grid">
-                <article class="sv-plan-card">
-                    <div class="sv-plan-header">
-                        <h3 class="sv-plan-name">شروع و ارزیابی</h3>
-
-                        <p class="sv-plan-for">
-                            مناسب سایت‌هایی که به نقشه راه روشن نیاز دارند
-                        </p>
-                    </div>
-
-                    <div class="sv-plan-body">
-                        <ul class="sv-plan-features">
-                            <li>بررسی وضعیت فعلی سایت</li>
-                            <li>شناسایی خطاها و موانع مهم سئو</li>
-                            <li>تحقیق اولیه کلمات کلیدی</li>
-                            <li>بررسی صفحات مهم و رقبای اصلی</li>
-                            <li>ارائه اولویت‌های اجرایی</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="sv-plan-card sv-plan-featured">
-                    <div class="sv-plan-badge">همکاری مستمر</div>
-
-                    <div class="sv-plan-header">
-                        <h3 class="sv-plan-name">سئوی ماهانه</h3>
-
-                        <p class="sv-plan-for">
-                            مناسب کسب‌وکارهایی که به رشد تدریجی و پیگیری منظم نیاز دارند
-                        </p>
-                    </div>
-
-                    <div class="sv-plan-body">
-                        <ul class="sv-plan-features">
-                            <li>برنامه‌ریزی و اولویت‌بندی اقدامات ماهانه</li>
-                            <li>پایش کلمات کلیدی و عملکرد صفحات</li>
-                            <li>بررسی فنی و پیگیری اصلاحات</li>
-                            <li>گزارش عملکرد و برنامه ماه بعد</li>
-                        </ul>
-                    </div>
-                </article>
-
-
-            </div>
-
-
-
-            <div class="sv-plans-cta">
-                <p>
-                    نمی‌دانید کدام مسیر مناسب سایت شماست؟ ابتدا وضعیت فعلی و هدف کسب‌وکارتان
-                    را بررسی می‌کنیم و سپس درباره دامنه همکاری تصمیم می‌گیریم.
-                </p>
-
-
-                <a href="{{ route('pricing') }}" class="btn btn-outline">
-                    مقایسه‌ی کامل پلن‌ها و تعرفه‌ها
-                </a>
-
-
-            </div>
-        </section>
+       
 
         {{-- Deliverables --}}
         <section class="sv-section sv-deliverables">
@@ -604,323 +526,85 @@
                     </div>
 
                 </div>
-
+                <p class="sv-process-cta">
+                    هنوز نمی‌دونی کدوم خدمت برات مناسبه؟
+                    <a href="{{ route('contact') }}">برای مشاوره رایگان با ما در ارتباط باش.</a>
+                </p>
             </div>
         </section>
 
 
-        {{-- Portfolio / Example Areas --}}
-        <section class="sv-section sv-portfolio">
-            <div class="sv-section-heading">
+       {{-- Portfolio Section --}}
+        @if (isset($relatedProjects) && $relatedProjects->isNotEmpty())
+            <section class="pf-related-section" id="related-projects">
+                <div class="container">
 
-                <h2 class="sv-section-title">نمونه‌کار مرتبط</h2>
-
-
-
-            </div>
-
-            <div class="sv-portfolio-grid">
-                <article class="sv-portfolio-card">
-                    <div class="sv-portfolio-image">
-                        <div class="sv-portfolio-placeholder">
-                            <svg viewBox="0 0 120 90" fill="none" aria-hidden="true">
-                                <rect x="10" y="12" width="100" height="66" rx="5" stroke="currentColor"
-                                    stroke-width="2" />
-                                <path d="M10 27h100" stroke="currentColor" stroke-width="2" />
-                                <circle cx="19" cy="20" r="2" fill="currentColor" />
-                                <circle cx="26" cy="20" r="2" fill="currentColor" />
-                                <circle cx="33" cy="20" r="2" fill="currentColor" />
-                                <path d="M24 62V48M39 62V39M54 62V52M69 62V34M84 62V43M99 62V29" stroke="currentColor"
-                                    stroke-width="5" stroke-linecap="round" />
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="sv-portfolio-content">
-                        <span class="sv-portfolio-type">سئوی کسب‌وکار خدماتی</span>
-
-                        <h3 class="sv-portfolio-title">
-                            جذب مخاطب برای صفحات خدمات
-                        </h3>
-
-                        <p>
-                            تمرکز بر جست‌وجوهای مرتبط با خدمات، بهینه‌سازی صفحات
-                            فرود و ایجاد مسیر روشن برای درخواست مشاوره یا تماس.
-                        </p>
-
-                        <div class="sv-portfolio-tags">
-                            <span class="sv-tag">کلمات کلیدی</span>
-                            <span class="sv-tag">صفحات خدمات</span>
-                            <span class="sv-tag">تبدیل</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="sv-portfolio-card">
-                    <div class="sv-portfolio-image">
-                        <div class="sv-portfolio-placeholder">
-                            <svg viewBox="0 0 120 90" fill="none" aria-hidden="true">
-                                <rect x="14" y="10" width="92" height="70" rx="5" stroke="currentColor"
-                                    stroke-width="2" />
-                                <rect x="24" y="20" width="28" height="25" rx="3" stroke="currentColor"
-                                    stroke-width="2" />
-                                <rect x="59" y="20" width="37" height="5" rx="2" fill="currentColor"
-                                    opacity=".65" />
-                                <rect x="59" y="30" width="29" height="4" rx="2" fill="currentColor"
-                                    opacity=".4" />
-                                <rect x="59" y="38" width="33" height="4" rx="2" fill="currentColor"
-                                    opacity=".4" />
-                                <path d="M24 55h72M24 64h60M24 73h43" stroke="currentColor" stroke-width="3"
-                                    stroke-linecap="round" />
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="sv-portfolio-content">
-                        <span class="sv-portfolio-type">سئوی فروشگاه اینترنتی</span>
-
-                        <h3 class="sv-portfolio-title">
-                            بهبود دیده‌شدن محصولات و دسته‌بندی‌ها
-                        </h3>
-
-                        <p>
-                            بررسی ساختار دسته‌بندی‌ها، صفحات محصول، محتوای تکراری
-                            احتمالی و فرصت‌های جست‌وجوی مرتبط با خرید.
-                        </p>
-
-                        <div class="sv-portfolio-tags">
-                            <span class="sv-tag">صفحات محصول</span>
-                            <span class="sv-tag">ساختار سایت</span>
-                            <span class="sv-tag">جست‌وجوی خرید</span>
-                        </div>
-                    </div>
-                </article>
-
-
-            </div>
-        </section>
-
-        {{-- FAQ --}}
-        <section class="sv-section sv-faq">
-            <div class="sv-section-heading">
-                <h2 class="sv-section-title">
-                    سؤالات متداول
-                </h2>
-            </div>
-
-            <div class="sv-faq-list">
-                <article class="sv-faq-item">
-                    <button class="sv-faq-question" type="button" aria-expanded="false">
-                        <span>سئو سایت چقدر زمان می‌برد تا نتیجه بدهد؟</span>
-
-                        <span class="sv-faq-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </span>
-                    </button>
-
-                    <div class="sv-faq-answer">
-                        <div class="sv-faq-answer-content">
+                    <div class="pf-related-heading">
+                        <div>
+                            <h2>پروژه‌های مرتبط</h2>
                             <p>
-                                زمان مشاهده تغییرات به عواملی مانند سابقه و وضعیت فعلی
-                                سایت، شدت رقابت، کیفیت محتوا، مشکلات فنی و منابع اجرایی
-                                بستگی دارد. برخی اصلاحات فنی ممکن است زودتر اثر خود را
-                                نشان دهند، اما رشد پایدار در جست‌وجوی ارگانیک معمولاً
-                                به پیگیری مستمر نیاز دارد. زمان یا رتبه مشخصی را نمی‌توان
-                                برای همه سایت‌ها تضمین کرد.
+                                نمونه‌کارهای بیشتری را در همین زمینه بررسی کنید.
                             </p>
                         </div>
-                    </div>
-                </article>
 
-                <article class="sv-faq-item">
-                    <button class="sv-faq-question" type="button" aria-expanded="false">
-                        <span>آیا رتبه یک گوگل را تضمین می‌کنید؟</span>
-
-                        <span class="sv-faq-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round" />
+                        <a href="{{ route('portfolio') }}" class="pf-related-all">
+                            مشاهده همه پروژه‌ها
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M19 12H5M11 18l-6-6 6-6" />
                             </svg>
-                        </span>
-                    </button>
-
-                    <div class="sv-faq-answer">
-                        <div class="sv-faq-answer-content">
-                            <p>
-                                خیر. جایگاه نتایج جست‌وجو تحت تأثیر الگوریتم‌ها،
-                                رقبا، رفتار کاربران و عوامل متعددی است که کنترل کامل
-                                آن‌ها در اختیار هیچ متخصص سئویی نیست. تعهد ما بر
-                                تحلیل دقیق، اجرای اصولی، شفافیت در اقدامات و بهبود
-                                مستمر بر اساس داده‌های واقعی است، نه وعده رتبه قطعی.
-                            </p>
-                        </div>
+                        </a>
                     </div>
-                </article>
 
-                <article class="sv-faq-item">
-                    <button class="sv-faq-question" type="button" aria-expanded="false">
-                        <span>هزینه خدمات سئو چگونه تعیین می‌شود؟</span>
+                    <div class="pf-related-grid">
+                        @foreach ($relatedProjects as $relatedProject)
+                            <div class="pf-related-card">
 
-                        <span class="sv-faq-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </span>
-                    </button>
+                                <div class="pf-related-image">
+                                    @if ($relatedProject->primary_image)
+                                        <img src="{{ asset('uploads/projects/images/' . $relatedProject->primary_image) }}"
+                                            alt="{{ $relatedProject->title }}" loading="lazy">
+                                    @else
+                                        <div class="pf-related-placeholder">
+                                            <span>Moradix Studio</span>
+                                        </div>
+                                    @endif
 
-                    <div class="sv-faq-answer">
-                        <div class="sv-faq-answer-content">
-                            <p>
-                                هزینه به وضعیت سایت، تعداد و نوع صفحات، میزان رقابت،
-                                حجم اقدامات فنی و محتوایی، نیاز به تولید محتوا و دامنه
-                                همکاری بستگی دارد. پس از شناخت نیازها و بررسی اولیه،
-                                می‌توان درباره محدوده کار، مسئولیت‌ها و هزینه همکاری
-                                برآورد دقیق‌تری ارائه کرد.
-                            </p>
-                        </div>
+                                    <span class="pf-related-arrow" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <path d="M7 17 17 7M7 7h10v10" />
+                                        </svg>
+                                    </span>
+                                </div>
+
+                                <div class="pf-related-content">
+                                    @if ($relatedProject->category)
+                                        <span class="pf-related-category">
+                                            {{ $relatedProject->category->name }}
+                                        </span>
+                                    @endif
+
+                                    <h3>{{ $relatedProject->title }}</h3>
+
+                                    @if ($relatedProject->short_description)
+                                        <p>{{ $relatedProject->short_description }}</p>
+                                    @endif
+                                </div>
+
+                                <a href="{{ route('portfolio.show', $relatedProject->slug) }}" class="pf-related-link">
+                                    مشاهده جزئیات
+                                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <path d="M19 12H5M11 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </div>
+                        @endforeach
                     </div>
-                </article>
 
-                <article class="sv-faq-item">
-                    <button class="sv-faq-question" type="button" aria-expanded="false">
-                        <span>آیا برای سئو باید سایت را از نو طراحی کنیم؟</span>
+                </div>
+            </section>
+        @endif
 
-                        <span class="sv-faq-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </span>
-                    </button>
-
-                    <div class="sv-faq-answer">
-                        <div class="sv-faq-answer-content">
-                            <p>
-                                در بسیاری از موارد نیازی به طراحی مجدد نیست. ابتدا
-                                ساختار، عملکرد و وضعیت فنی سایت را بررسی می‌کنیم.
-                                اگر مشکلات قابل اصلاح باشند، بهینه‌سازی در همان ساختار
-                                انجام می‌شود. بازطراحی زمانی مطرح است که محدودیت‌های
-                                موجود مانع جدی رشد، تجربه کاربری یا اجرای اصلاحات ضروری
-                                باشند.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="sv-faq-item">
-                    <button class="sv-faq-question" type="button" aria-expanded="false">
-                        <span>تولید محتوا هم جزو خدمات سئو است؟</span>
-
-                        <span class="sv-faq-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </span>
-                    </button>
-
-                    <div class="sv-faq-answer">
-                        <div class="sv-faq-answer-content">
-                            <p>
-                                استراتژی محتوا و تعیین موضوعات و اولویت‌های تولید
-                                می‌تواند بخشی از برنامه سئو باشد. نگارش، ویرایش،
-                                بارگذاری یا تولید محتوای تخصصی بر اساس دامنه توافق‌شده
-                                انجام می‌شود و در صورت نیاز، حجم و مسئولیت هر بخش پیش
-                                از شروع مشخص خواهد شد.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="sv-faq-item">
-                    <button class="sv-faq-question" type="button" aria-expanded="false">
-                        <span>گزارش سئو شامل چه اطلاعاتی است؟</span>
-
-                        <span class="sv-faq-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </span>
-                    </button>
-
-                    <div class="sv-faq-answer">
-                        <div class="sv-faq-answer-content">
-                            <p>
-                                گزارش بر اساس داده‌های قابل دسترس و اهداف پروژه تنظیم
-                                می‌شود و می‌تواند روند نمایش و کلیک در گوگل، عملکرد
-                                صفحات و کلمات کلیدی مهم، اقدامات انجام‌شده، مشکلات
-                                شناسایی‌شده و اولویت‌های دوره بعد را پوشش دهد. در صورت
-                                فراهم بودن داده‌های تحلیلی مناسب، شاخص‌های مرتبط با
-                                سرنخ‌ها و تبدیل‌ها نیز بررسی می‌شوند.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="sv-faq-item">
-                    <button class="sv-faq-question" type="button" aria-expanded="false">
-                        <span>اگر سایت قبلاً سئو شده باشد، باز هم می‌توان همکاری کرد؟</span>
-
-                        <span class="sv-faq-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </span>
-                    </button>
-
-                    <div class="sv-faq-answer">
-                        <div class="sv-faq-answer-content">
-                            <p>
-                                بله. ابتدا اقدامات قبلی، وضعیت فعلی صفحات، تغییرات
-                                ترافیک و مشکلات احتمالی را بررسی می‌کنیم. سپس مشخص
-                                می‌شود که ادامه مسیر قبلی، اصلاح استراتژی یا تمرکز
-                                روی فرصت‌های جدید منطقی‌تر است.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="sv-faq-item">
-                    <button class="sv-faq-question" type="button" aria-expanded="false">
-                        <span>آیا می‌توانیم هم‌زمان روی چند خدمت یا شهر کار کنیم؟</span>
-
-                        <span class="sv-faq-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </span>
-                    </button>
-
-                    <div class="sv-faq-answer">
-                        <div class="sv-faq-answer-content">
-                            <p>
-                                بله، اما لازم است موضوعات و صفحات بر اساس نیاز واقعی
-                                مخاطب و ظرفیت اجرایی اولویت‌بندی شوند. برای کسب‌وکارهای
-                                محلی نیز محدوده جغرافیایی، نوع خدمت و تفاوت نیاز کاربران
-                                بررسی می‌شود تا از ساخت صفحات تکراری و کم‌ارزش جلوگیری
-                                شود.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-
-
-        {{-- Mobile Sticky CTA --}}
-        <div class="sv-mobile-sticky" id="mobileStickyBar">
-            <a href="{{ route('contact') }}" class="sv-btn sv-btn-primary">
-                مشاوره سئو سایت
-            </a>
-        </div>
 
     </div>
 @endsection

@@ -15,16 +15,278 @@
                     </div>
                 </div>
 
-                <div class="hero-visual" aria-hidden="true">
-                    <div class="hero-visual-content">
-                        <div class="hero-visual-bar"></div>
-                        <div class="hero-visual-bar"></div>
-                        <div class="hero-visual-bar"></div>
-                    </div>
+                {{-- جایگزین تصویر/mockup قدیمی هیروی صفحه‌ی اصلی (فقط ستون تصویر) --}}
+                <div class="hv" role="img"
+                    aria-label="تصویر: برنامه‌نویسی پشت میز با دو مانیتور که کد می‌نویسد و وب‌سایت طراحی می‌کند">
+                    <span class="hv-chip hv-chip--a" aria-hidden="true"><b dir="ltr">&lt;/&gt;</b>
+                        code</span>
+                    <span class="hv-chip hv-chip--b" aria-hidden="true">ریسپانسیو</span>
+                    <span class="hv-chip hv-chip--c" aria-hidden="true">UI / UX</span>
+
+                    <svg class="hv-svg" viewBox="0 0 640 430" aria-hidden="true" focusable="false">
+                        <defs>
+                            <linearGradient id="hvTeal" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#2DD4BF" />
+                                <stop offset=".55" stop-color="#0F766E" />
+                                <stop offset="1" stop-color="#064E49" />
+                            </linearGradient>
+                            <radialGradient id="hvGlow">
+                                <stop offset="0" stop-color="#2DD4BF" stop-opacity=".5" />
+                                <stop offset="1" stop-color="#2DD4BF" stop-opacity="0" />
+                            </radialGradient>
+                            <clipPath id="hvScrL">
+                                <rect x="40" y="113" width="228" height="140" rx="4" />
+                            </clipPath>
+                            <clipPath id="hvScrR">
+                                <rect x="364" y="113" width="228" height="140" rx="4" />
+                            </clipPath>
+                        </defs>
+
+                        {{-- پس‌زمینه --}}
+                        <circle cx="320" cy="205" r="190" fill="#0F766E" opacity=".07" />
+                        <ellipse cx="320" cy="414" rx="280" ry="12" fill="#0A0A0A"
+                            opacity=".08" />
+                        <ellipse class="hv-halo hv-halo--l" cx="154" cy="190" rx="130" ry="90"
+                            fill="url(#hvGlow)" />
+                        <ellipse class="hv-halo hv-halo--r" cx="478" cy="190" rx="130" ry="90"
+                            fill="url(#hvGlow)" />
+
+                        <g class="hv-l-back">
+                            {{-- مانیتور چپ: کد --}}
+                            <rect x="152" y="258" width="16" height="42" fill="#1C1917" />
+                            <rect x="118" y="296" width="84" height="8" rx="4" fill="#0A0A0A" />
+                            <rect x="32" y="105" width="244" height="156" rx="10" fill="#0A0A0A" />
+                            <rect x="40" y="113" width="228" height="140" rx="4" fill="#0E1314" />
+                            <g clip-path="url(#hvScrL)">
+                                <rect x="56" y="113" width="1" height="140" fill="#fff" opacity=".1" />
+                                <g class="hv-cl" style="--i:0">
+                                    <rect x="64" y="128" width="34" height="6" rx="3" fill="#2DD4BF" />
+                                    <rect x="102" y="128" width="52" height="6" rx="3" fill="#E7E5E4"
+                                        opacity=".85" />
+                                </g>
+                                <g class="hv-cl" style="--i:1">
+                                    <rect x="78" y="143" width="52" height="6" rx="3" fill="#93C5FD" />
+                                    <rect x="134" y="143" width="70" height="6" rx="3" fill="#E7E5E4"
+                                        opacity=".6" />
+                                </g>
+                                <g class="hv-cl" style="--i:2">
+                                    <rect x="78" y="158" width="28" height="6" rx="3" fill="#2DD4BF" />
+                                    <rect x="110" y="158" width="86" height="6" rx="3" fill="#FDE68A" />
+                                </g>
+                                <g class="hv-cl" style="--i:3">
+                                    <rect x="92" y="173" width="100" height="6" rx="3" fill="#E7E5E4"
+                                        opacity=".6" />
+                                </g>
+                                <g class="hv-cl" style="--i:4">
+                                    <rect x="92" y="188" width="40" height="6" rx="3" fill="#93C5FD" />
+                                    <rect x="136" y="188" width="62" height="6" rx="3" fill="#E7E5E4"
+                                        opacity=".85" />
+                                </g>
+                                <g class="hv-cl" style="--i:5">
+                                    <rect x="78" y="203" width="24" height="6" rx="3" fill="#2DD4BF" />
+                                </g>
+                                <g class="hv-cl" style="--i:6">
+                                    <rect x="64" y="218" width="20" height="6" rx="3" fill="#2DD4BF" />
+                                </g>
+                                <g class="hv-cl" style="--i:7">
+                                    <rect x="64" y="233" width="64" height="6" rx="3" fill="#78716C" />
+                                </g>
+                                <rect class="hv-caret" x="134" y="231" width="6" height="10" fill="#2DD4BF" />
+                            </g>
+
+                            {{-- مانیتور راست: طراحی سایت --}}
+                            <rect x="474" y="258" width="16" height="42" fill="#1C1917" />
+                            <rect x="440" y="296" width="84" height="8" rx="4" fill="#0A0A0A" />
+                            <rect x="356" y="105" width="244" height="156" rx="10" fill="#0A0A0A" />
+                            <rect x="364" y="113" width="228" height="140" rx="4" fill="#fff" />
+                            <g clip-path="url(#hvScrR)">
+                                <rect x="364" y="113" width="228" height="14" fill="#FAFAF9" />
+                                <circle cx="373" cy="120" r="2.2" fill="#D6D3D1" />
+                                <circle cx="381" cy="120" r="2.2" fill="#D6D3D1" />
+                                <circle cx="389" cy="120" r="2.2" fill="#D6D3D1" />
+                                <rect x="404" y="116" width="100" height="8" rx="4" fill="#fff"
+                                    stroke="#E7E5E4" />
+
+                                <g class="hv-wire" fill="none" stroke="#0F766E" stroke-width="1"
+                                    stroke-dasharray="3 3" opacity=".7">
+                                    <rect x="372" y="156" width="92" height="30" rx="3" />
+                                    <rect x="372" y="188" width="86" height="14" rx="3" />
+                                    <rect x="372" y="208" width="76" height="14" rx="3" />
+                                    <rect x="478" y="148" width="106" height="76" rx="9" />
+                                    <rect x="372" y="228" width="68" height="24" rx="4" />
+                                    <rect x="446" y="228" width="68" height="24" rx="4" />
+                                    <rect x="520" y="228" width="66" height="24" rx="4" />
+                                </g>
+
+                                <g class="hv-b" style="--i:0">
+                                    <rect x="374" y="134" width="30" height="7" rx="3.5" fill="#0A0A0A" />
+                                </g>
+                                <g class="hv-b" style="--i:1">
+                                    <rect x="420" y="136" width="12" height="4" rx="2" fill="#D6D3D1" />
+                                    <rect x="438" y="136" width="12" height="4" rx="2" fill="#D6D3D1" />
+                                    <rect x="456" y="136" width="12" height="4" rx="2" fill="#D6D3D1" />
+                                </g>
+                                <g class="hv-b" style="--i:2">
+                                    <rect x="546" y="132" width="36" height="11" rx="5.5" fill="#0F766E" />
+                                </g>
+                                <g class="hv-b" style="--i:3">
+                                    <rect x="374" y="158" width="88" height="10" rx="3" fill="#0A0A0A" />
+                                    <rect x="374" y="173" width="60" height="10" rx="3" fill="#0A0A0A" />
+                                </g>
+                                <g class="hv-b" style="--i:4">
+                                    <rect x="374" y="190" width="80" height="4" rx="2" fill="#D6D3D1" />
+                                    <rect x="374" y="198" width="66" height="4" rx="2" fill="#D6D3D1" />
+                                </g>
+                                <g class="hv-b" style="--i:5">
+                                    <rect x="374" y="210" width="34" height="11" rx="5.5" fill="#0F766E" />
+                                    <rect x="412" y="210" width="34" height="11" rx="5.5" fill="#fff"
+                                        stroke="#0A0A0A" />
+                                </g>
+                                <g class="hv-b hv-img" style="--i:6">
+                                    <rect x="480" y="150" width="102" height="72" rx="8"
+                                        fill="url(#hvTeal)" />
+                                    <circle cx="560" cy="170" r="12" fill="#fff" opacity=".25" />
+                                    <rect x="494" y="196" width="8" height="18" rx="2" fill="#fff"
+                                        opacity=".85" />
+                                    <rect x="506" y="188" width="8" height="26" rx="2" fill="#fff"
+                                        opacity=".85" />
+                                    <rect x="518" y="192" width="8" height="22" rx="2" fill="#fff"
+                                        opacity=".85" />
+                                </g>
+                                <g class="hv-b" style="--i:7">
+                                    <rect x="374" y="230" width="66" height="20" rx="5" fill="#fff"
+                                        stroke="#E7E5E4" />
+                                    <rect x="380" y="236" width="9" height="9" rx="2.5" fill="#F0FDFA"
+                                        stroke="#99F6E4" />
+                                    <rect x="394" y="237" width="38" height="3" rx="1.5" fill="#0A0A0A" />
+                                    <rect x="394" y="243" width="24" height="3" rx="1.5" fill="#D6D3D1" />
+                                </g>
+                                <g class="hv-b" style="--i:8">
+                                    <rect x="447" y="230" width="66" height="20" rx="5" fill="#fff"
+                                        stroke="#E7E5E4" />
+                                    <rect x="453" y="236" width="9" height="9" rx="2.5" fill="#F0FDFA"
+                                        stroke="#99F6E4" />
+                                    <rect x="467" y="237" width="38" height="3" rx="1.5" fill="#0A0A0A" />
+                                    <rect x="467" y="243" width="24" height="3" rx="1.5" fill="#D6D3D1" />
+                                </g>
+                                <g class="hv-b" style="--i:9">
+                                    <rect x="520" y="230" width="66" height="20" rx="5" fill="#fff"
+                                        stroke="#E7E5E4" />
+                                    <rect x="526" y="236" width="9" height="9" rx="2.5" fill="#F0FDFA"
+                                        stroke="#99F6E4" />
+                                    <rect x="540" y="237" width="38" height="3" rx="1.5" fill="#0A0A0A" />
+                                    <rect x="540" y="243" width="24" height="3" rx="1.5" fill="#D6D3D1" />
+                                </g>
+
+                                <path class="hv-ptr" d="M0 0l11 5.5-4.6 1.6-1.6 4.7z" fill="#0A0A0A" stroke="#fff"
+                                    stroke-width="1.2" stroke-linejoin="round" />
+                            </g>
+                        </g>
+
+                        {{-- میز و وسایل --}}
+                        <rect x="12" y="306" width="616" height="14" rx="7" fill="#0A0A0A" />
+                        <rect x="60" y="320" width="10" height="100" fill="#1C1917" />
+                        <rect x="570" y="320" width="10" height="100" fill="#1C1917" />
+                        <rect x="226" y="296" width="180" height="10" rx="4" fill="#E7E5E4"
+                            stroke="#D6D3D1" />
+                        <g class="hv-keys">{{-- کلیدهایی که دو طرف بدن دیده می‌شوند --}}
+                            <rect class="hv-key" style="--d:.1" x="231" y="299" width="6" height="4"
+                                rx="1.5" fill="#fff" />
+                            <rect class="hv-key" style="--d:.5" x="239" y="299" width="6" height="4"
+                                rx="1.5" fill="#fff" />
+                            <rect class="hv-key" style="--d:.8" x="387" y="299" width="6" height="4"
+                                rx="1.5" fill="#fff" />
+                            <rect class="hv-key" style="--d:.3" x="395" y="299" width="6" height="4"
+                                rx="1.5" fill="#fff" />
+                        </g>
+                        <ellipse cx="418" cy="301" rx="8" ry="5" fill="#0A0A0A" />
+
+                        <g>{{-- لیوان و بخار --}}
+                            <rect x="204" y="284" width="22" height="22" rx="4" fill="#fff"
+                                stroke="#0A0A0A" stroke-width="2" />
+                            <path d="M226 290h5a4 4 0 0 1 0 10h-5" fill="none" stroke="#0A0A0A" stroke-width="2" />
+                            <path class="hv-steam" d="M211 280c-4-6 4-8 0-14" fill="none" stroke="#A8A29E"
+                                stroke-width="2" stroke-linecap="round" />
+                            <path class="hv-steam hv-steam--b" d="M219 280c-4-6 4-8 0-14" fill="none" stroke="#A8A29E"
+                                stroke-width="2" stroke-linecap="round" />
+                        </g>
+                        <g class="hv-plant">{{-- گیاه --}}
+                            <path d="M617 284C602 264 604 246 612 238C620 252 620 268 617 284Z" fill="#0F766E" />
+                            <path d="M619 284C634 268 634 252 626 244C616 256 614 270 619 284Z" fill="#14B8A6" />
+                            <path d="M618 284C612 266 618 252 622 232C630 250 626 270 618 284Z" fill="#0B5E58" />
+                        </g>
+                        <rect x="604" y="282" width="28" height="24" rx="4" fill="#0A0A0A" />
+
+                        <g class="hv-l-front">
+                            {{-- دوربین پشت سر اوست: ساعدها جلوی بدن‌اند و فقط بخش بیرون‌زده‌شان کنار بدن دیده می‌شود --}}
+                            <path class="hv-fore hv-fore--l" d="M238 321L292 299" stroke="#0B5E58" stroke-width="17"
+                                stroke-linecap="round" fill="none" />
+                            <path class="hv-fore hv-fore--r" d="M394 321L340 299" stroke="#0B5E58" stroke-width="17"
+                                stroke-linecap="round" fill="none" />
+
+                            {{-- پایه‌ی پنج‌پر صندلی با چرخ‌ها (از پشت) --}}
+                            <path d="M316 398L256 410M316 398L376 410M316 398L282 421M316 398L350 421M316 398V404"
+                                stroke="#1C1917" stroke-width="6" stroke-linecap="round" />
+                            <circle cx="254" cy="411" r="5" fill="#0A0A0A" />
+                            <circle cx="378" cy="411" r="5" fill="#0A0A0A" />
+                            <circle cx="281" cy="422" r="5" fill="#0A0A0A" />
+                            <circle cx="351" cy="422" r="5" fill="#0A0A0A" />
+                            <rect x="309" y="358" width="14" height="42" rx="3" fill="#292524" />
+                            <rect x="238" y="346" width="156" height="18" rx="9" fill="#1C1917" />
+
+                            {{-- بدن (از پشت): هودی، کلاه آویزان، شانه‌ها --}}
+                            <g class="hv-body">
+                                <path d="M252 352C246 330 248 280 274 252C292 240 340 240 358 252C384 280 386 330 380 352Z"
+                                    fill="#0F766E" />
+                                <path d="M274 252C292 240 340 240 358 252" fill="none" stroke="#14B8A6"
+                                    stroke-width="3" stroke-linecap="round" opacity=".7" />
+                            </g>
+
+                            {{-- پشتی صندلی: پهن، با لبه‌ی گرد، روی کمر او --}}
+                            <path
+                                d="M246 352V306C246 293 256 284 270 284H362C376 284 386 293 386 306V352C386 359 380 363 372 363H260C252 363 246 359 246 352Z"
+                                fill="#292524" />
+                            <rect x="259" y="297" width="114" height="54" rx="10" fill="#1C1917"
+                                stroke="#3F3A36" />
+
+                            {{-- دسته‌های صندلی --}}
+                            <rect x="230" y="324" width="8" height="40" rx="2" fill="#292524" />
+                            <rect x="394" y="324" width="8" height="40" rx="2" fill="#292524" />
+                            <rect x="218" y="316" width="32" height="9" rx="4.5" fill="#0A0A0A" />
+                            <rect x="382" y="316" width="32" height="9" rx="4.5" fill="#0A0A0A" />
+
+                            {{-- بازوها: آرنج روی دسته، ساعد به سمت کیبورد --}}
+                            <path d="M268 258C256 280 246 300 241 318" fill="none" stroke="#0D6B64" stroke-width="22"
+                                stroke-linecap="round" />
+                            <path d="M364 258C376 280 386 300 391 318" fill="none" stroke="#0D6B64" stroke-width="22"
+                                stroke-linecap="round" />
+
+                            {{-- سر از پشت: گردن، کلاه هودی، مو، هدفون --}}
+                            <g class="hv-look">
+                                <g class="hv-head">
+                                    <rect x="304" y="212" width="24" height="32" rx="8" fill="#D9A27E" />
+                                    <path d="M282 250C286 292 346 292 350 250C338 238 294 238 282 250Z" fill="#0B5E58" />
+                                    <ellipse cx="287" cy="192" rx="4" ry="6"
+                                        fill="#D9A27E" />
+                                    <ellipse cx="345" cy="192" rx="4" ry="6"
+                                        fill="#D9A27E" />
+                                    <ellipse cx="316" cy="186" rx="29" ry="33"
+                                        fill="#1C1917" />
+                                    <path d="M286 182C286 146 346 146 346 182" fill="none" stroke="#0A0A0A"
+                                        stroke-width="5" />
+                                    <rect x="280" y="184" width="10" height="24" rx="5" fill="#0A0A0A" />
+                                    <rect x="342" y="184" width="10" height="24" rx="5" fill="#0A0A0A" />
+                                    <circle cx="285" cy="196" r="2" fill="#2DD4BF" />
+                                    <circle cx="347" cy="196" r="2" fill="#2DD4BF" />
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
                 </div>
             </div>
         </div>
     </section>
+
 
 
 
@@ -542,8 +804,8 @@
             <div class="section-header">
                 <h2>چرا
 
-                      Studio Moradix ؟ 
-                    </h2>
+                    Studio Moradix ؟
+                </h2>
                 <p>مزیت‌های واقعی همکاری با ما</p>
             </div>
 
@@ -836,7 +1098,8 @@
                             </label>
 
                             <input type="text" id="home-ct-name" name="name" class="ct-form-input"
-                                value="{{ old('name') }}" placeholder="مثال: علی احمدی" autocomplete="name" required>
+                                value="{{ old('name') }}" placeholder="مثال: علی احمدی" autocomplete="name"
+                                required>
 
                             @error('name')
                                 <div class="ct-form-error">{{ $message }}</div>
@@ -878,7 +1141,8 @@
                                     طراحی وب‌سایت
                                 </option>
 
-                                <option value="online-shop" {{ old('project_type') === 'online-shop' ? 'selected' : '' }}>
+                                <option value="online-shop"
+                                    {{ old('project_type') === 'online-shop' ? 'selected' : '' }}>
                                     طراحی فروشگاه اینترنتی
                                 </option>
 
@@ -919,8 +1183,8 @@
                         {{-- Honeypot --}}
                         <div class="ct-honeypot" aria-hidden="true">
                             <label for="home-ct-website">وب‌سایت</label>
-                            <input type="text" id="home-ct-website" name="website" value="" tabindex="-1"
-                                autocomplete="off">
+                            <input type="text" id="home-ct-website" name="website" value=""
+                                tabindex="-1" autocomplete="off">
                         </div>
 
                         {{-- Submit --}}

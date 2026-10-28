@@ -272,4 +272,45 @@
             if (button) button.setAttribute('aria-expanded', 'false');
         });
     });
+
+/* هیروی صفحه‌ی اصلی: توقف خارج از دید + نگاه سر به نشانگر + پارالاکس ملایم */
+(function () {
+    'use strict';
+    var hv = document.querySelector('.hv');
+    if (!hv) return;
+
+    var visible = true;
+    function sync() { hv.classList.toggle('hv-paused', !visible || document.hidden); }
+
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+            visible = entries[0].isIntersecting;
+            sync();
+        }, { threshold: 0.1 }).observe(hv);
+    }
+    document.addEventListener('visibilitychange', sync);
+
+    // فقط با ماوس واقعی و بدون reduced-motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+    var raf = 0, nx = 0, ny = 0;
+    function apply() {
+        raf = 0;
+        hv.style.setProperty('--px', nx.toFixed(3));
+        hv.style.setProperty('--py', ny.toFixed(3));
+        hv.style.setProperty('--look', nx.toFixed(3));
+    }
+
+    // نسبت به کل پنجره (سر به هر جای صفحه نگاه می‌کند)
+    window.addEventListener('pointermove', function (e) {
+        if (!visible) return;
+        nx = (e.clientX / window.innerWidth - 0.5) * 2;   // -1 تا 1
+        ny = (e.clientY / window.innerHeight - 0.5) * 2;
+        if (!raf) raf = requestAnimationFrame(apply);
+    }, { passive: true });
+})();    
+
+
 })();
+

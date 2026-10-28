@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Models\Project;
 use Illuminate\View\View;
 
 class ServicePageController extends Controller
@@ -12,28 +13,63 @@ class ServicePageController extends Controller
         return view('Home.Services.index');
     }
 
+
     public function webDesign(): View
     {
-        return view('Home.Services.web-design');
+        $relatedProjects = Project::with('category')
+            ->inRandomOrder()
+            ->take(3)
+            ->get();
+
+        return view('Home.Services.web-design', compact('relatedProjects'));
     }
+
 
     public function ecommerce(): View
     {
-        return view('Home.Services.ecommerc');
+
+
+         $relatedProjects = Project::with('category')
+            ->inRandomOrder()
+            ->take(3)
+            ->get();
+
+        return view('Home.Services.ecommerc', compact('relatedProjects'));
+
     }
 
     public function seo(): View
     {
-        return view('Home.Services.seo');
+
+           $relatedProjects = Project::with('category')
+            ->inRandomOrder()
+            ->take(3)
+            ->get();
+
+        return view('Home.Services.seo', compact('relatedProjects'));
+
     }
 
     public function redesign(): View
     {
-        return view('Home.Services.redesign');
+
+           $relatedProjects = Project::with('category')
+            ->inRandomOrder()
+            ->take(3)
+            ->get();
+
+        return view('Home.Services.redesign', compact('relatedProjects'));
+
     }
 
     public function customSystems(): View
     {
-        return view('Home.Services.custom-systems');
+
+           $relatedProjects = Project::with('category')
+            ->inRandomOrder()
+            ->take(3)
+            ->get();
+
+        return view('Home.Services.custom-systems', compact('relatedProjects'));
     }
 }

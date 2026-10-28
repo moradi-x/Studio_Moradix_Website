@@ -156,77 +156,62 @@
         {{-- Changes Section --}}
         <section class="sv-section sv-changes">
             <div class="container">
-
                 <h2 class="sv-section-title">
                     چه چیزی در سایتت می‌تونه بهتر بشه؟
                 </h2>
 
                 <div class="sv-changes-grid">
-
                     <div class="sv-change-card">
-                        <div class="sv-change-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="3" width="18" height="18" rx="2" />
-                                <path d="M3 9h18M9 21V9" />
-                            </svg>
-                        </div>
-                        <h3>ظاهر قدیمی و نامناسب</h3>
+                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <path d="M3 9h18M9 21V9" />
+                        </svg>
                         <p>
-                            طراحی سایتت با هویت برندت هماهنگ نیست یا ظاهرش
-                            اعتماد کافی برای مخاطب ایجاد نمی‌کنه.
+                            ظاهر سایتت با هویت برندت هماهنگ نیست یا اعتماد کافی برای مخاطب ایجاد نمی‌کنه.
                         </p>
                     </div>
 
                     <div class="sv-change-card">
-                        <div class="sv-change-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 19V5M4 19h17" />
-                                <path d="m7 15 4-4 3 2 6-7" />
-                            </svg>
-                        </div>
-                        <h3>تجربه کاربری ضعیف</h3>
+                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path d="M4 19V5M4 19h17" />
+                            <path d="m7 15 4-4 3 2 6-7" />
+                        </svg>
                         <p>
-                            کاربر برای پیدا کردن اطلاعات یا انجام یک کار ساده
-                            باید مسیر پیچیده‌ای رو طی کنه.
+                            کاربر برای پیدا کردن اطلاعات یا انجام یک کار ساده باید مسیر پیچیده‌ای رو طی کنه.
                         </p>
                     </div>
 
                     <div class="sv-change-card">
-                        <div class="sv-change-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M13 2 4 14h7l-1 8 10-13h-7l1-7Z" />
-                            </svg>
-                        </div>
-                        <h3>سرعت و عملکرد نامناسب</h3>
+                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path d="M13 2 4 14h7l-1 8 10-13h-7l1-7Z" />
+                        </svg>
                         <p>
-                            سایت دیر بارگذاری می‌شه یا بعضی بخش‌ها هنگام استفاده
-                            عملکرد روان و قابل‌اعتمادی ندارن.
+                            سایت دیر بارگذاری می‌شه یا بعضی بخش‌ها عملکرد روان و قابل‌اعتمادی ندارن.
                         </p>
                     </div>
 
                     <div class="sv-change-card">
-                        <div class="sv-change-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="4" width="18" height="16" rx="2" />
-                                <path d="M7 8h4M7 12h10M7 16h7" />
-                            </svg>
-                        </div>
-                        <h3>پنل مدیریت نامرتب</h3>
+                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <rect x="3" y="4" width="18" height="16" rx="2" />
+                            <path d="M7 8h4M7 12h10M7 16h7" />
+                        </svg>
                         <p>
-                            ویرایش محتوا، مدیریت سفارش‌ها یا انجام کارهای روزمره
-                            در پنل مدیریت سخت و زمان‌بر شده.
+                            ویرایش محتوا، مدیریت سفارش‌ها یا انجام کارهای روزمره در پنل مدیریت سخت و زمان‌بر شده.
                         </p>
                     </div>
                 </div>
-                <p class="sv-changes-note">لازم نیست از فنی چیزی بدونی. از ایده تا تحویل، همه‌ی بخش فنی با ماست.</p>
+
+                <p class="sv-changes-note">
+                    لازم نیست از فنی چیزی بدونی. از ایده تا تحویل، همه‌ی بخش فنی با ماست.
+                </p>
             </div>
         </section>
 
-       
+
 
         {{-- Types Section --}}
         <section class="sv-section sv-types">
@@ -408,241 +393,85 @@
                     </div>
 
                 </div>
+                <p class="sv-process-cta">
+                    هنوز نمی‌دونی کدوم خدمت برات مناسبه؟
+                    <a href="{{ route('contact') }}">برای مشاوره رایگان با ما در ارتباط باش.</a>
+                </p>
             </div>
         </section>
 
-        {{-- Portfolio Section --}}
-        <section class="sv-section sv-portfolio">
-            <div class="container">
+       {{-- Portfolio Section --}}
+        @if (isset($relatedProjects) && $relatedProjects->isNotEmpty())
+            <section class="pf-related-section" id="related-projects">
+                <div class="container">
 
-                <h2 class="sv-section-title">
-                    نمونه‌هایی از زمینه‌های بازطراحی
-                </h2>
-                <div class="sv-portfolio-grid">
-
-                    <div class="sv-portfolio-card">
-                        <div class="sv-portfolio-image">
-                            <div class="sv-portfolio-placeholder">
-                                <span>UI / UX</span>
-                            </div>
+                    <div class="pf-related-heading">
+                        <div>
+                            <h2>پروژه‌های مرتبط</h2>
+                            <p>
+                                نمونه‌کارهای بیشتری را در همین زمینه بررسی کنید.
+                            </p>
                         </div>
 
-                        <div class="sv-portfolio-content">
-                            <span class="sv-portfolio-type">
-                                رابط کاربری
-                            </span>
-
-                            <h3 class="sv-portfolio-title">
-                                بازطراحی ظاهر سایت
-                            </h3>
-
-                            <div class="sv-portfolio-tags">
-                                <span class="sv-tag">طراحی رابط کاربری</span>
-                                <span class="sv-tag">واکنش‌گرایی</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sv-portfolio-card">
-                        <div class="sv-portfolio-image">
-                            <div class="sv-portfolio-placeholder">
-                                <span>Admin UI</span>
-                            </div>
-                        </div>
-
-                        <div class="sv-portfolio-content">
-                            <span class="sv-portfolio-type">
-                                پنل مدیریت
-                            </span>
-
-                            <h3 class="sv-portfolio-title">
-                                ساده‌سازی مدیریت سایت
-                            </h3>
-
-                            <div class="sv-portfolio-tags">
-                                <span class="sv-tag">داشبورد</span>
-                                <span class="sv-tag">تجربه کاربری</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-            </div>
-        </section>
-
-        {{-- FAQ Section --}}
-        <section class="sv-section sv-faq">
-            <div class="container">
-
-                <h2 class="sv-section-title">
-                    سؤالات متداول درباره بازطراحی سایت
-                </h2>
-
-                <div class="sv-faq-list">
-
-                    <div class="sv-faq-item">
-                        <button class="sv-faq-question" type="button" aria-expanded="false">
-                            <span>آیا برای بازطراحی باید سایت رو از صفر بسازم؟</span>
-
-                            <svg class="sv-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" aria-hidden="true">
-                                <path d="M6 9l6 6 6-6" />
+                        <a href="{{ route('portfolio') }}" class="pf-related-all">
+                            مشاهده همه پروژه‌ها
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M19 12H5M11 18l-6-6 6-6" />
                             </svg>
-                        </button>
-
-                        <div class="sv-faq-answer">
-                            <div class="sv-faq-answer-content">
-                                <p>
-                                    نه لزوماً. ابتدا سایت فعلی بررسی می‌شه و اگر
-                                    ساختار اون قابل‌استفاده باشه، می‌تونیم ظاهر،
-                                    تجربه کاربری یا بخش‌های فنی رو بهبود بدیم.
-                                    بازسازی کامل زمانی پیشنهاد می‌شه که از نظر
-                                    فنی و اقتصادی منطقی باشه.
-                                </p>
-                            </div>
-                        </div>
+                        </a>
                     </div>
 
-                    <div class="sv-faq-item">
-                        <button class="sv-faq-question" type="button" aria-expanded="false">
-                            <span>آیا می‌تونم سایت وردپرسی‌ام رو بازطراحی کنم؟</span>
+                    <div class="pf-related-grid">
+                        @foreach ($relatedProjects as $relatedProject)
+                            <div class="pf-related-card">
 
-                            <svg class="sv-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" aria-hidden="true">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
+                                <div class="pf-related-image">
+                                    @if ($relatedProject->primary_image)
+                                        <img src="{{ asset('uploads/projects/images/' . $relatedProject->primary_image) }}"
+                                            alt="{{ $relatedProject->title }}" loading="lazy">
+                                    @else
+                                        <div class="pf-related-placeholder">
+                                            <span>Moradix Studio</span>
+                                        </div>
+                                    @endif
 
-                        <div class="sv-faq-answer">
-                            <div class="sv-faq-answer-content">
-                                <p>
-                                    بله. بسته به وضعیت سایت می‌شه قالب رو اصلاح
-                                    یا بازطراحی کرد، تجربه کاربری رو بهبود داد
-                                    و مشکلات فنی رو بررسی کرد. مهاجرت از وردپرس
-                                    فقط زمانی مطرح می‌شه که نیازهای پروژه با
-                                    ساختار فعلی به‌خوبی قابل‌پوشش نباشن.
-                                </p>
+                                    <span class="pf-related-arrow" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <path d="M7 17 17 7M7 7h10v10" />
+                                        </svg>
+                                    </span>
+                                </div>
+
+                                <div class="pf-related-content">
+                                    @if ($relatedProject->category)
+                                        <span class="pf-related-category">
+                                            {{ $relatedProject->category->name }}
+                                        </span>
+                                    @endif
+
+                                    <h3>{{ $relatedProject->title }}</h3>
+
+                                    @if ($relatedProject->short_description)
+                                        <p>{{ $relatedProject->short_description }}</p>
+                                    @endif
+                                </div>
+
+                                <a href="{{ route('portfolio.show', $relatedProject->slug) }}" class="pf-related-link">
+                                    مشاهده جزئیات
+                                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <path d="M19 12H5M11 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="sv-faq-item">
-                        <button class="sv-faq-question" type="button" aria-expanded="false">
-                            <span>آیا بازطراحی باعث بهتر شدن سرعت سایت می‌شه؟</span>
-
-                            <svg class="sv-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" aria-hidden="true">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-
-                        <div class="sv-faq-answer">
-                            <div class="sv-faq-answer-content">
-                                <p>
-                                    اگر کندی سایت ناشی از مشکلاتی باشه که در
-                                    محدوده پروژه قابل‌رفع هستن، می‌شه با بررسی
-                                    کدها، تصاویر، منابع و تنظیمات به بهبود سرعت
-                                    کمک کرد. میزان بهبود به علت اصلی کندی بستگی داره.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sv-faq-item">
-                        <button class="sv-faq-question" type="button" aria-expanded="false">
-                            <span>آیا اطلاعات و محتوای فعلی سایت حفظ می‌شن؟</span>
-
-                            <svg class="sv-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" aria-hidden="true">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-
-                        <div class="sv-faq-answer">
-                            <div class="sv-faq-answer-content">
-                                <p>
-                                    در صورت امکان، محتوا و اطلاعات موجود حفظ
-                                    می‌شن. پیش از شروع تغییرات، وضعیت داده‌ها
-                                    و روش پشتیبان‌گیری بررسی می‌شه تا ریسک
-                                    از دست رفتن اطلاعات کاهش پیدا کنه.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sv-faq-item">
-                        <button class="sv-faq-question" type="button" aria-expanded="false">
-                            <span>وضعیت سئوی سایت بعد از بازطراحی چی می‌شه؟</span>
-
-                            <svg class="sv-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" aria-hidden="true">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-
-                        <div class="sv-faq-answer">
-                            <div class="sv-faq-answer-content">
-                                <p>
-                                    ساختار آدرس‌ها، صفحات مهم، متادیتا و
-                                    ریدایرکت‌های موردنیاز باید پیش از انتشار
-                                    بررسی بشن. رعایت این موارد به کاهش ریسک
-                                    افت سئو کمک می‌کنه، اما تضمین رتبه مشخص
-                                    در نتایج جست‌وجو امکان‌پذیر نیست.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sv-faq-item">
-                        <button class="sv-faq-question" type="button" aria-expanded="false">
-                            <span>هزینه بازطراحی سایت چطور مشخص می‌شه؟</span>
-
-                            <svg class="sv-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" aria-hidden="true">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-
-                        <div class="sv-faq-answer">
-                            <div class="sv-faq-answer-content">
-                                <p>
-                                    هزینه به وضعیت سایت فعلی، تعداد صفحات،
-                                    میزان تغییرات طراحی، نیازهای فنی و امکانات
-                                    موردنیاز بستگی داره. بعد از بررسی اولیه،
-                                    محدوده کار و برآورد هزینه مشخص می‌شه.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sv-faq-item">
-                        <button class="sv-faq-question" type="button" aria-expanded="false">
-                            <span>آیا هنگام بازطراحی سایت از دسترس خارج می‌شه؟</span>
-
-                            <svg class="sv-faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" aria-hidden="true">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-
-                        <div class="sv-faq-answer">
-                            <div class="sv-faq-answer-content">
-                                <p>
-                                    در بسیاری از پروژه‌ها می‌شه تغییرات رو در
-                                    محیط جداگانه اجرا و آزمایش کرد و پس از
-                                    تأیید، منتشر کرد. روش اجرا به زیرساخت سایت
-                                    و نوع تغییرات بستگی داره.
-                                </p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
 
                 </div>
-            </div>
-        </section>
+            </section>
+        @endif
+
+
 
         {{-- Related Services Section --}}
         <section class="sv-section sv-related">
@@ -681,30 +510,6 @@
             </div>
         </section>
 
-        {{-- Final CTA --}}
-        <section class="sv-final-cta">
-            <div class="container">
-                <div class="sv-final-content">
-
-                    <h2>
-                        وقتشه سایت فعلیت رو بهتر کنیم؟
-                    </h2>
-
-                    <p>مشاوره‌ی اولیه رایگانه</p>
-
-                    <a href="{{ route('contact') }}" class="btn btn-primary">مشاوره‌ی رایگان</a>
-
-                </div>
-            </div>
-        </section>
-
-
-        {{-- Mobile Sticky CTA --}}
-        <div class="sv-mobile-sticky" id="mobileStickyBar" hidden>
-            <div class="sv-mobile-sticky-content">
-                <a href="{{ route('contact') }}" class="sv-mobile-sticky-btn">مشاوره‌ی رایگان</a>
-            </div>
-        </div>
 
     </div>
 @endsection

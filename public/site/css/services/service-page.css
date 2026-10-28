@@ -1085,131 +1085,466 @@
     margin-block-end: 0;
 }
 
-/* ==================== Final CTA ==================== */
-.sv-final-cta {
-    padding-block: 5rem;
-    background-color: var(--color-dark);
-    color: var(--color-surface);
+
+/* ========================================
+   Related Projects
+======================================== */
+
+.pf-related-section {
+    padding: 76px 0;
+    direction: rtl;
+    overflow: hidden;
 }
 
-@media (min-width: 768px) {
-    .sv-final-cta {
-        padding-block: 6rem;
-    }
+.pf-related-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 32px;
 }
 
-.sv-final-content {
-    text-align: center;
-    max-width: 42rem;
-    margin-inline: auto;
+.pf-related-eyebrow {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: var(--primary-color, #0f766e);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+    direction: ltr;
 }
 
-.sv-final-content h2 {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: var(--font-weight-bold);
-    margin-block-end: 0.75rem;
-    color: var(--color-surface);
+.pf-related-heading h2 {
+    margin: 0 0 10px;
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 800;
+    line-height: 1.7;
 }
 
-.sv-final-content p {
-    font-size: var(--font-size-lg);
-    color: rgba(255, 255, 255, 0.8);
-    margin-block-end: 2rem;
+.pf-related-heading p {
+    margin: 0;
+    color: var(--text-muted, #777);
+    font-size: 14px;
+    line-height: 2;
 }
 
-/* ==================== Mobile Sticky Bar ==================== */
-.sv-mobile-sticky {
-    position: fixed;
-    bottom: 0;
-    inset-inline: 0;
-    background-color: var(--color-surface);
-    border-block-start: 1px solid var(--color-border);
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.08);
-    z-index: 900;
-    display: none;
+.pf-related-all {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-color, #0f766e);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
 }
 
-@media (max-width: 767px) {
-    .sv-mobile-sticky:not([hidden]) {
-        display: block;
-    }
+.pf-related-all svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.25s ease;
 }
 
-.sv-mobile-sticky-content {
-    padding: 1rem;
+.pf-related-all:hover svg {
+    transform: translateX(-4px);
 }
 
-.sv-mobile-sticky-btn {
+.pf-related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.pf-related-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(127, 127, 127, 0.18);
+    border-radius: 20px;
+    background: var(--card-bg, rgba(127, 127, 127, 0.035));
+    color: inherit;
+    text-decoration: none;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.pf-related-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color, #0f766e);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.07);
+}
+
+.pf-related-image {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: rgba(127, 127, 127, 0.08);
+}
+
+.pf-related-image img {
     display: block;
     width: 100%;
-    padding: 0.875rem 1.5rem;
-    background-color: var(--color-primary);
-    color: var(--color-surface);
-    border-radius: var(--radius-button);
-    font-size: 1rem;
-    font-weight: var(--font-weight-semibold);
-    text-align: center;
-    text-decoration: none;
-    transition: var(--transition-base);
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
 }
 
-.sv-mobile-sticky-btn:hover {
-    background-color: var(--color-primary-hover);
+.pf-related-card:hover .pf-related-image img {
+    transform: scale(1.045);
 }
 
-/* Offset for floating WhatsApp/Telegram button */
-body.has-fab .sv-mobile-sticky {
-    bottom: 4.5rem;
+.pf-related-placeholder {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    color: var(--text-muted, #777);
+    font-size: 14px;
+    font-weight: 800;
 }
 
-/* ==================== Reduced Motion ==================== */
+.pf-related-arrow {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    background: rgba(20, 20, 20, 0.6);
+    color: #fff;
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.pf-related-arrow svg {
+    width: 19px;
+    height: 19px;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.pf-related-card:hover .pf-related-arrow {
+    transform: translateY(-2px);
+    background: var(--primary-color, #0f766e);
+}
+
+.pf-related-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px;
+}
+
+.pf-related-category {
+    margin-bottom: 8px;
+    color: var(--primary-color, #0f766e);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.pf-related-content h3 {
+    margin: 0 0 8px;
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.9;
+}
+
+.pf-related-content p {
+    display: -webkit-box;
+    margin: 0;
+    overflow: hidden;
+    color: var(--text-muted, #777);
+    font-size: 13px;
+    line-height: 2;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+@media (max-width: 900px) {
+    .pf-related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .pf-related-section {
+        padding: 44px 0;
+    }
+
+    .pf-related-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 24px;
+    }
+
+    .pf-related-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .pf-related-content {
+        padding: 18px;
+    }
+
+    .pf-related-content h3 {
+        font-size: 16px;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
-    .sv-mockup-wrapper {
-        animation: none;
-    }
-
-    .sv-change-card:hover,
-    .sv-type-card:hover,
-    .sv-plan-card:hover,
-    .sv-portfolio-card:hover,
-    .sv-related-card:hover {
-        transform: none;
-    }
-
-    .sv-faq-icon {
+    .pf-related-card,
+    .pf-related-image img,
+    .pf-related-arrow,
+    .pf-related-all svg {
         transition: none;
     }
+
+    .pf-related-card:hover,
+    .pf-related-card:hover .pf-related-image img {
+        transform: none;
+    }
 }
 
-.sv-fit-consult-link {
 
-    
-    color: var(--color-primary);
-    text-decoration: none;
-    font-weight: var(--font-weight-medium);
-    transition: var(--transition-base);
+@media (max-width: 900px) {
+    .si-cta-card {
+        grid-template-columns: minmax(0, 1fr) minmax(200px, 0.65fr);
+        gap: 20px;
+        padding: 36px;
+    }
 
+}
+
+@media (max-width: 680px) {
+    .si-cta {
+        padding: 28px 0 36px;
+    }
+
+    .si-cta-card {
+        gap: 0;
+        padding: 24px 16px 20px;
+        border-radius: 18px;
+    }
+
+    .si-cta-eyebrow {
+        margin-bottom: 12px;
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+
+    .si-cta-eyebrow svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .si-cta-title {
+        font-size: clamp(1.4rem, 6vw, 1.8rem);
+        line-height: 1.7;
+    }
+
+    .si-cta-description {
+        max-width: 100%;
+        margin-top: 10px;
+        font-size: 0.84rem;
+        line-height: 1.9;
+    }
+
+    .si-cta-actions {
+        width: 100%;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 9px;
+        margin-top: 17px;
+    }
+
+    .si-cta-primary,
+    .si-cta-secondary {
+        width: 100%;
+        min-height: 43px;
+        padding: 10px 12px;
+        font-size: 0.82rem;
+    }
+
+    .si-cta-note {
+        justify-content: center;
+        margin-top: 13px;
+        font-size: 0.72rem;
+        line-height: 1.8;
+    }
+
+    .si-cta-floating-one {
+        top: 12px;
+        right: 12px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .si-cta-floating-two {
+        bottom: 10px;
+        left: 10px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .si-cta-floating svg {
+        width: 17px;
+        height: 17px;
+    }
+}
+
+@media (max-width: 380px) {
+    .si-cta-card {
+        padding-right: 17px;
+        padding-left: 17px;
+    }
+
+    .si-cta-actions {
+        gap: 10px;
+    }
+
+    .si-cta-primary,
+    .si-cta-secondary {
+        padding-right: 12px;
+        padding-left: 12px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .si-cta *,
+    .si-cta *::before,
+    .si-cta *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+.pf-related-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    width: fit-content;
-    margin-top: 2.5rem;
-    font-size: 0.875rem;
-    line-height: 1.6;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 20px 20px;
+    padding: 10px 16px;
+    border: 1px solid #0F766E;
+    border-radius: 10px;
+    color: #0F766E;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-.sv-fit-consult-link :hover {
-    text-decoration: underline;
+.pf-related-link svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
 }
-/* SEO Hero Buttons - Mobile */
-@media (max-width: 680px) {
+
+.pf-related-link:hover {
+    background-color: #0F766E;
+    color: #fff;
+}
+
+.pf-related-link {
+    width: fit-content;
+    align-self: flex-start;
+}
+
+.pf-related-link {
+    width: fit-content;
+    align-self: center;
+}
+
+.sv-process .sv-process-cta {
+    display: block;
+    margin: 24px auto 0;
+    text-align: center;
+    font-size: 15px;
+    line-height: 2;
+    color: #4b5563;
+}
+
+.sv-process .sv-process-cta a {
+    color: #0F766E !important;
+    font-weight: 600;
+    text-decoration: none !important;
+}
+
+.sv-process .sv-process-cta a:hover {
+    color: #115e59 !important;
+    text-decoration: underline !important;
+}
+
+
+/* Mobile Hero - Web Design */
+@media (max-width: 767px) {
+    .sv-hero {
+        padding: 36px 0 28px;
+        overflow: hidden;
+    }
+
+    .sv-hero .container {
+        padding-inline: 18px;
+    }
+
+    .sv-hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        text-align: center;
+    }
+
+    .sv-hero-text {
+        width: 100%;
+        max-width: 520px;
+        text-align: center;
+    }
+
+    .sv-hero-title {
+        font-size: clamp(27px, 7vw, 34px);
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+
+    .sv-hero-subtitle {
+        font-size: 16px;
+        line-height: 1.9;
+        margin-bottom: 8px;
+    }
+
+    .sv-hero-desc {
+        font-size: 13px;
+        line-height: 2;
+        margin-bottom: 20px;
+    }
+
+    /* دکمه‌ها */
     .sv-hero-buttons {
         display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 10px;
         width: 100%;
-        margin-top: 22px;
+        max-width: 340px;
+        margin-inline: auto;
     }
 
     .sv-hero-buttons .btn {
@@ -1218,32 +1553,674 @@ body.has-fab .sv-mobile-sticky {
         justify-content: center;
         width: 100%;
         min-height: 46px;
-        padding: 12px 16px;
+        padding: 11px 16px;
         box-sizing: border-box;
+        margin: 0;
         text-align: center;
-        font-size: 13px;
-        line-height: 1.7;
         white-space: normal;
-        border-radius: 12px;
+        font-size: 14px;
+        line-height: 1.7;
+        border-radius: 10px;
     }
 
-    .sv-hero-buttons .btn-primary,
-    .sv-hero-buttons .btn-outline {
-        max-width: 100%;
+    /* تصویر گرافیکی هیرو */
+    .wd-art {
+        width: 100%;
+        max-width: 390px;
+        margin: 0 auto;
+        transform: scale(0.88);
+        transform-origin: top center;
     }
 }
 
-/* Small phones */
 @media (max-width: 380px) {
+    .sv-hero {
+        padding-top: 28px;
+    }
+
+    .sv-hero .container {
+        padding-inline: 14px;
+    }
+
+    .sv-hero-content {
+        gap: 16px;
+    }
+
+    .sv-hero-title {
+        font-size: 26px;
+    }
+
+    .sv-hero-subtitle {
+        font-size: 15px;
+    }
+
+    .sv-hero-desc {
+        font-size: 12px;
+    }
+
     .sv-hero-buttons {
-        gap: 8px;
-        margin-top: 18px;
+        max-width: 100%;
     }
 
     .sv-hero-buttons .btn {
-        min-height: 43px;
-        padding: 10px 12px;
-        font-size: 12px;
-        border-radius: 10px;
+        min-height: 44px;
+        font-size: 13px;
+    }
+
+    .wd-art {
+        transform: scale(0.80);
     }
 }
+
+
+
+/* What Changes - Mobile */
+@media (max-width: 767px) {
+    .sv-changes {
+        padding: 32px 0;
+    }
+
+    .sv-changes .container {
+        padding-inline: 14px;
+    }
+
+    .sv-changes .sv-section-title {
+        font-size: 21px;
+        line-height: 1.8;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .sv-changes-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .sv-change-card {
+        min-width: 0;
+        padding: 14px 10px;
+        border-radius: 12px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+    }
+
+    .sv-change-icon {
+        width: 27px;
+        height: 27px;
+        flex-shrink: 0;
+        margin: 0 0 2px;
+    }
+
+    .sv-change-card p {
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.9;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+
+    .sv-changes-note {
+        margin: 16px 0 0;
+        font-size: 12px;
+        line-height: 2;
+        text-align: center;
+    }
+}
+
+/* گوشی‌های خیلی باریک */
+@media (max-width: 360px) {
+    .sv-changes .container {
+        padding-inline: 10px;
+    }
+
+    .sv-changes-grid {
+        gap: 8px;
+    }
+
+    .sv-change-card {
+        padding: 12px 8px;
+    }
+
+    .sv-change-card p {
+        font-size: 11px;
+        line-height: 1.85;
+    }
+}
+
+
+/* Is This For You - Mobile */
+@media (max-width: 767px) {
+    .sv-fit {
+        padding: 30px 0;
+    }
+
+    .sv-fit .container {
+        padding-inline: 14px;
+    }
+
+    .sv-fit .sv-section-title {
+        font-size: 21px;
+        line-height: 1.8;
+        text-align: center;
+        margin-bottom: 18px;
+    }
+
+    .sv-fit-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .sv-fit-card {
+        min-width: 0;
+        padding: 16px 14px;
+        border-radius: 12px;
+    }
+
+    .sv-fit-title {
+        font-size: 16px;
+        line-height: 1.8;
+        margin: 0 0 10px;
+    }
+
+    .sv-fit-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .sv-fit-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 12px;
+        line-height: 1.95;
+        min-width: 0;
+    }
+
+    .sv-fit-icon {
+        width: 18px;
+        height: 18px;
+        flex: 0 0 18px;
+        margin-top: 3px;
+    }
+
+    .sv-fit-list li span {
+        flex: 1;
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .sv-alt-link {
+        font-weight: 600;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+}
+
+/* گوشی‌های کوچک */
+@media (max-width: 380px) {
+    .sv-fit .container {
+        padding-inline: 10px;
+    }
+
+    .sv-fit-card {
+        padding: 13px 11px;
+    }
+
+    .sv-fit-title {
+        font-size: 15px;
+    }
+
+    .sv-fit-list li {
+        font-size: 11px;
+        gap: 6px;
+        line-height: 1.9;
+    }
+
+    .sv-fit-icon {
+        width: 16px;
+        height: 16px;
+        flex-basis: 16px;
+    }
+}
+
+
+
+/* Types Section - Mobile */
+@media (max-width: 767px) {
+    .sv-types {
+        padding: 30px 0;
+    }
+
+    .sv-types .container {
+        padding-inline: 14px;
+    }
+
+    .sv-types .sv-section-title {
+        font-size: 21px;
+        line-height: 1.8;
+        text-align: center;
+        margin-bottom: 18px;
+    }
+
+    .sv-types-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .sv-type-card {
+        min-width: 0;
+        padding: 14px 9px;
+        border-radius: 12px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 6px;
+    }
+
+    .sv-type-icon {
+        width: 27px;
+        height: 27px;
+        flex-shrink: 0;
+        margin: 0 0 3px;
+    }
+
+    .sv-type-card h3 {
+        font-size: 13px;
+        line-height: 1.8;
+        margin: 0;
+    }
+
+    .sv-type-card p {
+        font-size: 11px;
+        line-height: 1.85;
+        margin: 0;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+}
+
+/* گوشی‌های کوچک */
+@media (max-width: 380px) {
+    .sv-types .container {
+        padding-inline: 10px;
+    }
+
+    .sv-types-grid {
+        gap: 8px;
+    }
+
+    .sv-type-card {
+        padding: 12px 7px;
+    }
+
+    .sv-type-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .sv-type-card h3 {
+        font-size: 12px;
+    }
+
+    .sv-type-card p {
+        font-size: 10px;
+    }
+}
+
+
+/* Deliverables Section - Mobile */
+@media (max-width: 767px) {
+    .sv-deliverables {
+        padding: 30px 0;
+    }
+
+    .sv-deliverables .container {
+        padding-inline: 14px;
+    }
+
+    .sv-deliverables .sv-section-title {
+        font-size: 21px;
+        line-height: 1.8;
+        text-align: center;
+        margin-bottom: 18px;
+    }
+
+    .sv-deliverables-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .sv-deliverable-card {
+        min-width: 0;
+        padding: 14px 9px;
+        border-radius: 12px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 6px;
+    }
+
+    .sv-deliverable-icon {
+        width: 26px;
+        height: 26px;
+        flex-shrink: 0;
+        margin: 0 0 3px;
+    }
+
+    .sv-deliverable-card h3 {
+        font-size: 12px;
+        line-height: 1.9;
+        margin: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .sv-deliverable-card p {
+        font-size: 11px;
+        line-height: 1.8;
+        margin: 0;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+}
+
+/* گوشی‌های کوچک */
+@media (max-width: 380px) {
+    .sv-deliverables .container {
+        padding-inline: 10px;
+    }
+
+    .sv-deliverables-grid {
+        gap: 8px;
+    }
+
+    .sv-deliverable-card {
+        padding: 12px 7px;
+    }
+
+    .sv-deliverable-icon {
+        width: 23px;
+        height: 23px;
+    }
+
+    .sv-deliverable-card h3 {
+        font-size: 11px;
+    }
+
+    .sv-deliverable-card p {
+        font-size: 10px;
+    }
+}
+
+
+/* Process Section - Mobile */
+@media (max-width: 767px) {
+    .sv-process {
+        padding: 30px 0;
+    }
+
+    .sv-process .container {
+        padding-inline: 14px;
+    }
+
+    .sv-process .sv-section-title {
+        font-size: 21px;
+        line-height: 1.8;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .sv-process-steps {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .sv-process-step {
+        min-width: 0;
+        padding: 15px 10px;
+        border-radius: 12px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 7px;
+    }
+
+    .sv-step-number {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        margin: 0 0 2px;
+    }
+
+    .sv-process-step h3 {
+        font-size: 12px;
+        line-height: 1.9;
+        margin: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .sv-process-step p {
+        font-size: 11px;
+        line-height: 1.9;
+        margin: 0;
+    }
+
+    .sv-process-cta {
+        margin: 18px 0 0;
+        text-align: center;
+        font-size: 12px;
+        line-height: 2;
+    }
+
+    .sv-process-cta a {
+        display: inline;
+        color: #0F766E;
+        font-weight: 600;
+        text-decoration: none;
+    }
+}
+
+/* گوشی‌های کوچک */
+@media (max-width: 380px) {
+    .sv-process .container {
+        padding-inline: 10px;
+    }
+
+    .sv-process-steps {
+        gap: 8px;
+    }
+
+    .sv-process-step {
+        padding: 12px 7px;
+    }
+
+    .sv-step-number {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        font-size: 13px;
+    }
+
+    .sv-process-step h3 {
+        font-size: 11px;
+    }
+
+    .sv-process-step p {
+        font-size: 10px;
+    }
+
+    .sv-process-cta {
+        font-size: 11px;
+    }
+}
+
+
+
+/* Related Projects - Mobile */
+@media (max-width: 767px) {
+    .pf-related-section {
+        padding: 30px 0;
+    }
+
+    .pf-related-heading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .pf-related-heading h2 {
+        font-size: 21px;
+        line-height: 1.8;
+        margin-bottom: 6px;
+    }
+
+    .pf-related-heading p {
+        font-size: 12px;
+        line-height: 1.9;
+        margin: 0;
+    }
+
+    /* نمایش فقط یک پروژه */
+    .pf-related-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .pf-related-card:not(:first-child) {
+        display: none;
+    }
+
+    /* دکمه مشاهده همه پروژه‌ها زیر کارت */
+    .pf-related-all {
+        order: 2;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        max-width: 320px;
+        min-height: 44px;
+        padding: 10px 16px;
+        box-sizing: border-box;
+        border: 1px solid #0F766E;
+        border-radius: 10px;
+        color: #0F766E;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        margin: 0 auto;
+    }
+
+    .pf-related-all svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+    }
+
+    .pf-related-card {
+        min-width: 0;
+    }
+
+    .pf-related-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+
+@media (max-width: 767px) {
+    .pf-related-grid {
+        display: none;
+    }
+
+    .pf-related-section .pf-related-all-mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .sv-related {
+        padding: 28px 0;
+    }
+
+    .sv-related .sv-section-title {
+        font-size: 18px;
+        margin-bottom: 14px;
+    }
+
+    .sv-related-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .sv-related-card {
+        padding: 14px 10px;
+        border-radius: 12px;
+        text-align: center;
+        min-width: 0;
+    }
+
+    .sv-related-icon {
+        width: 26px;
+        height: 26px;
+        margin: 0 auto 8px;
+    }
+
+    .sv-related-card h3 {
+        font-size: 13px;
+        line-height: 1.6;
+        margin: 0 0 4px;
+    }
+
+    .sv-related-card p {
+        font-size: 11px;
+        line-height: 1.7;
+        margin: 0;
+    }
+}
+
+@media (max-width: 380px) {
+    .sv-related-grid {
+        gap: 8px;
+    }
+
+    .sv-related-card {
+        padding: 12px 7px;
+    }
+
+    .sv-related-card h3 {
+        font-size: 12px;
+    }
+
+    .sv-related-card p {
+        font-size: 10px;
+    }
+}
+

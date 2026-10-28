@@ -3839,3 +3839,100 @@
         transition: none;
     }
 }
+
+/* ==========================================================
+   هیروی صفحه‌ی اصلی — برنامه‌نویس پشت دو مانیتور (پیشوند hv-)
+   پایه‌ی استایل = حالت نهایی (برای reduced-motion و بدون JS)
+   ========================================================== */
+.hv { --T: 10s; position: relative; width: 100%; max-width: 620px; margin-inline: auto; isolation: isolate; }
+.hv-svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+/* لایه‌های پارالاکس (JS مقدار --px و --py می‌دهد) */
+.hv-l-back  { transform: translate(calc(var(--px, 0) * -5px), calc(var(--py, 0) * -3px)); transition: transform .3s ease-out; }
+.hv-l-front { transform: translate(calc(var(--px, 0) * 4px),  calc(var(--py, 0) * 2px));  transition: transform .3s ease-out; }
+
+/* سر: نگاه به سمت نشانگر + حرکت آرام بین دو مانیتور */
+.hv-look { transform-box: view-box; transform-origin: 316px 216px; transform: rotate(calc(var(--look, 0) * 7deg)); transition: transform .35s ease-out; }
+.hv-head { transform-box: view-box; transform-origin: 316px 216px; }
+.hv-fore { transform-box: view-box; }
+.hv-body { transform-box: view-box; transform-origin: 316px 392px; }
+
+/* ---------- کارت‌های شناور ---------- */
+.hv-chip {
+    position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: .45rem; padding: .45rem .85rem;
+    font-size: .8rem; line-height: 1.5; font-weight: 500; color: var(--color-text, #1C1917);
+    background: rgba(255, 255, 255, .92); backdrop-filter: blur(8px);
+    border: 1px solid var(--color-border, #E7E5E4); border-radius: 999px; box-shadow: 0 12px 28px rgba(10, 10, 10, .12);
+    translate: calc(var(--px, 0) * 8px) calc(var(--py, 0) * 6px);
+}
+.hv-chip b { color: var(--color-primary, #0F766E); font-weight: 700; }
+.hv-chip--a { inset-block-start: 2%; inset-inline-start: 4%; }
+.hv-chip--b { inset-block-start: 0; inset-inline-end: 6%; }
+.hv-chip--c { inset-block-end: 14%; inset-inline-start: 0; }
+
+/* ==========================================================
+   حرکت — چرخه‌ی ۱۰ ثانیه‌ای: کد تایپ می‌شود ← سایت ساخته می‌شود ← بازگشت
+   ========================================================== */
+.hv-cl, .hv-b, .hv-wire, .hv-caret, .hv-ptr, .hv-steam, .hv-plant, .hv-halo, .hv-chip, .hv-img { transform-box: fill-box; }
+.hv-cl, .hv-b { transform-origin: left center; }
+
+@media (prefers-reduced-motion: no-preference) {
+    /* کد */
+    .hv-cl { animation: hv-type var(--T) cubic-bezier(.3, .7, .2, 1) both infinite; animation-delay: calc(var(--i) * .5s + .3s); }
+    .hv-caret { animation: hv-blink 1s steps(2, jump-none) infinite; }
+
+    /* طراحی */
+    .hv-b { animation: hv-pop var(--T) cubic-bezier(.3, .8, .3, 1.1) both infinite; animation-delay: calc(var(--i) * .22s + 3s); }
+    .hv-wire { animation: hv-wire var(--T) ease-in-out infinite; }
+    .hv-ptr { animation: hv-ptr var(--T) cubic-bezier(.5, 0, .2, 1) infinite; }
+
+    /* آدم و محیط */
+    .hv-fore--l { animation: hv-fore .34s ease-in-out infinite alternate; transform-origin: 238px 321px; }
+    .hv-fore--r { animation: hv-fore-r .42s ease-in-out -.2s infinite alternate; transform-origin: 394px 321px; }
+    .hv-key { animation: hv-keyglow 1.1s steps(1, end) infinite; animation-delay: calc(var(--d) * -1s); }
+    .hv-head { animation: hv-head 8s ease-in-out infinite; }
+    .hv-body { animation: hv-breathe 4s ease-in-out infinite; }
+    .hv-steam { animation: hv-steam 3s ease-out infinite; transform-origin: bottom; }
+    .hv-steam--b { animation-delay: -1.5s; }
+    .hv-plant { animation: hv-sway 6s ease-in-out infinite; transform-origin: 50% 100%; }
+    .hv-halo { animation: hv-halo 5s ease-in-out infinite; }
+    .hv-halo--r { animation-delay: -2.5s; }
+    .hv-chip--a { animation: hv-float 6s ease-in-out infinite; }
+    .hv-chip--b { animation: hv-float 7s ease-in-out -2s infinite; }
+    .hv-chip--c { animation: hv-float 8s ease-in-out -4s infinite; }
+
+    /* خارج از دید: متوقف (JS کلاس را می‌گذارد) */
+    .hv-paused, .hv-paused *, .hv-paused *::before, .hv-paused *::after { animation-play-state: paused !important; }
+}
+
+@keyframes hv-type  { 0%, 3% { transform: scaleX(0); } 20%, 88% { transform: scaleX(1); } 96%, 100% { transform: scaleX(0); } }
+@keyframes hv-pop   { 0%, 6% { opacity: 0; transform: scale(.8); } 16%, 80% { opacity: 1; transform: none; } 90%, 100% { opacity: 0; transform: scale(.8); } }
+@keyframes hv-wire  { 0%, 24% { opacity: .75; } 38%, 82% { opacity: 0; } 92%, 100% { opacity: .75; } }
+@keyframes hv-blink { 50% { opacity: 0; } }
+@keyframes hv-ptr {
+    0%, 28% { opacity: 0; transform: translate(560px, 128px); }
+    33% { opacity: 1; transform: translate(560px, 128px); }
+    42% { transform: translate(410px, 164px); }
+    50% { transform: translate(386px, 214px); }
+    60% { transform: translate(530px, 190px); }
+    70% { transform: translate(470px, 238px); }
+    78% { opacity: 1; transform: translate(568px, 242px); }
+    84%, 100% { opacity: 0; transform: translate(568px, 242px); }
+}
+@keyframes hv-fore   { from { transform: rotate(0); } to { transform: rotate(3deg); } }
+@keyframes hv-fore-r { from { transform: rotate(0); } to { transform: rotate(-3deg); } }
+@keyframes hv-keyglow { 0%, 60% { fill: #fff; } 61%, 85% { fill: #2DD4BF; } 86%, 100% { fill: #fff; } }
+@keyframes hv-head   { 0%, 100% { transform: rotate(-3deg); } 35% { transform: rotate(0deg) translateY(-1px); } 60% { transform: rotate(3.5deg); } 85% { transform: rotate(1deg); } }
+@keyframes hv-breathe { 50% { transform: scaleY(1.012); } }
+@keyframes hv-steam  { 0% { opacity: 0; transform: translateY(6px) scaleY(.6); } 30% { opacity: .8; } 100% { opacity: 0; transform: translateY(-10px) scaleY(1); } }
+@keyframes hv-sway   { 50% { transform: rotate(2.5deg); } }
+@keyframes hv-halo   { 50% { opacity: .55; transform: scale(1.06); } }
+@keyframes hv-float  { 50% { transform: translateY(-7px); } }
+
+/* ---------- موبایل: جمع‌وجورتر ---------- */
+@media (max-width: 640px) {
+    .hv { max-width: 440px; }
+    .hv-chip { font-size: .7rem; padding: .3rem .65rem; }
+    .hv-chip--c { display: none; }
+    .hv-chip--a { inset-inline-start: 0; }
+}

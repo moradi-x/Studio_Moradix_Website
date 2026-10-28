@@ -2,7 +2,8 @@
 
 @section('title', 'طراحی سامانه‌های اختصاصی | Moradix Studio')
 
-@section('description', 'طراحی و توسعه سامانه‌های نرم‌افزاری اختصاصی برای مدیریت فرایندها، اتوماسیون کسب‌وکار، تحلیل
+@section('description',
+    'طراحی و توسعه سامانه‌های نرم‌افزاری اختصاصی برای مدیریت فرایندها، اتوماسیون کسب‌وکار، تحلیل
     اطلاعات و حل مسائل پیچیده عملیاتی.')
 
     @push('styles')
@@ -414,7 +415,7 @@
             </div>
         </section>
 
-       
+
 
         {{-- Deliverables Section --}}
         <section class="sv-section sv-deliverables">
@@ -525,209 +526,84 @@
                     </div>
 
                 </div>
+                <p class="sv-process-cta">
+                    هنوز نمی‌دونی کدوم خدمت برات مناسبه؟
+                    <a href="{{ route('contact') }}">برای مشاوره رایگان با ما در ارتباط باش.</a>
+                </p>
             </div>
         </section>
 
-        {{-- Portfolio Section --}}
-        <section class="sv-section sv-portfolio">
-            <div class="container">
+         {{-- Portfolio Section --}}
+        @if (isset($relatedProjects) && $relatedProjects->isNotEmpty())
+            <section class="pf-related-section" id="related-projects">
+                <div class="container">
 
-                <h2 class="sv-section-title">
-                    نمونه‌هایی از سامانه‌های قابل توسعه
-                </h2>
-
-                <div class="sv-portfolio-grid">
-
-                    {{-- Example 1 --}}
-                    <article class="sv-portfolio-card">
-                        <div class="sv-portfolio-image">
-                            <div class="sv-portfolio-placeholder">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                        d="M3 3v18h18M18 17V9m-5 8V5m-5 12v-4" />
-                                </svg>
-                            </div>
+                    <div class="pf-related-heading">
+                        <div>
+                            <h2>پروژه‌های مرتبط</h2>
+                            <p>
+                                نمونه‌کارهای بیشتری را در همین زمینه بررسی کنید.
+                            </p>
                         </div>
 
-                        <div class="sv-portfolio-content">
-                            <p class="sv-portfolio-type">سامانه عملیاتی</p>
-                            <h3 class="sv-portfolio-title">مدیریت فرایندهای کاری</h3>
-
-                            <div class="sv-portfolio-tags">
-                                <span class="sv-tag">گردش کار</span>
-                                <span class="sv-tag">گزارش‌گیری</span>
-                            </div>
-                        </div>
-
-                        <a href="{{ route('contact') }}" class="sv-portfolio-link">
-                            بررسی ایده مشابه
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15 19l-7-7 7-7" />
+                        <a href="{{ route('portfolio') }}" class="pf-related-all">
+                            مشاهده همه پروژه‌ها
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M19 12H5M11 18l-6-6 6-6" />
                             </svg>
                         </a>
-                    </article>
-
-                    {{-- Example 2 --}}
-                    <article class="sv-portfolio-card">
-                        <div class="sv-portfolio-image">
-                            <div class="sv-portfolio-placeholder">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                        d="M9 17v-2a4 4 0 014-4h2m-2-4h.01M3 3h18v18H3z" />
-                                </svg>
-                            </div>
-                        </div>
-
-                        <div class="sv-portfolio-content">
-                            <p class="sv-portfolio-type">سامانه اطلاعاتی</p>
-                            <h3 class="sv-portfolio-title">مدیریت داده و گزارش‌ها</h3>
-
-                            <div class="sv-portfolio-tags">
-                                <span class="sv-tag">تحلیل اطلاعات</span>
-                                <span class="sv-tag">داشبورد</span>
-                            </div>
-                        </div>
-
-                        <a href="{{ route('contact') }}" class="sv-portfolio-link">
-                            بررسی ایده مشابه
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15 19l-7-7 7-7" />
-                            </svg>
-                        </a>
-                    </article>
-
-                </div>
-
-                <div class="sv-portfolio-all">
-                    <a href="{{ route('contact') }}">
-                        درباره سامانه موردنیازت صحبت کنیم
-                    </a>
-                </div>
-
-            </div>
-        </section>
-
-        {{-- FAQ Section --}}
-        <section class="sv-section sv-faq">
-            <div class="container">
-
-                <h2 class="sv-section-title">
-                    سوالات متداول
-                </h2>
-
-                <div class="sv-faq-list">
-
-                    <div class="sv-faq-item">
-                        <button class="sv-faq-question" aria-expanded="false">
-                            <span>سامانه اختصاصی چه تفاوتی با سایت معمولی داره؟</span>
-                            <svg class="sv-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-
-                        <div class="sv-faq-answer">
-                            <div class="sv-faq-answer-content">
-                                <p>
-                                    سایت معمولی بیشتر برای معرفی محتوا، خدمات یا محصولات استفاده می‌شه.
-                                    سامانه اختصاصی علاوه بر رابط کاربری، منطق کاری، قوانین، ارتباط بین
-                                    اطلاعات، نقش‌های مختلف و فرایندهای عملیاتی متناسب با نیاز پروژه داره.
-                                </p>
-                            </div>
-                        </div>
                     </div>
 
-                    <div class="sv-faq-item">
-                        <button class="sv-faq-question" aria-expanded="false">
-                            <span>برای شروع باید تمام امکانات مشخص باشن؟</span>
-                            <svg class="sv-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
+                    <div class="pf-related-grid">
+                        @foreach ($relatedProjects as $relatedProject)
+                            <div class="pf-related-card">
 
-                        <div class="sv-faq-answer">
-                            <div class="sv-faq-answer-content">
-                                <p>
-                                    نه. ابتدا مسئله اصلی و فرایندهای ضروری رو مشخص می‌کنیم.
-                                    می‌شه نسخه اولیه‌ای با قابلیت‌های ضروری ساخت و بعد از بررسی
-                                    استفاده واقعی، امکانات بعدی رو به‌صورت مرحله‌ای توسعه داد.
-                                </p>
+                                <div class="pf-related-image">
+                                    @if ($relatedProject->primary_image)
+                                        <img src="{{ asset('uploads/projects/images/' . $relatedProject->primary_image) }}"
+                                            alt="{{ $relatedProject->title }}" loading="lazy">
+                                    @else
+                                        <div class="pf-related-placeholder">
+                                            <span>Moradix Studio</span>
+                                        </div>
+                                    @endif
+
+                                    <span class="pf-related-arrow" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <path d="M7 17 17 7M7 7h10v10" />
+                                        </svg>
+                                    </span>
+                                </div>
+
+                                <div class="pf-related-content">
+                                    @if ($relatedProject->category)
+                                        <span class="pf-related-category">
+                                            {{ $relatedProject->category->name }}
+                                        </span>
+                                    @endif
+
+                                    <h3>{{ $relatedProject->title }}</h3>
+
+                                    @if ($relatedProject->short_description)
+                                        <p>{{ $relatedProject->short_description }}</p>
+                                    @endif
+                                </div>
+
+                                <a href="{{ route('portfolio.show', $relatedProject->slug) }}" class="pf-related-link">
+                                    مشاهده جزئیات
+                                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <path d="M19 12H5M11 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="sv-faq-item">
-                        <button class="sv-faq-question" aria-expanded="false">
-                            <span>هزینه طراحی سامانه چطور مشخص می‌شه؟</span>
-                            <svg class="sv-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-
-                        <div class="sv-faq-answer">
-                            <div class="sv-faq-answer-content">
-                                <p>
-                                    هزینه به تعداد فرایندها، نقش‌های کاربری، پیچیدگی قوانین،
-                                    گزارش‌ها، اتصال به سرویس‌های دیگر و محدوده نسخه اولیه بستگی داره.
-                                    بعد از بررسی نیازها، محدوده و برآورد پروژه مشخص می‌شه.
-                                    می‌تونی <a href="{{ route('pricing') }}">تعرفه‌های پایه</a> رو هم ببینی.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sv-faq-item">
-                        <button class="sv-faq-question" aria-expanded="false">
-                            <span>آیا سامانه بعداً قابل توسعه است؟</span>
-                            <svg class="sv-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-
-                        <div class="sv-faq-answer">
-                            <div class="sv-faq-answer-content">
-                                <p>
-                                    بله. ساختار پروژه از ابتدا با توجه به محدوده و نیازهای قابل پیش‌بینی
-                                    طراحی می‌شه تا در صورت نیاز، قابلیت‌ها، نقش‌های جدید، گزارش‌ها یا
-                                    اتصال به سرویس‌های دیگر به آن اضافه بشن.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sv-faq-item">
-                        <button class="sv-faq-question" aria-expanded="false">
-                            <span>اگر بخشی از فرایند با ابزارهای فعلی انجام بشه، باز هم سامانه اختصاصی لازمه؟</span>
-                            <svg class="sv-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-
-                        <div class="sv-faq-answer">
-                            <div class="sv-faq-answer-content">
-                                <p>
-                                    نه لزوماً. ابتدا راهکار فعلی رو بررسی می‌کنیم. اگر ابزار آماده یا
-                                    ترکیبی از ابزارهای موجود مسئله رو با هزینه و پیچیدگی کمتر حل کنه،
-                                    ساخت سامانه از صفر همیشه انتخاب بهتری نیست.
-                                </p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
 
                 </div>
-            </div>
-        </section>
+            </section>
+        @endif
+
 
         {{-- Related Services --}}
         <section class="sv-section sv-related">
@@ -739,7 +615,7 @@
 
                 <div class="sv-related-grid">
 
-                    <a href="{{ route('services') }}" class="sv-related-card">
+                    <a href="{{ route('services.web-design') }}" class="sv-related-card">
                         <svg class="sv-related-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -750,7 +626,7 @@
                         <p>برای معرفی خدمات، شرکت یا محصولات</p>
                     </a>
 
-                    <a href="{{ route('services') }}" class="sv-related-card">
+                    <a href="{{ route('services.redesign') }}" class="sv-related-card">
                         <svg class="sv-related-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -765,35 +641,9 @@
             </div>
         </section>
 
-        {{-- Final CTA --}}
-        <section class="sv-final-cta">
-            <div class="container">
-                <div class="sv-final-content">
 
-                    <h2>
-                        ایده یا فرایند پیچیده‌ای برای حل کردن داری؟
-                    </h2>
 
-                    <p>
-                        درباره مسئله صحبت کنیم تا راهکار مناسب و محدوده اجرای اون رو مشخص کنیم.
-                    </p>
 
-                    <a href="{{ route('contact') }}" class="btn btn-primary">
-                        مشاوره رایگان
-                    </a>
-
-                </div>
-            </div>
-        </section>
-
-        {{-- Mobile Sticky CTA --}}
-        <div class="sv-mobile-sticky" id="mobileStickyBar" hidden>
-            <div class="sv-mobile-sticky-content">
-                <a href="{{ route('contact') }}" class="sv-mobile-sticky-btn">
-                    مشاوره رایگان
-                </a>
-            </div>
-        </div>
 
     </div>
 @endsection

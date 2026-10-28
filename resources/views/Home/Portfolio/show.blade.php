@@ -425,7 +425,7 @@
                             </div>
                         @endforeach
 
-                         <div class="pf-metadata-card">
+                        <div class="pf-metadata-card">
                             <span class="pf-metadata-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" fill="none">
                                     <rect x="2.5" y="3.5" width="19" height="13" rx="2" />
@@ -446,7 +446,7 @@
                         </div>
                     </div>
 
-                    </div>
+                </div>
             </section>
         @endif
 
@@ -474,7 +474,7 @@
 
                     <div class="pf-related-grid">
                         @foreach ($relatedProjects as $relatedProject)
-                            <a href="{{ route('portfolio.show', $relatedProject->slug) }}" class="pf-related-card">
+                            <div class="pf-related-card">
 
                                 <div class="pf-related-image">
                                     @if ($relatedProject->primary_image)
@@ -507,7 +507,14 @@
                                     @endif
                                 </div>
 
-                            </a>
+                                <a href="{{ route('portfolio.show', $relatedProject->slug) }}" class="pf-related-link">
+                                    مشاهده جزئیات
+                                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <path d="M19 12H5M11 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </div>
                         @endforeach
                     </div>
 
@@ -515,61 +522,61 @@
             </section>
         @endif
 
-       {{-- Final CTA Section --}}
-    <section class="si-cta" id="contact">
-        <div class="container">
+        {{-- Final CTA Section --}}
+        <section class="si-cta" id="contact">
+            <div class="container">
 
-            <div class="si-cta-card">
+                <div class="si-cta-card">
 
-                {{-- Decorative Elements --}}
-                <span class="si-cta-orb si-cta-orb-one" aria-hidden="true"></span>
+                    {{-- Decorative Elements --}}
+                    <span class="si-cta-orb si-cta-orb-one" aria-hidden="true"></span>
 
-                <span class="si-cta-orb si-cta-orb-two" aria-hidden="true"></span>
+                    <span class="si-cta-orb si-cta-orb-two" aria-hidden="true"></span>
 
-                <div class="si-cta-content">
+                    <div class="si-cta-content">
 
-                    <span class="si-cta-eyebrow">
-                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-2-5.8L4 11l6-2.2L12 3Z" stroke="currentColor"
-                                stroke-width="1.6" stroke-linejoin="round" />
-                            <path d="m19 14 1.1 2.9L23 18l-2.9 1.1L19 22l-1.1-2.9L15 18l2.9-1.1L19 14Z"
-                                stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
-                        </svg>
-
-                        آماده شروع هستیم
-                    </span>
-
-                    <h2 class="si-cta-title">
-                        برای قدم بعدی
-                        <span>کسب‌وکارت آماده‌ای؟</span>
-                    </h2>
-
-                    <p class="si-cta-description">
-                        از طراحی یک وب‌سایت جدید تا بهبود و توسعه سایت فعلی؛
-                        بیایید درباره نیازهای کسب‌وکارت صحبت کنیم و
-                        راهکار مناسب پروژه‌ات رو پیدا کنیم.
-                    </p>
-
-                    <div class="si-cta-actions">
-                        <a href="/contact" class="si-cta-primary">
-                            شروع گفتگو درباره پروژه
-
+                        <span class="si-cta-eyebrow">
                             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="1.8"
-                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-2-5.8L4 11l6-2.2L12 3Z" stroke="currentColor"
+                                    stroke-width="1.6" stroke-linejoin="round" />
+                                <path d="m19 14 1.1 2.9L23 18l-2.9 1.1L19 22l-1.1-2.9L15 18l2.9-1.1L19 14Z"
+                                    stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
                             </svg>
-                        </a>
 
-                        <a href="#services" class="si-cta-secondary">
-                            مشاهده خدمات
-                        </a>
+                            آماده شروع هستیم
+                        </span>
+
+                        <h2 class="si-cta-title">
+                            برای قدم بعدی
+                            <span>کسب‌وکارت آماده‌ای؟</span>
+                        </h2>
+
+                        <p class="si-cta-description">
+                            از طراحی یک وب‌سایت جدید تا بهبود و توسعه سایت فعلی؛
+                            بیایید درباره نیازهای کسب‌وکارت صحبت کنیم و
+                            راهکار مناسب پروژه‌ات رو پیدا کنیم.
+                        </p>
+
+                        <div class="si-cta-actions">
+                            <a href="/contact" class="si-cta-primary">
+                                شروع گفتگو درباره پروژه
+
+                                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </a>
+
+                            <a href="#services" class="si-cta-secondary">
+                                مشاهده خدمات
+                            </a>
+                        </div>
+
+
                     </div>
-
-
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     </main>
 @endsection

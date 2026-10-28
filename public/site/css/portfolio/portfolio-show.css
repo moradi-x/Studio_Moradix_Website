@@ -1916,3 +1916,41 @@
         animation-duration: 0.01ms !important;
     }
 }
+
+.pf-related-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 20px 20px;
+    padding: 10px 16px;
+    border: 1px solid #0F766E;
+    border-radius: 10px;
+    color: #0F766E;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.pf-related-link svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+}
+
+.pf-related-link:hover {
+    background-color: #0F766E;
+    color: #fff;
+}
+
+.pf-related-link {
+    width: fit-content;
+    align-self: flex-start;
+}
+
+.pf-related-link {
+    width: fit-content;
+    align-self: center;
+}
+

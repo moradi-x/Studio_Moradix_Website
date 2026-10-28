@@ -248,7 +248,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <span>فقط به یک سایت معرفی ساده نیاز داری؛ <a href="#" class="sv-alt-link">طراحی
+                                <span>فقط به یک سایت معرفی ساده نیاز داری؛ <a href="{{ route('services.web-design') }}" class="sv-alt-link">طراحی
                                         وب‌سایت شرکتی</a> مناسب‌تره.</span>
                             </li>
                             <li>
@@ -257,7 +257,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <span>فروشگاه فعلی داری و فقط ظاهرش قدیمیه؛ <a href="#" class="sv-alt-link">بازطراحی
+                                <span>فروشگاه فعلی داری و فقط ظاهرش قدیمیه؛ <a href="{{ route('services.redesign') }}" class="sv-alt-link">بازطراحی
                                         و ارتقای سایت</a> رو ببین.</span>
                             </li>
                             <li>
@@ -266,7 +266,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 01-18 0z" />
                                 </svg>
-                                <span>فروشگاهت در جست‌وجوها دیده نمی‌شه؛ <a href="#" class="sv-alt-link">سئو و
+                                <span>فروشگاهت در جست‌وجوها دیده نمی‌شه؛ <a href="{{ route('services.seo') }}" class="sv-alt-link">سئو و
                                         بهینه‌سازی</a> می‌تونه کمک کنه.</span>
                             </li>
                         </ul>
@@ -425,156 +425,85 @@
                         <p>مسیر خرید رو بررسی می‌کنیم، پنل رو آموزش می‌دیم و فروشگاه رو تحویل می‌دیم.</p>
                     </div>
                 </div>
+                 <p class="sv-process-cta">
+                    هنوز نمی‌دونی کدوم خدمت برات مناسبه؟
+                    <a href="{{ route('contact') }}">برای مشاوره رایگان با ما در ارتباط باش.</a>
+                </p>
             </div>
         </section>
 
         {{-- Portfolio Section --}}
-        <section class="sv-section sv-portfolio">
-            <div class="container">
-                <h2 class="sv-section-title">نمونه‌کارهای فروشگاهی</h2>
+        @if (isset($relatedProjects) && $relatedProjects->isNotEmpty())
+            <section class="pf-related-section" id="related-projects">
+                <div class="container">
 
-                <div class="sv-portfolio-grid">
-                    {{-- این بخش را بعداً با پروژه‌های واقعی فروشگاهی جایگزین کن --}}
-                    <article class="sv-portfolio-card">
-                        <div class="sv-portfolio-image">
-                            <div class="sv-portfolio-placeholder">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                            </div>
+                    <div class="pf-related-heading">
+                        <div>
+                            <h2>پروژه‌های مرتبط</h2>
+                            <p>
+                                نمونه‌کارهای بیشتری را در همین زمینه بررسی کنید.
+                            </p>
                         </div>
 
-                        <div class="sv-portfolio-content">
-                            <p class="sv-portfolio-type">فروشگاه اینترنتی</p>
-                            <h3 class="sv-portfolio-title">نام پروژه‌ی فروشگاهی</h3>
-                            <div class="sv-portfolio-tags">
-                                <span class="sv-tag">Laravel</span>
-                                <span class="sv-tag">فروش آنلاین</span>
-                            </div>
-                        </div>
-
-                        <a href="#" class="sv-portfolio-link">
-                            مشاهده پروژه
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15 19l-7-7 7-7" />
+                        <a href="{{ route('portfolio') }}" class="pf-related-all">
+                            مشاهده همه پروژه‌ها
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M19 12H5M11 18l-6-6 6-6" />
                             </svg>
                         </a>
-                    </article>
+                    </div>
 
-                    <article class="sv-portfolio-card">
-                        <div class="sv-portfolio-image">
-                            <div class="sv-portfolio-placeholder">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
+                    <div class="pf-related-grid">
+                        @foreach ($relatedProjects as $relatedProject)
+                            <div class="pf-related-card">
+
+                                <div class="pf-related-image">
+                                    @if ($relatedProject->primary_image)
+                                        <img src="{{ asset('uploads/projects/images/' . $relatedProject->primary_image) }}"
+                                            alt="{{ $relatedProject->title }}" loading="lazy">
+                                    @else
+                                        <div class="pf-related-placeholder">
+                                            <span>Moradix Studio</span>
+                                        </div>
+                                    @endif
+
+                                    <span class="pf-related-arrow" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <path d="M7 17 17 7M7 7h10v10" />
+                                        </svg>
+                                    </span>
+                                </div>
+
+                                <div class="pf-related-content">
+                                    @if ($relatedProject->category)
+                                        <span class="pf-related-category">
+                                            {{ $relatedProject->category->name }}
+                                        </span>
+                                    @endif
+
+                                    <h3>{{ $relatedProject->title }}</h3>
+
+                                    @if ($relatedProject->short_description)
+                                        <p>{{ $relatedProject->short_description }}</p>
+                                    @endif
+                                </div>
+
+                                <a href="{{ route('portfolio.show', $relatedProject->slug) }}" class="pf-related-link">
+                                    مشاهده جزئیات
+                                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <path d="M19 12H5M11 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
                             </div>
-                        </div>
+                        @endforeach
+                    </div>
 
-                        <div class="sv-portfolio-content">
-                            <p class="sv-portfolio-type">فروش محصولات</p>
-                            <h3 class="sv-portfolio-title">نام پروژه‌ی فروشگاهی</h3>
-                            <div class="sv-portfolio-tags">
-                                <span class="sv-tag">Laravel</span>
-                                <span class="sv-tag">طراحی اختصاصی</span>
-                            </div>
-                        </div>
-
-                        <a href="#" class="sv-portfolio-link">
-                            مشاهده پروژه
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15 19l-7-7 7-7" />
-                            </svg>
-                        </a>
-                    </article>
                 </div>
+            </section>
+        @endif
 
-                <div class="sv-portfolio-all">
-                    <a href="{{ route('home') }}#portfolio">مشاهده‌ی همه‌ی نمونه‌کارها</a>
-                </div>
-            </div>
-        </section>
-
-        {{-- FAQ Section --}}
-        <section class="sv-section sv-faq">
-            <div class="container">
-                <h2 class="sv-section-title">سوالات متداول</h2>
-
-                <div class="sv-faq-list">
-                    <div class="sv-faq-item">
-                        <button class="sv-faq-question" aria-expanded="false">
-                            <span>راه‌اندازی فروشگاه چقدر زمان می‌بره؟</span>
-                            <svg class="sv-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <div class="sv-faq-answer">
-                            <div class="sv-faq-answer-content">
-                                <p>زمان اجرا به تعداد محصولات، امکانات موردنیاز و آماده بودن محتوا بستگی داره. بعد از بررسی
-                                    پروژه، زمان‌بندی مشخص رو قبل از شروع اعلام می‌کنیم.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sv-faq-item">
-                        <button class="sv-faq-question" aria-expanded="false">
-                            <span>هزینه‌ی طراحی فروشگاه چطور مشخص می‌شه؟</span>
-                            <svg class="sv-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <div class="sv-faq-answer">
-                            <div class="sv-faq-answer-content">
-                                <p>هزینه به امکاناتی مثل مدیریت محصولات، روش‌های پرداخت، ارسال، فیلترها و سطح طراحی بستگی
-                                    داره. بعد از نیازسنجی، محدوده‌ی کار و هزینه رو شفاف اعلام می‌کنیم. می‌تونی <a
-                                        href="{{ route('pricing') }}">تعرفه‌های پایه رو اینجا ببینی</a>.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sv-faq-item">
-                        <button class="sv-faq-question" aria-expanded="false">
-                            <span>بعد از تحویل می‌تونم محصولات و قیمت‌ها رو خودم مدیریت کنم؟</span>
-                            <svg class="sv-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <div class="sv-faq-answer">
-                            <div class="sv-faq-answer-content">
-                                <p>بله، در صورت پیش‌بینی پنل مدیریت محصولات در محدوده‌ی پروژه، می‌تونی محصولات، تصاویر،
-                                    قیمت‌ها و موجودی رو از پنل به‌روزرسانی کنی. آموزش کار با پنل هم ارائه می‌شه.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sv-faq-item">
-                        <button class="sv-faq-question" aria-expanded="false">
-                            <span>درگاه پرداخت و روش‌های ارسال هم راه‌اندازی می‌شن؟</span>
-                            <svg class="sv-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <div class="sv-faq-answer">
-                            <div class="sv-faq-answer-content">
-                                <p>بسته به نیاز پروژه، امکان اتصال درگاه پرداخت و تنظیم روش‌های ارسال وجود داره. جزئیات و
-                                    هزینه‌ی سرویس‌های جانبی مثل دامنه، هاست، درگاه و سرویس ارسال قبل از شروع مشخص می‌شن.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+       
 
         {{-- Related Services --}}
         <section class="sv-section sv-related">
@@ -582,7 +511,7 @@
                 <h2 class="sv-section-title">خدمات مکمل فروشگاه اینترنتی</h2>
 
                 <div class="sv-related-grid">
-                    <a href="#" class="sv-related-card">
+                    <a href="{{ route('services.web-design') }}" class="sv-related-card">
                         {{-- بعداً لینک واقعی صفحه طراحی وب‌سایت را قرار بده --}}
                         <svg class="sv-related-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             aria-hidden="true">
@@ -593,7 +522,7 @@
                         <p>برای معرفی برند و خدمات</p>
                     </a>
 
-                    <a href="#" class="sv-related-card">
+                    <a href="{{ route('services.seo') }}" class="sv-related-card">
                         {{-- بعداً لینک واقعی صفحه سئو را قرار بده --}}
                         <svg class="sv-related-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             aria-hidden="true">
@@ -607,23 +536,9 @@
             </div>
         </section>
 
-        {{-- Final CTA --}}
-        <section class="sv-final-cta">
-            <div class="container">
-                <div class="sv-final-content">
-                    <h2>برای فروشگاهت برنامه‌ریزی کنیم؟</h2>
-                    <p>برای شروع، مشاوره‌ی اولیه رایگانه.</p>
-                    <a href="{{ route('contact') }}" class="btn btn-primary">مشاوره‌ی رایگان</a>
-                </div>
-            </div>
-        </section>
+      
 
-        {{-- Mobile Sticky CTA --}}
-        <div class="sv-mobile-sticky" id="mobileStickyBar" hidden>
-            <div class="sv-mobile-sticky-content">
-                <a href="{{ route('contact') }}" class="sv-mobile-sticky-btn">مشاوره‌ی رایگان</a>
-            </div>
-        </div>
+       
 
     </div>
 @endsection
