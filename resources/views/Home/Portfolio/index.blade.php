@@ -345,38 +345,61 @@
         </section>
 
 
-        {{-- CTA --}}
-        <section class="pf-cta" id="pf-contact">
-            <div class="container pf-container">
-                <div class="pf-cta-card">
-                    <div class="pf-cta-decoration pf-cta-decoration-one"></div>
-                    <div class="pf-cta-decoration pf-cta-decoration-two"></div>
+     {{-- Final CTA Section --}}
+    <section class="si-cta" id="contact">
+        <div class="container">
 
-                    <div class="pf-cta-content">
-                        <h2>
-                            ایده شما می‌تواند<br>
-                            <span>شروع پروژه بعدی باشد.</span>
-                        </h2>
-                        <p>
-                            اگر برای کسب‌وکار خود به وب‌سایت یا فروشگاه اینترنتی
-                            نیاز دارید، می‌توانیم درباره ایده و نیازهای شما صحبت کنیم.
-                        </p>
+            <div class="si-cta-card">
 
-                        <a href="{{ url('/contact') }}" class="pf-btn pf-btn-light">
-                            شروع گفتگو
-                            <span aria-hidden="true">←</span>
+                {{-- Decorative Elements --}}
+                <span class="si-cta-orb si-cta-orb-one" aria-hidden="true"></span>
+
+                <span class="si-cta-orb si-cta-orb-two" aria-hidden="true"></span>
+
+                <div class="si-cta-content">
+
+                    <span class="si-cta-eyebrow">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-2-5.8L4 11l6-2.2L12 3Z" stroke="currentColor"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <path d="m19 14 1.1 2.9L23 18l-2.9 1.1L19 22l-1.1-2.9L15 18l2.9-1.1L19 14Z"
+                                stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
+                        </svg>
+
+                        آماده شروع هستیم
+                    </span>
+
+                    <h2 class="si-cta-title">
+                        برای قدم بعدی
+                        <span>کسب‌وکارت آماده‌ای؟</span>
+                    </h2>
+
+                    <p class="si-cta-description">
+                        از طراحی یک وب‌سایت جدید تا بهبود و توسعه سایت فعلی؛
+                        بیایید درباره نیازهای کسب‌وکارت صحبت کنیم و
+                        راهکار مناسب پروژه‌ات رو پیدا کنیم.
+                    </p>
+
+                    <div class="si-cta-actions">
+                        <a href="/contact" class="si-cta-primary">
+                            شروع گفتگو درباره پروژه
+
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+
+                        <a href="#services" class="si-cta-secondary">
+                            مشاهده خدمات
                         </a>
                     </div>
 
-                    <div class="pf-cta-mark" aria-hidden="true">
-                        <span>M</span>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                    </div>
+
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
     </main>
 

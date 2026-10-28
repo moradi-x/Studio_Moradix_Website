@@ -66,12 +66,12 @@
 
                     {{-- ویرایشگر کد (چپ‌چین، چون کد LTR است) --}}
                     <div class="abx-editor">
-                        <div class="abx-bar"><i></i><i></i><i></i><span>Studio.php</span></div>
+                        <div class="abx-bar"><i></i><i></i><i></i><span>Studio_Moradix.php</span></div>
                         <div class="abx-code" dir="ltr">
                             <div class="abx-row"><span class="abx-line" style="--n:22;--d:.30s"><span class="c">// from
                                         idea to launch</span></span></div>
                             <div class="abx-row"><span class="abx-line" style="--n:12;--d:.76s"><span
-                                        class="k">class</span> <span class="t">Studio</span></span></div>
+                                        class="k">class</span> <span class="t">Moradix</span></span></div>
                             <div class="abx-row"><span class="abx-line" style="--n:1;--d:1.04s">{</span></div>
                             <div class="abx-row"><span class="abx-line" style="--n:37;--d:1.12s"> <span
                                         class="k">public function</span> <span class="f">build</span>(<span
@@ -93,7 +93,7 @@
 
                     {{-- پیش‌نمایش سایت: بعد از تایپ کد ظاهر می‌شود --}}
                     <div class="abx-preview abx-reveal" style="--rd:4.1s">
-                        <div class="abx-pbar"><i></i><i></i><i></i><span dir="ltr">moradix.studio</span></div>
+                        <div class="abx-pbar"><i></i><i></i><i></i><span dir="ltr">studio_moradix</span></div>
                         <div class="abx-pbody">
                             <div class="abx-pnav"><b dir="ltr">Moradix<em>.</em></b><u></u><u></u><u></u></div>
                             <div class="abx-phero">
@@ -363,36 +363,61 @@
         </section>
 
 
-        {{-- 6. Call To Action --}}
-        <section class="about-cta">
-            <div class="about-container">
+       {{-- Final CTA Section --}}
+    <section class="si-cta" id="contact">
+        <div class="container">
 
-                <div class="about-cta-panel">
+            <div class="si-cta-card">
 
+                {{-- Decorative Elements --}}
+                <span class="si-cta-orb si-cta-orb-one" aria-hidden="true"></span>
 
-                    <h2>
-                        برای ایده‌ی بعدی‌ات،
-                        <span class="about-gradient">از یک گفت‌وگو شروع کنیم.</span>
+                <span class="si-cta-orb si-cta-orb-two" aria-hidden="true"></span>
+
+                <div class="si-cta-content">
+
+                    <span class="si-cta-eyebrow">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-2-5.8L4 11l6-2.2L12 3Z" stroke="currentColor"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <path d="m19 14 1.1 2.9L23 18l-2.9 1.1L19 22l-1.1-2.9L15 18l2.9-1.1L19 14Z"
+                                stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
+                        </svg>
+
+                        آماده شروع هستیم
+                    </span>
+
+                    <h2 class="si-cta-title">
+                        برای قدم بعدی
+                        <span>کسب‌وکارت آماده‌ای؟</span>
                     </h2>
 
-                    <p>
-                        درباره‌ی هدفی که در ذهن داری صحبت کنیم و ببینیم
-                        چطور می‌توانیم آن را به یک راهکار دیجیتال تبدیل کنیم.
+                    <p class="si-cta-description">
+                        از طراحی یک وب‌سایت جدید تا بهبود و توسعه سایت فعلی؛
+                        بیایید درباره نیازهای کسب‌وکارت صحبت کنیم و
+                        راهکار مناسب پروژه‌ات رو پیدا کنیم.
                     </p>
 
-                    <a href="{{ route('contact') }}" class="about-btn about-btn-light">
-                        شروع گفت‌وگو
+                    <div class="si-cta-actions">
+                        <a href="/contact" class="si-cta-primary">
+                            شروع گفتگو درباره پروژه
 
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M19 12H5m0 0 6 6m-6-6 6-6" />
-                        </svg>
-                    </a>
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
 
-                    <span class="about-cta-decoration" aria-hidden="true">M.</span>
+                        <a href="{{ route('services') }}" class="si-cta-secondary">
+                            مشاهده خدمات
+                        </a>
+                    </div>
+
+
                 </div>
-
             </div>
-        </section>
+        </div>
+    </section>
 
     </main>
 @endsection

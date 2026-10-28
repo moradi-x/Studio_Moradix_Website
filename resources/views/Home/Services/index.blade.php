@@ -21,9 +21,9 @@
                 <li class="sv-breadcrumb-item">
                     <a href="{{ route('home') }}">صفحه اصلی</a>
                 </li>
-               
+
                 <li class="sv-breadcrumb-item" aria-current="page">
-                      خدمات
+                    خدمات
                 </li>
             </ol>
         </div>
@@ -38,8 +38,8 @@
                 {{-- Hero Content --}}
                 <div class="si-hero-content">
                     <h1 class="si-hero-title" id="si-hero-title">
-                        برای رشد آنلاین کسب‌وکارت،
-                        <span>راهکار مناسب رو پیدا کن.</span>
+                        کسب‌وکارت آماده‌ی قدم بعدیه؛
+                        <span>وب‌سایتت چطور؟</span>
                     </h1>
 
                     <p class="si-hero-description">
@@ -49,7 +49,7 @@
                     </p>
 
                     <div class="si-hero-actions">
-                        <a href="" class="btn btn-primary">
+                        <a href="#services" class="btn btn-primary">
                             مشاهده خدمات
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -63,19 +63,7 @@
                         </a>
                     </div>
 
-                    <div class="si-hero-note">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="12" cy="12" r="9" />
-                            <path d="M12 11v5" />
-                            <path d="M12 8h.01" />
-                        </svg>
 
-                        <span>
-                            هر پروژه، با توجه به نیاز واقعی کسب‌وکار شما
-                            شروع می‌شه.
-                        </span>
-                    </div>
 
                 </div>
 
@@ -91,7 +79,7 @@
 
                         <div class="si-hero-panel-header">
                             <span class="si-hero-panel-label">
-                                MORADIX STUDIO
+                                STUDIO MORADIX
                             </span>
 
                         </div>
@@ -211,190 +199,254 @@
         </div>
     </section>
 
-    {{-- Services Overview --}}
-    <section class="si-services" id="services" aria-labelledby="si-services-title">
+
+    {{-- Services Section --}}
+    <section class="section services" id="services">
         <div class="container">
 
             <div class="si-services-heading">
-                <span class="si-services-eyebrow">
-                    خدمات ما
-                </span>
+
 
                 <h2 class="si-services-title" id="si-services-title">
                     چه چیزی برای رشد کسب‌وکارت نیاز داری؟
                 </h2>
-
-                <p class="si-services-description">
-                    از راه‌اندازی وب‌سایت تا توسعه و بهینه‌سازی؛
-                    راهکار مناسب کسب‌وکارت رو از بین خدمات Moradix پیدا کن.
-                </p>
             </div>
+            <div class="services-grid">
 
-            <div class="si-services-grid">
+                {{-- Shared Background for All Services --}}
+                <div class="services-featured" id="services-featured" >
 
-                {{-- Website Design --}}
-                <a href="{{ url('/web-design') }}" class="si-service-card">
-                    <div class="si-service-card-top">
-                        <span class="si-service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <rect x="3" y="4" width="18" height="16" rx="2" />
-                                <path d="M3 9h18M7 6.5h.01M10 6.5h.01" />
-                                <path d="M8 13h8M8 16h5" />
-                            </svg>
-                        </span>
+                    {{-- Popular Services Header --}}
+                    <div class="services-featured-header"  >
 
-                        <span class="si-service-number">01</span>
+
+                        <h2>خدمات پرفروش</h2>
+
+                        <p>
+                            دو راهکار محبوب برای شروع حرفه‌ای
+                            کسب‌وکار شما در فضای وب
+                        </p>
                     </div>
 
-                    <h3>طراحی وب‌سایت</h3>
+                    {{-- Primary Services --}}
+                    <div class="services-row services-row-primary">
 
-                    <p>
-                        طراحی وب‌سایتی حرفه‌ای، متناسب با هویت برند
-                        و نیاز واقعی کسب‌وکار شما.
-                    </p>
+                        {{-- Website Design --}}
+                        <article class="service-card service-card-primary">
 
-                    <span class="si-service-link">
-                        مشاهده جزئیات
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M19 12H5" />
-                            <path d="m12 19-7-7 7-7" />
-                        </svg>
-                    </span>
-                </a>
+                            <div class="service-card-top">
+                                <span class="service-number">1</span>
 
-                {{-- E-commerce --}}
-                <a href="{{ url('/ecommerce') }}" class="si-service-card">
-                    <div class="si-service-card-top">
-                        <span class="si-service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M3 3h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 2-1.6L22 7H6" />
-                                <circle cx="10" cy="20" r="1" />
-                                <circle cx="18" cy="20" r="1" />
-                            </svg>
-                        </span>
+                                <div class="service-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <rect x="3" y="4" width="18" height="16" rx="2" />
+                                        <path d="M3 9h18" />
+                                        <path d="M7 6.5h.01" />
+                                        <path d="M10 6.5h.01" />
+                                        <path d="m9 14 2 2 4-4" />
+                                    </svg>
+                                </div>
+                            </div>
 
-                        <span class="si-service-number">02</span>
+                            <div class="service-card-content">
+                                <h3>طراحی وب‌سایت</h3>
+
+                                <p>اولین برخورد مشتری با برندت، اتفاقی نیست.
+
+                                    سایتی بساز که در نگاه اول اعتماد ایجاد کنه و در هر دستگاه، حرفه‌ای و روان کار کنه.
+                                </p>
+                            </div>
+
+                            <div class="service-footer">
+
+
+                                <a href="{{ route('services.web-design') }}" class="service-link">
+                                    مشاهده جزئیات
+                                    <span aria-hidden="true">←</span>
+                                </a>
+                            </div>
+
+                        </article>
+
+                        {{-- Ecommerce Design --}}
+                        <article class="service-card service-card-primary">
+
+                            <div class="service-card-top">
+                                <span class="service-number">2</span>
+
+                                <div class="service-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M3 3h2l2.4 11.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6" />
+                                        <circle cx="10" cy="20" r="1" />
+                                        <circle cx="18" cy="20" r="1" />
+                                        <path d="M12 10h4" />
+                                        <path d="M14 8v4" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="service-card-content">
+                                <h3>طراحی فروشگاه اینترنتی</h3>
+
+                                <p> محصولاتت رو آنلاین بفروش؛ با فروشگاهی منظم، فرایند خرید ساده و مدیریت آسان سفارش‌ها.
+                                </p>
+                            </div>
+
+                            <div class="service-footer">
+
+
+                                <a href="{{ route('services.ecommerce') }}" class="service-link">
+                                    مشاهده جزئیات
+                                    <span aria-hidden="true">←</span>
+                                </a>
+                            </div>
+
+                        </article>
+
                     </div>
 
-                    <h3>طراحی فروشگاه اینترنتی</h3>
+                    {{-- Specialized Services Header --}}
+                    <div class="services-specialized-header">
 
-                    <p>
-                        ساخت فروشگاهی آنلاین با تجربه خرید ساده،
-                        مدیریت آسان و مسیر فروش شفاف.
-                    </p>
 
-                    <span class="si-service-link">
-                        مشاهده جزئیات
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M19 12H5" />
-                            <path d="m12 19-7-7 7-7" />
-                        </svg>
-                    </span>
-                </a>
+                        <h2>خدمات تخصصی ما </h2>
 
-                {{-- Redesign --}}
-                <a href="{{ url('/redesign') }}" class="si-service-card">
-                    <div class="si-service-card-top">
-                        <span class="si-service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M12 20h9" />
-                                <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z" />
-                                <path d="m15 5 4 4" />
-                            </svg>
-                        </span>
-
-                        <span class="si-service-number">03</span>
+                        <p>
+                            از ارتقای سایت فعلی تا توسعه سیستم‌های اختصاصی
+                            و افزایش دیده‌شدن کسب‌وکار شما در گوگل
+                        </p>
                     </div>
 
-                    <h3>بازطراحی و ارتقای سایت</h3>
+                    {{-- Secondary Services --}}
+                    <div class="services-row services-row-secondary">
 
-                    <p>
-                        بهبود ظاهر، تجربه کاربری، سرعت و مدیریت
-                        سایت فعلی بدون شروع غیرضروری از صفر.
-                    </p>
+                        {{-- Redesign Service --}}
+                        <article class="service-card">
 
-                    <span class="si-service-link">
-                        مشاهده جزئیات
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M19 12H5" />
-                            <path d="m12 19-7-7 7-7" />
-                        </svg>
-                    </span>
-                </a>
+                            <div class="service-card-top">
+                                <span class="service-number">3</span>
 
-                {{-- Custom Systems --}}
-                <a href="{{ url('/custom-systems') }}" class="si-service-card">
-                    <div class="si-service-card-top">
-                        <span class="si-service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <rect x="4" y="4" width="6" height="6" rx="1" />
-                                <rect x="14" y="4" width="6" height="6" rx="1" />
-                                <rect x="4" y="14" width="6" height="6" rx="1" />
-                                <rect x="14" y="14" width="6" height="6" rx="1" />
-                                <path d="M10 7h4M7 10v4m10-4v4M10 17h4" />
-                            </svg>
-                        </span>
+                                <div class="service-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M12 20h9" />
+                                        <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z" />
+                                        <path d="m15 5 4 4" />
+                                    </svg>
+                                </div>
+                            </div>
 
-                        <span class="si-service-number">04</span>
+                            <div class="service-card-content">
+                                <h3>بازطراحی و ارتقای سایت</h3>
+
+                                <p>سایت قدیمی، نباید جلوی رشدت رو بگیره.
+
+                                    ظاهر، سرعت و تجربه کاربری سایتت رو ارتقا بده؛ بدون بازسازی غیرضروری از صفر.
+                                </p>
+                            </div>
+
+                            <div class="service-footer">
+
+
+                                <a href="{{ route('services.redesign') }}" class="service-link">
+                                    مشاهده جزئیات
+                                    <span aria-hidden="true">←</span>
+                                </a>
+                            </div>
+
+                        </article>
+
+                        {{-- Custom Systems Service --}}
+                        <article class="service-card">
+
+                            <div class="service-card-top">
+                                <span class="service-number">4</span>
+
+                                <div class="service-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                                        <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                                        <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                                        <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                                        <path d="M10 6.5h4" />
+                                        <path d="M17.5 10v4" />
+                                        <path d="M10 17.5h4" />
+                                        <path d="M6.5 10v4" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="service-card-content">
+                                <h3>سیستم‌های اختصاصی</h3>
+
+                                <p>سامانه و پنل مدیریتی متناسب با فرایندهای کسب‌وکارت توسعه بده و کارها رو هوشمندانه‌تر پیش
+                                    ببر.
+                                </p>
+                            </div>
+
+                            <div class="service-footer">
+
+
+                                <a href="{{ route('services.custom-systems') }}" class="service-link">
+                                    مشاهده جزئیات
+                                    <span aria-hidden="true">←</span>
+                                </a>
+                            </div>
+
+                        </article>
+
+                        {{-- SEO Service --}}
+                        <article class="service-card">
+
+                            <div class="service-card-top">
+                                <span class="service-number">5</span>
+
+                                <div class="service-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <circle cx="11" cy="11" r="7" />
+                                        <path d="m20 20-4-4" />
+                                        <path d="M8 13V9" />
+                                        <path d="M11 13V7" />
+                                        <path d="M14 13v-2" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="service-card-content">
+                                <h3>سئو سایت</h3>
+
+                                <p>وقتی مشتری دنبالت می‌گرده، پیدات می‌کنه؟
+
+                                    با بهینه‌سازی اصولی سایت، شانس دیده‌شدن در جست‌وجوهای مرتبط گوگل رو بیشتر کن.
+                                </p>
+                            </div>
+
+                            <div class="service-footer">
+
+
+                                <a href="{{ route('services.seo') }}" class="service-link">
+                                    مشاهده جزئیات
+                                    <span aria-hidden="true">←</span>
+                                </a>
+                            </div>
+
+                        </article>
+
                     </div>
 
-                    <h3>سیستم‌های اختصاصی</h3>
-
-                    <p>
-                        توسعه سامانه‌ها و ابزارهای اختصاصی
-                        متناسب با فرایندهای خاص کسب‌وکار شما.
-                    </p>
-
-                    <span class="si-service-link">
-                        مشاهده جزئیات
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M19 12H5" />
-                            <path d="m12 19-7-7 7-7" />
-                        </svg>
-                    </span>
-                </a>
-
-                {{-- SEO --}}
-                <a href="{{ url('/seo') }}" class="si-service-card">
-                    <div class="si-service-card-top">
-                        <span class="si-service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <circle cx="10.5" cy="10.5" r="6.5" />
-                                <path d="m16 16 5 5M7.5 12l2-2 2 1 2.5-3" />
-                            </svg>
-                        </span>
-
-                        <span class="si-service-number">05</span>
-                    </div>
-
-                    <h3>سئو سایت</h3>
-
-                    <p>
-                        بهینه‌سازی سایت برای دیده‌شدن در جست‌وجوی گوگل
-                        و جذب مخاطبان مرتبط با کسب‌وکار شما.
-                    </p>
-
-                    <span class="si-service-link">
-                        مشاهده جزئیات
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M19 12H5" />
-                            <path d="m12 19-7-7 7-7" />
-                        </svg>
-                    </span>
-                </a>
+                </div>
+                {{-- End Shared Background --}}
 
             </div>
-
         </div>
     </section>
 
@@ -430,7 +482,7 @@
                             </svg>
                         </span>
 
-                        <span class="si-process-number">01</span>
+                        <span class="si-process-number">1</span>
                     </div>
 
                     <h3>شناخت نیازها</h3>
@@ -452,7 +504,7 @@
                             </svg>
                         </span>
 
-                        <span class="si-process-number">02</span>
+                        <span class="si-process-number">2</span>
                     </div>
 
                     <h3>برنامه‌ریزی پروژه</h3>
@@ -474,7 +526,7 @@
                             </svg>
                         </span>
 
-                        <span class="si-process-number">03</span>
+                        <span class="si-process-number">3</span>
                     </div>
 
                     <h3>اجرا و توسعه</h3>
@@ -496,7 +548,7 @@
                             </svg>
                         </span>
 
-                        <span class="si-process-number">04</span>
+                        <span class="si-process-number">4</span>
                     </div>
 
                     <h3>بررسی و تحویل</h3>
@@ -509,206 +561,107 @@
 
             </div>
 
-            <div class="si-process-footer">
-                <p>
-                    از ابتدا تا انتها، مسیر همکاری بر اساس نیاز و محدوده
-                    واقعی پروژه مشخص می‌شه.
-                </p>
 
-                <a href="#contact" class="si-process-cta">
-                    درباره پروژه‌ات صحبت کنیم
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M19 12H5" />
-                        <path d="m12 19-7-7 7-7" />
-                    </svg>
-                </a>
-            </div>
 
         </div>
     </section>
 
 
-
     {{-- FAQ Section --}}
-    <section class="si-faq" id="faq">
+    <section class="pr-faq si-faq" id="faq">
         <div class="container">
 
-            <div class="si-faq-layout">
+            <h2>سوالات متداول</h2>
 
-                {{-- FAQ Heading --}}
-                <div class="si-faq-intro">
-                    <span class="si-faq-eyebrow">
-                        سوالات متداول
-                    </span>
+            <div class="pr-faq-list si-faq-list">
 
-                    <h2 class="si-faq-title">
-                        قبل از شروع همکاری،
-                        <span>چه چیزهایی باید بدانید؟</span>
-                    </h2>
-
-                    <p class="si-faq-description">
-                        اگر برای انتخاب خدمت مناسب یا شروع پروژه سوالی دارید،
-                        پاسخ بعضی از رایج‌ترین پرسش‌ها را اینجا پیدا می‌کنید.
-                    </p>
-
-                    <div class="si-faq-help">
-                        <span class="si-faq-help-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8
-                                                     8.5 8.5 0 0 1-7.6 4.7
-                                                     8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7
-                                                     a8.4 8.4 0 0 1-.9-3.8
-                                                     8.5 8.5 0 0 1 4.7-7.6
-                                                     8.4 8.4 0 0 1 3.8-.9h.5
-                                                     a8.5 8.5 0 0 1 8 8v.5Z" stroke="currentColor" stroke-width="1.6"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M8 12h.01M12 12h.01M16 12h.01" stroke="currentColor" stroke-width="2.4"
-                                    stroke-linecap="round" />
-                            </svg>
-                        </span>
-
-                        <div>
-                            <strong>هنوز سوالی دارید؟</strong>
-                            <p>
-                                درباره نیاز پروژه‌تان با ما صحبت کنید.
-                            </p>
-
-                            <a href="#contact" class="si-faq-contact-link">
-                                ارتباط با مورادیکس
-                                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                    <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="1.8"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </a>
+                {{-- سؤال اول --}}
+                <div class="pr-faq-item si-faq-item">
+                    <button class="pr-faq-question si-faq-question" type="button" aria-expanded="false">
+                        <span>برای شروع پروژه از کجا باید شروع کنم؟</span>
+                        <svg class="pr-faq-icon si-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="pr-faq-answer si-faq-answer">
+                        <div class="pr-faq-answer-content">
+                            <p>کافیه از طریق راه‌های ارتباطی سایت با ما تماس بگیرید و درباره هدف، نیازها و انتظاراتتون از
+                                پروژه توضیح بدید. بعد از بررسی اولیه، خدمت مناسب و مسیر پیشنهادی اجرا مشخص می‌شه.</p>
                         </div>
                     </div>
                 </div>
 
-                {{-- FAQ Accordion --}}
-                <div class="si-faq-list">
-
-                    <details class="si-faq-item" open>
-                        <summary class="si-faq-question">
-                            <span class="si-faq-question-text">
-                                برای شروع پروژه از کجا باید شروع کنم؟
-                            </span>
-
-                            <span class="si-faq-toggle" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8"
-                                        stroke-linecap="round" />
-                                </svg>
-                            </span>
-                        </summary>
-
-                        <div class="si-faq-answer">
-                            <p>
-                                کافیه از طریق راه‌های ارتباطی سایت با ما تماس بگیرید
-                                و درباره هدف، نیازها و انتظاراتتون از پروژه توضیح بدید.
-                                بعد از بررسی اولیه، خدمت مناسب و مسیر پیشنهادی اجرا
-                                مشخص می‌شه.
-                            </p>
+                {{-- سؤال دوم --}}
+                <div class="pr-faq-item si-faq-item">
+                    <button class="pr-faq-question si-faq-question" type="button" aria-expanded="false">
+                        <span>آیا می‌تونم فقط یکی از خدمات رو سفارش بدم؟</span>
+                        <svg class="pr-faq-icon si-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="pr-faq-answer si-faq-answer">
+                        <div class="pr-faq-answer-content">
+                            <p>بله. می‌تونید متناسب با نیاز کسب‌وکارتون، فقط یک خدمت مثل طراحی سایت، سئو، فروشگاه اینترنتی،
+                                بازطراحی یا توسعه سیستم اختصاصی رو انتخاب کنید. اگر پروژه به خدمات مکمل نیاز داشته باشه،
+                                گزینه‌های مرتبط هم بررسی می‌شن.</p>
                         </div>
-                    </details>
-
-                    <details class="si-faq-item">
-                        <summary class="si-faq-question">
-                            <span class="si-faq-question-text">
-                                آیا می‌تونم فقط یکی از خدمات رو سفارش بدم؟
-                            </span>
-
-                            <span class="si-faq-toggle" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8"
-                                        stroke-linecap="round" />
-                                </svg>
-                            </span>
-                        </summary>
-
-                        <div class="si-faq-answer">
-                            <p>
-                                بله. می‌تونید متناسب با نیاز کسب‌وکارتون، فقط یک خدمت
-                                مثل طراحی سایت، سئو، فروشگاه اینترنتی، بازطراحی یا
-                                توسعه سیستم اختصاصی رو انتخاب کنید. اگر پروژه به
-                                خدمات مکمل نیاز داشته باشه، گزینه‌های مرتبط هم
-                                بررسی می‌شن.
-                            </p>
-                        </div>
-                    </details>
-
-                    <details class="si-faq-item">
-                        <summary class="si-faq-question">
-                            <span class="si-faq-question-text">
-                                هزینه و زمان انجام پروژه چطور مشخص می‌شه؟
-                            </span>
-
-                            <span class="si-faq-toggle" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8"
-                                        stroke-linecap="round" />
-                                </svg>
-                            </span>
-                        </summary>
-
-                        <div class="si-faq-answer">
-                            <p>
-                                هزینه و زمان اجرا به نوع خدمت، پیچیدگی پروژه،
-                                امکانات موردنیاز و محدوده کار بستگی داره.
-                                بعد از شناخت نیازها و مشخص‌شدن جزئیات، برآورد
-                                متناسب با پروژه ارائه می‌شه.
-                            </p>
-                        </div>
-                    </details>
-
-                    <details class="si-faq-item">
-                        <summary class="si-faq-question">
-                            <span class="si-faq-question-text">
-                                اگر از قبل سایت داشته باشم، امکان بازطراحی وجود داره؟
-                            </span>
-
-                            <span class="si-faq-toggle" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8"
-                                        stroke-linecap="round" />
-                                </svg>
-                            </span>
-                        </summary>
-
-                        <div class="si-faq-answer">
-                            <p>
-                                بله. اگر سایت فعلی از نظر ظاهر، تجربه کاربری،
-                                سرعت یا پنل مدیریت نیاز به بهبود داشته باشه،
-                                می‌تونیم وضعیت فعلی رو بررسی کنیم و راهکار مناسب
-                                برای بازطراحی، بهینه‌سازی یا توسعه اون پیشنهاد بدیم.
-                            </p>
-                        </div>
-                    </details>
-
-                    <details class="si-faq-item">
-                        <summary class="si-faq-question">
-                            <span class="si-faq-question-text">
-                                آیا بعد از تحویل پروژه هم پشتیبانی ارائه می‌شه؟
-                            </span>
-
-                            <span class="si-faq-toggle" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8"
-                                        stroke-linecap="round" />
-                                </svg>
-                            </span>
-                        </summary>
-
-                        <div class="si-faq-answer">
-                            <p>
-                                شرایط پشتیبانی و خدمات پس از تحویل، متناسب با نوع
-                                پروژه و توافق انجام‌شده مشخص می‌شه. جزئیات این
-                                موارد پیش از شروع همکاری قابل بررسی و هماهنگیه.
-                            </p>
-                        </div>
-                    </details>
-
+                    </div>
                 </div>
+
+                {{-- سؤال سوم --}}
+                <div class="pr-faq-item si-faq-item">
+                    <button class="pr-faq-question si-faq-question" type="button" aria-expanded="false">
+                        <span>هزینه و زمان انجام پروژه چطور مشخص می‌شه؟</span>
+                        <svg class="pr-faq-icon si-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="pr-faq-answer si-faq-answer">
+                        <div class="pr-faq-answer-content">
+                            <p>هزینه و زمان اجرا به نوع خدمت، پیچیدگی پروژه، امکانات موردنیاز و محدوده کار بستگی داره. بعد
+                                از شناخت نیازها و مشخص‌شدن جزئیات، برآورد متناسب با پروژه ارائه می‌شه.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- سؤال چهارم --}}
+                <div class="pr-faq-item si-faq-item">
+                    <button class="pr-faq-question si-faq-question" type="button" aria-expanded="false">
+                        <span>اگر از قبل سایت داشته باشم، امکان بازطراحی وجود داره؟</span>
+                        <svg class="pr-faq-icon si-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="pr-faq-answer si-faq-answer">
+                        <div class="pr-faq-answer-content">
+                            <p>بله. اگر سایت فعلی از نظر ظاهر، تجربه کاربری، سرعت یا پنل مدیریت نیاز به بهبود داشته باشه،
+                                می‌تونیم وضعیت فعلی رو بررسی کنیم و راهکار مناسب برای بازطراحی، بهینه‌سازی یا توسعه اون
+                                پیشنهاد بدیم.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- سؤال پنجم --}}
+                <div class="pr-faq-item si-faq-item">
+                    <button class="pr-faq-question si-faq-question" type="button" aria-expanded="false">
+                        <span>آیا بعد از تحویل پروژه هم پشتیبانی ارائه می‌شه؟</span>
+                        <svg class="pr-faq-icon si-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="pr-faq-answer si-faq-answer">
+                        <div class="pr-faq-answer-content">
+                            <p>شرایط پشتیبانی و خدمات پس از تحویل، متناسب با نوع پروژه و توافق انجام‌شده مشخص می‌شه. جزئیات
+                                این موارد پیش از شروع همکاری قابل بررسی و هماهنگیه.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -759,80 +712,14 @@
                             </svg>
                         </a>
 
-                        <a href="#services" class="si-cta-secondary">
-                            مشاهده خدمات
+                        <a href="{{ route('pricing') }}" class="si-cta-secondary">
+                             تعرفه ها و پلن ها 
                         </a>
                     </div>
 
-                    <div class="si-cta-note">
-                        <span class="si-cta-note-dot"></span>
-                        <span>
-                            هر پروژه با شناخت نیازهای واقعی شما شروع می‌شه.
-                        </span>
-                    </div>
 
                 </div>
-
-                {{-- Decorative Visual --}}
-                <div class="si-cta-visual" aria-hidden="true">
-
-                    <div class="si-cta-visual-glow"></div>
-
-                    <div class="si-cta-visual-card si-cta-visual-card-back">
-                        <span class="si-cta-visual-line"></span>
-                        <span class="si-cta-visual-line short"></span>
-                        <span class="si-cta-visual-block"></span>
-                    </div>
-
-                    <div class="si-cta-visual-card si-cta-visual-card-front">
-
-                        <div class="si-cta-visual-header">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-
-                        <div class="si-cta-visual-body">
-                            <div class="si-cta-visual-symbol">
-                                <svg viewBox="0 0 48 48" fill="none">
-                                    <rect x="5" y="5" width="38" height="38" rx="12" stroke="currentColor"
-                                        stroke-width="1.5" />
-
-                                    <path d="M15 24h18M24 15v18" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" />
-                                </svg>
-                            </div>
-
-                            <span class="si-cta-visual-line"></span>
-                            <span class="si-cta-visual-line short"></span>
-
-                            <div class="si-cta-visual-progress">
-                                <span></span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <span class="si-cta-floating si-cta-floating-one">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </span>
-
-                    <span class="si-cta-floating si-cta-floating-two">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="m12 3 2.7 5.5L21 9.4l-4.5 4.4
-                                                 1.1 6.2L12 17l-5.6 3 1.1-6.2L3 9.4
-                                                 l6.3-.9L12 3Z" stroke="currentColor" stroke-width="1.5"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </span>
-
-                </div>
-
             </div>
-
         </div>
     </section>
 

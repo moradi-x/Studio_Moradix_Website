@@ -650,236 +650,6 @@
 }
 
 
-/* ==================== Services Overview ==================== */
-
-.si-services {
-    padding-block: clamp(4rem, 7vw, 6.5rem);
-}
-
-.si-services-heading {
-    max-width: 43rem;
-    margin: 0 auto 3rem;
-    text-align: center;
-}
-
-.si-services-eyebrow {
-    display: inline-block;
-    margin-bottom: 0.75rem;
-    color: var(--color-primary);
-    font-size: 0.875rem;
-    font-weight: 700;
-    line-height: 1.8;
-}
-
-.si-services-title {
-    margin: 0;
-    font-size: clamp(1.65rem, 3vw, 2.4rem);
-    font-weight: 800;
-    line-height: 1.7;
-    letter-spacing: -0.035em;
-}
-
-.si-services-description {
-    margin: 1rem 0 0;
-    color: var(--color-text-muted);
-    font-size: 0.95rem;
-    line-height: 2.1;
-}
-
-.si-services-grid {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 1.25rem;
-}
-
-.si-service-card {
-    grid-column: span 2;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    min-width: 0;
-    min-height: 17rem;
-    padding: clamp(1.25rem, 2.5vw, 1.75rem);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-card);
-    background: var(--color-surface);
-    color: var(--color-text);
-    text-decoration: none;
-    transition:
-        border-color 180ms ease,
-        transform 180ms ease,
-        box-shadow 180ms ease;
-}
-
-/* Center the last two cards on desktop */
-.si-service-card:nth-child(4) {
-    grid-column: 2 / span 2;
-}
-
-.si-service-card:nth-child(5) {
-    grid-column: 4 / span 2;
-}
-
-.si-service-card-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    width: 100%;
-    margin-bottom: 1.5rem;
-}
-
-.si-service-icon {
-    display: grid;
-    place-items: center;
-    width: 3rem;
-    height: 3rem;
-    flex: 0 0 auto;
-    border-radius: 0.85rem;
-    color: var(--color-primary);
-    background: var(--color-primary-soft, rgb(128 128 128 / 10%));
-}
-
-.si-service-icon svg {
-    display: block;
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
-.si-service-number {
-    color: var(--color-text-muted);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    direction: ltr;
-}
-
-.si-service-card h3 {
-    margin: 0;
-    font-size: 1.05rem;
-    font-weight: 750;
-    line-height: 1.9;
-    overflow-wrap: anywhere;
-}
-
-.si-service-card p {
-    margin: 0.65rem 0 1.5rem;
-    color: var(--color-text-muted);
-    font-size: 0.875rem;
-    line-height: 2;
-}
-
-.si-service-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    margin-top: auto;
-    color: var(--color-primary);
-    font-size: 0.85rem;
-    font-weight: 700;
-    line-height: 1.8;
-}
-
-.si-service-link svg {
-    width: 1rem;
-    height: 1rem;
-    flex: 0 0 auto;
-    transition: transform 180ms ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-    .si-service-card:hover {
-        transform: translateY(-4px);
-        border-color: var(--color-primary);
-        box-shadow: 0 1rem 2.5rem rgb(0 0 0 / 5%);
-    }
-
-    .si-service-card:hover .si-service-link svg {
-        transform: translateX(-3px);
-    }
-}
-
-.si-service-card:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 4px;
-}
-
-/* Tablet */
-@media (max-width: 900px) {
-    .si-services-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1rem;
-    }
-
-    .si-service-card,
-    .si-service-card:nth-child(4),
-    .si-service-card:nth-child(5) {
-        grid-column: auto;
-    }
-
-    .si-service-card:last-child {
-        grid-column: 1 / -1;
-    }
-
-    .si-service-card {
-        min-height: 16rem;
-    }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-    .si-services {
-        padding-block: 3.5rem;
-    }
-
-    .si-services-heading {
-        margin-bottom: 2rem;
-        text-align: start;
-    }
-
-    .si-services-title {
-        font-size: 1.6rem;
-        line-height: 1.8;
-    }
-
-    .si-services-description {
-        font-size: 0.9rem;
-        line-height: 2;
-    }
-
-    .si-services-grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 0.875rem;
-    }
-
-    .si-service-card,
-    .si-service-card:last-child {
-        grid-column: auto;
-        min-height: 0;
-        padding: 1.25rem;
-    }
-
-    .si-service-card-top {
-        margin-bottom: 1rem;
-    }
-
-    .si-service-card h3 {
-        font-size: 1rem;
-    }
-
-    .si-service-card p {
-        margin-bottom: 1.25rem;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .si-service-card,
-    .si-service-link svg {
-        transition: none;
-    }
-}
-
-
 /* ==================== Services Process ==================== */
 
 .si-process {
@@ -1033,8 +803,10 @@
 
 /* Tablet */
 @media (max-width: 900px) {
-    .si-process-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .si-cta-card {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+        padding: 32px 24px;
     }
 }
 
@@ -1090,319 +862,6 @@
 }
 
 
-/* ============================
-   Services FAQ Section
-============================ */
-
-.si-faq {
-    position: relative;
-    padding: clamp(64px, 8vw, 108px) 0;
-    overflow: hidden;
-}
-
-.si-faq-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-    gap: clamp(36px, 6vw, 88px);
-    align-items: start;
-}
-
-/* FAQ Intro */
-
-.si-faq-intro {
-    min-width: 0;
-}
-
-.si-faq-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    margin-bottom: 18px;
-    color: var(--color-primary);
-    font-size: 0.88rem;
-    font-weight: 700;
-}
-
-.si-faq-eyebrow::before {
-    content: "";
-    width: 22px;
-    height: 2px;
-    border-radius: 2px;
-    background: currentColor;
-}
-
-.si-faq-title {
-    margin: 0;
-    color: var(--color-text);
-    font-size: clamp(1.65rem, 2.6vw, 2.3rem);
-    font-weight: 800;
-    line-height: 1.8;
-    letter-spacing: -0.035em;
-}
-
-.si-faq-title span {
-    display: block;
-    color: var(--color-primary);
-}
-
-.si-faq-description {
-    margin: 18px 0 0;
-    color: var(--color-text-muted);
-    font-size: 0.98rem;
-    line-height: 2.1;
-}
-
-/* Contact Prompt */
-
-.si-faq-help {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    margin-top: 30px;
-    padding: 20px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-card);
-    background: var(--color-surface);
-}
-
-.si-faq-help-icon {
-    display: flex;
-    flex: 0 0 44px;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    color: var(--color-primary);
-    background: var(--color-primary-soft);
-    border-radius: 13px;
-}
-
-.si-faq-help-icon svg {
-    display: block;
-    width: 23px;
-    height: 23px;
-}
-
-.si-faq-help > div {
-    min-width: 0;
-}
-
-.si-faq-help strong {
-    display: block;
-    color: var(--color-text);
-    font-size: 0.96rem;
-    font-weight: 750;
-}
-
-.si-faq-help p {
-    margin: 6px 0 0;
-    color: var(--color-text-muted);
-    font-size: 0.85rem;
-    line-height: 1.9;
-}
-
-.si-faq-contact-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    margin-top: 12px;
-    color: var(--color-primary);
-    font-size: 0.88rem;
-    font-weight: 750;
-    text-decoration: none;
-    transition: gap 0.2s ease;
-}
-
-.si-faq-contact-link:hover {
-    gap: 11px;
-}
-
-.si-faq-contact-link svg {
-    width: 17px;
-    height: 17px;
-    flex-shrink: 0;
-}
-
-/* Accordion */
-
-.si-faq-list {
-    min-width: 0;
-    border-top: 1px solid var(--color-border);
-}
-
-.si-faq-item {
-    border-bottom: 1px solid var(--color-border);
-}
-
-.si-faq-question {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    padding: 23px 2px;
-    color: var(--color-text);
-    cursor: pointer;
-    list-style: none;
-    font-size: 0.98rem;
-    font-weight: 700;
-    line-height: 1.9;
-}
-
-.si-faq-question::-webkit-details-marker {
-    display: none;
-}
-
-.si-faq-question::marker {
-    content: "";
-}
-
-.si-faq-question-text {
-    min-width: 0;
-}
-
-.si-faq-toggle {
-    display: flex;
-    flex: 0 0 34px;
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    color: var(--color-text-muted);
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 50%;
-    transition:
-        color 0.25s ease,
-        background 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease;
-}
-
-.si-faq-toggle svg {
-    display: block;
-    width: 17px;
-    height: 17px;
-}
-
-.si-faq-item[open] .si-faq-toggle {
-    color: #fff;
-    background: var(--color-primary);
-    border-color: var(--color-primary);
-    transform: rotate(45deg);
-}
-
-.si-faq-question:hover .si-faq-toggle {
-    color: var(--color-primary);
-    border-color: var(--color-primary);
-}
-
-.si-faq-item[open] .si-faq-question:hover .si-faq-toggle {
-    color: #fff;
-}
-
-.si-faq-question:focus-visible,
-.si-faq-contact-link:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 5px;
-    border-radius: 4px;
-}
-
-.si-faq-answer {
-    padding: 0 2px 23px;
-    animation: si-faq-reveal 0.25s ease;
-}
-
-.si-faq-answer p {
-    margin: 0;
-    color: var(--color-text-muted);
-    font-size: 0.93rem;
-    line-height: 2.15;
-}
-
-@keyframes si-faq-reveal {
-    from {
-        opacity: 0;
-        transform: translateY(-4px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive */
-
-@media (max-width: 900px) {
-    .si-faq-layout {
-        grid-template-columns: 1fr;
-        gap: 38px;
-    }
-
-    .si-faq-intro {
-        max-width: 680px;
-    }
-
-    .si-faq-help {
-        max-width: 460px;
-    }
-}
-
-@media (max-width: 600px) {
-    .si-faq {
-        padding: 58px 0;
-    }
-
-    .si-faq-layout {
-        gap: 28px;
-    }
-
-    .si-faq-title {
-        font-size: clamp(1.5rem, 6vw, 1.9rem);
-        line-height: 1.85;
-    }
-
-    .si-faq-description {
-        font-size: 0.92rem;
-    }
-
-    .si-faq-help {
-        gap: 12px;
-        padding: 16px;
-        margin-top: 24px;
-    }
-
-    .si-faq-question {
-        gap: 12px;
-        padding: 19px 0;
-        font-size: 0.9rem;
-    }
-
-    .si-faq-toggle {
-        flex-basis: 31px;
-        width: 31px;
-        height: 31px;
-    }
-
-    .si-faq-answer {
-        padding-bottom: 20px;
-    }
-
-    .si-faq-answer p {
-        font-size: 0.88rem;
-        line-height: 2.1;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .si-faq *,
-    .si-faq *::before,
-    .si-faq *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
 
 /* ============================
    Services Final CTA
@@ -1415,22 +874,53 @@
 .si-cta-card {
     position: relative;
     isolation: isolate;
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(250px, 0.8fr);
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 36px;
-    min-height: 390px;
-    padding: clamp(30px, 5.5vw, 68px);
+    justify-content: center;
+    gap: 0;
+    min-height: 0;
+    padding: clamp(32px, 5vw, 56px) 28px;
     overflow: hidden;
     border: 1px solid var(--color-border);
     border-radius: clamp(20px, 3vw, 32px);
     background:
         radial-gradient(
-            circle at 90% 10%,
+            circle at 50% 0%,
             var(--color-primary-soft),
-            transparent 34%
+            transparent 45%
         ),
         var(--color-surface);
+    text-align: center;
+}
+
+.si-cta-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+}
+
+.si-cta-title {
+    text-align: center;
+}
+
+.si-cta-description {
+    max-width: 560px;
+    margin: 14px auto 0;
+    text-align: center;
+}
+
+.si-cta-actions {
+    justify-content: center;
+}
+
+.si-cta-note {
+    justify-content: center;
+    text-align: center;
 }
 
 /* Background Decorations */
@@ -1595,120 +1085,6 @@
     border-radius: 50%;
 }
 
-/* Decorative Visual */
-
-.si-cta-visual {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 0;
-    min-height: 280px;
-}
-
-.si-cta-visual-glow {
-    position: absolute;
-    width: 220px;
-    height: 220px;
-    background: var(--color-primary-soft);
-    border-radius: 50%;
-    filter: blur(12px);
-}
-
-.si-cta-visual-card {
-    position: absolute;
-    width: min(260px, 100%);
-    border: 1px solid var(--color-border);
-    border-radius: 18px;
-    background: var(--color-surface);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-}
-
-.si-cta-visual-card-back {
-    padding: 25px;
-    transform: translate(22px, -17px) rotate(7deg);
-    opacity: 0.65;
-}
-
-.si-cta-visual-line {
-    display: block;
-    width: 100%;
-    height: 8px;
-    margin-top: 12px;
-    background: var(--color-border);
-    border-radius: 10px;
-}
-
-.si-cta-visual-line.short {
-    width: 58%;
-}
-
-.si-cta-visual-block {
-    display: block;
-    width: 100%;
-    height: 64px;
-    margin-top: 22px;
-    background: var(--color-primary-soft);
-    border-radius: 10px;
-}
-
-.si-cta-visual-card-front {
-    z-index: 1;
-    overflow: hidden;
-    transform: translate(-8px, 15px) rotate(-3deg);
-}
-
-.si-cta-visual-header {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 13px 16px;
-    border-bottom: 1px solid var(--color-border);
-}
-
-.si-cta-visual-header span {
-    width: 7px;
-    height: 7px;
-    background: var(--color-border);
-    border-radius: 50%;
-}
-
-.si-cta-visual-body {
-    padding: 22px;
-}
-
-.si-cta-visual-symbol {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 58px;
-    height: 58px;
-    margin-bottom: 18px;
-    color: var(--color-primary);
-    background: var(--color-primary-soft);
-    border-radius: 16px;
-}
-
-.si-cta-visual-symbol svg {
-    width: 40px;
-    height: 40px;
-}
-
-.si-cta-visual-progress {
-    height: 7px;
-    margin-top: 23px;
-    overflow: hidden;
-    background: var(--color-border);
-    border-radius: 10px;
-}
-
-.si-cta-visual-progress span {
-    display: block;
-    width: 72%;
-    height: 100%;
-    background: var(--color-primary);
-    border-radius: inherit;
-}
 
 .si-cta-floating {
     position: absolute;
@@ -1750,74 +1126,82 @@
         padding: 36px;
     }
 
-    .si-cta-visual {
-        min-height: 250px;
-    }
-
-    .si-cta-visual-card {
-        width: min(220px, 100%);
-    }
-
-    .si-cta-visual-body {
-        padding: 18px;
-    }
 }
 
 @media (max-width: 680px) {
     .si-cta {
-        padding: 45px 0 60px;
+        padding: 28px 0 36px;
     }
 
     .si-cta-card {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 8px;
-        padding: 30px 22px 20px;
-        border-radius: 22px;
+        gap: 0;
+        padding: 24px 16px 20px;
+        border-radius: 18px;
+    }
+
+    .si-cta-eyebrow {
+        margin-bottom: 12px;
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+
+    .si-cta-eyebrow svg {
+        width: 16px;
+        height: 16px;
     }
 
     .si-cta-title {
-        font-size: clamp(1.65rem, 7vw, 2.15rem);
-        line-height: 1.8;
+        font-size: clamp(1.4rem, 6vw, 1.8rem);
+        line-height: 1.7;
     }
 
     .si-cta-description {
-        margin-top: 14px;
-        font-size: 0.91rem;
+        max-width: 100%;
+        margin-top: 10px;
+        font-size: 0.84rem;
+        line-height: 1.9;
     }
 
     .si-cta-actions {
+        width: 100%;
         align-items: stretch;
         flex-direction: column;
-        margin-top: 23px;
+        gap: 9px;
+        margin-top: 17px;
     }
 
     .si-cta-primary,
     .si-cta-secondary {
         width: 100%;
-        min-height: 48px;
+        min-height: 43px;
+        padding: 10px 12px;
+        font-size: 0.82rem;
     }
 
     .si-cta-note {
-        align-items: flex-start;
-        margin-top: 19px;
-        font-size: 0.78rem;
-    }
-
-    .si-cta-visual {
-        min-height: 245px;
-        margin-top: 8px;
-    }
-
-    .si-cta-visual-card {
-        width: min(220px, 76%);
+        justify-content: center;
+        margin-top: 13px;
+        font-size: 0.72rem;
+        line-height: 1.8;
     }
 
     .si-cta-floating-one {
-        right: 10%;
+        top: 12px;
+        right: 12px;
+        width: 30px;
+        height: 30px;
     }
 
     .si-cta-floating-two {
-        left: 10%;
+        bottom: 10px;
+        left: 10px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .si-cta-floating svg {
+        width: 17px;
+        height: 17px;
     }
 }
 
@@ -1845,5 +1229,678 @@
     .si-cta *::after {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
+    }
+}
+
+
+/* ==========================================
+   SERVICES SECTION HEADING
+   ========================================== */
+
+.si-services-heading {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto 36px;
+    text-align: center;
+}
+
+.si-services-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    padding: 7px 15px;
+
+    color: #0F766E;
+    background: rgb(15 118 110 / 8%);
+    border: 1px solid rgb(15 118 110 / 16%);
+    border-radius: 999px;
+
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.si-services-title {
+    margin: 0;
+    color: var(--color-text, #111827);
+
+    font-size: clamp(24px, 3.2vw, 36px);
+    font-weight: 800;
+    line-height: 1.8;
+    letter-spacing: -0.035em;
+
+    text-wrap: balance;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .si-services-heading {
+        margin-bottom: 24px;
+        padding-inline: 8px;
+        box-sizing: border-box;
+    }
+
+    .si-services-eyebrow {
+        margin-bottom: 10px;
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .si-services-title {
+        font-size: clamp(22px, 5.8vw, 28px);
+        line-height: 1.8;
+        letter-spacing: 0;
+    }
+}
+
+@media (max-width: 380px) {
+    .si-services-heading {
+        margin-bottom: 20px;
+    }
+
+    .si-services-title {
+        font-size: 22px;
+    }
+}
+
+/* Reduce services section top spacing */
+#services {
+    padding-top: 2rem;
+}
+
+#services .si-services-heading {
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+    #services {
+        padding-top: 1.25rem;
+    }
+
+    #services .si-services-heading {
+        margin-bottom: 20px;
+    }
+}
+
+/* Compact Hero Visual */
+.si-hero-visual {
+    transform: scale(0.94);
+    transform-origin: center;
+}
+
+.si-hero-panel {
+    padding: 22px;
+    border-radius: 20px;
+}
+
+.si-hero-panel h3 {
+    margin-bottom: 5px;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.si-hero-panel p {
+    margin-bottom: 14px;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.si-hero-service {
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+}
+
+.si-hero-service-icon {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+}
+
+.si-hero-service strong {
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.si-hero-service svg {
+    width: 16px;
+    height: 16px;
+}
+
+.si-hero-note {
+    font-size: 11px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .si-hero-visual {
+        transform: none;
+        width: 100%;
+        max-width: 360px;
+        margin-inline: auto;
+    }
+
+    .si-hero-panel {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .si-hero-panel h3 {
+        font-size: 15px;
+    }
+
+    .si-hero-panel p {
+        margin-bottom: 10px;
+        font-size: 11px;
+    }
+
+    .si-hero-service {
+        gap: 8px;
+        padding: 8px 10px;
+        border-radius: 10px;
+    }
+
+    .si-hero-service-icon {
+        width: 30px;
+        height: 30px;
+        flex-basis: 30px;
+    }
+
+    .si-hero-service strong {
+        font-size: 11px;
+    }
+
+    .si-hero-service svg {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .si-hero-visual {
+        display: none !important;
+    }
+}
+
+/* =================================
+   Services Section - Compact Mobile
+================================= */
+
+@media (max-width: 768px) {
+
+    /* فاصله کلی سکشن */
+    #services {
+        padding-top: 20px;
+        padding-bottom: 28px;
+    }
+
+    #services > .container {
+        padding-inline: 14px;
+    }
+
+    /* تیتر اصلی سکشن */
+    #services .si-services-heading {
+        margin: 0 auto 20px;
+        padding-inline: 4px;
+    }
+
+    #services .si-services-eyebrow {
+        margin-bottom: 6px;
+        padding: 4px 10px;
+        font-size: 11px;
+    }
+
+    #services .si-services-title {
+        font-size: 21px;
+        line-height: 1.7;
+    }
+
+    /* محفظه اصلی کارت‌ها */
+    #services .services-grid {
+        display: block;
+    }
+
+    #services .services-featured {
+        padding: 14px;
+        border-radius: 18px;
+    }
+
+    /* تیتر گروه خدمات */
+    #services .services-featured-header,
+    #services .services-specialized-header {
+        margin-bottom: 12px;
+    }
+
+    #services .services-featured-header h2,
+    #services .services-specialized-header h2 {
+        margin: 0 0 5px;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    #services .services-featured-header p,
+    #services .services-specialized-header p {
+        margin: 0;
+        font-size: 11px;
+        line-height: 1.8;
+    }
+
+    /* فاصله بین کارت‌ها */
+    #services .services-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    #services .services-row-secondary {
+        margin-bottom: 0;
+    }
+
+    /* خود کارت */
+    #services .service-card {
+        min-width: 0;
+        padding: 14px;
+        border-radius: 14px;
+        gap: 0;
+    }
+
+    /* آیکون و شماره */
+    #services .service-card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+    }
+
+    #services .service-icon {
+        width: 38px;
+        height: 38px;
+        flex: 0 0 38px;
+    }
+
+    #services .service-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    #services .service-number {
+        font-size: 12px;
+    }
+
+    /* عنوان و توضیحات */
+    #services .service-card-content h3 {
+        margin: 0 0 5px;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    #services .service-card-content p {
+        margin: 0;
+        font-size: 11px;
+        line-height: 1.9;
+    }
+
+    /* لینک جزئیات */
+    #services .service-footer {
+        margin-top: 10px;
+        padding-top: 8px;
+    }
+
+    #services .service-link {
+        font-size: 11px;
+        line-height: 1.7;
+    }
+}
+
+/* موبایل‌های کوچک */
+@media (max-width: 380px) {
+    #services > .container {
+        padding-inline: 10px;
+    }
+
+    #services .services-featured {
+        padding: 10px;
+    }
+
+    #services .service-card {
+        padding: 12px;
+    }
+
+    #services .si-services-title {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    #services .services-row-primary .service-card {
+        height: auto !important;
+        min-height: 0 !important;
+        align-self: start;
+        display: block;
+    }
+
+    #services .services-row-primary .service-card .service-card-top {
+        margin-bottom: 8px;
+    }
+
+    #services .services-row-primary .service-card .service-card-content {
+        height: auto !important;
+        min-height: 0 !important;
+        flex: none !important;
+    }
+
+    #services .services-row-primary .service-card .service-footer {
+        margin-top: 10px;
+    }
+}
+
+/* ================================
+   Services Process - Mobile Compact
+================================ */
+
+@media (max-width: 768px) {
+
+    #services-process {
+        padding: 28px 0;
+    }
+
+    #services-process .si-process-heading {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    #services-process .si-process-eyebrow {
+        margin-bottom: 8px;
+        font-size: 11px;
+        padding: 5px 11px;
+    }
+
+    #services-process .si-process-title {
+        margin: 0 0 8px;
+        font-size: 21px;
+        line-height: 1.7;
+    }
+
+    #services-process .si-process-description {
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.9;
+    }
+
+    /* دو کارت در هر ردیف */
+    #services-process .si-process-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    /* فشرده‌سازی کارت‌ها */
+    #services-process .si-process-card {
+        min-width: 0;
+        min-height: 0;
+        height: auto;
+        padding: 13px 12px;
+        border-radius: 14px;
+    }
+
+    #services-process .si-process-card-top {
+        margin-bottom: 10px;
+    }
+
+    #services-process .si-process-icon {
+        width: 34px;
+        height: 34px;
+        flex: 0 0 34px;
+    }
+
+    #services-process .si-process-icon svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    #services-process .si-process-number {
+        font-size: 11px;
+    }
+
+    #services-process .si-process-card h3 {
+        margin: 0 0 6px;
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    #services-process .si-process-card p {
+        margin: 0;
+        font-size: 11px;
+        line-height: 1.9;
+    }
+
+    /* بخش پایانی */
+    #services-process .si-process-footer {
+        margin-top: 18px;
+        gap: 12px;
+        text-align: center;
+    }
+
+    #services-process .si-process-footer p {
+        margin: 0;
+        font-size: 11px;
+        line-height: 1.9;
+    }
+
+    #services-process .si-process-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 42px;
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+
+    #services-process .si-process-cta svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* گوشی‌های خیلی کوچک */
+@media (max-width: 360px) {
+
+    #services-process .si-process-grid {
+        gap: 8px;
+    }
+
+    #services-process .si-process-card {
+        padding: 11px 9px;
+    }
+
+    #services-process .si-process-card h3 {
+        font-size: 12px;
+    }
+
+    #services-process .si-process-card p {
+        font-size: 10px;
+    }
+}
+
+
+/* ==============================
+   FAQ - Base Styles
+============================== */
+
+.pr-faq {
+    padding: 64px 0;
+    direction: rtl;
+}
+
+.pr-faq .container {
+    width: 100%;
+    max-width: 900px;
+    margin-inline: auto;
+    padding-inline: 20px;
+    box-sizing: border-box;
+}
+
+.pr-faq h2 {
+    margin: 0 0 28px;
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+/* FAQ List */
+
+.pr-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* FAQ Item */
+
+.pr-faq-item {
+    min-width: 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #fff;
+    overflow: hidden;
+}
+
+/* Question Button */
+
+.pr-faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    min-height: 60px;
+    padding: 16px 20px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.8;
+    text-align: right;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.pr-faq-question span {
+    flex: 1;
+    min-width: 0;
+}
+
+.pr-faq-question:focus-visible {
+    outline: 2px solid #64748b;
+    outline-offset: -4px;
+}
+
+/* Arrow Icon */
+
+.pr-faq-icon {
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.pr-faq-item.active .pr-faq-icon {
+    transform: rotate(180deg);
+}
+
+/* Answer
+   Compatible with the existing JS using max-height */
+
+.pr-faq-answer {
+    display: block;
+    max-height: 0;
+    height: auto;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pr-faq-answer-content {
+    display: block;
+    padding: 0 20px 18px;
+    box-sizing: border-box;
+}
+
+.pr-faq-answer-content p {
+    margin: 0;
+    color: var(--color-text-muted, #64748b);
+    font-size: 0.9375rem;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+/* Active State */
+
+.pr-faq-item.active .pr-faq-answer {
+    /* Height is controlled by JavaScript */
+}
+
+/* ==============================
+   Mobile
+============================== */
+
+@media (max-width: 767px) {
+    .pr-faq {
+        padding: 32px 0;
+    }
+
+    .pr-faq .container {
+        padding-inline: 14px;
+    }
+
+    .pr-faq h2 {
+        margin-bottom: 18px;
+        font-size: 1.3rem;
+        line-height: 1.7;
+    }
+
+    .pr-faq-list {
+        gap: 9px;
+    }
+
+    .pr-faq-item {
+        border-radius: 10px;
+    }
+
+    .pr-faq-question {
+        min-height: 48px;
+        padding: 12px;
+        gap: 10px;
+        font-size: 0.82rem;
+        line-height: 1.8;
+    }
+
+    .pr-faq-icon {
+        flex-basis: 17px;
+        width: 17px;
+        height: 17px;
+    }
+
+    .pr-faq-answer-content {
+        padding: 0 12px 12px;
+    }
+
+    .pr-faq-answer-content p {
+        font-size: 0.78rem;
+        line-height: 1.9;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pr-faq-answer,
+    .pr-faq-icon {
+        transition: none;
     }
 }

@@ -78,4 +78,22 @@
             });
         });
     });
+
+    document.querySelectorAll('.pr-faq-question').forEach((button) => {
+    button.addEventListener('click', () => {
+        const item = button.closest('.pr-faq-item');
+        const answer = item.querySelector('.pr-faq-answer');
+        const isOpen = button.getAttribute('aria-expanded') === 'true';
+
+        button.setAttribute('aria-expanded', String(!isOpen));
+        item.classList.toggle('active', !isOpen);
+
+        if (answer) {
+            answer.style.maxHeight = !isOpen
+                ? answer.scrollHeight + 'px'
+                : '0px';
+        }
+    });
+});
+
 })();

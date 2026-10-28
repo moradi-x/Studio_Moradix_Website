@@ -28,19 +28,26 @@
 
                           <ul class="dropdown">
                               <li>
-                                  <a href="{{ route('services.web-design') }}">طراحی وب‌سایت</a>
+                                  <a href="{{ route('services.web-design') }}" @class(['is-active' => request()->routeIs('services.web-design')])
+                                      @if (request()->routeIs('services.web-design')) aria-current="page" @endif>طراحی وب‌سایت</a>
                               </li>
                               <li>
-                                  <a href="{{ route('services.ecommerce') }}">طراحی فروشگاه اینترنتی</a>
+                                  <a href="{{ route('services.ecommerce') }}" @class(['is-active' => request()->routeIs('services.ecommerce')])
+                                      @if (request()->routeIs('services.ecommerce')) aria-current="page" @endif>طراحی فروشگاه
+                                      اینترنتی</a>
                               </li>
 
                               <li>
-                                  <a href="{{ route('services.redesign') }}">بازطراحی و ارتقای سایت</a>
+                                  <a href="{{ route('services.redesign') }}" @class(['is-active' => request()->routeIs('services.redesign')])
+                                      @if (request()->routeIs('services.redesign')) aria-current="page" @endif>بازطراحی و ارتقای
+                                      سایت</a>
                               </li>
                               <li>
-                                  <a href="{{ route('services.custom-systems') }}">سیستم‌های اختصاصی</a>
+                                  <a href="{{ route('services.custom-systems') }}" @class(['is-active' => request()->routeIs('services.custom-systems')])
+                                      @if (request()->routeIs('services.custom-systems')) aria-current="page" @endif>سیستم‌های اختصاصی</a>
                               </li>
-                              <li><a href="{{ route('services.seo') }}">سئو</a></li>
+                              <li><a href="{{ route('services.seo') }} "  @class(['is-active' => request()->routeIs('services.seo')])
+                              @if (request()->routeIs('services.seo')) aria-current="page" @endif  >سئو</a></li>
                           </ul>
                       </li>
 
@@ -106,8 +113,8 @@
                   <div class="nav-service-row">
                       <button type="button" class="submenu-toggle" aria-expanded="false"
                           aria-controls="mobile-services-submenu">
-                          <span>خدمات</span>
-                          <span class="submenu-arrow" aria-hidden="true"></span>
+                          <a href="{{ route('services') }}">خدمات </a> <span class="submenu-arrow"
+                              aria-hidden="true"></span>
                       </button>
                   </div>
 

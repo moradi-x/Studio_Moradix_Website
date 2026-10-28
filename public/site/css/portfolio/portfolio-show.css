@@ -1547,305 +1547,372 @@
 }
 
 
-/* ==========================================
-   FINAL CTA
-   ========================================== */
 
-.pf-cta {
-    padding-block: 0 5rem;
+/* ============================
+   Services Final CTA
+============================ */
+
+.si-cta {
+    padding: clamp(48px, 7vw, 88px) 0;
 }
 
-.pf-cta-card {
+.si-cta-card {
     position: relative;
     isolation: isolate;
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 2rem;
-    min-height: 22rem;
-    padding: clamp(2rem, 5vw, 4rem);
+    justify-content: center;
+    gap: 0;
+    min-height: 0;
+    padding: clamp(32px, 5vw, 56px) 28px;
     overflow: hidden;
     border: 1px solid var(--color-border);
-    border-radius: clamp(1rem, 2.5vw, 2rem);
-    background: linear-gradient(
-        135deg,
-        var(--color-primary-soft, transparent),
-        var(--color-surface)
-    );
+    border-radius: clamp(20px, 3vw, 32px);
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            var(--color-primary-soft),
+            transparent 45%
+        ),
+        var(--color-surface);
+    text-align: center;
 }
 
-.pf-cta-content {
+.si-cta-content {
     position: relative;
     z-index: 2;
-    max-width: 40rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
 }
 
-.pf-cta-content h2 {
-    margin: 0.8rem 0 1rem;
-    color: var(--color-text);
-    font-size: clamp(1.7rem, 3.5vw, 2.7rem);
-    font-weight: 800;
-    line-height: 1.8;
-    letter-spacing: -0.03em;
+.si-cta-title {
+    text-align: center;
 }
 
-.pf-cta-content h2 span {
-    color: var(--color-primary);
+.si-cta-description {
+    max-width: 560px;
+    margin: 14px auto 0;
+    text-align: center;
 }
 
-.pf-cta-content p {
-    max-width: 35rem;
-    margin: 0;
-    color: var(--color-text-muted);
-    font-size: 0.9rem;
-    line-height: 2.15;
+.si-cta-actions {
+    justify-content: center;
 }
 
-.pf-cta-content .pf-btn {
-    margin-top: 1.5rem;
+.si-cta-note {
+    justify-content: center;
+    text-align: center;
 }
 
-.pf-cta-decoration {
+/* Background Decorations */
+
+.si-cta-orb {
     position: absolute;
     z-index: -1;
+    display: block;
     border: 1px solid var(--color-border);
     border-radius: 50%;
     pointer-events: none;
 }
 
-.pf-cta-decoration-one {
-    top: -8rem;
-    inset-inline-end: -2rem;
-    width: 23rem;
-    height: 23rem;
-    opacity: 0.8;
-}
-
-.pf-cta-decoration-two {
-    top: -5rem;
-    inset-inline-end: 1rem;
-    width: 17rem;
-    height: 17rem;
-    border-style: dashed;
-    opacity: 0.65;
-}
-
-.pf-cta-mark {
-    position: relative;
-    display: grid;
-    place-items: center;
-    justify-self: center;
-    width: min(100%, 13rem);
-    aspect-ratio: 1;
-    border: 1px solid var(--color-border);
-    border-radius: 50%;
-    color: var(--color-primary);
-}
-
-.pf-cta-mark::before,
-.pf-cta-mark::after {
-    content: "";
-    position: absolute;
-    inset: 0.9rem;
-    border: 1px dashed var(--color-border);
-    border-radius: 50%;
-}
-
-.pf-cta-mark::after {
-    inset: 1.8rem;
-    border-style: solid;
-}
-
-.pf-cta-mark > span {
-    position: relative;
-    z-index: 1;
-    font-size: 4.5rem;
-    font-weight: 900;
+.si-cta-orb-one {
+    top: -130px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
     opacity: 0.7;
 }
 
-.pf-cta-mark > i {
-    position: absolute;
-    width: 0.45rem;
-    height: 0.45rem;
-    border-radius: 50%;
+.si-cta-orb-two {
+    right: 4%;
+    bottom: -190px;
+    width: 350px;
+    height: 350px;
+    opacity: 0.45;
+}
+
+/* Content */
+
+.si-cta-content {
+    position: relative;
+    z-index: 2;
+    min-width: 0;
+}
+
+.si-cta-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 20px;
+    padding: 8px 13px;
+    color: var(--color-primary);
+    background: var(--color-primary-soft);
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+    font-size: 0.84rem;
+    font-weight: 750;
+}
+
+.si-cta-eyebrow svg {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+}
+
+.si-cta-title {
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+    font-weight: 850;
+    line-height: 1.7;
+    letter-spacing: -0.04em;
+}
+
+.si-cta-title span {
+    display: block;
+    color: var(--color-primary);
+}
+
+.si-cta-description {
+    max-width: 580px;
+    margin: 18px 0 0;
+    color: var(--color-text-muted);
+    font-size: 0.98rem;
+    line-height: 2.15;
+}
+
+/* Buttons */
+
+.si-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.si-cta-primary,
+.si-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 50px;
+    padding: 13px 20px;
+    border-radius: 12px;
+    font-size: 0.91rem;
+    font-weight: 750;
+    text-decoration: none;
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.si-cta-primary {
+    color: #fff;
     background: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
 }
 
-.pf-cta-mark > i:nth-of-type(1) {
-    top: 1rem;
-    inset-inline-end: 2.5rem;
+.si-cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.13);
 }
 
-.pf-cta-mark > i:nth-of-type(2) {
-    bottom: 2rem;
-    inset-inline-start: 0.8rem;
+.si-cta-primary svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
 }
 
-.pf-cta-mark > i:nth-of-type(3) {
-    bottom: 0.6rem;
-    inset-inline-end: 5rem;
+.si-cta-secondary {
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
 }
 
-@media (max-width: 768px) {
-    .pf-cta {
-        padding: 24px 0;
-        overflow: hidden;
+.si-cta-secondary:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.si-cta-primary:focus-visible,
+.si-cta-secondary:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+}
+
+/* Small Note */
+
+.si-cta-note {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 24px;
+    color: var(--color-text-muted);
+    font-size: 0.82rem;
+    line-height: 1.9;
+}
+
+.si-cta-note-dot {
+    flex: 0 0 7px;
+    width: 7px;
+    height: 7px;
+    background: var(--color-primary);
+    border-radius: 50%;
+}
+
+
+.si-cta-floating {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    color: var(--color-primary);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.si-cta-floating svg {
+    width: 23px;
+    height: 23px;
+}
+
+.si-cta-floating-one {
+    top: 24px;
+    right: 8%;
+}
+
+.si-cta-floating-two {
+    bottom: 20px;
+    left: 5%;
+    transform: rotate(-10deg);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    .si-cta-card {
+        grid-template-columns: minmax(0, 1fr) minmax(200px, 0.65fr);
+        gap: 20px;
+        padding: 36px;
     }
 
-    .pf-cta .container.pf-container {
-        width: 100%;
+}
+
+@media (max-width: 680px) {
+    .si-cta {
+        padding: 28px 0 36px;
+    }
+
+    .si-cta-card {
+        gap: 0;
+        padding: 24px 16px 20px;
+        border-radius: 18px;
+    }
+
+    .si-cta-eyebrow {
+        margin-bottom: 12px;
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+
+    .si-cta-eyebrow svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .si-cta-title {
+        font-size: clamp(1.4rem, 6vw, 1.8rem);
+        line-height: 1.7;
+    }
+
+    .si-cta-description {
         max-width: 100%;
-        margin-inline: auto;
-        padding-inline: 12px;
-        box-sizing: border-box;
+        margin-top: 10px;
+        font-size: 0.84rem;
+        line-height: 1.9;
     }
 
-    .pf-cta-card {
-        display: block;
+    .si-cta-actions {
         width: 100%;
-        min-width: 0;
-        min-height: auto;
-        padding: 28px 16px;
-        box-sizing: border-box;
-        text-align: center;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 9px;
+        margin-top: 17px;
     }
 
-    .pf-cta-content {
-        position: relative;
-        z-index: 2;
-        display: block;
+    .si-cta-primary,
+    .si-cta-secondary {
         width: 100%;
-        max-width: none;
-        margin: 0;
-        justify-self: auto;
-        text-align: center;
-        box-sizing: border-box;
+        min-height: 43px;
+        padding: 10px 12px;
+        font-size: 0.82rem;
     }
 
-    .pf-cta-content h2 {
-        width: 100%;
-        max-width: none;
-        margin: 0 0 14px;
-        font-size: clamp(21px, 5.5vw, 28px);
-        line-height: 1.8;
-        letter-spacing: 0;
-        text-align: center;
-        word-break: normal;
-        overflow-wrap: normal;
-    }
-
-    .pf-cta-content h2 span {
-        display: inline;
-    }
-
-    .pf-cta-content p {
-        width: 100%;
-        max-width: none;
-        margin: 0 0 18px;
-        font-size: 13px;
-        line-height: 2;
-        text-align: center;
-    }
-
-    .pf-cta-content .pf-btn {
-        display: inline-flex;
-        align-items: center;
+    .si-cta-note {
         justify-content: center;
-        margin: 0 auto;
+        margin-top: 13px;
+        font-size: 0.72rem;
+        line-height: 1.8;
     }
 
-    .pf-cta-mark {
-        display: none;
+    .si-cta-floating-one {
+        top: 12px;
+        right: 12px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .si-cta-floating-two {
+        bottom: 10px;
+        left: 10px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .si-cta-floating svg {
+        width: 17px;
+        height: 17px;
     }
 }
 
 @media (max-width: 380px) {
-    .pf-cta-card {
-        padding: 24px 12px;
+    .si-cta-card {
+        padding-right: 17px;
+        padding-left: 17px;
     }
 
-    .pf-cta-content h2 {
-        font-size: 21px;
-    }
-}
-
-/* ==========================================
-   CTA BUTTON — شروع گفتگو
-   ========================================== */
-
-.pf-cta-content .pf-btn-light {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    min-height: 50px;
-    padding: 13px 24px;
-
-    background: #0F766E;
-    color: #FFFFFF;
-    border: 1px solid #0F766E;
-    border-radius: 12px;
-
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.5;
-    text-decoration: none;
-    white-space: nowrap;
-
-    box-shadow: 0 5px 14px rgb(15 118 110 / 18%);
-    transition:
-        background-color 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        transform 0.25s ease;
-}
-
-.pf-cta-content .pf-btn-light span {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 19px;
-    line-height: 1;
-    transition: transform 0.25s ease;
-}
-
-/* Hover — Desktop */
-@media (hover: hover) {
-    .pf-cta-content .pf-btn-light:hover {
-        background: #115E59;
-        border-color: #115E59;
-        box-shadow: 0 8px 20px rgb(15 118 110 / 25%);
-        transform: translateY(-2px);
-    }
-
-    .pf-cta-content .pf-btn-light:hover span {
-        transform: translateX(-4px);
-    }
-}
-
-/* Keyboard accessibility */
-.pf-cta-content .pf-btn-light:focus-visible {
-    outline: 3px solid rgb(15 118 110 / 35%);
-    outline-offset: 4px;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .pf-cta-content .pf-btn-light {
-        min-height: 46px;
-        padding: 11px 20px;
+    .si-cta-actions {
         gap: 10px;
-        border-radius: 10px;
-        font-size: 13px;
     }
 
-    .pf-cta-content .pf-btn-light span {
-        font-size: 18px;
+    .si-cta-primary,
+    .si-cta-secondary {
+        padding-right: 12px;
+        padding-left: 12px;
+        font-size: 0.85rem;
     }
 }
 
-/* Touch feedback */
-.pf-cta-content .pf-btn-light:active {
-    transform: scale(0.97);
+@media (prefers-reduced-motion: reduce) {
+    .si-cta *,
+    .si-cta *::before,
+    .si-cta *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
 }

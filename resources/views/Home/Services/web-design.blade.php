@@ -4,7 +4,8 @@
 
 @section('title', 'طراحی وب‌سایت | Moradix Studio')
 
-@section('description', 'خدمات طراحی و توسعه‌ی وب‌سایت با Laravel و کدنویسی اختصاصی. برای شرکت‌ها، آموزشگاه‌ها، دفاتر
+@section('description',
+    'خدمات طراحی و توسعه‌ی وب‌سایت با Laravel و کدنویسی اختصاصی. برای شرکت‌ها، آموزشگاه‌ها، دفاتر
     گردشگری و نمونه‌کار شخصی. مشاوره‌ی رایگان.')
 
     @push('styles')
@@ -17,7 +18,7 @@
         <nav class="sv-breadcrumb" aria-label="مسیر صفحه">
             <div class="container">
                 <ol class="sv-breadcrumb-list">
-                     <li class="sv-breadcrumb-item">
+                    <li class="sv-breadcrumb-item">
                         <a href="{{ route('home') }}">صفحه اصلی</a>
                     </li>
                     <li class="sv-breadcrumb-item">
@@ -46,37 +47,98 @@
                         </div>
                     </div>
 
-                    <div class="sv-hero-visual">
-                        {{-- جایگزینی با اسکرین‌شات واقعی از پروژه‌های خودم --}}
-                        <div class="sv-mockup-wrapper">
-                            {{-- Desktop Browser --}}
-                            <div class="sv-mockup-desktop">
-                                <div class="sv-mockup-browser-bar">
-                                    <span class="sv-browser-dot sv-dot-red"></span>
-                                    <span class="sv-browser-dot sv-dot-yellow"></span>
-                                    <span class="sv-browser-dot sv-dot-green"></span>
-                                </div>
-                                <div class="sv-mockup-screen">
-                                    <div class="sv-mockup-content">
-                                        <div class="sv-content-line sv-line-header"></div>
-                                        <div class="sv-content-line sv-line-short"></div>
-                                        <div class="sv-content-line sv-line-medium"></div>
-                                        <div class="sv-content-button"></div>
-                                    </div>
-                                </div>
-                            </div>
+                    {{-- جایگزین mockup قدیمی داخل هیروی web-design.blade.php (فقط همان بخش تصویر، نه کل هیرو) --}}
+                    <div class="wd-art" aria-hidden="true">
+                        <span class="wd-glow"></span>
 
-                            {{-- Mobile Device --}}
-                            <div class="sv-mockup-mobile">
-                                <div class="sv-mobile-notch"></div>
-                                <div class="sv-mockup-screen sv-mobile-screen">
-                                    <div class="sv-mockup-content">
-                                        <div class="sv-content-line sv-line-short"></div>
-                                        <div class="sv-content-line sv-line-medium"></div>
-                                        <div class="sv-content-button sv-button-small"></div>
-                                    </div>
+                        {{-- مرورگر: سایت از وایرفریم تا طراحی نهایی ساخته می‌شود --}}
+                        <div class="wd-win">
+                            <div class="wd-bar"><i></i><i></i><i></i><span dir="ltr">your-website.ir</span></div>
+
+                            <div class="wd-screen" dir="rtl">
+                                <span class="wd-grid"></span>
+
+                                {{-- نوار بالا --}}
+                                <div class="wd-blk" style="--k:0;--s:6;--t:6;--w:15;--h:6"><span
+                                        class="wd-fill wd-f-bar is-dark"></span></div>
+                                <div class="wd-blk" style="--k:1;--s:28;--t:7.5;--w:7;--h:3"><span
+                                        class="wd-fill wd-f-bar is-gray"></span></div>
+                                <div class="wd-blk" style="--k:2;--s:37;--t:7.5;--w:7;--h:3"><span
+                                        class="wd-fill wd-f-bar is-gray"></span></div>
+                                <div class="wd-blk" style="--k:3;--s:46;--t:7.5;--w:7;--h:3"><span
+                                        class="wd-fill wd-f-bar is-gray"></span></div>
+                                <div class="wd-blk" style="--k:4;--s:80;--t:5.5;--w:14;--h:7;--r:99px"><span
+                                        class="wd-fill wd-f-pill is-teal"></span></div>
+
+                                {{-- تیتر و متن --}}
+                                <div class="wd-blk" style="--k:5;--s:6;--t:24;--w:50;--h:8"><span
+                                        class="wd-fill wd-f-bar is-dark"></span></div>
+                                <div class="wd-blk" style="--k:6;--s:6;--t:35;--w:34;--h:8"><span
+                                        class="wd-fill wd-f-bar is-dark"></span></div>
+                                <div class="wd-blk" style="--k:7;--s:6;--t:48;--w:46;--h:2.6;--r:4px"><span
+                                        class="wd-fill wd-f-bar is-gray"></span></div>
+                                <div class="wd-blk" style="--k:8;--s:6;--t:53;--w:38;--h:2.6;--r:4px"><span
+                                        class="wd-fill wd-f-bar is-gray"></span></div>
+
+                                {{-- دکمه‌ها --}}
+                                <div class="wd-blk" style="--k:9;--s:6;--t:62;--w:16;--h:8;--r:99px"><span
+                                        class="wd-fill wd-f-pill is-teal"></span></div>
+                                <div class="wd-blk" style="--k:10;--s:24;--t:62;--w:16;--h:8;--r:99px"><span
+                                        class="wd-fill wd-f-pill is-line"></span></div>
+
+                                {{-- تصویر اصلی هیرو --}}
+                                <div class="wd-blk" style="--k:11;--s:58;--t:20;--w:36;--h:46;--r:16px">
+                                    <span class="wd-fill wd-f-img">
+                                        <span class="wd-circle"></span>
+                                        <span class="wd-chart"><i style="--h:42%"></i><i style="--h:68%"></i><i
+                                                style="--h:54%"></i><i style="--h:86%"></i></span>
+                                        <span class="wd-glass"><b></b><b class="s"></b></span>
+                                    </span>
                                 </div>
+
+                                {{-- کارت‌ها --}}
+                                <div class="wd-blk" style="--k:12;--s:6;--t:76;--w:27;--h:18;--r:12px"><span
+                                        class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b class="s"></b></span>
+                                </div>
+                                <div class="wd-blk" style="--k:13;--s:36.5;--t:76;--w:27;--h:18;--r:12px"><span
+                                        class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b class="s"></b></span>
+                                </div>
+                                <div class="wd-blk" style="--k:14;--s:67;--t:76;--w:27;--h:18;--r:12px"><span
+                                        class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b class="s"></b></span>
+                                </div>
+
+                                {{-- ابزار طراحی: کادر انتخاب و نشانگر --}}
+                                <span class="wd-sel"></span>
+                                <span class="wd-cursor"><svg viewBox="0 0 24 24">
+                                        <path d="M5 3l14 7-6 2-2 6z" fill="#0A0A0A" stroke="#fff" stroke-width="1.6"
+                                            stroke-linejoin="round" />
+                                    </svg></span>
                             </div>
+                        </div>
+
+                        {{-- نسخه‌ی موبایل --}}
+                        <div class="wd-phone">
+                            <span class="wd-ph-notch"></span>
+                            <span class="wd-ph-bar"></span>
+                            <span class="wd-ph-l"></span><span class="wd-ph-l s"></span>
+                            <span class="wd-ph-img"></span>
+                            <span class="wd-ph-btn"></span>
+                            <span class="wd-ph-card"></span>
+                        </div>
+
+                        {{-- پالت رنگ --}}
+                        <div class="wd-pal">
+                            <span class="sw sw-w"></span><span class="sw sw-k"></span><span class="sw sw-t"></span>
+                            <b dir="ltr">Aa</b>
+                        </div>
+
+                        {{-- نتیجه --}}
+                        <div class="wd-chip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m5 12 4 4L19 6" />
+                            </svg>
+                            ریسپانسیو و آماده‌ی انتشار
                         </div>
                     </div>
                 </div>
@@ -133,7 +195,7 @@
             <div class="container">
                 <h2 class="sv-section-title">این خدمت مناسب توئه اگه...</h2>
                 <div class="sv-fit-grid">
-                    
+
                     {{-- Good Fit --}}
                     <div class="sv-fit-card sv-fit-yes">
                         <h3 class="sv-fit-title">مناسب توئه</h3>
@@ -175,7 +237,7 @@
 
                     {{-- Not a Fit --}}
                     <div class="sv-fit-card sv-fit-no">
-                    <h3 class="sv-fit-title">مناسب تو نیست اگه...</h3>
+                        <h3 class="sv-fit-title">مناسب تو نیست اگه...</h3>
                         <ul class="sv-fit-list">
                             <li>
                                 <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -260,75 +322,7 @@
             </div>
         </section>
 
-        {{-- Plans Section (No Price) --}}
-        <section class="sv-section sv-plans">
-            <div class="container">
-                <h2 class="sv-section-title">کدوم پلن مناسب توئه؟</h2>
-                <div class="sv-plans-grid">
-                    {{-- Basic Plan --}}
-                    <div class="sv-plan-card">
-                        <h3 class="sv-plan-name">پایه</h3>
-                        <p class="sv-plan-for">ویترین ساده و نمونه‌کار</p>
-                        <ul class="sv-plan-features">
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>تا ۶ صفحه</span>
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>پنل مدیریت برای ویرایش متن و تصاویر</span>
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>۱ ماه پشتیبانی فنی رایگان</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {{-- Pro Plan (Featured) --}}
-                    <div class="sv-plan-card sv-plan-featured">
-                        <span class="sv-plan-badge">پیشنهاد ما</span>
-                        <h3 class="sv-plan-name">حرفه‌ای</h3>
-                        <p class="sv-plan-for">سایت شرکتی کامل و رشدپذیر</p>
-                        <ul class="sv-plan-features">
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>طراحی رابط کاربری اختصاصی</span>
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>بلاگ و سئوی فنی</span>
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>۲ ماه پشتیبانی فنی رایگان</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="sv-plans-cta">
-                    <a href="{{ route('pricing') }}" class="btn btn-outline">مقایسه‌ی کامل پلن‌ها و تعرفه‌ها</a>
-                </div>
-            </div>
-        </section>
+       
 
         {{-- Deliverables Section --}}
         <section class="sv-section sv-deliverables">
@@ -427,7 +421,7 @@
                         <p>بررسی، آموزش و تحویل نهایی</p>
                     </div>
                 </div>
-               
+
             </div>
         </section>
 
