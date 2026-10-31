@@ -214,10 +214,10 @@
             <div class="services-grid">
 
                 {{-- Shared Background for All Services --}}
-                <div class="services-featured" id="services-featured" >
+                <div class="services-featured" id="services-featured">
 
                     {{-- Popular Services Header --}}
-                    <div class="services-featured-header"  >
+                    <div class="services-featured-header">
 
 
                         <h2>خدمات پرفروش</h2>
@@ -713,7 +713,7 @@
                         </a>
 
                         <a href="{{ route('pricing') }}" class="si-cta-secondary">
-                             تعرفه ها و پلن ها 
+                            تعرفه ها و پلن ها
                         </a>
                     </div>
 
