@@ -667,57 +667,61 @@
     </section>
 
 
-  {{-- Final CTA Section --}}
-<section class="pr-faq" id="contact">
-    <div class="container">
+     {{-- Final CTA Section --}}
+        <section class="si-cta" id="contact">
+            <div class="container">
 
-        <div class="pr-faq-list">
-            <div class="pr-faq-item">
+                <div class="si-cta-card">
 
-                <div class="pr-faq-question">
-                    <span>آماده شروع هستیم</span>
-                </div>
+                    {{-- Decorative Elements --}}
+                    <span class="si-cta-orb si-cta-orb-one" aria-hidden="true"></span>
 
-                <div class="pr-faq-answer">
-                    <div class="pr-faq-answer-content">
+                    <span class="si-cta-orb si-cta-orb-two" aria-hidden="true"></span>
 
-                        <h2>
+                    <div class="si-cta-content">
+
+                        <span class="si-cta-eyebrow">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-2-5.8L4 11l6-2.2L12 3Z" stroke="currentColor"
+                                    stroke-width="1.6" stroke-linejoin="round" />
+                                <path d="m19 14 1.1 2.9L23 18l-2.9 1.1L19 22l-1.1-2.9L15 18l2.9-1.1L19 14Z"
+                                    stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
+                            </svg>
+
+                            آماده شروع هستیم
+                        </span>
+
+                        <h2 class="si-cta-title">
                             برای قدم بعدی
                             <span>کسب‌وکارت آماده‌ای؟</span>
                         </h2>
 
-                        <p>
+                        <p class="si-cta-description">
                             از طراحی یک وب‌سایت جدید تا بهبود و توسعه سایت فعلی؛
                             بیایید درباره نیازهای کسب‌وکارت صحبت کنیم و
                             راهکار مناسب پروژه‌ات رو پیدا کنیم.
                         </p>
 
-                        <div class="pr-faq-actions">
-                            <a href="/contact">
+                        <div class="si-cta-actions">
+                            <a href="{{ route('contact') }}" class="si-cta-primary">
                                 شروع گفتگو درباره پروژه
+
                                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                    <path d="M19 12H5M12 19l-7-7 7-7"
-                                          stroke="currentColor"
-                                          stroke-width="1.8"
-                                          stroke-linecap="round"
-                                          stroke-linejoin="round" />
+                                    <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                             </a>
 
-                            <a href="{{ route('pricing') }}">
-                                تعرفه ها و پلن ها
+                            <a href="{{ route('services') }}" class="si-cta-secondary">
+                                مشاهده خدمات
                             </a>
                         </div>
 
+
                     </div>
                 </div>
-
             </div>
-        </div>
-
-    </div>
-</section>
-
+        </section>
 
 @endsection
 

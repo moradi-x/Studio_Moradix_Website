@@ -13,18 +13,16 @@
                   <ul class="nav-links">
 
                       <li class="has-dropdown">
+
                           <div class="nav-service-row">
-                              <a href="{{ route('services') }}" @class(['is-active' => request()->routeIs('services*')])
-                                  @if (request()->routeIs('services*')) aria-current="page" @endif>
-                                  <span class="nav-icon">✦</span>
-                                  خدمات
-                              </a>
+                              <a href="{{ route('services') }}">خدمات</a>
 
                               <button type="button" class="submenu-toggle" aria-label="نمایش زیرمنوی خدمات"
-                                  aria-expanded="false">
-                                  <span class="submenu-arrow"></span>
+                                  aria-expanded="false" aria-controls="mobile-services-submenu">
+                                  <span class="submenu-arrow" aria-hidden="true"></span>
                               </button>
                           </div>
+
 
                           <ul class="dropdown">
                               <li>
@@ -46,8 +44,8 @@
                                   <a href="{{ route('services.custom-systems') }}" @class(['is-active' => request()->routeIs('services.custom-systems')])
                                       @if (request()->routeIs('services.custom-systems')) aria-current="page" @endif>سیستم‌های اختصاصی</a>
                               </li>
-                              <li><a href="{{ route('services.seo') }} "  @class(['is-active' => request()->routeIs('services.seo')])
-                              @if (request()->routeIs('services.seo')) aria-current="page" @endif  >سئو</a></li>
+                              <li><a href="{{ route('services.seo') }} " @class(['is-active' => request()->routeIs('services.seo')])
+                                      @if (request()->routeIs('services.seo')) aria-current="page" @endif>سئو</a></li>
                           </ul>
                       </li>
 
@@ -107,36 +105,31 @@
           <ul class="nav-links">
 
 
+
               <li class="has-dropdown">
-
-
                   <div class="nav-service-row">
+
+                      <a href="{{ route('services') }}">
+                          خدمات
+                      </a>
+
                       <button type="button" class="submenu-toggle" aria-expanded="false"
-                          aria-controls="mobile-services-submenu">
-                          <a href="{{ route('services') }}">خدمات </a> <span class="submenu-arrow"
-                              aria-hidden="true"></span>
+                          aria-controls="mobile-services-submenu" aria-label="نمایش زیرمنوی خدمات">
+
+                          <span class="submenu-arrow" aria-hidden="true"></span>
                       </button>
+
                   </div>
 
                   <ul class="submenu" id="mobile-services-submenu">
-                      <li>
-                          <a href="{{ route('services.web-design') }}">طراحی وب‌سایت</a>
-                      </li>
-                      <li>
-                          <a href="{{ route('services.ecommerce') }}">طراحی فروشگاه اینترنتی</a>
-                      </li>
-                      <li>
-                          <a href="{{ route('services.redesign') }}">بازطراحی و ارتقای سایت</a>
-                      </li>
-                      <li>
-                          <a href="{{ route('services.custom-systems') }}">سیستم‌های اختصاصی</a>
-                      </li>
-                      <li>
-                          <a href="{{ route('services.seo') }}">سئو</a>
-                      </li>
+                      <li><a href="{{ route('services.web-design') }}">طراحی وب‌سایت</a></li>
+                      <li><a href="{{ route('services.ecommerce') }}">طراحی فروشگاه اینترنتی</a></li>
+                      <li><a href="{{ route('services.redesign') }}">بازطراحی و ارتقای سایت</a></li>
+                      <li><a href="{{ route('services.custom-systems') }}">سیستم‌های اختصاصی</a></li>
+                      <li><a href="{{ route('services.seo') }}">سئو</a></li>
                   </ul>
-
               </li>
+
 
               <li>
 
@@ -158,7 +151,7 @@
               </li>
 
               <li>
-                  <a href="{{ route('contact') }}" @class(['is-active' => request()->routeIs('contact')])>☎ تماس با ما</a>
+                  <a href="{{ route('contact') }}" @class(['is-active' => request()->routeIs('contact')])> تماس با ما</a>
               </li>
           </ul>
 

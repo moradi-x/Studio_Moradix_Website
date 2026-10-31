@@ -460,8 +460,8 @@
     </section>
 
 
-   
-  {{-- Services Section --}}
+
+    {{-- Services Section --}}
     <section class="section services" id="services">
         <div class="container">
 
@@ -475,10 +475,10 @@
             <div class="services-grid">
 
                 {{-- Shared Background for All Services --}}
-                <div class="services-featured" id="services-featured" >
+                <div class="services-featured" id="services-featured">
 
                     {{-- Popular Services Header --}}
-                    <div class="services-featured-header"  >
+                    <div class="services-featured-header">
 
 
                         <h2>خدمات پرفروش</h2>
@@ -711,25 +711,25 @@
         </div>
     </section>
 
-    {{-- Portfolio Section --}}
-    <section class="section portfolio" id="portfolio">
-        <div class="container">
+    {{-- Projects --}}
+    <section class="pf-section" id="pf-projects">
+        <div class="container pf-container ">
 
-            <div class="section-header">
-                <h2>نمونه‌کارهای ما</h2>
-                <p>
-                    بخشی از پروژه‌هایی که برای رشد و توسعه کسب‌وکارها
-                    طراحی و پیاده‌سازی کرده‌ایم
-                </p>
+            <div class="pf-section-heading">
+                <div>
+
+                    <h2 class="pf-section-title">
+                        پروژه‌هایی که ساخته‌ایم
+                    </h2>
+                </div>
+
             </div>
 
-            <div class="portfolio-grid">
+            <div class="pf-project-grid">
 
-                @forelse ($featuredProjects as $project)
-                    <article class="portfolio-card">
-
-                        {{-- Project Image --}}
-                        <div class="portfolio-image" aria-label="تصویر پروژه">
+                @forelse($projects as $project)
+                    <article class="pf-project-card">
+                        <div class="pf-project-preview  pf-preview-auto">
 
                             @if ($project->primary_image)
                                 <img src="{{ asset(
@@ -737,64 +737,57 @@
                                 ) }}"
                                     alt="{{ $project->title }}" loading="lazy">
                             @else
-                                <div class="portfolio-placeholder">
-                                    <span>
-                                        {{ mb_substr($project->title, 0, 1) }}
-                                    </span>
+                                <div class="pf-project-placeholder">
+                                    <span>{{ $project->title }}</span>
                                 </div>
                             @endif
 
                         </div>
 
-                        {{-- Project Content --}}
-                        <div class="portfolio-content">
+                        <div class="pf-project-body">
 
-                            <p class="portfolio-type">
-                                {{ $project->category?->name ?? 'پروژه اختصاصی' }}
+                            <div class="pf-project-meta">
+                                <span class="pf-project-category">
+                                    {{ $project->category?->name ?? 'پروژه' }}
+                                </span>
+
+                                <span class="pf-status {{ $project->status ? 'is-completed' : 'is-development' }}">
+                                    {{ $project->status ? 'تکمیل شده' : 'در حال توسعه' }}
+                                </span>
+                            </div>
+
+                            <h3 class="pf-project-title">
+                                {{ $project->title }}
+                            </h3>
+
+                            <p class="pf-project-description">
+                                {{ $project->short_description }}
                             </p>
 
-                            <h3>{{ $project->title }}</h3>
 
                             @if ($project->features->isNotEmpty())
-                                <div class="portfolio-tags">
+                                <div class="pf-project-tags">
                                     @foreach ($project->features->take(3) as $feature)
-                                        <span class="tag">
-                                            {{ $feature->name }}
-                                        </span>
+                                        <span>{{ $feature->name }}</span>
                                     @endforeach
                                 </div>
                             @endif
 
-                            @if ($project->short_description)
-                                <p class="portfolio-description">
-                                    {{ $project->short_description }}
-                                </p>
-                            @endif
 
-                            <a href="{{ route('portfolio.show', $project->slug) }}" class="portfolio-link">
+                            <a href="{{ route('portfolio.show', $project->slug) }}" class="pf-project-link"
+                                target="_blank" rel="noopener noreferrer">
                                 مشاهده جزئیات پروژه
-                                <span aria-hidden="true">←</span>
                             </a>
 
                         </div>
 
                     </article>
-
                 @empty
-
-                    <div class="portfolio-empty">
+                    <div class="pf-project-empty">
                         <p>در حال آماده‌سازی نمونه‌کارهای ما هستیم.</p>
                     </div>
                 @endforelse
 
-            </div>
-
-            {{-- View All Projects --}}
-            <div class="portfolio-more">
-                <a href="{{ url('/portfolio') }}" class="portfolio-more-link">
-                    مشاهده همه نمونه‌کارها
-                    <span aria-hidden="true">←</span>
-                </a>
             </div>
 
         </div>
@@ -804,9 +797,8 @@
     <section class="section why-us" id="why-us">
         <div class="container">
             <div class="section-header">
-                <h2>چرا
-
-                    Studio Moradix ؟
+                <h2>
+                    چرا <span class="brand-highlight">Studio Moradix </span>؟ 
                 </h2>
                 <p>مزیت‌های واقعی همکاری با ما</p>
             </div>
@@ -889,7 +881,7 @@
                 <div class="process-step">
                     <div class="process-number" aria-label="مرحله ۳">۳</div>
                     <h3>طراحی و توسعه</h3>
-                    <p>کدنویسی با Laravel، گزارش پیشرفت منظم و دریافت بازخورد شما</p>
+                    <p>کدنویسی و گزارش پیشرفت منظم و دریافت بازخورد شما</p>
                 </div>
 
                 <!-- Step 4 -->
@@ -909,124 +901,111 @@
         </div>
     </section>
     <!-- ==================== FAQ Section ==================== -->
-    <section class="section faq" id="faq">
-        <div class="container">
-            <div class="section-header">
-                <h2>سوالات متداول</h2>
-                <p>پاسخ سوالاتی که احتمالاً برای شما پیش آمده</p>
-            </div>
+   
+<section class="pr-faq" id="faq">
+    <div class="container">
 
-            <div class="faq-list">
-                <!-- FAQ 1 -->
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>هزینه‌ی ساخت یک وب‌سایت چقدر است؟</span>
-                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>هزینه بستگی به نوع پروژه و امکانات مورد نیاز دارد. یک سایت شرکتی ساده از ۸ میلیون تومان،
-                                فروشگاه اینترنتی از ۱۵ میلیون تومان و سیستم‌های سفارشی بر اساس تحلیل نیاز قیمت‌گذاری
-                                می‌شوند. بعد از مشاوره رایگان، برآورد دقیق به شما ارائه می‌دهیم.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 2 -->
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>مدت زمان تحویل پروژه چقدر است؟</span>
-                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>زمان تحویل بسته به حجم کار متفاوت است. یک سایت شرکتی معمولاً ۲ تا ۳ هفته، فروشگاه اینترنتی ۴
-                                تا ۶ هفته و سیستم‌های بزرگ‌تر ممکن است ۲ تا ۳ ماه زمان ببرند. در قرارداد، زمان‌بندی دقیق
-                                مشخص می‌شود و گزارش پیشرفت منظم دریافت می‌کنید.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>آیا دامنه و هاست را هم شما تهیه می‌کنید؟</span>
-                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>خرید دامنه و هاست به عهده‌ی خود شماست، اما ما در انتخاب مناسب‌ترین سرویس راهنمایی‌تان
-                                می‌کنیم. همچنین نصب و راه‌اندازی سایت روی هاست را انجام می‌دهیم و تنظیمات لازم برای امنیت و
-                                سرعت را اعمال می‌کنیم.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 4 -->
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>پشتیبانی بعد از تحویل چگونه است؟</span>
-                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>۳ ماه پشتیبانی رایگان شامل رفع باگ‌های احتمالی، راهنمایی استفاده از پنل مدیریت و پاسخ به
-                                سوالات فنی است. بعد از این مدت، امکان قرارداد پشتیبانی ماهانه یا انجام تغییرات و توسعه‌های
-                                جدید به‌صورت پروژه‌ای وجود دارد.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 5 -->
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>آیا سایت من برای سئو بهینه خواهد بود؟</span>
-                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>بله، تمام سایت‌هایی که می‌سازیم از نظر سئوی فنی بهینه‌اند. این شامل ساختار URL صحیح،
-                                متاتگ‌ها، سرعت بارگذاری، ریسپانسیو بودن و استاندارد بودن کد HTML است. البته سئوی محتوایی
-                                (نوشتن متن بهینه و بک‌لینک‌سازی) بخش جداگانه‌ای است که می‌توانیم در آن هم راهنمایی کنیم.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 6 -->
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>آیا بعد از تحویل می‌توانم تغییرات بدهم؟</span>
-                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>بله، تغییرات جزئی در دوره‌ی پشتیبانی رایگان انجام می‌شود. تغییرات بزرگ‌تر مثل اضافه کردن بخش
-                                جدید یا ویژگی‌های پیچیده، به‌صورت پروژه‌ی جداگانه برآورد و اجرا می‌شوند. چون کد تمیز و مستند
-                                تحویل می‌دهیم، توسعه‌های آینده بسیار راحت‌تر خواهد بود.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="section-header">
+            <h2>سوالات متداول</h2>
+            <p>پاسخ سوالاتی که احتمالاً برای شما پیش آمده</p>
         </div>
-    </section>
+
+        <div class="pr-faq-list">
+
+            <!-- FAQ 1 -->
+            <div class="pr-faq-item">
+                <button class="pr-faq-question" type="button" aria-expanded="false">
+                    <span>هزینه‌ی ساخت یک وب‌سایت چقدر است؟</span>
+                    <svg class="pr-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="pr-faq-answer">
+                    <div class="pr-faq-answer-content">
+                        <p>هزینه بستگی به نوع پروژه و امکانات مورد نیاز دارد و سیستم‌های سفارشی بر اساس تحلیل نیاز قیمت‌گذاری می‌شوند. بعد از مشاوره رایگان، برآورد دقیق به شما ارائه می‌دهیم.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="pr-faq-item">
+                <button class="pr-faq-question" type="button" aria-expanded="false">
+                    <span>مدت زمان تحویل پروژه چقدر است؟</span>
+                    <svg class="pr-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="pr-faq-answer">
+                    <div class="pr-faq-answer-content">
+                        <p>زمان تحویل بسته به حجم کار متفاوت است. یک سایت شرکتی معمولاً ۲ تا ۳ هفته، فروشگاه اینترنتی ۴ تا ۶ هفته و سیستم‌های بزرگ‌تر ممکن است ۲ تا ۳ ماه زمان ببرند. در قرارداد، زمان‌بندی دقیق مشخص می‌شود و گزارش پیشرفت منظم دریافت می‌کنید.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="pr-faq-item">
+                <button class="pr-faq-question" type="button" aria-expanded="false">
+                    <span>آیا دامنه و هاست را هم شما تهیه می‌کنید؟</span>
+                    <svg class="pr-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="pr-faq-answer">
+                    <div class="pr-faq-answer-content">
+                        <p>خرید دامنه و هاست به عهده‌ی خود شماست، اما ما در انتخاب مناسب‌ترین سرویس راهنمایی‌تان می‌کنیم. همچنین نصب و راه‌اندازی سایت روی هاست را انجام می‌دهیم و تنظیمات لازم برای امنیت و سرعت را اعمال می‌کنیم.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="pr-faq-item">
+                <button class="pr-faq-question" type="button" aria-expanded="false">
+                    <span>پشتیبانی بعد از تحویل چگونه است؟</span>
+                    <svg class="pr-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="pr-faq-answer">
+                    <div class="pr-faq-answer-content">
+                        <p>۳ ماه پشتیبانی رایگان شامل رفع باگ‌های احتمالی، راهنمایی استفاده از پنل مدیریت و پاسخ به سوالات فنی است. بعد از این مدت، امکان قرارداد پشتیبانی ماهانه یا انجام تغییرات و توسعه‌های جدید به‌صورت پروژه‌ای وجود دارد.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="pr-faq-item">
+                <button class="pr-faq-question" type="button" aria-expanded="false">
+                    <span>آیا سایت من برای سئو بهینه خواهد بود؟</span>
+                    <svg class="pr-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="pr-faq-answer">
+                    <div class="pr-faq-answer-content">
+                        <p>بله، تمام سایت‌هایی که می‌سازیم از نظر سئوی فنی بهینه‌اند. این شامل ساختار URL صحیح، متاتگ‌ها، سرعت بارگذاری، ریسپانسیو بودن و استاندارد بودن کد HTML است. البته سئوی محتوایی (نوشتن متن بهینه و بک‌لینک‌سازی) بخش جداگانه‌ای است که می‌توانیم در آن هم راهنمایی کنیم.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="pr-faq-item">
+                <button class="pr-faq-question" type="button" aria-expanded="false">
+                    <span>آیا بعد از تحویل می‌توانم تغییرات بدهم؟</span>
+                    <svg class="pr-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="pr-faq-answer">
+                    <div class="pr-faq-answer-content">
+                        <p>بله، تغییرات جزئی در دوره‌ی پشتیبانی رایگان انجام می‌شود. تغییرات بزرگ‌تر مثل اضافه کردن بخش جدید یا ویژگی‌های پیچیده، به‌صورت پروژه‌ی جداگانه برآورد و اجرا می‌شوند. چون کد تمیز و مستند تحویل می‌دهیم، توسعه‌های آینده بسیار راحت‌تر خواهد بود.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
     <!-- ==================== CTA & Form Section ==================== -->
 
     <section class="section cta-section" id="contact">

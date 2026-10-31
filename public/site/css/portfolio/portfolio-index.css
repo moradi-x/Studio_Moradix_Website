@@ -2432,3 +2432,17 @@
     }
 }
 
+
+/* وسط‌چین کردن دکمه جزئیات پروژه */
+.pf-project-link {
+    display: block;
+    width: fit-content;
+    margin: 1rem auto 0;
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .pf-project-tags span {
+        padding: 5px 10px;
+    }
+}

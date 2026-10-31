@@ -33,10 +33,15 @@ class HomeController extends Controller
             ->take(3)
             ->get();
 
+             $projects = Project::with(['category', 'features'])
+            ->latest()
+            ->get();
+
         return view('home.index', compact(
             'studioServices',
             'techStack',
-            'featuredProjects'
+            'featuredProjects',
+            'projects'
         ));
     }
 

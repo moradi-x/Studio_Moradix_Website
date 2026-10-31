@@ -123,11 +123,6 @@
     padding-block: clamp(3rem, 8vw, 7rem);
 }
 
-@media (min-width: 1024px) {
-    .si-hero {
-        padding-top: 2rem;
-    }
-}
 
 .si-hero-inner {
     display: grid;
@@ -635,11 +630,7 @@
     }
 }
 
-@media (min-width: 768px) {
-    .si-hero-inner {
-        padding-top: 1rem;
-    }
-}
+
 
 /* Respect reduced motion preferences */
 
@@ -1304,6 +1295,11 @@
         animation-duration: 0.01ms !important;
     }
 }
+
+
+
+
+
 /* ==========================================
    SERVICES SECTION HEADING
    ========================================== */
@@ -1495,371 +1491,7 @@
     }
 }
 
-/* =================================
-   Services Section - Compact Mobile
-================================= */
 
-@media (max-width: 768px) {
-
-    /* فاصله کلی سکشن */
-    #services {
-        padding-top: 20px;
-        padding-bottom: 28px;
-    }
-
-    #services > .container {
-        padding-inline: 14px;
-    }
-
-    /* تیتر اصلی سکشن */
-    #services .si-services-heading {
-        margin: 0 auto 20px;
-        padding-inline: 4px;
-    }
-
-    #services .si-services-eyebrow {
-        margin-bottom: 6px;
-        padding: 4px 10px;
-        font-size: 11px;
-    }
-
-    #services .si-services-title {
-        font-size: 21px;
-        line-height: 1.7;
-    }
-
-    /* محفظه اصلی کارت‌ها */
-    #services .services-grid {
-        display: block;
-    }
-
-    #services .services-featured {
-        padding: 14px;
-        border-radius: 18px;
-    }
-
-    /* تیتر گروه خدمات */
-    #services .services-featured-header,
-    #services .services-specialized-header {
-        margin-bottom: 12px;
-    }
-
-    #services .services-featured-header h2,
-    #services .services-specialized-header h2 {
-        margin: 0 0 5px;
-        font-size: 16px;
-        line-height: 1.7;
-    }
-
-    #services .services-featured-header p,
-    #services .services-specialized-header p {
-        margin: 0;
-        font-size: 11px;
-        line-height: 1.8;
-    }
-
-    /* فاصله بین کارت‌ها */
-    #services .services-row {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr);
-        gap: 10px;
-        margin-bottom: 20px;
-    }
-
-    #services .services-row-secondary {
-        margin-bottom: 0;
-    }
-
-    /* خود کارت */
-    #services .service-card {
-        min-width: 0;
-        padding: 14px;
-        border-radius: 14px;
-        gap: 0;
-    }
-
-    /* آیکون و شماره */
-    #services .service-card-top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 8px;
-    }
-
-    #services .service-icon {
-        width: 38px;
-        height: 38px;
-        flex: 0 0 38px;
-    }
-
-    #services .service-icon svg {
-        width: 22px;
-        height: 22px;
-    }
-
-    #services .service-number {
-        font-size: 12px;
-    }
-
-    /* عنوان و توضیحات */
-    #services .service-card-content h3 {
-        margin: 0 0 5px;
-        font-size: 14px;
-        line-height: 1.8;
-    }
-
-    #services .service-card-content p {
-        margin: 0;
-        font-size: 11px;
-        line-height: 1.9;
-    }
-
-    /* لینک جزئیات */
-    #services .service-footer {
-        margin-top: 10px;
-        padding-top: 8px;
-    }
-
-    #services .service-link {
-        font-size: 11px;
-        line-height: 1.7;
-    }
-}
-
-/* موبایل‌های کوچک */
-@media (max-width: 380px) {
-    #services > .container {
-        padding-inline: 10px;
-    }
-
-    #services .services-featured {
-        padding: 10px;
-    }
-
-    #services .service-card {
-        padding: 12px;
-    }
-
-    #services .si-services-title {
-        font-size: 19px;
-    }
-}
-
-@media (max-width: 768px) {
-
-    #services .services-row-primary .service-card {
-        height: auto !important;
-        min-height: 0 !important;
-        align-self: start;
-        display: block;
-    }
-
-    #services .services-row-primary .service-card .service-card-top {
-        margin-bottom: 8px;
-    }
-
-    #services .services-row-primary .service-card .service-card-content {
-        height: auto !important;
-        min-height: 0 !important;
-        flex: none !important;
-    }
-
-    #services .services-row-primary .service-card .service-footer {
-        margin-top: 10px;
-    }
-}
-
-/* =========================
-   Services Section
-========================= */
-
-.services{
-    padding: 100px 0;
-}
-
-.si-services-heading,
-.services-featured-header,
-.services-specialized-header{
-    text-align:center;
-    margin-bottom:42px;
-}
-
-.si-services-title,
-.services-featured-header h2,
-.services-specialized-header h2{
-    font-size:clamp(1.8rem,3vw,2.6rem);
-    font-weight:800;
-    color:#111827;
-}
-
-.services-featured-header p,
-.services-specialized-header p{
-    margin-top:10px;
-    color:#6b7280;
-    line-height:1.9;
-}
-
-.services-featured{
-    background:#fff;
-    border:1px solid #e5e7eb;
-    border-radius:28px;
-    padding:38px;
-    box-shadow:0 18px 50px rgba(15,118,110,.08);
-}
-
-.services-row{
-    display:grid;
-    gap:24px;
-}
-
-.services-row-primary{
-    grid-template-columns:repeat(2,1fr);
-    margin-bottom:42px;
-}
-
-.services-row-secondary{
-    grid-template-columns:repeat(3,1fr);
-}
-
-.service-card{
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    background:#fff;
-    border:1px solid #e5e7eb;
-    border-radius:22px;
-    padding:24px;
-    transition:.3s ease;
-}
-
-.service-card:hover{
-    transform:translateY(-6px);
-    border-color:#0F766E;
-    box-shadow:0 18px 35px rgba(15,118,110,.12);
-}
-
-.service-card-primary{
-    padding:30px;
-}
-
-.service-card-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:22px;
-}
-
-.service-number{
-    font-size:.95rem;
-    font-weight:700;
-    color:#0F766E;
-}
-
-.service-icon{
-    width:54px;
-    height:54px;
-    border-radius:16px;
-    display:grid;
-    place-items:center;
-    background:rgba(15,118,110,.08);
-    color:#0F766E;
-}
-
-.service-card-content h3{
-    font-size:1.28rem;
-    font-weight:800;
-    margin-bottom:12px;
-    color:#111827;
-}
-
-.service-card-content p{
-    color:#6b7280;
-    line-height:1.9;
-}
-
-.service-footer{
-    margin-top:24px;
-}
-
-.service-link{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    color:#0F766E;
-    font-weight:700;
-    text-decoration:none;
-    transition:.25s;
-}
-
-.service-link:hover{
-    gap:12px;
-}
-
-/* =========================
-   Tablet
-========================= */
-
-@media (max-width:991px){
-
-    .services-featured{
-        padding:28px;
-    }
-
-    .services-row-secondary{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-/* =========================
-   Mobile
-========================= */
-
-@media (max-width:768px){
-
-    .services{
-        padding:70px 0;
-    }
-
-    .services-featured{
-        padding:20px;
-        border-radius:22px;
-    }
-
-    .services-row-primary,
-    .services-row-secondary{
-        grid-template-columns:1fr;
-        gap:16px;
-    }
-
-    .service-card,
-    .service-card-primary{
-        padding:18px;
-        border-radius:18px;
-    }
-
-    .service-card-top{
-        margin-bottom:16px;
-    }
-
-    .service-icon{
-        width:46px;
-        height:46px;
-        border-radius:14px;
-    }
-
-    .service-card-content h3{
-        font-size:1.08rem;
-    }
-
-    .service-card-content p{
-        font-size:.93rem;
-        line-height:1.8;
-    }
-
-    .service-link{
-        font-size:.92rem;
-    }
-}
 
 
 /* ==============================
@@ -2037,5 +1669,1045 @@
     .pr-faq-answer,
     .pr-faq-icon {
         transition: none;
+    }
+}
+
+/* ==================== Desktop Hero Compact Fix ==================== */
+
+@media (min-width: 1024px) {
+
+    /* کاهش فاصله بالا و پایین سکشن */
+    .si-hero {
+        padding-top: 1rem;
+        padding-bottom: 2.5rem;
+    }
+
+    /* جمع‌وجور شدن چیدمان دو ستون */
+    .si-hero-inner {
+        padding-top: 0;
+        gap: 2.5rem;
+        align-items: center;
+    }
+
+    /* متن */
+    .si-hero-content {
+        margin: 0;
+        padding: 0;
+    }
+
+    .si-hero-title {
+        font-size: clamp(2rem, 3.2vw, 3rem);
+        line-height: 1.5;
+    }
+
+    .si-hero-description {
+        margin-top: 1rem;
+        line-height: 1.9;
+    }
+
+    .si-hero-actions {
+        margin-top: 1.5rem;
+    }
+
+    /* تصویر و پنل */
+    .si-hero-visual {
+        min-height: 26rem;
+        padding: 1rem;
+    }
+
+    .si-hero-panel {
+        max-width: 24rem;
+        padding: 1.2rem;
+    }
+
+    .si-hero-panel-heading {
+        margin-block: 1rem;
+    }
+
+    .si-hero-service-list {
+        gap: 0.5rem;
+    }
+
+    .si-hero-service {
+        padding: 0.6rem;
+    }
+
+    /* کوچک‌تر شدن حلقه‌های تزئینی */
+    .si-hero-orbit-one {
+        width: 22rem;
+        height: 22rem;
+    }
+
+    .si-hero-orbit-two {
+        width: 27rem;
+        height: 27rem;
+    }
+
+    /* جمع‌وجور شدن برچسب‌های شناور */
+    .si-hero-floating {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.72rem;
+    }
+}
+
+
+
+/* =========================================
+   SERVICES SECTION - STUDIO MORADIX
+========================================= */
+
+.section.services {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 5rem 0;
+    background: #FAFAF9
+;
+}
+
+/* Background decoration */
+.section.services::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 420px;
+    height: 420px;
+    top: -220px;
+    inset-inline-start: -140px;
+    border-radius: 50%;
+    background: #0F766E;
+    opacity: 0.07;
+    filter: blur(30px);
+    pointer-events: none;
+}
+
+.section.services::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 350px;
+    height: 350px;
+    bottom: -200px;
+    inset-inline-end: -100px;
+    border-radius: 50%;
+    background: #0F766E;
+    opacity: 0.07;
+    filter: blur(30px);
+    pointer-events: none;
+}
+
+/* Main heading */
+
+.si-services-heading {
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}
+
+.si-services-title {
+    margin: 0;
+    color: #153b38;
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    font-weight: 800;
+    line-height: 1.8;
+}
+
+/* Shared featured area */
+
+.services-grid {
+    width: 100%;
+}
+
+.services-featured {
+    width: 100%;
+    padding: 2.5rem;
+    border: 1px solid rgb(15 118 110 / 12%);
+    border-radius: 1.75rem;
+    background: rgba(217, 246, 236, 0.65);
+    box-shadow: 0 15px 45px rgb(15 60 55 / 5%);
+}
+
+/* Section headings */
+
+.services-featured-header,
+.services-specialized-header {
+    max-width: 600px;
+    margin: 0 auto 1.75rem;
+    text-align: center;
+}
+
+.services-featured-header h2,
+.services-specialized-header h2 {
+    margin: 0 0 0.5rem;
+    color: #153b38;
+    font-size: 1.4rem;
+    font-weight: 800;
+    line-height: 1.8;
+}
+
+.services-featured-header p,
+.services-specialized-header p {
+    margin: 0;
+    color: #647b77;
+    font-size: 0.9rem;
+    line-height: 2;
+}
+
+/* Primary services: 2 compact cards */
+
+.services-row-primary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: center;
+    gap: 1.25rem;
+    max-width: 680px;
+    margin-inline: auto;
+}
+
+/* Specialized heading */
+
+.services-specialized-header {
+    margin-top: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Secondary services: 3 cards */
+
+.services-row-secondary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+/* All service cards */
+
+.service-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 265px;
+    padding: 1.4rem;
+    border: 1px solid #e1eeeb;
+    border-radius: 1.15rem;
+    background: #fff;
+    box-shadow: 0 8px 25px rgb(15 60 55 / 5%);
+    transition:
+        transform 220ms ease,
+        box-shadow 220ms ease,
+        border-color 220ms ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: rgb(15 118 110 / 35%);
+    box-shadow: 0 16px 35px rgb(15 60 55 / 10%);
+}
+
+/* Card top */
+
+.service-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.service-number {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    flex: 0 0 auto;
+    border-radius: 0.65rem;
+    color: #0F766E;
+    background: #e8f4f1;
+    font-size: 0.8rem;
+    font-weight: 800;
+    direction: ltr;
+}
+
+/* SVG illustration */
+
+.service-icon {
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 1px solid #dcefeb;
+    border-radius: 1rem;
+    color: #0F766E;
+    background: linear-gradient(145deg, #eff9f6, #dcefeb);
+    box-shadow: 0 5px 15px rgb(15 118 110 / 8%);
+    transition: transform 220ms ease;
+}
+
+.service-icon svg {
+    display: block;
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.08) rotate(-3deg);
+}
+
+/* Card content */
+
+.service-card-content {
+    flex: 1;
+}
+
+.service-card-content h3 {
+    margin: 0 0 0.65rem;
+    color: #193e3a;
+    font-size: 1.05rem;
+    font-weight: 800;
+    line-height: 1.8;
+}
+
+.service-card-content p {
+    margin: 0;
+    color: #687d79;
+    font-size: 0.85rem;
+    line-height: 2;
+}
+
+/* Footer and links */
+
+.service-footer {
+    margin-top: 1.2rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid #edf3f1;
+}
+
+.service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #0F766E;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: gap 180ms ease;
+}
+
+.service-link:hover {
+    gap: 0.8rem;
+}
+
+.service-link span {
+    font-size: 1.1rem;
+}
+
+/* Primary cards */
+
+.service-card-primary {
+    min-height: 350px;
+    padding: 1.5rem;
+}
+
+.service-card-primary .service-icon {
+    width: 4rem;
+    height: 4rem;
+}
+
+.service-card-primary .service-icon svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.service-card-primary .service-card-content h3 {
+    font-size: 1.1rem;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+    .section.services {
+        padding: 4rem 0;
+    }
+
+    .services-featured {
+        padding: 1.75rem;
+    }
+
+    .services-row-secondary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .services-row-primary {
+        max-width: 680px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .section.services {
+        padding: 3rem 0;
+    }
+
+    .si-services-heading {
+        margin-bottom: 1.75rem;
+        padding-inline: 0.5rem;
+    }
+
+    .si-services-title {
+        font-size: 1.45rem;
+        line-height: 1.9;
+    }
+
+    .services-featured {
+        padding: 1.15rem;
+        border-radius: 1.2rem;
+    }
+
+    .services-featured-header,
+    .services-specialized-header {
+        margin-bottom: 1.25rem;
+    }
+
+    .services-featured-header h2,
+    .services-specialized-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .services-featured-header p,
+    .services-specialized-header p {
+        font-size: 0.82rem;
+    }
+
+    .services-row-primary,
+    .services-row-secondary {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 420px;
+        gap: 0.9rem;
+    }
+
+    .services-specialized-header {
+        margin-top: 2.5rem;
+    }
+
+    .service-card,
+    .service-card-primary {
+        min-height: auto;
+        padding: 1.2rem;
+    }
+
+    .service-card-top {
+        margin-bottom: 1rem;
+    }
+
+    .service-card-content h3 {
+        font-size: 1rem;
+    }
+
+    .service-card-content p {
+        font-size: 0.84rem;
+    }
+}
+
+/* Small mobile */
+
+@media (max-width: 380px) {
+    .services-featured {
+        padding: 0.85rem;
+    }
+
+    .service-card,
+    .service-card-primary {
+        padding: 1rem;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .service-card,
+    .service-icon,
+    .service-link {
+        transition: none;
+    }
+
+    .service-card:hover {
+        transform: none;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    /* دو کارت پرفروش */
+    .services-row-primary {
+        max-width: 620px;
+        grid-template-columns: repeat(2, minmax(0, 260px));
+        justify-content: center;
+        gap: 1.25rem;
+    }
+
+    /* سه کارت تخصصی */
+ .services-row-secondary {
+    grid-template-columns: repeat(3, minmax(0, 250px));
+    justify-content: center;
+    gap: 1.25rem;
+}
+    /* ارتفاع و چیدمان عمودی کارت‌ها */
+    .service-card {
+        min-height: 360px;
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem 1.2rem;
+    }
+
+    .service-card-content {
+        flex: 1;
+    }
+
+    .service-icon {
+        margin-bottom: 1.25rem;
+    }
+
+    .service-footer {
+        margin-top: auto;
+    }
+}
+
+
+
+/* ============================
+   Services Final CTA
+============================ */
+
+.si-cta {
+    padding: clamp(48px, 7vw, 88px) 0;
+}
+
+.si-cta-card {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    min-height: 0;
+    padding: clamp(32px, 5vw, 56px) 28px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: clamp(20px, 3vw, 32px);
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            var(--color-primary-soft),
+            transparent 45%
+        ),
+        var(--color-surface);
+    text-align: center;
+}
+
+.si-cta-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+}
+
+.si-cta-title {
+    text-align: center;
+}
+
+.si-cta-description {
+    max-width: 560px;
+    margin: 14px auto 0;
+    text-align: center;
+}
+
+.si-cta-actions {
+    justify-content: center;
+}
+
+.si-cta-note {
+    justify-content: center;
+    text-align: center;
+}
+
+/* Background Decorations */
+
+.si-cta-orb {
+    position: absolute;
+    z-index: -1;
+    display: block;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.si-cta-orb-one {
+    top: -130px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
+    opacity: 0.7;
+}
+
+.si-cta-orb-two {
+    right: 4%;
+    bottom: -190px;
+    width: 350px;
+    height: 350px;
+    opacity: 0.45;
+}
+
+/* Content */
+
+.si-cta-content {
+    position: relative;
+    z-index: 2;
+    min-width: 0;
+}
+
+.si-cta-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 20px;
+    padding: 8px 13px;
+    color: var(--color-primary);
+    background: var(--color-primary-soft);
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+    font-size: 0.84rem;
+    font-weight: 750;
+}
+
+.si-cta-eyebrow svg {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+}
+
+.si-cta-title {
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+    font-weight: 850;
+    line-height: 1.7;
+    letter-spacing: -0.04em;
+}
+
+.si-cta-title span {
+    display: block;
+    color: var(--color-primary);
+}
+
+.si-cta-description {
+    max-width: 580px;
+    margin: 18px 0 0;
+    color: var(--color-text-muted);
+    font-size: 0.98rem;
+    line-height: 2.15;
+}
+
+/* Buttons */
+
+.si-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.si-cta-primary,
+.si-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 50px;
+    padding: 13px 20px;
+    border-radius: 12px;
+    font-size: 0.91rem;
+    font-weight: 750;
+    text-decoration: none;
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.si-cta-primary {
+    color: #fff;
+    background: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.si-cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.13);
+}
+
+.si-cta-primary svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.si-cta-secondary {
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+}
+
+.si-cta-secondary:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.si-cta-primary:focus-visible,
+.si-cta-secondary:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+}
+
+/* Small Note */
+
+.si-cta-note {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 24px;
+    color: var(--color-text-muted);
+    font-size: 0.82rem;
+    line-height: 1.9;
+}
+
+.si-cta-note-dot {
+    flex: 0 0 7px;
+    width: 7px;
+    height: 7px;
+    background: var(--color-primary);
+    border-radius: 50%;
+}
+
+
+.si-cta-floating {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    color: var(--color-primary);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.si-cta-floating svg {
+    width: 23px;
+    height: 23px;
+}
+
+.si-cta-floating-one {
+    top: 24px;
+    right: 8%;
+}
+
+.si-cta-floating-two {
+    bottom: 20px;
+    left: 5%;
+    transform: rotate(-10deg);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    .si-cta-card {
+        grid-template-columns: minmax(0, 1fr) minmax(200px, 0.65fr);
+        gap: 20px;
+        padding: 36px;
+    }
+
+}
+
+@media (max-width: 680px) {
+    .si-cta {
+        padding: 28px 0 36px;
+    }
+
+    .si-cta-card {
+        gap: 0;
+        padding: 24px 16px 20px;
+        border-radius: 18px;
+    }
+
+    .si-cta-eyebrow {
+        margin-bottom: 12px;
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+
+    .si-cta-eyebrow svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .si-cta-title {
+        font-size: clamp(1.4rem, 6vw, 1.8rem);
+        line-height: 1.7;
+    }
+
+    .si-cta-description {
+        max-width: 100%;
+        margin-top: 10px;
+        font-size: 0.84rem;
+        line-height: 1.9;
+    }
+
+    .si-cta-actions {
+        width: 100%;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 9px;
+        margin-top: 17px;
+    }
+
+    .si-cta-primary,
+    .si-cta-secondary {
+        width: 100%;
+        min-height: 43px;
+        padding: 10px 12px;
+        font-size: 0.82rem;
+    }
+
+    .si-cta-note {
+        justify-content: center;
+        margin-top: 13px;
+        font-size: 0.72rem;
+        line-height: 1.8;
+    }
+
+    .si-cta-floating-one {
+        top: 12px;
+        right: 12px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .si-cta-floating-two {
+        bottom: 10px;
+        left: 10px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .si-cta-floating svg {
+        width: 17px;
+        height: 17px;
+    }
+}
+
+@media (max-width: 380px) {
+    .si-cta-card {
+        padding-right: 17px;
+        padding-left: 17px;
+    }
+
+    .si-cta-actions {
+        gap: 10px;
+    }
+
+    .si-cta-primary,
+    .si-cta-secondary {
+        padding-right: 12px;
+        padding-left: 12px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .si-cta *,
+    .si-cta *::before,
+    .si-cta *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+
+/* ==============================
+   Services Process - Compact
+============================== */
+
+#services-process {
+    padding-block: 4rem;
+}
+
+#services-process .si-process-heading {
+    max-width: 680px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}
+
+#services-process .si-process-title {
+    font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+    line-height: 1.7;
+    margin-block: 0.5rem;
+}
+
+#services-process .si-process-description {
+    font-size: 0.92rem;
+    line-height: 2;
+    margin-top: 0.5rem;
+}
+
+#services-process .si-process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: 1050px;
+    margin-inline: auto;
+}
+
+#services-process .si-process-card {
+    min-width: 0;
+    padding: 1.25rem 1rem;
+    border-radius: 18px;
+}
+
+#services-process .si-process-card-top {
+    margin-bottom: 1.1rem;
+}
+
+#services-process .si-process-icon {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#services-process .si-process-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+#services-process .si-process-number {
+    font-size: 0.85rem;
+}
+
+#services-process .si-process-card h3 {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 0.4rem;
+}
+
+#services-process .si-process-card p {
+    font-size: 0.82rem;
+    line-height: 1.9;
+    margin: 0;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    #services-process .si-process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 650px;
+    }
+}
+
+/* Mobile - Very Compact */
+@media (max-width: 600px) {
+    #services-process {
+        padding-block: 2.25rem;
+    }
+
+    #services-process .si-process-heading {
+        margin-bottom: 1.4rem;
+        padding-inline: 0.25rem;
+    }
+
+    #services-process .si-process-eyebrow {
+        font-size: 0.75rem;
+    }
+
+    #services-process .si-process-title {
+        font-size: 1.35rem;
+        line-height: 1.7;
+        margin-block: 0.3rem;
+    }
+
+    #services-process .si-process-description {
+        font-size: 0.78rem;
+        line-height: 1.9;
+        margin-top: 0.3rem;
+    }
+
+    #services-process .si-process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.65rem;
+    }
+
+    #services-process .si-process-card {
+        padding: 0.85rem 0.75rem;
+        border-radius: 14px;
+    }
+
+    #services-process .si-process-card-top {
+        margin-bottom: 0.65rem;
+    }
+
+    #services-process .si-process-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    #services-process .si-process-icon svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    #services-process .si-process-number {
+        font-size: 0.72rem;
+    }
+
+    #services-process .si-process-card h3 {
+        font-size: 0.85rem;
+        line-height: 1.7;
+        margin-bottom: 0.25rem;
+    }
+
+    #services-process .si-process-card p {
+        font-size: 0.72rem;
+        line-height: 1.8;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 380px) {
+    #services-process .si-process-grid {
+        gap: 0.5rem;
+    }
+
+    #services-process .si-process-card {
+        padding: 0.75rem 0.6rem;
+    }
+
+    #services-process .si-process-card h3 {
+        font-size: 0.8rem;
+    }
+
+    #services-process .si-process-card p {
+        font-size: 0.68rem;
     }
 }

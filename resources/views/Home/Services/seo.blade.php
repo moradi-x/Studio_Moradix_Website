@@ -43,13 +43,8 @@
                             فقط دیده‌شدن کافی نیست؛ مهم این است که مخاطب درست شما را پیدا کند.
                         </p>
 
-                        <p class="sv-hero-desc">
-                            با برنامه‌ریزی و اجرای مستمر سئو، کمک می‌کنیم صفحات سایت شما
-                            برای جست‌وجوهای مرتبط با خدمات و محصولاتتان آماده‌تر شوند.
-                            از تحقیق کلمات کلیدی و بررسی فنی تا بهینه‌سازی محتوا و تحلیل رقبا
-
-
-                        </p>
+                       
+                        <p class="sv-hero-desc">با تحقیق کلمات کلیدی، بهینه‌سازی فنی و محتوایی و تحلیل رقبا، به بهبود جایگاه سایت شما در نتایج گوگل کمک می‌کنیم.</p>
 
                         <div class="sv-hero-buttons">
                             <a href="{{ route('contact') }}" class="btn btn-primary">
@@ -238,110 +233,111 @@
             </div>
         </section>
 
-      {{-- Is This For You Section --}}
-<section class="sv-section sv-fit">
-    <div class="container">
-        <h2 class="sv-section-title">سئو برای شما مناسب است اگر...</h2>
+        {{-- Is This For You Section --}}
+        <section class="sv-section sv-fit">
+            <div class="container">
+                <h2 class="sv-section-title">سئو برای شما مناسب است اگر...</h2>
 
-        <div class="sv-fit-grid">
+                <div class="sv-fit-grid">
 
-            {{-- Good Fit --}}
-            <div class="sv-fit-card sv-fit-yes">
-                <h3 class="sv-fit-title">سئو مناسب توئه</h3>
+                    {{-- Good Fit --}}
+                    <div class="sv-fit-card sv-fit-yes">
+                        <h3 class="sv-fit-title">سئو مناسب توئه</h3>
 
-                <ul class="sv-fit-list">
-                    <li>
-                        <svg class="sv-fit-icon" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span>
-                            سایت دارید و می‌خواهید مشتریان بالقوه از طریق جست‌وجوی گوگل شما را پیدا کنند.
-                        </span>
-                    </li>
+                        <ul class="sv-fit-list">
+                            <li>
+                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>
+                                    سایت دارید و می‌خواهید مشتریان بالقوه از طریق جست‌وجوی گوگل شما را پیدا کنند.
+                                </span>
+                            </li>
 
-                    <li>
-                        <svg class="sv-fit-icon" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span>
-                            صفحات خدمات یا محصولاتتان بازدید و جایگاه مناسبی در نتایج جست‌وجو ندارند.
-                        </span>
-                    </li>
+                            <li>
+                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>
+                                    صفحات خدمات یا محصولاتتان بازدید و جایگاه مناسبی در نتایج جست‌وجو ندارند.
+                                </span>
+                            </li>
 
-                    <li>
-                        <svg class="sv-fit-icon" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span>
-                            برای تولید محتوای هدفمند و بهبود مستمر سایت آمادگی دارید.
-                        </span>
-                    </li>
+                            <li>
+                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>
+                                    برای تولید محتوای هدفمند و بهبود مستمر سایت آمادگی دارید.
+                                </span>
+                            </li>
 
-                    <li>
-                        <svg class="sv-fit-icon" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span>
-                            می‌خواهید عملکرد سایت را با داده‌هایی مانند کلیک، نمایش، رتبه و سرنخ‌های ورودی ارزیابی کنید.
-                        </span>
-                    </li>
-                </ul>
+                            <li>
+                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>
+                                    می‌خواهید عملکرد سایت را با داده‌هایی مانند کلیک، نمایش، رتبه و سرنخ‌های ورودی ارزیابی
+                                    کنید.
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {{-- Not a Fit --}}
+                    <div class="sv-fit-card sv-fit-no">
+                        <h3 class="sv-fit-title">شاید ابتدا به خدمت دیگری نیاز دارید</h3>
+
+                        <ul class="sv-fit-list">
+                            <li>
+                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 6l12 12M18 6L6 18" />
+                                </svg>
+                                <span>
+                                    هنوز سایت ندارید و برای شروع به طراحی و توسعه وب‌سایت نیاز دارید.
+                                    <a href="{{ route('services.web-design') }}" class="sv-alt-link">
+                                        طراحی سایت ←
+                                    </a>
+                                </span>
+                            </li>
+
+                            <li>
+                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 6l12 12M18 6L6 18" />
+                                </svg>
+                                <span>
+                                    سایت مشکلات اساسی در دسترسی، عملکرد یا ساختار دارد و پیش از سئو باید اصلاح شود.
+                                </span>
+                            </li>
+
+                            <li>
+                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 6l12 12M18 6L6 18" />
+                                </svg>
+                                <span>
+                                    انتظار دارید بدون زمان، بودجه و همکاری مستمر، نتیجه قطعی و فوری به دست آورید.
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
             </div>
-
-            {{-- Not a Fit --}}
-            <div class="sv-fit-card sv-fit-no">
-                <h3 class="sv-fit-title">شاید ابتدا به خدمت دیگری نیاز دارید</h3>
-
-                <ul class="sv-fit-list">
-                    <li>
-                        <svg class="sv-fit-icon" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M6 6l12 12M18 6L6 18" />
-                        </svg>
-                        <span>
-                            هنوز سایت ندارید و برای شروع به طراحی و توسعه وب‌سایت نیاز دارید.
-                            <a href="{{ route('services.web-design') }}" class="sv-alt-link">
-                                طراحی سایت ←
-                            </a>
-                        </span>
-                    </li>
-
-                    <li>
-                        <svg class="sv-fit-icon" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M6 6l12 12M18 6L6 18" />
-                        </svg>
-                        <span>
-                            سایت مشکلات اساسی در دسترسی، عملکرد یا ساختار دارد و پیش از سئو باید اصلاح شود.
-                        </span>
-                    </li>
-
-                    <li>
-                        <svg class="sv-fit-icon" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M6 6l12 12M18 6L6 18" />
-                        </svg>
-                        <span>
-                            انتظار دارید بدون زمان، بودجه و همکاری مستمر، نتیجه قطعی و فوری به دست آورید.
-                        </span>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-</section>
+        </section>
 
         {{-- SEO Services --}}
 
@@ -417,7 +413,7 @@
             </div>
         </section>
 
-       
+
 
         {{-- Deliverables --}}
         <section class="sv-section sv-deliverables">
@@ -534,7 +530,7 @@
         </section>
 
 
-       {{-- Portfolio Section --}}
+        {{-- Portfolio Section --}}
         @if (isset($relatedProjects) && $relatedProjects->isNotEmpty())
             <section class="pf-related-section" id="related-projects">
                 <div class="container">

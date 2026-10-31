@@ -14,7 +14,7 @@
                 <h4>دسترسی سریع</h4>
                 <ul class="footer-links">
                     <li><a href="{{ route('services') }}">خدمات</a></li>
-                    <li><a href="#portfolio">نمونه‌کارها</a></li>
+                    <li><a href="{{ route('portfolio') }}">نمونه‌کارها</a></li>
                     <li><a href="{{ route('pricing') }}"> تعرفه ها و پلن ها</a></li>
                     <li><a href=" {{ route('about') }} ">درباره ما</a></li>
                     <li><a href="{{ route('contact') }}">تماس با ما</a></li>
@@ -46,7 +46,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>تمامی حقوق محفوظ است © ۱۴۰۳ Moradix Studio</p>
+            <p>تمامی حقوق محفوظ است © 1405 Moradix Studio</p>
         </div>
     </div>
 </footer>

@@ -79,25 +79,28 @@
         });
     });
 
-   document.querySelectorAll('.pr-faq-question').forEach((button) => {
-    button.addEventListener('click', () => {
-        const item = button.closest('.pr-faq-item');
-        const answer = item.querySelector('.pr-faq-answer');
+    document.querySelectorAll('.pr-faq-question').forEach((button) => {
+        button.addEventListener('click', () => {
+            const item = button.closest('.pr-faq-item');
+            const answer = item.querySelector('.pr-faq-answer');
 
-        const isOpen = button.getAttribute('aria-expanded') === 'true';
+            const isOpen = button.getAttribute('aria-expanded') === 'true';
 
-        button.setAttribute('aria-expanded', String(!isOpen));
-        item.classList.toggle('active', !isOpen);
+            button.setAttribute('aria-expanded', String(!isOpen));
+            item.classList.toggle('active', !isOpen);
 
-        if (!answer) return;
+            if (!answer) return;
 
-        if (!isOpen) {
-            answer.style.visibility = 'visible';
-            answer.style.maxHeight = answer.scrollHeight + 'px';
-        } else {
-            answer.style.maxHeight = '0px';
-        }
+            if (!isOpen) {
+                answer.style.visibility = 'visible';
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            } else {
+                answer.style.maxHeight = '0px';
+            }
+        });
     });
-});
+
+
+
 
 })();
