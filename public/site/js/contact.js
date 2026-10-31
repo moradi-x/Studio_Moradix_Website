@@ -1,5 +1,5 @@
 
-(function() {
+(function () {
     'use strict';
 
     // ==================== Form Setup ====================
@@ -24,7 +24,7 @@
 
     // ==================== Form Submission ====================
     if (form) {
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', function (e) {
             // Do not prevent the default submission.
             // Laravel will validate the submitted data.
 
@@ -52,7 +52,7 @@
     const copyButtons = document.querySelectorAll('.ct-copy-btn');
 
     copyButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
 
@@ -118,4 +118,31 @@
             element.classList.add('ct-visible');
         });
     }
+
+
+    // ==================== Scroll to Validation Errors ====================
+    function scrollToValidationError() {
+        const firstError = document.querySelector(
+            '#ct-contact-form .ct-form-error'
+        );
+
+        const formCard = document.getElementById('contact-form');
+
+        if (firstError) {
+            firstError.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        } else if (formCard) {
+            formCard.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
+
+    if (document.querySelector('#ct-contact-form .ct-form-error')) {
+        setTimeout(scrollToValidationError, 500);
+    }
+
 })();

@@ -686,9 +686,9 @@
                     </p>
 
                     <ul class="pr-custom-features">
-                        <li>بهبود ظاهر و تجربه کاربری</li>
-                        <li>ارتقای امکانات فعلی</li>
-                        <li>مهاجرت به کدنویسی اختصاصی</li>
+                        <li>بهبود ظاهر سایت</li>
+                        <li>بهبود تجربه کاربری</li>
+                        <li>مهاجرت به کدنویسی </li>
                     </ul>
 
                     <div class="pr-custom-price">
@@ -741,13 +741,8 @@
                 </a>
             </div>
         </section>
-
-
-
-
     </div>
     </section>
-
 
     {{-- Price Factors --}}
     <section class="pr-factors">
@@ -893,8 +888,6 @@
             </div>
         </div>
     </section>
-
-
 
     {{-- FAQ --}}
     <section class="pr-faq">

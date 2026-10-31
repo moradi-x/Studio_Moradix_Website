@@ -191,4 +191,7 @@
     } else {
         initPortfolio();
     }
+
+    
+
 })();

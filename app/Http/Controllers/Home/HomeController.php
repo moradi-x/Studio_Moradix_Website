@@ -110,19 +110,31 @@ class HomeController extends Controller
             ->latest()
             ->get();
 
-
         $completedProjects = $projects->where('status', 1)->count();
 
         $developmentProjects = $projects->where('status', 0)->count();
 
+        $pfhFa = fn($n) => strtr((string) $n, [
+            '0' => '۰',
+            '1' => '۱',
+            '2' => '۲',
+            '3' => '۳',
+            '4' => '۴',
+            '5' => '۵',
+            '6' => '۶',
+            '7' => '۷',
+            '8' => '۸',
+            '9' => '۹',
+        ]);
+
+        
         return view('Home.Portfolio.index', compact(
             'projects',
             'completedProjects',
-            'developmentProjects'
+            'developmentProjects',
+            'pfhFa'
         ));
     }
-
-
 
     public function portfolioShow(string $slug)
     {
@@ -140,13 +152,102 @@ class HomeController extends Controller
             ->take(3)
             ->get();
 
+        // وضعیت پروژه
+        $statusLabel = $project->status == 1
+            ? 'تکمیل شده'
+            : 'در حال توسعه';
 
+        // مسیر تصاویر
+        $uploadPath = trim(
+            env('PROJECT_IMAGES_UPLOAD_PATH', 'uploads/projects/images'),
+            '/'
+        );
 
+        // تصویر اصلی پروژه
+        $heroImage = $project->primary_image
+            ? asset($uploadPath . '/' . $project->primary_image)
+            : null;
 
+        // توضیحات پروژه
+        $description = $project->description ?? '';
+
+        // ویژگی‌های پروژه
+        $projectFeatures = $project->features;
+
+        // دسته‌بندی پروژه
+        $projectCategory = $project->category;
+
+        $categoryName = $projectCategory->name
+            ?? $projectCategory->title
+            ?? null;
+
+        // تصاویر گالری
+        $galleryImages = collect();
+
+        if ($project->primary_image) {
+            $galleryImages->push([
+                'path' => $heroImage,
+                'alt' => $project->title . ' - تصویر اصلی پروژه',
+            ]);
+        }
+
+        foreach ($project->images as $image) {
+            if ($image->image) {
+                $galleryImages->push([
+                    'path' => asset($uploadPath . '/' . $image->image),
+                    'alt' => $project->title . ' - تصویر پروژه',
+                ]);
+            }
+        }
+
+        // جلوگیری از نمایش تصاویر تکراری
+        $galleryImages = $galleryImages
+            ->unique('path')
+            ->values();
+
+        // اطلاعات مشخصات پروژه
+        $metadataItems = [
+            [
+                'label' => 'دسته‌بندی پروژه',
+                'value' => $categoryName,
+                'icon' => 'grid',
+            ],
+            [
+                'label' => 'وضعیت پروژه',
+                'value' => $statusLabel,
+                'icon' => 'check-circle',
+            ],
+            [
+                'label' => 'تعداد ویژگی‌ها',
+                'value' => $projectFeatures->count()
+                    ? $projectFeatures->count() . ' ویژگی ثبت‌شده'
+                    : null,
+                'icon' => 'layers',
+            ],
+            [
+                'label' => 'وب‌سایت پروژه',
+                'value' => $project->project_url
+                    ? 'مشاهده وب‌سایت'
+                    : null,
+                'icon' => 'external-link',
+            ],
+        ];
+
+        $metadataItems = collect($metadataItems)
+            ->filter(fn($item) => filled($item['value']))
+            ->values();
 
         return view('Home.Portfolio.show', compact(
             'project',
-            'relatedProjects'
+            'relatedProjects',
+            'statusLabel',
+            'heroImage',
+            'description',
+            'projectFeatures',
+            'projectCategory',
+            'categoryName',
+            'galleryImages',
+            'metadataItems'
         ));
     }
 }

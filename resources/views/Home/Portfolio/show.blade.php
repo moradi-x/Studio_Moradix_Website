@@ -10,72 +10,7 @@
     @endpush
 
 @section('content')
-    @php
-        $statusLabel = $project->status == 1 ? 'تکمیل شده' : 'در حال توسعه';
 
-        $primaryImage = $project->primary_image ? asset('uploads/projects/images/' . $project->primary_image) : null;
-
-        $galleryImages = $project->images ?? collect();
-
-        $description = $project->description ?? '';
-
-        $heroImage = $project->primary_image ? asset('uploads/projects/images/' . $project->primary_image) : null;
-
-        $uploadPath = trim(env('PROJECT_IMAGES_UPLOAD_PATH'), '/');
-
-        $galleryImages = collect();
-
-        // تصویر اصلی پروژه
-        if ($project->primary_image) {
-            $galleryImages->push([
-                'path' => asset($uploadPath . '/' . $project->primary_image),
-                'alt' => $project->title . ' - تصویر اصلی پروژه',
-            ]);
-        }
-
-        // تصاویر اضافه پروژه
-        foreach ($project->images as $image) {
-            if ($image->image) {
-                $galleryImages->push([
-                    'path' => asset($uploadPath . '/' . $image->image),
-                    'alt' => $project->title . ' - تصویر پروژه',
-                ]);
-            }
-        }
-
-        // جلوگیری از نمایش دوباره یک فایل
-        $galleryImages = $galleryImages->unique('path')->values();
-
-        $projectCategory = $project->category;
-        $projectFeatures = $project->features ?? collect();
-
-        $categoryName = $projectCategory->name ?? ($projectCategory->title ?? null);
-
-        $metadataItems = [
-            [
-                'label' => 'دسته‌بندی پروژه',
-                'value' => $categoryName,
-                'icon' => 'grid',
-            ],
-            [
-                'label' => 'وضعیت پروژه',
-                'value' => $project->status == 1 ? 'تکمیل شده' : 'در حال توسعه',
-                'icon' => 'check-circle',
-            ],
-            [
-                'label' => 'تعداد ویژگی‌ها',
-                'value' => $projectFeatures->count() ? $projectFeatures->count() . ' ویژگی ثبت‌شده' : null,
-                'icon' => 'layers',
-            ],
-            [
-                'label' => 'وب‌سایت پروژه',
-                'value' => $project->project_url ? 'مشاهده وب‌سایت' : null,
-                'icon' => 'external-link',
-            ],
-        ];
-
-        $metadataItems = collect($metadataItems)->filter(fn($item) => filled($item['value']))->values();
-    @endphp
 
     <main class="pd-page">
 
@@ -170,18 +105,7 @@
                                     <img src="{{ $heroImage }}" alt="پیش‌نمایش پروژه {{ $project->title }}"
                                         class="ph-project-image" fetchpriority="high">
                                 @else
-                                    <div class="ph-image-placeholder">
-                                        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                                            <rect x="5" y="7" width="38" height="34" rx="5"
-                                                stroke="currentColor" stroke-width="1.6" />
-                                            <circle cx="17" cy="18" r="3" stroke="currentColor"
-                                                stroke-width="1.6" />
-                                            <path d="m7 35 12-11 8 7 6-6 8 8" stroke="currentColor" stroke-width="1.6"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-
-                                        <span>تصویر پروژه هنوز ثبت نشده است</span>
-                                    </div>
+                                    {{-- placeholder --}}
                                 @endif
                             </div>
 
@@ -215,15 +139,14 @@
                     </h2>
 
                     <p class="pf-overview-description">
-                        {{ $project->description ?: strip_tags($project->description ?? '') }}
+                        {{ $description }}
                     </p>
 
                 </div>
             </div>
 
             {{-- Full Width Features Ticker --}}
-            @if ($project->features && $project->features->count())
-
+            @if ($projectFeatures->isNotEmpty())
                 <div class="pf-features-section">
 
                     <div class="container">
@@ -270,8 +193,8 @@
                                     <div class="pf-marquee-item">
 
                                         <span class="pf-marquee-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                                stroke-linecap="round" stroke-linejoin="round">
                                                 <path
                                                     d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z" />
                                             </svg>
@@ -567,7 +490,7 @@
                                 </svg>
                             </a>
 
-                            <a href="#services" class="si-cta-secondary">
+                            <a href="{{ route('services') }}" class="si-cta-secondary">
                                 مشاهده خدمات
                             </a>
                         </div>

@@ -1,4 +1,3 @@
-
 /* ==================== Breadcrumb ==================== */
 .sv-breadcrumb {
     padding-block: 1.5rem;
@@ -44,6 +43,7 @@
     color: var(--color-text);
     font-weight: var(--font-weight-medium);
 }
+
 /* مخفی کردن Breadcrumb در موبایل */
 @media (max-width: 767px) {
     .sv-breadcrumb {
@@ -281,12 +281,10 @@
     width: min(80%, 340px);
     aspect-ratio: 1;
     border-radius: 50%;
-    background: radial-gradient(
-        circle,
-        rgba(15, 118, 110, 0.10) 0%,
-        rgba(15, 118, 110, 0.045) 48%,
-        transparent 72%
-    );
+    background: radial-gradient(circle,
+            rgba(15, 118, 110, 0.10) 0%,
+            rgba(15, 118, 110, 0.045) 48%,
+            transparent 72%);
     transform: translate(-50%, -50%);
     pointer-events: none;
 }
@@ -668,6 +666,7 @@
 /* Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
+
     .ph-card,
     .ph-btn,
     .ph-btn--primary::after {
@@ -827,6 +826,8 @@
     font-weight: var(--font-weight-bold);
     margin-block-end: 0.5rem;
     color: var(--color-text);
+        text-align: center;
+        margin-top: 5px;
 }
 
 .pr-plan-for {
@@ -903,6 +904,8 @@
     font-weight: var(--font-weight-semibold);
     margin-block-end: 1rem;
     color: var(--color-text);
+    /* text-align: center; */
+    /* padding: 3px; */
 }
 
 .pr-not-included-title {
@@ -1251,6 +1254,7 @@
 
     .pr-plan-name {
         font-size: 1.3rem;
+        text-align: center;
     }
 
     .pr-price-amount {
@@ -2307,7 +2311,7 @@
     background: var(--color-surface);
 }
 
-.pr-plan-suitable + .pr-plan-btn {
+.pr-plan-suitable+.pr-plan-btn {
     margin-top: 1rem;
 }
 
@@ -2383,6 +2387,7 @@
     max-width: 175px;
     text-align: right;
 }
+
 .pr-callout-right .pr-callout {
     text-align: center;
 }
@@ -2408,6 +2413,7 @@
     width: fit-content !important;
     text-align: center;
 }
+
 /* یکسان‌سازی رنگ خط و نقطه سمت راست با سمت چپ */
 .pr-callout-right .pr-callout::before {
     border-top: 1px solid #94a3b8 !important;
@@ -2844,6 +2850,7 @@
         font-size: 0.7rem;
     }
 }
+
 @media (max-width: 600px) {
     .pr-included-card {
         padding-top: 20px;
@@ -3080,8 +3087,54 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .pr-faq-answer,
     .pr-faq-icon {
         transition: none;
+    }
+}
+
+/* Hero Buttons - Desktop */
+.ph-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.ph-actions .ph-btn {
+    padding: 15px 28px;
+    min-height: 52px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Hero Buttons - Mobile */
+@media (max-width: 767px) {
+    .ph-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .ph-actions .ph-btn {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        box-sizing: border-box;
+    }
+}
+@media (max-width: 767px) {
+    .pr-plans-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pr-plan-card {
+        width: 100%;
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }

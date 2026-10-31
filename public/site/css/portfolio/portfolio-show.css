@@ -1954,3 +1954,13 @@
     align-self: center;
 }
 
+@media (max-width: 767px) {
+    .ph-content {
+        text-align: center;
+    }
+
+    .ph-title,
+    .ph-description {
+        text-align: center;
+    }
+}

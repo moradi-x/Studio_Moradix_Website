@@ -1972,3 +1972,129 @@
         line-height: 1.85;
     }
 }
+
+/* =====================================
+   ABOUT HERO - DESKTOP COMPACT
+===================================== */
+
+.about-hero {
+    min-height: auto;
+}
+
+.about-hero-grid {
+    gap: 40px;
+    align-items: center;
+}
+
+.about-hero-content h1 {
+    font-size: clamp(34px, 3.2vw, 48px);
+    line-height: 1.65;
+    margin-bottom: 18px;
+}
+
+.about-hero-description {
+    font-size: 15px;
+    line-height: 2;
+    max-width: 500px;
+}
+
+.about-hero-actions {
+    margin-top: 24px;
+}
+
+/* تصویر و انیمیشن */
+.abx {
+    transform: scale(.88);
+    transform-origin: center;
+}
+
+/* =====================================
+   ABOUT HERO - MOBILE
+===================================== */
+
+@media (max-width: 767px) {
+
+    .about-hero {
+        padding-top: 12px !important;
+        padding-bottom: 30px !important;
+        min-height: auto !important;
+    }
+
+    .about-hero-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .about-hero-content {
+        width: 100%;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        text-align: right;
+    }
+
+    .about-hero-content h1 {
+        font-size: 29px;
+        line-height: 1.75;
+        margin-top: 0 !important;
+        margin-bottom: 12px;
+    }
+
+    .about-hero-description {
+        font-size: 13px;
+        line-height: 2;
+        margin-bottom: 18px;
+    }
+
+    .about-hero-actions {
+        margin-top: 16px;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    /* کوچک کردن تصویر هیرو */
+    .abx {
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+        transform: scale(.82);
+        transform-origin: top center;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .about-hero-content h1 {
+        font-size: 26px;
+    }
+
+    .about-hero {
+        padding-top: 8px !important;
+    }
+
+    .abx {
+        transform: scale(.75);
+    }
+}
+
+@media (max-width: 767px) {
+    .about-hero-content {
+        text-align: center;
+    }
+
+    .about-hero-content h1,
+    .about-hero-description {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media (max-width: 767px) {
+    .about-hero {
+        padding-top: 30px !important;
+    }
+}
+
+.about-btn-primary {
+    color: #fff !important;
+}

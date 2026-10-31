@@ -1,11 +1,11 @@
-(function() {
+(function () {
     'use strict';
 
     // ==================== Accordion for Service Details ====================
     const detailsButtons = document.querySelectorAll('.svc-details-btn');
 
     detailsButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const expanded = this.getAttribute('aria-expanded') === 'true';
             const targetId = this.getAttribute('aria-controls');
             const detailsPanel = document.getElementById(targetId);
@@ -60,7 +60,7 @@
 
     // ==================== Smooth Scroll for Anchor Links ====================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             if (href === '#') return;
 
@@ -79,19 +79,23 @@
         });
     });
 
-    document.querySelectorAll('.pr-faq-question').forEach((button) => {
+   document.querySelectorAll('.pr-faq-question').forEach((button) => {
     button.addEventListener('click', () => {
         const item = button.closest('.pr-faq-item');
         const answer = item.querySelector('.pr-faq-answer');
+
         const isOpen = button.getAttribute('aria-expanded') === 'true';
 
         button.setAttribute('aria-expanded', String(!isOpen));
         item.classList.toggle('active', !isOpen);
 
-        if (answer) {
-            answer.style.maxHeight = !isOpen
-                ? answer.scrollHeight + 'px'
-                : '0px';
+        if (!answer) return;
+
+        if (!isOpen) {
+            answer.style.visibility = 'visible';
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+        } else {
+            answer.style.maxHeight = '0px';
         }
     });
 });
