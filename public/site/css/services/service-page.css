@@ -1,4 +1,4 @@
-/* public/site/css/services/service-page.css */
+/* public/site/css/Home/services/service-page.css */
 /* Shared Service Page Styles - Moradix Studio */
 /* Classes prefix: sv- (service) */
 
@@ -2366,5 +2366,83 @@
     .pf-related-section .pf-related-all svg {
         width: 14px;
         height: 14px;
+    }
+}
+
+
+
+/* Website Design Hero Buttons */
+.sv-hero-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.sv-hero-buttons a.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    padding: 0 30px;
+    border-radius: 13px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition:
+        background .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease,
+        transform .3s ease;
+}
+
+/* دکمه مشاوره رایگان */
+.sv-hero-buttons a.btn-primary {
+    color: #fff;
+    background: #0f766e;
+    border: 2px solid #0f766e;
+    box-shadow: 0 8px 20px rgba(15, 118, 110, .15);
+}
+
+/* دکمه مقایسه پلن‌ها */
+.sv-hero-buttons a.btn-outline {
+    color: #26322f;
+    background: #fff;
+    border: 1px solid #e6ece9;
+}
+
+/* Hover دسکتاپ */
+@media (hover: hover) and (pointer: fine) {
+    .sv-hero-buttons a.btn-primary:hover {
+        color: #fff;
+        background: #115e59;
+        border-color: #115e59;
+        box-shadow: 0 13px 30px rgba(15, 118, 110, .24);
+        transform: translateY(-3px);
+    }
+
+    .sv-hero-buttons a.btn-outline:hover {
+        color: #0f766e;
+        background: #f7fbfa;
+        border-color: rgba(15, 118, 110, .3);
+        box-shadow: 0 8px 20px rgba(15, 118, 110, .08);
+        transform: translateY(-3px);
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .sv-hero-buttons {
+        gap: 10px;
+    }
+
+    .sv-hero-buttons a.btn {
+        min-height: 46px;
+        padding: 0 18px;
+        font-size: 13px;
+        border-radius: 11px;
     }
 }

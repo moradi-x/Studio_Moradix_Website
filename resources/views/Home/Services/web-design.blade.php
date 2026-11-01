@@ -9,7 +9,7 @@
     گردشگری و نمونه‌کار شخصی. مشاوره‌ی رایگان.')
 
     @push('styles')
-        <link rel="stylesheet" href="{{ asset('site/css/services/service-page.css') }}">
+        <link rel="stylesheet" href="{{ asset('site/css/Home/services/service-page.css') }}">
     @endpush
 
 @section('content')
@@ -176,8 +176,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
-                     
-<p>بدون واسطه با مشتری‌ها ارتباط بگیر و درخواست‌هاشون رو مستقیم دریافت کن.</p>
+
+                        <p>بدون واسطه با مشتری‌ها ارتباط بگیر و درخواست‌هاشون رو مستقیم دریافت کن.</p>
                     </div>
 
                     <div class="sv-change-card">
@@ -186,7 +186,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                         </svg>
-                           <p>با یک وب‌سایت حرفه‌ای، اعتماد و اعتبار بیشتری بساز.</p>
+                        <p>با یک وب‌سایت حرفه‌ای، اعتماد و اعتبار بیشتری بساز.</p>
                     </div>
                 </div>
                 <p class="sv-changes-note">لازم نیست از فنی چیزی بدونی. از ایده تا تحویل، همه‌ی بخش فنی با ماست.</p>
@@ -543,5 +543,5 @@
     @endsection
 
     @push('scripts')
-        <script src="{{ asset('site/js/services/service-page.js') }}" defer></script>
+        <script src="{{ asset('site/js/Home/services/service-page.js') }}" defer></script>
     @endpush

@@ -3,7 +3,7 @@
 @section('title', 'درباره ما | Moradix Studio')
 
 @push('styles')
-    <link rel="stylesheet" href="{{ asset('site/css/about.css') }}">
+    <link rel="stylesheet" href="{{ asset('site/css/Home/about.css') }}">
 @endpush
 
 @section('content')
@@ -409,5 +409,5 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('site/js/about.js') }}" defer></script>
+    <script src="{{ asset('site/js/Home/about.js') }}" defer></script>
 @endpush

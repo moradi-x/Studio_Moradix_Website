@@ -8,7 +8,7 @@
     آنلاین و پنل مدیریت. مشاوره‌ی رایگان برای راه‌اندازی فروش آنلاین.')
 
     @push('styles')
-        <link rel="stylesheet" href="{{ asset('site/css/services/service-page.css') }}">
+        <link rel="stylesheet" href="{{ asset('site/css/Home/services/service-page.css') }}">
     @endpush
 
 @section('content')
@@ -547,5 +547,5 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('site/js/services/service-page.js') }}" defer></script>
+    <script src="{{ asset('site/js/Home/services/service-page.js') }}" defer></script>
 @endpush

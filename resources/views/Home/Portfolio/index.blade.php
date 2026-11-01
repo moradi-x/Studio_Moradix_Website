@@ -6,7 +6,7 @@
     'مروری بر پروژه‌های منتخب و پروژه‌های در حال توسعه Moradix Studio در زمینه طراحی وب‌سایت،
     فروشگاه اینترنتی و راهکارهای دیجیتال.')
     @push('styles')
-        <link rel="stylesheet" href="{{ asset('site/css/portfolio/portfolio-index.css') }}">
+        <link rel="stylesheet" href="{{ asset('site/css/Home/portfolio/portfolio-index.css') }}">
     @endpush
 
 
@@ -385,5 +385,5 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('site/js/portfolio/portfolio-index.js') }}" defer></script>
+    <script src="{{ asset('site/js/Home/portfolio/portfolio-index.js') }}" defer></script>
 @endpush

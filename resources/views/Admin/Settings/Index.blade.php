@@ -1,104 +1,110 @@
+
 @extends('admin.layouts.layout')
 
 @section('title', 'Settings')
 
 @section('content')
 
-    @include('admin.sections.messages')
+    <div class="admin-setting-index">
 
-    <div class="flex items-center justify-between mb-5">
-        <h1 class="text-lg font-bold text-gray-800">
-            تنظیمات
-        </h1>
+        @include('admin.sections.messages')
 
-        <a href="{{ route('admin.settings.create') }}"
-            class="px-4 py-2 rounded-lg bg-green-600 text-white text-sm font-medium hover:bg-green-700 transition shadow-sm">
-            تنظیمات جدید
-        </a>
-    </div>
+        <div class="admin-setting-index-header">
 
-    <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+            <h1 class="admin-setting-index-title">
+                تنظیمات
+            </h1>
 
-        <table class="w-full text-sm">
+            <a href="{{ route('admin.settings.create') }}"
+               class="admin-setting-index-create">
+                تنظیمات جدید
+            </a>
 
-            <thead class="bg-gray-50 border-b">
-                <tr>
-                    <th class="px-4 py-2.5 text-left font-semibold text-gray-600">
-                        #
-                    </th>
+        </div>
 
-                    <th class="px-4 py-2.5 text-left font-semibold text-gray-600">
-                        نام
-                    </th>
+        <div class="admin-setting-index-table-card">
 
-                    <th class="px-4 py-2.5 text-left font-semibold text-gray-600">
-                        مقدار
-                    </th>
+            <div class="admin-setting-index-table-wrapper">
 
-                    <th class="px-4 py-2.5 text-center font-semibold text-gray-600">
-                        عملیات
-                    </th>
-                </tr>
-            </thead>
+                <table class="admin-setting-index-table">
 
-            <tbody>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>نام</th>
+                            <th>مقدار</th>
+                            <th class="admin-setting-index-actions-heading">
+                                عملیات
+                            </th>
+                        </tr>
+                    </thead>
 
-                @forelse($settings as $key => $setting)
-                    <tr class="border-b hover:bg-gray-50 transition">
+                    <tbody>
 
-                        <td class="px-4 py-2.5 text-gray-500">
-                            {{ $settings->firstItem() + $key }}
-                        </td>
+                        @forelse($settings as $key => $setting)
 
-                        <td class="px-4 py-2.5 font-medium text-gray-800">
-                            {{ $setting->key }}
-                        </td>
+                            <tr>
 
-                        <td class="px-4 py-2.5 text-gray-600">
-                            {{ $setting->value ?? '-' }}
-                        </td>
+                                <td class="admin-setting-index-number">
+                                    {{ $settings->firstItem() + $key }}
+                                </td>
 
-                        <td class="px-4 py-2.5">
-                            <div class="flex justify-center gap-2">
-                                <a href="{{ route('admin.settings.edit', $setting) }}"
-                                    class="px-3 py-1.5 rounded-md bg-blue-500 text-white text-xs hover:bg-blue-600">
-                                    ویرایش
-                                </a>
+                                <td class="admin-setting-index-key">
+                                    {{ $setting->key }}
+                                </td>
 
-                                <form action="{{ route('admin.settings.destroy', $setting) }}" method="POST">
+                                <td class="admin-setting-index-value">
+                                    {{ $setting->value ?? '-' }}
+                                </td>
 
-                                    @csrf
-                                    @method('DELETE')
+                                <td>
+                                    <div class="admin-setting-index-actions">
 
-                                    <button type="submit"
-                                        class="px-3 py-1.5 rounded-md bg-red-500 text-white text-xs hover:bg-red-600">
-                                        حذف
-                                    </button>
+                                        <a href="{{ route('admin.settings.edit', $setting) }}"
+                                           class="admin-setting-index-edit">
+                                            ویرایش
+                                        </a>
 
-                                </form>
+                                        <form action="{{ route('admin.settings.destroy', $setting) }}"
+                                              method="POST">
 
-                            </div>
-                        </td>
+                                            @csrf
+                                            @method('DELETE')
 
-                    </tr>
+                                            <button type="submit"
+                                                    class="admin-setting-index-delete">
+                                                حذف
+                                            </button>
 
-                @empty
+                                        </form>
 
-                    <tr>
-                        <td colspan="4" class="text-center py-6 text-gray-500">
-                            No settings found
-                        </td>
-                    </tr>
-                @endforelse
+                                    </div>
+                                </td>
 
-            </tbody>
+                            </tr>
 
-        </table>
+                        @empty
 
-    </div>
+                            <tr>
+                                <td colspan="4" class="admin-setting-index-empty">
+                                    تنظیماتی پیدا نشد.
+                                </td>
+                            </tr>
 
-    <div class="mt-4">
-        {{ $settings->links() }}
+                        @endforelse
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <div class="admin-setting-index-pagination">
+            {{ $settings->links() }}
+        </div>
+
     </div>
 
 @endsection

@@ -4,87 +4,63 @@
 @section('title', 'Create Category')
 
 
+
 @section('content')
-    @include('admin.sections.errors')
+    <div class="admin-category-create">
 
-    <h1 class="text-2xl font-bold mb-6">
+        @include('admin.sections.errors')
 
-        Create Category
+        <h1 class="admin-category-create-title">
+             دسته بندی جدید
+        </h1>
 
-    </h1>
+        <form action="{{ route('admin.categories.store') }}"
+              method="POST"
+              class="admin-category-create-form">
 
+            @csrf
 
+            <div class="admin-category-create-field">
+                <label for="category-name">نام</label>
 
-    <form action="{{ route('admin.categories.store') }}" method="POST" class="bg-white p-6 rounded-lg shadow max-w-2xl">
+                <input
+                    type="text"
+                    id="category-name"
+                    name="name"
+                    value="{{ old('name') }}"
+                >
 
+                @error('name')
+                    <p class="admin-category-create-error">{{ $message }}</p>
+                @enderror
+            </div>
 
-        @csrf
+            <div class="admin-category-create-field">
+                <label for="category-slug">اسلاگ</label>
 
+                <input
+                    type="text"
+                    id="category-slug"
+                    name="slug"
+                    value="{{ old('slug') }}"
+                >
 
+                @error('slug')
+                    <p class="admin-category-create-error">{{ $message }}</p>
+                @enderror
+            </div>
 
-        <div class="mb-5">
+            <div class="admin-category-create-actions">
+                <button type="submit" class="admin-category-create-save">
+                    ذخیره
+                </button>
 
+                <a href="{{ route('admin.categories.index') }}"
+                   class="admin-category-create-back">
+                    برگشت
+                </a>
+            </div>
 
-            <label class="block mb-2 font-medium">
-                Name
-            </label>
-
-
-            <input type="text" name="name" value="{{ old('name') }}" class="w-full border rounded-lg px-4 py-2">
-
-
-            @error('name')
-                <p class="text-red-500 text-sm mt-1">
-                    {{ $message }}
-                </p>
-            @enderror
-
-
-        </div>
-
-
-
-
-
-        <div class="mb-5">
-
-
-            <label class="block mb-2 font-medium">
-                Slug
-            </label>
-
-
-            <input type="text" name="slug" value="{{ old('slug') }}" class="w-full border rounded-lg px-4 py-2">
-
-
-            @error('slug')
-                <p class="text-red-500 text-sm mt-1">
-                    {{ $message }}
-                </p>
-            @enderror
-
-
-        </div>
-
-
-
-
-
-        <button class="bg-green-600 text-white px-6 py-2 rounded-lg">
-
-            Save
-
-        </button>
-
-        <a href="{{ route('admin.categories.index') }}"
-           class="px-6 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition">
-             Back
-        </a>
-
-
-
-    </form>
-
-
-
+        </form>
+    </div>
 @endsection

@@ -1,53 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>
-        @yield('title', 'Admin Panel')
-    </title>
-
-    @vite([
-        'resources/css/app.css',
-        'resources/js/app.js'
-    ])
+    <title>@yield('title', 'پنل مدیریت')</title>
+    <link rel="stylesheet" href="{{ asset('site/css/Admin/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('site/css/Admin/categories.css') }}">
+    <link rel="stylesheet" href="{{ asset('site/css/Admin/settings.css') }}">
+    <script src="{{ asset('site/js/Admin/admin.js') }}" defer></script>
 
 </head>
 
-<body class="bg-gray-50">
+<body class="admin-body">
 
-<div class="min-h-screen flex">
+    <div class="admin-layout">
 
-    {{-- Sidebar --}}
+        {{-- Sidebar --}}
+        @include('admin.sections.sidebar')
 
-    @include('admin.sections.sidebar')
+        <div class="admin-main">
 
-    <div class="flex-1 flex flex-col">
+            {{-- Header --}}
+            @include('admin.sections.topbar')
 
-        {{-- Header --}}
+            {{-- Content --}}
+            <main class="admin-content">
+                @yield('content')
+            </main>
 
-        @include('admin.sections.topbar')
+            {{-- Footer --}}
+            @include('admin.sections.footer')
 
-        {{-- Content --}}
-
-        <main class="flex-1 p-6">
-
-            @yield('content')
-
-        </main>
-
-        {{-- Footer --}}
-
-        @include('admin.sections.footer')
+        </div>
 
     </div>
 
-</div>
-@yield('script')
+    @yield('script')
+
 </body>
 
 </html>

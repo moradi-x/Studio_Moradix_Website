@@ -1,85 +1,57 @@
-<aside class="w-52 bg-white border-r h-screen flex flex-col">
 
-    <!-- Logo -->
-    <div class="px-5 py-4 border-b">
-        <h1 class="text-xl font-bold text-gray-800">
-            Studio Moradix
-        </h1>
+<aside class="admin-sidebar" id="adminSidebar">
+
+    {{-- Logo --}}
+    <div class="admin-sidebar-header">
+        <h1 class="admin-sidebar-logo">Studio Moradix</h1>
     </div>
 
-    <!-- Menu -->
-    <nav class="px-3 py-4 space-y-1">
+    {{-- Menu --}}
+    <nav class="admin-sidebar-nav">
 
-        <!-- Dashboard -->
+        {{-- Dashboard --}}
         <a href="{{ route('admin.dashboard') }}"
-            class="block px-4 py-2.5 rounded-lg transition
-                  {{ request()->routeIs('admin.dashboard')
-                      ? 'bg-green-100 text-green-700'
-                      : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
-            داشبرد
+           class="admin-menu-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+            <span>داشبورد</span>
         </a>
 
-        <!-- Categories -->
+        {{-- Categories --}}
         <a href="{{ route('admin.categories.index') }}"
-            class="block px-4 py-2.5 rounded-lg transition
-                  {{ request()->routeIs('admin.categories.*')
-                      ? 'bg-green-100 text-green-700'
-                      : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
-            دسته بندی ها
+           class="admin-menu-link {{ request()->routeIs('admin.categories.*') ? 'active' : '' }}">
+            <span>دسته‌بندی‌ها</span>
         </a>
 
-
-        <!-- Projects -->
+        {{-- Projects --}}
         <a href="{{ route('admin.projects.index') }}"
-            class="block px-4 py-2.5 rounded-lg transition
-                  {{ request()->routeIs('admin.projects.*')
-                      ? 'bg-green-100 text-green-700'
-                      : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
-            پروژه ها
+           class="admin-menu-link {{ request()->routeIs('admin.projects.*') ? 'active' : '' }}">
+            <span>پروژه‌ها</span>
         </a>
 
-        <!-- PlanPrice -->
+        {{-- Plan Prices --}}
         <a href="{{ route('admin.plan-prices.index') }}"
-            class="block px-4 py-2.5 rounded-lg transition
-                  {{ request()->routeIs('admin.plan-prices.*')
-                      ? 'bg-green-100 text-green-700'
-                      : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
-            قیمت پلن ها 
+           class="admin-menu-link {{ request()->routeIs('admin.plan-prices.*') ? 'active' : '' }}">
+            <span>قیمت پلن‌ها</span>
         </a>
 
-
-        <!-- Requests -->
-
+        {{-- Contact Messages --}}
         <a href="{{ route('admin.contact-messages.index') }}"
-            class="block px-4 py-2.5 rounded-lg transition
-        {{ request()->routeIs('admin.contact-messages.*')
-            ? 'bg-green-100 text-green-700'
-            : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
-            پیام ها
+           class="admin-menu-link {{ request()->routeIs('admin.contact-messages.*') ? 'active' : '' }}">
+            <span>پیام‌ها</span>
         </a>
 
-        <!-- Settings -->
+        {{-- Settings --}}
         <a href="{{ route('admin.settings.index') }}"
-            class="block px-4 py-2.5 rounded-lg transition
-                  {{ request()->routeIs('admin.settings.*')
-                      ? 'bg-green-100 text-green-700'
-                      : 'text-gray-700 hover:bg-green-100 hover:text-green-700' }}">
-            تنظیمات
+           class="admin-menu-link {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
+            <span>تنظیمات</span>
         </a>
 
-        <div class="p-2">
-            <hr>
-        </div>
+        <div class="admin-sidebar-divider"></div>
 
-        <!-- Logout -->
-        <form method="POST" action="#">
+        {{-- Logout --}}
+        <form method="POST" action="#" class="admin-logout-form">
             @csrf
 
-            <button type="submit"
-                class="block w-full text-left px-4 py-2.5 rounded-lg
-                           text-red-600
-                           hover:bg-red-100 hover:text-red-700
-                           transition">
+            <button type="submit" class="admin-logout-button">
                 خروج
             </button>
         </form>

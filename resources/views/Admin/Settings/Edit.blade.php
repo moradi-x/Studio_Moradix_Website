@@ -1,80 +1,79 @@
+
 @extends('admin.layouts.layout')
 
 @section('title', 'Edit Setting')
 
 @section('content')
 
-@include('admin.sections.errors')
+    <div class="admin-setting-edit">
 
-<div class="flex items-center justify-between mb-6">
-    <h1 class="text-lg font-bold text-gray-800">
-        Edit Setting
-    </h1>
-</div>
+        @include('admin.sections.errors')
 
-<form action="{{ route('admin.settings.update', $setting) }}"
-      method="POST"
-      class="bg-white p-6 rounded-lg shadow max-w-2xl">
+        <div class="admin-setting-edit-header">
+            <h1 class="admin-setting-edit-title">
+                 ویرایش تنظیمات
+            </h1>
+        </div>
 
-    @csrf
-    @method('PUT')
+        <form action="{{ route('admin.settings.update', $setting) }}"
+              method="POST"
+              class="admin-setting-edit-form">
 
-    <div class="mb-5">
+            @csrf
+            @method('PUT')
 
-        <label class="block mb-2 font-medium text-gray-700">
-            نام
-        </label>
+            <div class="admin-setting-edit-field">
 
-        <input
-            type="text"
-            name="key"
-            value="{{ old('key', $setting->key) }}"
-            class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-        >
+                <label for="setting-key">نام</label>
 
-        @error('key')
-            <p class="text-red-500 text-sm mt-1">
-                {{ $message }}
-            </p>
-        @enderror
+                <input
+                    type="text"
+                    id="setting-key"
+                    name="key"
+                    value="{{ old('key', $setting->key) }}"
+                >
+
+                @error('key')
+                    <p class="admin-setting-edit-error">
+                        {{ $message }}
+                    </p>
+                @enderror
+
+            </div>
+
+            <div class="admin-setting-edit-field">
+
+                <label for="setting-value">مقدار</label>
+
+                <textarea
+                    id="setting-value"
+                    name="value"
+                    rows="5"
+                >{{ old('value', $setting->value) }}</textarea>
+
+                @error('value')
+                    <p class="admin-setting-edit-error">
+                        {{ $message }}
+                    </p>
+                @enderror
+
+            </div>
+
+            <div class="admin-setting-edit-actions">
+
+                <button type="submit" class="admin-setting-edit-save">
+                    ویرایش
+                </button>
+
+                <a href="{{ route('admin.settings.index') }}"
+                   class="admin-setting-edit-back">
+                    بازگشت
+                </a>
+
+            </div>
+
+        </form>
 
     </div>
-
-    <div class="mb-5">
-
-        <label class="block mb-2 font-medium text-gray-700">
-            مقدار
-        </label>
-
-        <textarea
-            name="value"
-            rows="5"
-            class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-        >{{ old('value', $setting->value) }}</textarea>
-
-        @error('value')
-            <p class="text-red-500 text-sm mt-1">
-                {{ $message }}
-            </p>
-        @enderror
-
-    </div>
-
-    <div class="flex items-center gap-3">
-
-        <button
-            type="submit"
-            class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition">
-            ویرایش
-        </button>
-
-        <a href="{{ route('admin.settings.index') }}"
-           class="px-6 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition">
-             بازگشت
-        </a>
-
-    </div>
-
-</form>
 
 @endsection

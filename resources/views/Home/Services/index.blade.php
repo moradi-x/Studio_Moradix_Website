@@ -9,7 +9,7 @@
     UI/UX، سئو و بهینه‌سازی، و سیستم‌های اختصاصی با Laravel')
 
     @push('styles')
-        <link rel="stylesheet" href="{{ asset('site/css/services/services-index.css') }}">
+        <link rel="stylesheet" href="{{ asset('site/css/Home/services/services-index.css') }}">
     @endpush
 
 @section('content')
@@ -726,5 +726,5 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('site/js/services/services-index.js') }}" defer></script>
+    <script src="{{ asset('site/js/Home/services/services-index.js') }}" defer></script>
 @endpush

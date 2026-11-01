@@ -2,113 +2,89 @@
 
 @section('title', 'Categories')
 
+
 @section('content')
 
-    @include('admin.sections.messages')
+    <div class="admin-category-index">
 
-    <div class="flex items-center justify-between mb-5">
+        @include('admin.sections.messages')
 
-        <h1 class="text-lg font-bold text-gray-800">
-            دسته بندی ها
-        </h1>
+        <div class="admin-category-index-header">
+            <h1 class="admin-category-index-title">
+                دسته بندی ها
+            </h1>
 
-        <a href="{{ route('admin.categories.create') }}"
-            class="px-4 py-2 rounded-lg bg-green-600 text-white text-sm font-medium hover:bg-green-700 transition shadow-sm">
-ایجاد دسته بندی جدید        </a>
+            <a href="{{ route('admin.categories.create') }}"
+               class="admin-category-index-create">
+                ایجاد دسته بندی جدید
+            </a>
+        </div>
 
-    </div>
+        <div class="admin-category-index-table-card">
+            <div class="admin-category-index-table-wrapper">
+                <table class="admin-category-index-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>نام</th>
+                            <th>اسلاگ</th>
+                            <th class="admin-category-index-actions-heading">عملیات</th>
+                        </tr>
+                    </thead>
 
+                    <tbody>
+                        @forelse($categories as $key => $category)
+                            <tr>
+                                <td class="admin-category-index-number">
+                                    {{ $categories->firstItem() + $key }}
+                                </td>
 
-    <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+                                <td class="admin-category-index-name">
+                                    {{ $category->name }}
+                                </td>
 
-        <table class="w-full text-sm">
+                                <td class="admin-category-index-slug">
+                                    {{ $category->slug }}
+                                </td>
 
-            <thead class="bg-gray-50 border-b">
+                                <td>
+                                    <div class="admin-category-index-actions">
 
-                <tr>
+                                        <a href="{{ route('admin.categories.edit', $category) }}"
+                                           class="admin-category-index-edit">
+                                            ویرایش
+                                        </a>
 
-                    <th class="px-4 py-2.5 text-left font-semibold text-gray-600">
-                        #
-                    </th>
+                                        <form action="{{ route('admin.categories.destroy', $category) }}"
+                                              method="POST">
+                                            @csrf
+                                            @method('DELETE')
 
-                    <th class="px-4 py-2.5 text-left font-semibold text-gray-600">
-                        نام
-                    </th>
+                                            <button type="submit"
+                                                    class="admin-category-index-delete">
+                                                حذف
+                                            </button>
+                                        </form>
 
-                    <th class="px-4 py-2.5 text-left font-semibold text-gray-600">
-                        اسلاگ
-                    </th>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="4" class="admin-category-index-empty">
+                                    دسته‌بندی‌ای پیدا نشد.
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-                    <th class="px-4 py-2.5 text-center font-semibold text-gray-600">
-                        عملیات
-                    </th>
+        <div class="admin-category-index-pagination">
+            {{ $categories->links() }}
+        </div>
 
-                </tr>
-
-            </thead>
-
-
-            <tbody>
-
-                @forelse($categories as $key => $category)
-                    <tr class="border-b hover:bg-gray-50 transition">
-
-                        <td class="px-4 py-2.5 text-gray-500">
-                            {{ $categories->firstItem() + $key }}
-                        </td>
-
-                        <td class="px-4 py-2.5 font-medium text-gray-800">
-                            {{ $category->name }}
-                        </td>
-
-                        <td class="px-4 py-2.5 text-gray-600">
-                            {{ $category->slug }}
-                        </td>
-
-                        <td class="px-4 py-2.5">
-                            <div class="flex justify-center gap-2">
-
-                                <a href="{{ route('admin.categories.edit', $category) }}"
-                                    class="px-3 py-1.5 rounded-md bg-blue-500 text-white text-xs hover:bg-blue-600">
-                                    ویرایش
-                                </a>
-
-                                <form action="{{ route('admin.categories.destroy', $category) }}" method="POST">
-
-                                    @csrf
-                                    @method('DELETE')
-
-                                    <button type="submit"
-                                        class="px-3 py-1.5 rounded-md bg-red-500 text-white text-xs hover:bg-red-600">
-                                        حذف
-                                    </button>
-
-                                </form>
-
-                            </div>
-
-                        </td>
-
-                    </tr>
-
-                @empty
-
-                    <tr>
-                        <td colspan="4" class="text-center py-6 text-gray-500">
-                            No categories found
-                        </td>
-                    </tr>
-                @endforelse
-
-            </tbody>
-
-        </table>
-
-    </div>
-
-
-    <div class="mt-4">
-        {{ $categories->links() }}
     </div>
 
 @endsection

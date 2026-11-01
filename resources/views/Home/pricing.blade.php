@@ -9,7 +9,7 @@
     قیمت‌گذاری واضح، مشاوره‌ی رایگان و بدون هزینه‌ی پنهان.')
 
     @push('styles')
-        <link rel="stylesheet" href="{{ asset('site/css/pricing.css') }}">
+        <link rel="stylesheet" href="{{ asset('site/css/Home/pricing.css') }}">
     @endpush
 
 @section('content')
@@ -985,5 +985,5 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('site/js/pricing.js') }}" defer></script>
+    <script src="{{ asset('site/js/Home/pricing.js') }}" defer></script>
 @endpush

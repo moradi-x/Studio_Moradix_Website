@@ -9,7 +9,7 @@
     تلگرام، اینستاگرام، لینکدین و ایمیل.')
 
     @push('styles')
-        <link rel="stylesheet" href="{{ asset('site/css/contact.css') }}">
+        <link rel="stylesheet" href="{{ asset('site/css/Home/contact.css') }}">
     @endpush
 
 @section('content')
@@ -394,5 +394,5 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('site/js/contact.js') }}" defer></script>
+    <script src="{{ asset('site/js/Home/contact.js') }}" defer></script>
 @endpush

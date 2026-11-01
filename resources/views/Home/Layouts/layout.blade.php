@@ -18,7 +18,7 @@
 
 
     {{-- استایل اصلی سایت --}}
-    <link rel="stylesheet" href="{{ asset('site/css/site.css') }}">
+    <link rel="stylesheet" href="{{ asset('site/css/Home/site.css') }}">
     @stack('styles')
 </head>
 
@@ -43,7 +43,7 @@
 
         @include('Home.Sections.scroll-top')
 
-        <script src="{{ asset('site/js/site.js') }}" defer></script>
+        <script src="{{ asset('site/js/Home/site.js') }}" defer></script>
         @stack('scripts')
         {{-- @sweetAlert --}}
 </body>

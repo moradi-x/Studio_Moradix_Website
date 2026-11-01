@@ -79,28 +79,44 @@
         });
     });
 
-    document.querySelectorAll('.pr-faq-question').forEach((button) => {
-        button.addEventListener('click', () => {
-            const item = button.closest('.pr-faq-item');
-            const answer = item.querySelector('.pr-faq-answer');
+  
+// ==================== Services Index FAQ ====================
+const serviceFaq = document.querySelector('.si-faq');
 
-            const isOpen = button.getAttribute('aria-expanded') === 'true';
+if (serviceFaq) {
+    const faqItems = serviceFaq.querySelectorAll('.pr-faq-item');
 
-            button.setAttribute('aria-expanded', String(!isOpen));
+    faqItems.forEach(item => {
+        const question = item.querySelector('.pr-faq-question');
+        const answer = item.querySelector('.pr-faq-answer');
+
+        if (!question || !answer) return;
+
+        question.addEventListener('click', function () {
+            const isOpen = this.getAttribute('aria-expanded') === 'true';
+
+            // بستن سایر سوالات
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.pr-faq-question')
+                        .setAttribute('aria-expanded', 'false');
+
+                    otherItem.querySelector('.pr-faq-answer')
+                        .style.maxHeight = '0px';
+                }
+            });
+
+            // باز و بسته کردن سوال انتخاب‌شده
             item.classList.toggle('active', !isOpen);
+            this.setAttribute('aria-expanded', String(!isOpen));
 
-            if (!answer) return;
-
-            if (!isOpen) {
-                answer.style.visibility = 'visible';
-                answer.style.maxHeight = answer.scrollHeight + 'px';
-            } else {
-                answer.style.maxHeight = '0px';
-            }
+            answer.style.maxHeight = isOpen
+                ? '0px'
+                : answer.scrollHeight + 'px';
         });
     });
-
-
+}
 
 
 })();

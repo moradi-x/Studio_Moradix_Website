@@ -1,81 +1,80 @@
+
 @extends('admin.layouts.layout')
 
 @section('title', 'Create Setting')
 
 @section('content')
 
-@include('admin.sections.errors')
+    <div class="admin-setting-create">
 
-<div class="flex items-center justify-between mb-6">
-    <h1 class="text-lg font-bold text-gray-800">
-        Create Setting
-    </h1>
-</div>
+        @include('admin.sections.errors')
 
-<form action="{{ route('admin.settings.store') }}"
-      method="POST"
-      class="bg-white p-6 rounded-lg shadow max-w-2xl">
+        <div class="admin-setting-create-header">
+            <h1 class="admin-setting-create-title">
+                 تنظیمات جدید
+            </h1>
+        </div>
 
-    @csrf
+        <form action="{{ route('admin.settings.store') }}"
+              method="POST"
+              class="admin-setting-create-form">
 
-    <div class="mb-5">
+            @csrf
 
-        <label class="block mb-2 font-medium text-gray-700">
-            نام
-        </label>
+            <div class="admin-setting-create-field">
 
-        <input
-            type="text"
-            name="key"
-            value="{{ old('key') }}"
-            placeholder="site_name"
-            class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-        >
+                <label for="setting-key">نام</label>
 
-        @error('key')
-            <p class="text-red-500 text-sm mt-1">
-                {{ $message }}
-            </p>
-        @enderror
+                <input
+                    type="text"
+                    id="setting-key"
+                    name="key"
+                    value="{{ old('key') }}"
+                    placeholder="site_name"
+                >
+
+                @error('key')
+                    <p class="admin-setting-create-error">
+                        {{ $message }}
+                    </p>
+                @enderror
+
+            </div>
+
+            <div class="admin-setting-create-field">
+
+                <label for="setting-value">مقدار</label>
+
+                <textarea
+                    id="setting-value"
+                    name="value"
+                    rows="5"
+                    placeholder="Enter setting value..."
+                >{{ old('value') }}</textarea>
+
+                @error('value')
+                    <p class="admin-setting-create-error">
+                        {{ $message }}
+                    </p>
+                @enderror
+
+            </div>
+
+            <div class="admin-setting-create-actions">
+
+                <button type="submit" class="admin-setting-create-save">
+                    ایجاد
+                </button>
+
+                <a href="{{ route('admin.settings.index') }}"
+                   class="admin-setting-create-back">
+                    بازگشت
+                </a>
+
+            </div>
+
+        </form>
 
     </div>
-
-    <div class="mb-5">
-
-        <label class="block mb-2 font-medium text-gray-700">
-            مقدار
-        </label>
-
-        <textarea
-            name="value"
-            rows="5"
-            placeholder="Enter setting value..."
-            class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-        >{{ old('value') }}</textarea>
-
-        @error('value')
-            <p class="text-red-500 text-sm mt-1">
-                {{ $message }}
-            </p>
-        @enderror
-
-    </div>
-
-    <div class="flex items-center gap-3">
-
-        <button
-            type="submit"
-            class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition">
-            ایجاد
-        </button>
-
-         <a href="{{ route('admin.settings.index') }}"
-           class="px-6 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition">
-             بازگشت
-        </a>
-
-    </div>
-
-</form>
 
 @endsection

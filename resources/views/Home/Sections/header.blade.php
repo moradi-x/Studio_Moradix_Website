@@ -15,8 +15,24 @@
                       <li class="has-dropdown">
 
                           <div class="nav-service-row">
-                              <a href="{{ route('services') }}">خدمات</a>
-
+                              <a href="{{ route('services') }}" @class([
+                                  'is-active' => request()->routeIs(
+                                      'services',
+                                      'services.web-design',
+                                      'services.ecommerce',
+                                      'services.redesign',
+                                      'services.custom-systems',
+                                      'services.seo'),
+                              ])
+                                  @if (request()->routeIs(
+                                          'services',
+                                          'services.web-design',
+                                          'services.ecommerce',
+                                          'services.redesign',
+                                          'services.custom-systems',
+                                          'services.seo')) aria-current="page" @endif>
+                                  خدمات
+                              </a>
                               <button type="button" class="submenu-toggle" aria-label="نمایش زیرمنوی خدمات"
                                   aria-expanded="false" aria-controls="mobile-services-submenu">
                                   <span class="submenu-arrow" aria-hidden="true"></span>
@@ -88,7 +104,22 @@
                       </li>
 
                   </ul>
-                  <a href="{{ route('contact') }}" class="btn btn-primary btn-header">ثبت درخواست پروژه</a>
+                  <div class="header-actions">
+                      <a href="https://t.me/studio_moradix" class="header-telegram" target="_blank"
+                          rel="noopener noreferrer" aria-label="تلگرام ما">
+
+                          <svg viewBox="0 0 24 24" aria-hidden="true">
+                              <path fill="currentColor"
+                                  d="M21.8 3.2 18.5 20c-.25 1.2-.9 1.5-1.8 1l-5-3.7-2.4 2.3c-.3.3-.6.6-1.2.6l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L5.7 13.8.8 12.3c-1.1-.3-1.1-1.1.2-1.6L20 3.2c.9-.3 1.6.2 1.8 0z" />
+                          </svg>
+
+                          <span>تلگرام ما</span>
+                      </a>
+
+                      <a href="{{ route('contact') }}" class="btn btn-primary btn-header">
+                          ثبت درخواست پروژه
+                      </a>
+                  </div>
               </nav>
 
               <!-- Mobile Menu Toggle -->

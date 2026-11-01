@@ -1,0 +1,702 @@
+
+/* ==============================
+   Settings Create
+============================== */
+
+.admin-setting-create {
+    width: 100%;
+    max-width: 672px;
+    margin: 0 auto;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.admin-setting-create-header {
+    margin-bottom: 24px;
+}
+
+.admin-setting-create-title {
+    margin: 0;
+    color: #1f2937;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.admin-setting-create-form {
+    width: 100%;
+    padding: 28px;
+    background: #fff;
+    border: 1px solid #e8eeec;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(20, 50, 45, 0.05);
+    box-sizing: border-box;
+}
+
+.admin-setting-create-field {
+    margin-bottom: 22px;
+}
+
+.admin-setting-create-field label {
+    display: block;
+    margin-bottom: 9px;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.admin-setting-create-field input,
+.admin-setting-create-field textarea {
+    display: block;
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #dce5e1;
+    border-radius: 8px;
+    background: #fff;
+    color: #374151;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.8;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.admin-setting-create-field textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.admin-setting-create-field input:focus,
+.admin-setting-create-field textarea:focus {
+    border-color: #0f766e;
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+}
+
+.admin-setting-create-error {
+    margin: 6px 0 0;
+    color: #ef4444;
+    font-size: 12px;
+}
+
+.admin-setting-create-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.admin-setting-create-save,
+.admin-setting-create-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .2s ease;
+}
+
+.admin-setting-create-save {
+    background: #2e8139;
+}
+
+.admin-setting-create-save:hover {
+    background: #2c7a3d;
+}
+
+.admin-setting-create-back {
+    background: #ef4444;
+}
+
+.admin-setting-create-back:hover {
+    background: #dc2626;
+}
+
+@media (max-width: 600px) {
+    .admin-setting-create {
+        padding: 14px;
+    }
+
+    .admin-setting-create-title {
+        font-size: 20px;
+    }
+
+    .admin-setting-create-form {
+        padding: 20px 16px;
+    }
+
+    .admin-setting-create-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-setting-create-save,
+    .admin-setting-create-back {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+
+/* ==============================
+   Settings Edit
+============================== */
+
+.admin-setting-edit {
+    width: 100%;
+    max-width: 672px;
+    margin: 0 auto;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.admin-setting-edit-header {
+    margin-bottom: 24px;
+}
+
+.admin-setting-edit-title {
+    margin: 0;
+    color: #1f2937;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.admin-setting-edit-form {
+    width: 100%;
+    padding: 28px;
+    background: #fff;
+    border: 1px solid #e8eeec;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(20, 50, 45, 0.05);
+    box-sizing: border-box;
+}
+
+.admin-setting-edit-field {
+    margin-bottom: 22px;
+}
+
+.admin-setting-edit-field label {
+    display: block;
+    margin-bottom: 9px;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.admin-setting-edit-field input,
+.admin-setting-edit-field textarea {
+    display: block;
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #dce5e1;
+    border-radius: 8px;
+    background: #fff;
+    color: #374151;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.8;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.admin-setting-edit-field textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.admin-setting-edit-field input:focus,
+.admin-setting-edit-field textarea:focus {
+    border-color: #0f766e;
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+}
+
+.admin-setting-edit-error {
+    margin: 6px 0 0;
+    color: #ef4444;
+    font-size: 12px;
+}
+
+.admin-setting-edit-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.admin-setting-edit-save,
+.admin-setting-edit-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .2s ease;
+}
+
+.admin-setting-edit-save {
+    background: #0f766e;
+}
+
+.admin-setting-edit-save:hover {
+    background: #115e59;
+}
+
+.admin-setting-edit-back {
+    background: #ef4444;
+}
+
+.admin-setting-edit-back:hover {
+    background: #dc2626;
+}
+
+@media (max-width: 600px) {
+    .admin-setting-edit {
+        padding: 14px;
+    }
+
+    .admin-setting-edit-title {
+        font-size: 20px;
+    }
+
+    .admin-setting-edit-form {
+        padding: 20px 16px;
+    }
+
+    .admin-setting-edit-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-setting-edit-save,
+    .admin-setting-edit-back {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+
+/* ==============================
+   Settings Index
+============================== */
+
+.admin-setting-index {
+    width: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.admin-setting-index-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.admin-setting-index-title {
+    margin: 0;
+    color: #1f2937;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.admin-setting-index-create {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 17px;
+    border-radius: 8px;
+    background: #0f766e;
+    color: #fff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background .2s ease;
+}
+
+.admin-setting-index-create:hover {
+    background: #115e59;
+}
+
+.admin-setting-index-table-card {
+    width: 100%;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #e8eeec;
+    border-radius: 12px;
+    box-shadow: 0 3px 14px rgba(20, 50, 45, 0.04);
+}
+
+.admin-setting-index-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.admin-setting-index-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: right;
+}
+
+.admin-setting-index-table thead {
+    background: #f8faf9;
+}
+
+.admin-setting-index-table th {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e8eeec;
+    color: #52635f;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.admin-setting-index-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #edf1ef;
+    color: #52635f;
+    vertical-align: middle;
+}
+
+.admin-setting-index-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-setting-index-table tbody tr {
+    transition: background .2s ease;
+}
+
+.admin-setting-index-table tbody tr:hover {
+    background: #f8fbfa;
+}
+
+.admin-setting-index-number {
+    width: 55px;
+    color: #84938e !important;
+}
+
+.admin-setting-index-key {
+    color: #263b36 !important;
+    font-weight: 700;
+    direction: ltr;
+    text-align: right;
+}
+
+.admin-setting-index-value {
+    max-width: 400px;
+    overflow-wrap: anywhere;
+    line-height: 1.8;
+}
+
+.admin-setting-index-actions-heading {
+    text-align: center;
+}
+
+.admin-setting-index-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.admin-setting-index-actions form {
+    margin: 0;
+}
+
+.admin-setting-index-edit,
+.admin-setting-index-delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    padding: 0 13px;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .2s ease;
+}
+
+.admin-setting-index-edit {
+    background: #3b82f6;
+}
+
+.admin-setting-index-edit:hover {
+    background: #2563eb;
+}
+
+.admin-setting-index-delete {
+    background: #ef4444;
+}
+
+.admin-setting-index-delete:hover {
+    background: #dc2626;
+}
+
+.admin-setting-index-empty {
+    padding: 30px 15px;
+    color: #84938e !important;
+    text-align: center;
+}
+
+/* Pagination */
+
+.admin-setting-index-pagination {
+    margin-top: 20px;
+}
+
+.admin-setting-index-pagination nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-setting-index-pagination nav p.text-sm {
+    display: none;
+}
+
+.admin-setting-index-pagination nav > div:first-child {
+    display: none;
+}
+
+.admin-setting-index-pagination nav a[rel="prev"],
+.admin-setting-index-pagination nav a[rel="next"],
+.admin-setting-index-pagination nav span[aria-disabled] {
+    display: none;
+}
+
+.admin-setting-index-pagination nav span.inline-flex.rtl\:flex-row-reverse {
+    direction: ltr;
+    flex-direction: row;
+}
+
+.admin-setting-index-pagination nav a,
+.admin-setting-index-pagination nav span[aria-current] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    min-height: 36px;
+    padding: 0 10px;
+    border: 1px solid #e2eae6;
+    border-radius: 7px;
+    background: #fff;
+    color: #52635f;
+    font-size: 12px;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.admin-setting-index-pagination nav a:hover {
+    background: #edf7f5;
+    border-color: #0f766e;
+    color: #0f766e;
+}
+
+.admin-setting-index-pagination nav span[aria-current] {
+    background: #0f766e;
+    border-color: #0f766e;
+    color: #fff;
+}
+
+/* Responsive */
+
+
+
+/* ==============================
+   Settings Index - Responsive
+============================== */
+
+@media (max-width: 768px) {
+
+    .admin-setting-index {
+        width: 100%;
+        max-width: 100%;
+        padding: 16px;
+        overflow: hidden;
+    }
+
+    .admin-setting-index-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 18px;
+    }
+
+    .admin-setting-index-title {
+        font-size: 20px;
+    }
+
+    .admin-setting-index-create {
+        min-height: 38px;
+        padding: 0 14px;
+        font-size: 12px;
+    }
+
+    .admin-setting-index-table-card {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .admin-setting-index-table-wrapper {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .admin-setting-index-table {
+        width: 100%;
+        min-width: 650px;
+        border-collapse: collapse;
+    }
+
+    .admin-setting-index-table th,
+    .admin-setting-index-table td {
+        padding: 12px 10px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .admin-setting-index-value {
+        max-width: 260px;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .admin-setting-index-actions {
+        flex-wrap: nowrap;
+        gap: 6px;
+    }
+
+    .admin-setting-index-edit,
+    .admin-setting-index-delete {
+        min-height: 31px;
+        padding: 0 10px;
+        white-space: nowrap;
+    }
+
+    .admin-setting-index-pagination {
+        width: 100%;
+        margin-top: 18px;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .admin-setting-index {
+        padding: 12px;
+    }
+
+    .admin-setting-index-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .admin-setting-index-title {
+        font-size: 19px;
+    }
+
+    .admin-setting-index-create {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .admin-setting-index-table {
+        min-width: 600px;
+    }
+}
+
+.admin-setting-create-save,
+.admin-setting-create-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .2s ease;
+}
+
+.admin-setting-create-save {
+    background: #16a34a;
+}
+
+.admin-setting-create-save:hover {
+    background: #15803d;
+}
+
+.admin-setting-create-back {
+    background: #ef4444;
+}
+
+.admin-setting-create-back:hover {
+    background: #dc2626;
+}
+
+@media (max-width: 600px) {
+    .admin-setting-create-actions {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .admin-setting-create-save,
+    .admin-setting-create-back {
+        width: auto;
+        min-height: 36px;
+        padding: 0 16px;
+        font-size: 12px;
+    }
+}
+@media (max-width: 600px) {
+    .admin-setting-edit-actions {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .admin-setting-edit-save,
+    .admin-setting-edit-back {
+        width: auto;
+        min-height: 36px;
+        padding: 0 16px;
+        font-size: 12px;
+    }
+}

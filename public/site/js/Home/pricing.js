@@ -45,43 +45,48 @@
     }
 
     checkFeatureLists();
+    let resizeTimer;
     window.addEventListener('resize', function() {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(checkFeatureLists, 250);
     });
 
-    // ==================== FAQ Accordion ====================
-    const faqItems = document.querySelectorAll('.pr-faq-item');
+    // ==================== Services FAQ Accordion ====================
+const serviceFaq = document.querySelector('.si-faq');
+
+if (serviceFaq) {
+    const faqItems = serviceFaq.querySelectorAll('.pr-faq-item');
 
     faqItems.forEach(item => {
         const question = item.querySelector('.pr-faq-question');
         const answer = item.querySelector('.pr-faq-answer');
 
-        question.addEventListener('click', function() {
-            const isActive = item.classList.contains('active');
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        if (!question || !answer) return;
 
-            // Close all other items
+        question.addEventListener('click', function () {
+            const isOpen = this.getAttribute('aria-expanded') === 'true';
+
+            // بستن سایر سوال‌ها
             faqItems.forEach(otherItem => {
                 if (otherItem !== item) {
                     otherItem.classList.remove('active');
-                    otherItem.querySelector('.pr-faq-question').setAttribute('aria-expanded', 'false');
-                    otherItem.querySelector('.pr-faq-answer').style.maxHeight = null;
+                    otherItem.querySelector('.pr-faq-question')
+                        .setAttribute('aria-expanded', 'false');
+                    otherItem.querySelector('.pr-faq-answer')
+                        .style.maxHeight = '0px';
                 }
             });
 
-            // Toggle current item
-            if (isActive) {
-                item.classList.remove('active');
-                this.setAttribute('aria-expanded', 'false');
-                answer.style.maxHeight = null;
-            } else {
-                item.classList.add('active');
-                this.setAttribute('aria-expanded', 'true');
-                answer.style.maxHeight = answer.scrollHeight + 'px';
-            }
+            // باز و بسته کردن سوال انتخاب‌شده
+            item.classList.toggle('active', !isOpen);
+            this.setAttribute('aria-expanded', String(!isOpen));
+
+            answer.style.maxHeight = isOpen
+                ? '0px'
+                : answer.scrollHeight + 'px';
         });
     });
+}
 
     // ==================== Smooth Scroll for Anchor Links ====================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

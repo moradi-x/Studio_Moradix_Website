@@ -6,7 +6,7 @@
     ?? ''), 155))
 
     @push('styles')
-        <link rel="stylesheet" href="{{ asset('site/css/portfolio/portfolio-show.css') }}">
+        <link rel="stylesheet" href="{{ asset('site/css/Home/portfolio/portfolio-show.css') }}">
     @endpush
 
 @section('content')
@@ -505,5 +505,5 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('site/js/portfolio/portfolio-show.js') }}" defer></script>
+    <script src="{{ asset('site/js/Home/portfolio/portfolio-show.js') }}" defer></script>
 @endpush
