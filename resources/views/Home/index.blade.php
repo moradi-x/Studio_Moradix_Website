@@ -290,7 +290,7 @@
             </div>
         </div>
     </section>
-    
+
     {{-- ==================== Studio Capabilities ==================== --}}
     <section class="studio-capabilities">
 
@@ -711,12 +711,15 @@
 
             <div class="pf-section-heading">
                 <div>
-
                     <h2 class="pf-section-title">
                         پروژه‌هایی که ساخته‌ایم
                     </h2>
                 </div>
 
+                <a href="{{ route('portfolio') }}" class="pf-projects-more-link">
+                    مشاهده همه پروژه‌ها
+                    <span>←</span>
+                </a>
             </div>
 
             <div class="pf-project-grid">
@@ -783,7 +786,12 @@
                 @endforelse
 
             </div>
-
+            <div class="pf-projects-more">
+                <a href="{{ route('portfolio') }}" class="pf-projects-more-link">
+                    مشاهده همه پروژه‌ها
+                    <span>←</span>
+                </a>
+            </div>
         </div>
     </section>
 

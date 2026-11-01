@@ -198,14 +198,20 @@ document.addEventListener('DOMContentLoaded', function () {
     })();
 
 
+
+
+
+
+
+
     // =========================================
     // 4. FAQ ACCORDION - PR FAQ STRUCTURE
     // =========================================
 
     (function () {
-       const questions = document.querySelectorAll(
-    '.pr-faq-question:not(.si-faq .pr-faq-question)'
-);
+        const questions = document.querySelectorAll(
+            '.pr-faq-question:not(.si-faq .pr-faq-question)'
+        );
 
         questions.forEach(button => {
             button.addEventListener('click', function () {
@@ -532,7 +538,36 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     })();
 
-    
-    
 
+});
+
+
+
+/* Scroll To Top */
+
+document.addEventListener('DOMContentLoaded', function () {
+    const scrollTopButton = document.getElementById('scrollTopButton');
+
+    if (!scrollTopButton) return;
+
+    function toggleScrollTopButton() {
+        if (window.scrollY > 300) {
+            scrollTopButton.classList.add('is-visible');
+        } else {
+            scrollTopButton.classList.remove('is-visible');
+        }
+    }
+
+    scrollTopButton.addEventListener('click', function () {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    window.addEventListener('scroll', toggleScrollTopButton, {
+        passive: true
+    });
+
+    toggleScrollTopButton();
 });

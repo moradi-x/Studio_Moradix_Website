@@ -1,101 +1,69 @@
+
 @extends('admin.layouts.layout')
 
 @section('title', 'Message Details')
 
 @section('content')
+    <div class="admin-contact-show">
 
-<div class="flex items-center justify-between mb-6">
-    <h1 class="text-lg font-bold text-gray-800">
-        پیام ها 
-    </h1>
-
-</div>
-
-<div class="bg-white p-6 rounded-lg shadow max-w-5xl">
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-
-        {{-- Name --}}
-        <div>
-            <label class="block mb-2 font-medium text-gray-700">
-                نام
-            </label>
-
-            <div class="border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 bg-gray-50">
-                {{ $contactMessage->name }}
-            </div>
+        <div class="admin-contact-show-header">
+            <h1 class="admin-contact-show-title">پیام‌ها</h1>
         </div>
 
-        {{-- Phone --}}
-        <div>
-            <label class="block mb-2 font-medium text-gray-700">
-                شماره تماس
-            </label>
+        <div class="admin-contact-show-card">
+            <div class="admin-contact-show-grid">
 
-            <div
-                dir="ltr"
-                class="border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 bg-gray-50 text-left"
-            >
-                {{ $contactMessage->phone }}
+                <div class="admin-contact-show-field">
+                    <label>نام</label>
+                    <div class="admin-contact-show-value">
+                        {{ $contactMessage->name }}
+                    </div>
+                </div>
+
+                <div class="admin-contact-show-field">
+                    <label>شماره تماس</label>
+                    <div class="admin-contact-show-value" dir="ltr">
+                        {{ $contactMessage->phone }}
+                    </div>
+                </div>
+
+                <div class="admin-contact-show-field">
+                    <label>نوع درخواست</label>
+                    <div class="admin-contact-show-value">
+                        {{ $contactMessage->request_type_label ?: '-' }}
+                    </div>
+                </div>
+
+                <div class="admin-contact-show-field">
+                    <label>نوع پروژه</label>
+                    <div class="admin-contact-show-value">
+                        {{ $contactMessage->project_type_label ?: '-' }}
+                    </div>
+                </div>
+
+                <div class="admin-contact-show-field admin-contact-show-full">
+                    <label>تاریخ</label>
+                    <div class="admin-contact-show-value">
+                        {{ $contactMessage->created_at?->format('Y/m/d H:i') ?? '-' }}
+                    </div>
+                </div>
+
+                <div class="admin-contact-show-field admin-contact-show-full">
+                    <label>پیام</label>
+                    <div class="admin-contact-show-value admin-contact-show-message">{{ $contactMessage->message ?: 'No message provided.' }}</div>
+                </div>
+
             </div>
-        </div>
 
-        {{-- Request Type --}}
-        <div>
-            <label class="block mb-2 font-medium text-gray-700">
-                نوع درخواست 
-            </label>
-
-            <div class="border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 bg-gray-50">
-                {{ $contactMessage->request_type_label ?: '-' }}
+            <div class="admin-contact-show-actions">
+                <a
+                    href="{{ route('admin.contact-messages.index') }}"
+                    class="admin-contact-show-back"
+                >
+                    بازگشت
+                </a>
             </div>
-        </div>
-
-        {{-- Project Type --}}
-        <div>
-            <label class="block mb-2 font-medium text-gray-700">
-                نوع پروژه 
-            </label>
-
-            <div class="border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 bg-gray-50">
-                {{ $contactMessage->project_type_label ?: '-' }}
-            </div>
-        </div>
-
-        {{-- Created At --}}
-        <div class="md:col-span-2">
-            <label class="block mb-2 font-medium text-gray-700">
-                تاریخ 
-            </label>
-
-            <div class="border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 bg-gray-50">
-                {{ $contactMessage->created_at?->format('Y/m/d H:i') ?? '-' }}
-            </div>
-        </div>
-
-        {{-- Message --}}
-        <div class="md:col-span-2">
-            <label class="block mb-2 font-medium text-gray-700">
-                پیام
-            </label>
-
-            <div class="border border-gray-300 rounded-lg px-4 py-3 text-gray-800 bg-gray-50 whitespace-pre-line min-h-[160px]">{{ $contactMessage->message ?: 'No message provided.' }}</div>
         </div>
 
     </div>
-
-    {{-- Actions --}}
-    <div class="flex items-center gap-3 mt-6">
-
-        <a
-            href="{{ route('admin.contact-messages.index') }}"
-            class="px-6 py-2.5 rounded-lg bg-red-500 text-white  hover:bg-red-600 transition"
-        >
-            بازگشت
-        </a>
-
-    </div>
-
-</div>
-
 @endsection

@@ -11,41 +11,59 @@ use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\ServicePageController;
 use App\Http\Controllers\Admin\PlanPriceController;
+use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Middleware\AdminMiddleware;
 
 
-
-
+// لاگین ادمین  
 Route::prefix('admin')->name('admin.')->group(function () {
-    // Dashboard
-    Route::get('/dashboard',  [DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('categories', CategoryController::class);
+    Route::get('/login', [AdminAuthController::class, 'showLoginForm'])
+        ->name('login');
 
-    // Requests
-    Route::resource('contact-messages', ContactMessageController::class)
-        ->only(['index', 'show', 'destroy']);
-    // Settings 
-    Route::resource('settings', SettingController::class);
-    // Projects
-    Route::resource('projects', ProjectController::class);
-
-    // edit project images
-    Route::get('/projects/{project}/images-edit',   [ProjectImageController::class, 'edit'])->name('projects.images.edit');
-    Route::post('/projects/{project}/image-add', [ProjectImageController::class, 'add'])->name('projects.images.add');
-    Route::delete('/projects/{project}/images-destroy', [ProjectImageController::class, 'destroy'])->name('projects.images.destroy');
-
-
-    // قیمت پلن ها
-    Route::get('/plan-prices', [PlanPriceController::class, 'index'])->name('plan-prices.index');
-    Route::get('/plan-prices/{planPrice}/edit', [PlanPriceController::class, 'edit'])
-        ->name('plan-prices.edit');
-    Route::put('/plan-prices/{planPrice}', [PlanPriceController::class, 'update'])
-        ->name('plan-prices.update');
-
-    // notifications
-    Route::get('/notifications',   [NotificationController::class, 'index'])->name('notifications.index');
-    Route::patch('/notifications/{id}/read', [NotificationController::class, 'read'])->name('notifications.read');
-    Route::delete('/notifications/{id}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
+    Route::post('/login', [AdminAuthController::class, 'login'])
+        ->name('login.store');
 });
+
+
+
+Route::prefix('admin')->name('admin.')->middleware(AdminMiddleware::class)
+    ->group(function () {
+
+        // Dashboard
+        Route::get('/dashboard',  [DashboardController::class, 'index'])->name('dashboard');
+        Route::resource('categories', CategoryController::class);
+
+        // Requests
+        Route::resource('contact-messages', ContactMessageController::class)
+            ->only(['index', 'show', 'destroy']);
+        // Settings 
+        Route::resource('settings', SettingController::class);
+        // Projects
+        Route::resource('projects', ProjectController::class);
+
+        // edit project images
+        Route::get('/projects/{project}/images-edit',   [ProjectImageController::class, 'edit'])->name('projects.images.edit');
+        Route::post('/projects/{project}/image-add', [ProjectImageController::class, 'add'])->name('projects.images.add');
+        Route::delete('/projects/{project}/images-destroy', [ProjectImageController::class, 'destroy'])->name('projects.images.destroy');
+
+
+        // قیمت پلن ها
+        Route::get('/plan-prices', [PlanPriceController::class, 'index'])->name('plan-prices.index');
+        Route::get('/plan-prices/{planPrice}/edit', [PlanPriceController::class, 'edit'])
+            ->name('plan-prices.edit');
+        Route::put('/plan-prices/{planPrice}', [PlanPriceController::class, 'update'])
+            ->name('plan-prices.update');
+
+        // notifications
+        Route::get('/notifications',   [NotificationController::class, 'index'])->name('notifications.index');
+        Route::patch('/notifications/{id}/read', [NotificationController::class, 'read'])->name('notifications.read');
+        Route::delete('/notifications/{id}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
+
+        // خروج ادمین
+        Route::post('/logout', [AdminAuthController::class, 'logout'])
+            ->name('logout');
+    });
+
 
 // درباره ما  و تماس با و ما پلن ها و قیمت ها
 Route::get('/', [HomeController::class, 'index'])->name('home');

@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="{{ asset('site/css/Admin/admin.css') }}">
     <link rel="stylesheet" href="{{ asset('site/css/Admin/categories.css') }}">
     <link rel="stylesheet" href="{{ asset('site/css/Admin/settings.css') }}">
+    <link rel="stylesheet" href="{{ asset('site/css/Admin/contact-messages.css') }}">
+    <link rel="stylesheet" href="{{ asset('site/css/Admin/plan-prices.css') }}">
+    <link rel="stylesheet" href="{{ asset('site/css/Admin/projects.css') }}">
     <script src="{{ asset('site/js/Admin/admin.js') }}" defer></script>
 
 </head>

@@ -1,240 +1,165 @@
+
 @extends('admin.layouts.layout')
 
 @section('title', 'نمایش پروژه')
 
 @section('content')
 
-    <div class="w-full min-h-screen p-6">
+    <div class="admin-project-show">
 
         {{-- Header --}}
-        <div class="flex items-center justify-between mb-6">
+        <div class="admin-project-show-header">
 
-            <div>
-                <h1 class="text-2xl font-bold text-gray-800">
-                    نمایش پروژه :
-                    {{ $project->title }}
+            <h1 class="admin-project-show-title">
+                نمایش پروژه:
+                {{ $project->title }}
+            </h1>
 
-                </h1>
-            </div>
+            <a href="{{ route('admin.projects.index') }}"
+               class="admin-project-show-back">
+                برگشت
+            </a>
 
-            <div class="flex items-center gap-2">
-
-
-
-                  <a href="{{ route('admin.projects.index') }}"
-                        class="px-6 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition">
-                        برگشت
-                    </a>
-
-            </div>
         </div>
 
-
         {{-- Main Card --}}
-        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+        <div class="admin-project-show-card">
 
+            {{-- Main Information --}}
+            <section class="admin-project-show-section">
 
-            {{-- ========================================= --}}
-            {{-- اطلاعات اصلی --}}
-            {{-- ========================================= --}}
-
-            <div class="mb-8">
-
-                <h2 class="text-lg font-semibold text-gray-800 mb-5">
+                <h2 class="admin-project-show-section-title">
                     اطلاعات پروژه
                 </h2>
 
-                {{-- Row 1: Title / Slug / Category --}}
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="admin-project-show-fields">
 
-                    {{-- Title --}}
-                    <div>
-
-                        <label class="block text-sm font-medium text-gray-500 mb-2">
-                            نام پروژه
-                        </label>
-
-                        <div class="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-800">
-                            {{ $project->title }}
-                        </div>
-
+                    <div class="admin-project-show-field">
+                        <label>نام پروژه</label>
+                        <div>{{ $project->title }}</div>
                     </div>
 
-
-                    {{-- Slug --}}
-                    <div>
-
-                        <label class="block text-sm font-medium text-gray-500 mb-2">
-                            Slug
-                        </label>
-
-                        <div class="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-800">
-                            {{ $project->slug }}
-                        </div>
-
+                    <div class="admin-project-show-field">
+                        <label>Slug</label>
+                        <div dir="ltr">{{ $project->slug }}</div>
                     </div>
 
-
-                    {{-- Category --}}
-                    <div>
-
-                        <label class="block text-sm font-medium text-gray-500 mb-2">
-                            دسته‌بندی
-                        </label>
-
-                        <div class="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-800">
-                            {{ $project->category?->name ?? '—' }}
-                        </div>
-
+                    <div class="admin-project-show-field">
+                        <label>دسته‌بندی</label>
+                        <div>{{ $project->category?->name ?? '—' }}</div>
                     </div>
 
                 </div>
 
+                <div class="admin-project-show-fields admin-project-show-two-columns">
 
-                {{-- Row 2: Short Description / Description --}}
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-
-                    {{-- Short Description --}}
-                    <div>
-
-                        <label class="block text-sm font-medium text-gray-500 mb-2">
-                            توضیح کوتاه
-                        </label>
-
-                        <div
-                            class="w-full min-h-[100px] rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700 leading-6 whitespace-pre-line">{{ $project->short_description }}</div>
-
+                    <div class="admin-project-show-field">
+                        <label>توضیح کوتاه</label>
+                        <div class="admin-project-show-description">
+                            {{ $project->short_description }}
+                        </div>
                     </div>
 
-
-                    {{-- Description --}}
-                    <div>
-
-                        <label class="block text-sm font-medium text-gray-500 mb-2">
-                            توضیحات کامل
-                        </label>
-
-                        <div
-                            class="w-full min-h-[100px] rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700 leading-6 whitespace-pre-line">{{ $project->description }}</div>
-
+                    <div class="admin-project-show-field">
+                        <label>توضیحات کامل</label>
+                        <div class="admin-project-show-description">
+                            {{ $project->description }}
+                        </div>
                     </div>
 
                 </div>
 
-            </div>
+            </section>
 
+            {{-- Project Links --}}
+            <section class="admin-project-show-section">
 
-
-            {{-- ========================================= --}}
-            {{-- لینک ها --}}
-            {{-- ========================================= --}}
-
-            <div class="mb-8">
-
-                <h2 class="text-lg font-semibold text-gray-800 mb-5">
+                <h2 class="admin-project-show-section-title">
                     لینک‌های پروژه
                 </h2>
 
-                {{-- Row 3: Project URL / Github --}}
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="admin-project-show-fields admin-project-show-two-columns">
 
-                    {{-- Project URL --}}
-                    <div>
-
-                        <label class="block text-sm font-medium text-gray-500 mb-2">
-                            لینک پروژه
-                        </label>
+                    <div class="admin-project-show-field">
+                        <label>لینک پروژه</label>
 
                         @if ($project->project_url)
-                            <a href="{{ $project->project_url }}" target="_blank"
-                                class="block w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-green-600 hover:text-green-700 hover:bg-green-50 truncate">
+                            <a href="{{ $project->project_url }}"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="admin-project-show-link"
+                               dir="ltr">
                                 {{ $project->project_url }}
                             </a>
                         @else
-                            <div
-                                class="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-400">
+                            <div class="admin-project-show-empty">
                                 ثبت نشده
                             </div>
                         @endif
-
                     </div>
 
-
-                    {{-- Github --}}
-                    <div>
-
-                        <label class="block text-sm font-medium text-gray-500 mb-2">
-                            لینک GitHub
-                        </label>
+                    <div class="admin-project-show-field">
+                        <label>لینک GitHub</label>
 
                         @if ($project->github_url)
-                            <a href="{{ $project->github_url }}" target="_blank"
-                                class="block w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-green-600 hover:text-green-700 hover:bg-green-50 truncate">
+                            <a href="{{ $project->github_url }}"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="admin-project-show-link"
+                               dir="ltr">
                                 {{ $project->github_url }}
                             </a>
                         @else
-                            <div
-                                class="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-400">
+                            <div class="admin-project-show-empty">
                                 ثبت نشده
                             </div>
                         @endif
-
                     </div>
 
                 </div>
 
-            </div>
+            </section>
 
+            {{-- Project Specifications --}}
+            <section class="admin-project-show-section">
 
-
-            {{-- ========================================= --}}
-            {{-- تکنولوژی / وضعیت / ویژه --}}
-            {{-- ========================================= --}}
-
-            <div class="mb-8">
-
-                <h2 class="text-lg font-semibold text-gray-800 mb-5">
+                <h2 class="admin-project-show-section-title">
                     مشخصات پروژه
                 </h2>
 
-                {{-- Row 4: Technologies / Status / Featured --}}
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-
+                <div class="admin-project-show-specifications">
 
                     {{-- Features --}}
-                    <div class="mb-6">
+                    <div class="admin-project-show-specification">
 
-                        <label class="block text-sm font-medium text-gray-500 mb-3">
-                            ویژگی‌های پروژه
-                        </label>
+                        <label>ویژگی‌های پروژه</label>
 
                         @if ($project->features->count())
 
-                            <div class="flex flex-wrap gap-2">
+                            <div class="admin-project-show-features">
 
                                 @foreach ($project->features as $feature)
-                                    <span
-                                        class="inline-flex items-center gap-2 rounded-lg border border-blue-200 bg-blue-50 px-3 py-2 text-sm text-blue-700">
 
-                                        <svg class="w-4 h-4 text-blue-500 flex-shrink-0" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7">
-                                            </path>
-
+                                    <span class="admin-project-show-feature">
+                                        <svg viewBox="0 0 24 24"
+                                             fill="none"
+                                             stroke="currentColor"
+                                             stroke-width="2"
+                                             stroke-linecap="round"
+                                             stroke-linejoin="round">
+                                            <path d="M5 13l4 4L19 7"/>
                                         </svg>
 
                                         {{ $feature->name }}
-
                                     </span>
+
                                 @endforeach
 
                             </div>
+
                         @else
-                            <div
-                                class="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-400">
+
+                            <div class="admin-project-show-empty">
                                 ویژگی‌ای برای این پروژه ثبت نشده است.
                             </div>
 
@@ -242,22 +167,19 @@
 
                     </div>
 
-
                     {{-- Status --}}
-                    <div>
+                    <div class="admin-project-show-specification">
 
-                        <label class="block text-sm font-medium text-gray-500 mb-2">
-                            وضعیت
-                        </label>
+                        <label>وضعیت</label>
 
-                        <div class="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm">
+                        <div class="admin-project-show-status-box">
 
                             @if ($project->status)
-                                <span class="text-green-600 font-medium">
+                                <span class="admin-project-show-status-active">
                                     فعال
                                 </span>
                             @else
-                                <span class="text-red-500 font-medium">
+                                <span class="admin-project-show-status-inactive">
                                     غیرفعال
                                 </span>
                             @endif
@@ -266,99 +188,85 @@
 
                     </div>
 
-
-
                 </div>
 
-            </div>
+            </section>
 
         </div>
 
+        {{-- Primary Image --}}
+        <section class="admin-project-show-image-section">
 
-
-        {{-- ========================================= --}}
-        {{-- تصویر اصلی --}}
-        {{-- ========================================= --}}
-
-        <div class="mb-8">
-
-            <h2 class="text-lg font-semibold text-gray-800 mb-5">
+            <h2 class="admin-project-show-section-title">
                 تصویر اصلی پروژه
             </h2>
 
-            <div class="w-full rounded-xl border border-gray-200 overflow-hidden bg-gray-50">
+            <div class="admin-project-show-primary-image">
 
                 @if ($project->primary_image)
-                    <img src="{{ asset(env('PROJECT_IMAGES_UPLOAD_PATH') . '/' . $project->primary_image) }}"
-                        alt="{{ $project->title }}" class="w-full h-64 object-contain">
+
+                    <img
+                        src="{{ asset(env('PROJECT_IMAGES_UPLOAD_PATH') . '/' . $project->primary_image) }}"
+                        alt="{{ $project->title }}"
+                    >
+
                 @else
-                    <div class="h-64 flex items-center justify-center text-gray-400 text-sm">
+
+                    <div class="admin-project-show-image-empty">
                         تصویر اصلی وجود ندارد
                     </div>
+
                 @endif
 
             </div>
 
-        </div>
+        </section>
 
+        {{-- Other Images --}}
+        <section class="admin-project-show-image-section">
 
-
-        {{-- ========================================= --}}
-        {{-- تصاویر دیگر --}}
-        {{-- ========================================= --}}
-
-        <div class="mb-8">
-
-            <div class="flex items-center justify-between mb-5">
-
-                <h2 class="text-lg font-semibold text-gray-800">
-                    تصاویر دیگر پروژه
-                </h2>
-
-
-
-            </div>
-
+            <h2 class="admin-project-show-section-title">
+                تصاویر دیگر پروژه
+            </h2>
 
             @if ($project->images->count())
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                <div class="admin-project-show-gallery">
 
                     @foreach ($project->images as $image)
-                        <div class="rounded-xl border border-gray-200 overflow-hidden bg-gray-50">
 
-                            <img src="{{ asset(env('PROJECT_IMAGES_UPLOAD_PATH') . '/' . $image->image) }}"
-                                alt="{{ $project->title }}" class="w-full h-32 object-cover">
+                        <div class="admin-project-show-gallery-item">
+
+                            <img
+                                src="{{ asset(env('PROJECT_IMAGES_UPLOAD_PATH') . '/' . $image->image) }}"
+                                alt="{{ $project->title }}"
+                            >
 
                         </div>
+
                     @endforeach
 
                 </div>
+
             @else
-                <div class="rounded-lg border border-gray-200 bg-gray-50 p-6 text-center text-sm text-gray-400">
+
+                <div class="admin-project-show-empty-gallery">
                     تصویر دیگری برای این پروژه ثبت نشده است.
                 </div>
 
             @endif
 
-        </div>
+        </section>
 
-
-
-        {{-- ========================================= --}}
         {{-- Footer --}}
-        {{-- ========================================= --}}
+        <div class="admin-project-show-footer">
 
-        <div class="flex items-center justify-end gap-3 pt-5 border-t border-gray-200">
-
-             <a href="{{ route('admin.projects.index') }}"
-                        class="px-6 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition">
-                        برگشت
-                    </a>
+            <a href="{{ route('admin.projects.index') }}"
+               class="admin-project-show-back">
+                برگشت
+            </a>
 
         </div>
-
-    </div>
 
     </div>
 

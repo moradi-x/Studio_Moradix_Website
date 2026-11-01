@@ -1,179 +1,137 @@
 @extends('admin.layouts.layout')
 
+@section('title', 'پروژه‌ها')
+
 @section('content')
-    <div class="p-6">
+
+    <div class="admin-project-index">
 
         {{-- Header --}}
-        <div class="flex items-center justify-between mb-6">
+        <div class="admin-project-index-header">
 
-            <div>
-                <h1 class="text-2xl font-bold text-gray-800">
-                    پروژه‌ها
-                </h1>
-            </div>
+            <h1 class="admin-project-index-title">
+                پروژه‌ها
+            </h1>
 
-            <a href="{{ route('admin.projects.create') }}"
-                class="px-4 py-2 rounded-lg bg-green-600 text-white text-sm font-medium hover:bg-green-700">
+            <a href="{{ route('admin.projects.create') }}" class="admin-project-index-create">
                 پروژه جدید
             </a>
 
         </div>
 
-
         {{-- Success Message --}}
         @if (session('success'))
-            <div class="mb-5 rounded-lg bg-green-100 border border-green-200 text-green-700 px-4 py-3">
+            <div class="admin-project-index-alert admin-project-index-success">
                 {{ session('success') }}
             </div>
         @endif
 
-
         {{-- Error Message --}}
         @if (session('error'))
-            <div class="mb-5 rounded-lg bg-red-100 border border-red-200 text-red-700 px-4 py-3">
+            <div class="admin-project-index-alert admin-project-index-error">
                 {{ session('error') }}
             </div>
         @endif
 
-
         {{-- Projects Table --}}
-        <div class="w-full">
-            <div class="overflow-x-auto">
+        <div class="admin-project-index-table-card">
 
-                <table class="w-full text-sm text-right">
+            <div class="admin-project-index-table-wrapper">
 
-                    <thead class="bg-gray-50 border-b border-gray-200">
+                <table class="admin-project-index-table">
 
+                    <thead>
                         <tr>
-
-                            <th class="px-4 py-3 font-semibold text-gray-700">
-                                #
-                            </th>
-
-                            <th class="px-4 py-3 font-semibold text-gray-700">
-                                اسم پروژه
-                            </th>
-                            <th class="px-6 py-3 font-semibold text-gray-700 text-center">
-                                دسته‌بندی
-                            </th>
-
-                            <th class="px-4 py-3 font-semibold text-gray-700 ">
-                                وضعیت
-                            </th>
-
-                            <th class="px-4 py-3 font-semibold text-gray-700 text-center">
-                                عملیات
-                            </th>
-
+                            <th>#</th>
+                            <th>اسم پروژه</th>
+                            <th class="admin-project-index-center">دسته‌بندی</th>
+                            <th>وضعیت</th>
+                            <th class="admin-project-index-center">عملیات</th>
                         </tr>
-
                     </thead>
 
-
-                    <tbody class="divide-y divide-gray-100">
+                    <tbody>
 
                         @forelse($projects as $project)
-                            <tr class="hover:bg-gray-50 transition">
+                            <tr>
 
                                 {{-- ID --}}
-                                <td class="px-4 py-4 text-gray-500">
+                                <td class="admin-project-index-id">
                                     {{ $project->id }}
                                 </td>
 
-
                                 {{-- Project Name --}}
-                                <td class="px-4 py-4 font-semibold text-gray-800">
+                                <td class="admin-project-index-name">
                                     {{ $project->title }}
                                 </td>
 
-
                                 {{-- Category --}}
-                                <td class="px-6 py-4 text-gray-700 text-center">
+                                <td class="admin-project-index-category">
                                     @if ($project->category)
                                         {{ $project->category->name }}
                                     @else
-                                        <span class="text-gray-400">—</span>
+                                        <span class="admin-project-index-dash">—</span>
                                     @endif
                                 </td>
 
-
-
-
                                 {{-- Project Status --}}
-
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td>
                                     @if ((int) $project->status === 1)
-                                        <span
-                                            class="inline-flex items-center gap-2 rounded-full bg-green-100 px-3 py-1.5 text-xs font-semibold text-green-700">
-                                            <span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                                        <span class="admin-project-index-status admin-project-index-completed">
+                                            <span></span>
                                             تکمیل شده
                                         </span>
                                     @else
-                                        <span
-                                            class="inline-flex items-center gap-2 rounded-full bg-yellow-100 px-3 py-1.5 text-xs font-semibold text-yellow-700">
-                                            <span class="h-1.5 w-1.5 rounded-full bg-yellow-500"></span>
+                                        <span class="admin-project-index-status admin-project-index-development">
+                                            <span></span>
                                             در حال توسعه
                                         </span>
                                     @endif
                                 </td>
 
-
-
-
-
-
                                 {{-- Actions --}}
-                                <td class="px-4 py-4 text-center">
+                                <td class="admin-project-index-actions-cell">
 
-                                    <details class="group relative inline-block">
+                                    <details class="admin-project-index-menu">
 
-                                        <summary
-                                            class="list-none cursor-pointer inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-700 text-white text-xs font-medium hover:bg-gray-800 transition">
+                                        <summary class="admin-project-index-menu-button">
                                             عملیات
 
-                                            <svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none"
-                                                stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M19 9l-7 7-7-7" />
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M19 9l-7 7-7-7" />
                                             </svg>
-
                                         </summary>
 
-
                                         {{-- Operations Menu --}}
-                                        <div
-                                            class="absolute left-1/2 -translate-x-1/2 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 p-2 text-right">
+                                        <div class="admin-project-index-menu-content">
 
                                             <a href="{{ route('admin.projects.edit', $project) }}"
-                                                class="block w-full px-3 py-2 rounded-md text-sm  hover:bg-blue-50">
+                                                class="admin-project-index-menu-edit">
                                                 ویرایش پروژه
                                             </a>
 
-
                                             <a href="{{ route('admin.projects.images.edit', $project) }}"
-                                                class="block w-full px-3 py-2 rounded-md text-sm  hover:bg-purple-50">
+                                                class="admin-project-index-menu-images">
                                                 ویرایش تصاویر
                                             </a>
 
-
                                             <a href="{{ route('admin.projects.show', $project) }}"
-                                                class="block w-full px-3 py-2 rounded-md text-sm  hover:bg-gray-100">
+                                                class="admin-project-index-menu-show">
                                                 نمایش
                                             </a>
 
-
-                                            <div class="my-1 border-t border-gray-100"></div>
-
+                                            <div class="admin-project-index-menu-divider"></div>
 
                                             <form action="{{ route('admin.projects.destroy', $project) }}" method="POST"
                                                 onsubmit="return confirm('آیا مطمئنی می‌خواهی پروژه «{{ $project->title }}» و تمام تصاویر آن حذف شود؟')">
                                                 @csrf
                                                 @method('DELETE')
 
-                                                <button type="submit"
-                                                    class="block w-full text-right px-4 py-2 text-sm text-red-600 hover:bg-red-50">
+                                                <button type="submit" class="admin-project-index-menu-delete">
                                                     حذف پروژه
                                                 </button>
+
                                             </form>
 
                                         </div>
@@ -187,11 +145,9 @@
                         @empty
 
                             <tr>
-
-                                <td colspan="6" class="px-4 py-10 text-center text-gray-400">
+                                <td colspan="5" class="admin-project-index-empty">
                                     هنوز هیچ پروژه‌ای ثبت نشده است.
                                 </td>
-
                             </tr>
                         @endforelse
 
@@ -203,7 +159,7 @@
 
             {{-- Pagination --}}
             @if ($projects->hasPages())
-                <div class="px-4 py-4">
+                <div class="admin-project-index-pagination">
                     {{ $projects->links() }}
                 </div>
             @endif
@@ -211,4 +167,5 @@
         </div>
 
     </div>
+
 @endsection

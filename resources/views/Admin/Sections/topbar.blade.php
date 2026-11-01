@@ -25,14 +25,7 @@
 
     </div>
 
-    {{-- Center: Search --}}
-    <div class="admin-topbar-search">
-        <input
-            type="search"
-            placeholder="جست‌وجو..."
-            aria-label="جست‌وجو"
-        >
-    </div>
+  
 
     {{-- Left: Notification --}}
     <div class="admin-topbar-left">

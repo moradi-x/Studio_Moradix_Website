@@ -1,0 +1,413 @@
+
+/* Plan Prices Index */
+
+.admin-plan-index {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.admin-plan-index-header {
+    margin-bottom: 24px;
+}
+
+.admin-plan-index-title {
+    margin: 0;
+    color: #1f2937;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.admin-plan-index-description {
+    margin: 8px 0 0;
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.admin-plan-index-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.admin-plan-index-card {
+    min-width: 0;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 3px 14px rgba(20, 50, 45, 0.04);
+}
+
+.admin-plan-index-card-header {
+    padding: 20px;
+    background: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.admin-plan-index-card-header h2 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.admin-plan-index-prices {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    padding: 20px;
+}
+
+.admin-plan-index-price-box {
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 9px;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.admin-plan-index-price-label {
+    margin: 0 0 12px;
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.admin-plan-index-price {
+    margin: 0 0 5px;
+    color: #1f2937;
+    font-size: 19px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.admin-plan-index-currency {
+    color: #6b7280;
+    font-size: 11px;
+}
+
+.admin-plan-index-actions {
+    padding: 0 20px 20px;
+}
+
+.admin-plan-index-edit {
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 18px;
+    border-radius: 8px;
+    background: #3b82f6;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background .2s ease;
+    box-sizing: border-box;
+}
+
+.admin-plan-index-edit:hover {
+    background: #2563eb;
+}
+
+.admin-plan-index-empty {
+    margin: 0;
+    padding: 20px;
+    color: #ef4444;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+    .admin-plan-index-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .admin-plan-index {
+        padding: 16px;
+    }
+
+    .admin-plan-index-header {
+        margin-bottom: 18px;
+    }
+
+    .admin-plan-index-title {
+        font-size: 19px;
+    }
+
+    .admin-plan-index-description {
+        font-size: 12px;
+    }
+
+    .admin-plan-index-grid {
+        gap: 16px;
+    }
+
+    .admin-plan-index-card-header {
+        padding: 16px;
+    }
+
+    .admin-plan-index-card-header h2 {
+        font-size: 14px;
+    }
+
+    .admin-plan-index-prices {
+        gap: 10px;
+        padding: 14px;
+    }
+
+    .admin-plan-index-price-box {
+        padding: 12px;
+    }
+
+    .admin-plan-index-price-label {
+        font-size: 11px;
+    }
+
+    .admin-plan-index-price {
+        font-size: 16px;
+    }
+
+    .admin-plan-index-actions {
+        padding: 0 14px 14px;
+    }
+
+    .admin-plan-index-edit {
+        min-height: 34px;
+        padding: 0 13px;
+        font-size: 11px;
+    }
+
+    .admin-plan-index-empty {
+        padding: 14px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .admin-plan-index-prices {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* Plan Prices Edit */
+
+.admin-plan-edit {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.admin-plan-edit-header {
+    margin-bottom: 24px;
+}
+
+.admin-plan-edit-title {
+    margin: 0;
+    color: #1f2937;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.admin-plan-edit-description {
+    margin: 8px 0 0;
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.admin-plan-edit-form {
+    width: 100%;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 3px 14px rgba(20, 50, 45, 0.04);
+    box-sizing: border-box;
+}
+
+.admin-plan-edit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.admin-plan-edit-field {
+    min-width: 0;
+}
+
+.admin-plan-edit-field label {
+    display: block;
+    margin-bottom: 9px;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.admin-plan-edit-field input {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 13px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+    background: #ffffff;
+    color: #1f2937;
+    font-family: inherit;
+    font-size: 13px;
+    box-sizing: border-box;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.admin-plan-edit-field input:focus {
+    border-color: #16a34a;
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+}
+
+.admin-plan-edit-error {
+    margin: 7px 0 0;
+    color: #ef4444;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.admin-plan-edit-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 26px;
+}
+
+.admin-plan-edit-save,
+.admin-plan-edit-back {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    border: 0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background .2s ease;
+}
+
+.admin-plan-edit-save {
+    background: #16a34a;
+    color: #ffffff;
+}
+
+.admin-plan-edit-save:hover {
+    background: #15803d;
+}
+
+.admin-plan-edit-back {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.admin-plan-edit-back:hover {
+    background: #d1d5db;
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+    .admin-plan-edit {
+        padding: 16px;
+    }
+
+    .admin-plan-edit-form {
+        padding: 22px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .admin-plan-edit {
+        padding: 12px;
+    }
+
+    .admin-plan-edit-title {
+        font-size: 19px;
+    }
+
+    .admin-plan-edit-description {
+        font-size: 12px;
+    }
+
+    .admin-plan-edit-form {
+        padding: 16px;
+    }
+
+    .admin-plan-edit-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .admin-plan-edit-field label {
+        font-size: 12px;
+    }
+
+    .admin-plan-edit-field input {
+        min-height: 40px;
+        font-size: 12px;
+    }
+
+    .admin-plan-edit-actions {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        margin-top: 22px;
+    }
+
+    .admin-plan-edit-save,
+    .admin-plan-edit-back {
+        width: auto;
+        min-height: 36px;
+        padding: 0 16px;
+        font-size: 12px;
+    }
+}
+/* Persian Price Numbers Font */
+
+.admin-plan-edit-field input {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    direction: rtl;
+    text-align: right;
+}
+
+
+/* Persian Numbers - Plan Prices Index */
+
+.admin-plan-index-price {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    direction: rtl;
+    text-align: right;
+    font-variant-numeric: normal;
+}

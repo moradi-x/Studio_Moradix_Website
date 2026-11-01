@@ -33,8 +33,9 @@ class HomeController extends Controller
             ->take(3)
             ->get();
 
-             $projects = Project::with(['category', 'features'])
+        $projects = Project::with(['category', 'features'])
             ->latest()
+            ->take(3)
             ->get();
 
         return view('home.index', compact(
@@ -132,7 +133,7 @@ class HomeController extends Controller
             '9' => '۹',
         ]);
 
-        
+
         return view('Home.Portfolio.index', compact(
             'projects',
             'completedProjects',
