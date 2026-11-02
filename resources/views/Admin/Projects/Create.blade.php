@@ -90,7 +90,7 @@
                         </div>
 
                         <div class="admin-project-create-field">
-                            <label for="project-slug">Slug</label>
+                            <label for="project-slug">اسلاگ</label>
                             <input
                                 type="text"
                                 id="project-slug"

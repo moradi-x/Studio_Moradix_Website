@@ -26,17 +26,6 @@ class ProjectController extends Controller
     }
 
 
-    // public function create()
-    // {
-    //     $categories = Category::orderBy('name')->get();
-
-
-    //     return view('admin.projects.create', compact(
-    //         'categories',
-
-    //     ));
-    // }
-
 
     public function create()
     {
@@ -148,22 +137,7 @@ class ProjectController extends Controller
         return view('admin.projects.show', compact('project'));
     }
 
-    // public function edit(Project $project)
-    // {
-    //     $categories = Category::all();
-
-
-
-    //     return view(
-    //         'admin.projects.edit',
-    //         compact(
-    //             'categories',
-
-    //             'project'
-    //         )
-    //     );
-    // }
-
+   
 
 
     public function edit(Project $project)
@@ -346,7 +320,7 @@ class ProjectController extends Controller
         return redirect()
             ->route('admin.projects.index')
             ->with(
-                'success',
+                'deleted',
                 'پروژه «' . $project->title . '» با موفقیت حذف شد.'
             );
     }

@@ -1,4 +1,3 @@
-
 @extends('admin.layouts.layout')
 
 @section('title', 'Settings')
@@ -15,8 +14,7 @@
                 تنظیمات
             </h1>
 
-            <a href="{{ route('admin.settings.create') }}"
-               class="admin-setting-index-create">
+            <a href="{{ route('admin.settings.create') }}" class="admin-setting-index-create">
                 تنظیمات جدید
             </a>
 
@@ -42,7 +40,6 @@
                     <tbody>
 
                         @forelse($settings as $key => $setting)
-
                             <tr>
 
                                 <td class="admin-setting-index-number">
@@ -61,18 +58,18 @@
                                     <div class="admin-setting-index-actions">
 
                                         <a href="{{ route('admin.settings.edit', $setting) }}"
-                                           class="admin-setting-index-edit">
+                                            class="admin-setting-index-edit">
                                             ویرایش
                                         </a>
 
-                                        <form action="{{ route('admin.settings.destroy', $setting) }}"
-                                              method="POST">
+                                        <form action="{{ route('admin.settings.destroy', $setting) }}" method="POST"
+                                            onsubmit="return confirm('آیا از حذف این تنظیمات مطمئن هستید؟');">
+
 
                                             @csrf
                                             @method('DELETE')
 
-                                            <button type="submit"
-                                                    class="admin-setting-index-delete">
+                                            <button type="submit" class="admin-setting-index-delete">
                                                 حذف
                                             </button>
 
@@ -90,7 +87,6 @@
                                     تنظیماتی پیدا نشد.
                                 </td>
                             </tr>
-
                         @endforelse
 
                     </tbody>

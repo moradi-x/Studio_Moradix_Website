@@ -55,16 +55,12 @@
 
                     <div class="admin-project-show-field">
                         <label>توضیح کوتاه</label>
-                        <div class="admin-project-show-description">
-                            {{ $project->short_description }}
-                        </div>
+                        <div class="admin-project-show-description">{{ $project->short_description }}</div>
                     </div>
 
                     <div class="admin-project-show-field">
                         <label>توضیحات کامل</label>
-                        <div class="admin-project-show-description">
-                            {{ $project->description }}
-                        </div>
+                        <div class="admin-project-show-description">{{ $project->description }}</div>
                     </div>
 
                 </div>

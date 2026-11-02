@@ -262,6 +262,7 @@
                         autocomplete="username"
                         required
                         autofocus
+                        maxlength="255"
                     >
                 </div>
 
@@ -281,6 +282,7 @@
                         placeholder="رمز عبور خود را وارد کنید"
                         autocomplete="current-password"
                         required
+                        maxlength="255"
                     >
 
                     <button

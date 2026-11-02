@@ -8,7 +8,6 @@
 @section('content')
     <div class="admin-category-create">
 
-        @include('admin.sections.errors')
 
         <h1 class="admin-category-create-title">
              دسته بندی جدید

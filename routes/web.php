@@ -16,14 +16,15 @@ use App\Http\Middleware\AdminMiddleware;
 
 
 // لاگین ادمین  
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/login', [AdminAuthController::class, 'showLoginForm'])
+Route::prefix('control-x7m9p2')->name('admin.')->group(function () {
+
+    Route::get('/', [AdminAuthController::class, 'showLoginForm'])
         ->name('login');
 
-    Route::post('/login', [AdminAuthController::class, 'login'])
+    Route::post('/enter', [AdminAuthController::class, 'login'])
         ->name('login.store');
-});
 
+});
 
 
 Route::prefix('admin')->name('admin.')->middleware(AdminMiddleware::class)

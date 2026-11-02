@@ -14,8 +14,7 @@
                 دسته بندی ها
             </h1>
 
-            <a href="{{ route('admin.categories.create') }}"
-               class="admin-category-index-create">
+            <a href="{{ route('admin.categories.create') }}" class="admin-category-index-create">
                 ایجاد دسته بندی جدید
             </a>
         </div>
@@ -51,17 +50,19 @@
                                     <div class="admin-category-index-actions">
 
                                         <a href="{{ route('admin.categories.edit', $category) }}"
-                                           class="admin-category-index-edit">
+                                            class="admin-category-index-edit">
                                             ویرایش
                                         </a>
 
-                                        <form action="{{ route('admin.categories.destroy', $category) }}"
-                                              method="POST">
+                                        <form action="{{ route('admin.categories.destroy', $category) }}" method="POST"
+                                            onsubmit="return confirm('آیا از حذف این دسته‌بندی مطمئن هستید؟');">
+
                                             @csrf
                                             @method('DELETE')
 
-                                            <button type="submit"
-                                                    class="admin-category-index-delete">
+                                            <input type="hidden" name="page" value="{{ request('page', 1) }}">
+
+                                            <button type="submit" class="admin-category-index-delete">
                                                 حذف
                                             </button>
                                         </form>

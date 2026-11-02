@@ -26,6 +26,13 @@
             </div>
         @endif
 
+        {{-- Deleted --}}
+        @if (session('deleted'))
+            <div class="admin-project-images-alert admin-project-images-error">
+                {{ session('deleted') }}
+            </div>
+        @endif
+
         {{-- Error Message --}}
         @if (session('error'))
             <div class="admin-project-index-alert admin-project-index-error">

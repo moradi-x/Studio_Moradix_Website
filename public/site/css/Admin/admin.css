@@ -343,6 +343,187 @@
 
 
 
+
+
+/* =====================================
+   Admin Flash Messages
+===================================== */
+
+.admin-alert {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 15px 16px;
+    border: 1px solid;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Success and Danger */
+
+.admin-alert-success {
+    color: #166534;
+    background-color: #f0fdf4;
+    border-color: #bbf7d0;
+}
+
+.admin-alert-danger {
+    color: #991b1b;
+    background-color: #fef2f2;
+    border-color: #fecaca;
+}
+
+/* Icon */
+
+.admin-alert-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.admin-alert-success .admin-alert-icon {
+    background-color: #dcfce7;
+}
+
+.admin-alert-danger .admin-alert-icon {
+    background-color: #fee2e2;
+}
+
+.admin-alert-icon svg {
+    display: block;
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+}
+
+/* Content */
+
+.admin-alert-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.admin-alert-title {
+    margin: 0 0 3px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.admin-alert-message {
+    margin: 0;
+    overflow-wrap: anywhere;
+    font-size: 12px;
+}
+
+/* Close Button */
+
+.admin-alert-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    font-family: inherit;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.admin-alert-success .admin-alert-close {
+    color: #15803d;
+}
+
+.admin-alert-danger .admin-alert-close {
+    color: #b91c1c;
+}
+
+.admin-alert-success .admin-alert-close:hover {
+    background-color: #dcfce7;
+}
+
+.admin-alert-danger .admin-alert-close:hover {
+    background-color: #fee2e2;
+}
+
+/* Validation Errors */
+
+.admin-alert-validation {
+    display: block;
+}
+
+.admin-alert-validation .admin-alert-heading {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 10px;
+}
+
+.admin-alert-validation .admin-alert-heading svg {
+    display: block;
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+}
+
+.admin-alert-validation ul {
+    margin: 0;
+    padding-right: 25px;
+}
+
+.admin-alert-validation li {
+    margin-bottom: 6px;
+    overflow-wrap: anywhere;
+    line-height: 1.9;
+}
+
+.admin-alert-validation .admin-alert-close {
+    width: auto;
+    height: auto;
+    margin-top: 8px;
+    padding: 5px 0;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+    .admin-alert {
+        gap: 9px;
+        padding: 12px;
+        font-size: 12px;
+    }
+
+    .admin-alert-icon {
+        flex-basis: 32px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .admin-alert-icon svg {
+        width: 17px;
+        height: 17px;
+    }
+}
+
+
 /* =================================
    ADMIN FOOTER
 ================================= */

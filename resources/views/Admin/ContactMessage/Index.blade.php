@@ -1,4 +1,3 @@
-
 @extends('admin.layouts.layout')
 
 @section('title', 'پیام‌های سایت')
@@ -13,6 +12,12 @@
         @if (session('success'))
             <div class="admin-contact-index-alert admin-contact-index-alert-success">
                 {{ session('success') }}
+            </div>
+        @endif
+
+        @if (session('deleted'))
+            <div class="admin-contact-index-alert admin-contact-index-alert-error">
+                {{ session('deleted') }}
             </div>
         @endif
 
@@ -66,25 +71,17 @@
 
                                 <td>
                                     <div class="admin-contact-index-actions">
-                                        <a
-                                            href="{{ route('admin.contact-messages.show', $contactMessage->id) }}"
-                                            class="admin-contact-index-show"
-                                        >
+                                        <a href="{{ route('admin.contact-messages.show', $contactMessage->id) }}"
+                                            class="admin-contact-index-show">
                                             مشاهده
                                         </a>
 
-                                        <form
-                                            action="{{ route('admin.contact-messages.destroy', $contactMessage->id) }}"
-                                            method="POST"
-                                            onsubmit="return confirm('از حذف این پیام مطمئن هستید؟')"
-                                        >
+                                        <form action="{{ route('admin.contact-messages.destroy', $contactMessage->id) }}"
+                                            method="POST" onsubmit="return confirm('از حذف این پیام مطمئن هستید؟')">
                                             @csrf
                                             @method('DELETE')
 
-                                            <button
-                                                type="submit"
-                                                class="admin-contact-index-delete"
-                                            >
+                                            <button type="submit" class="admin-contact-index-delete">
                                                 حذف
                                             </button>
                                         </form>

@@ -7,7 +7,6 @@
 
     <div class="admin-setting-create">
 
-        @include('admin.sections.errors')
 
         <div class="admin-setting-create-header">
             <h1 class="admin-setting-create-title">

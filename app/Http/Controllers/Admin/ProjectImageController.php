@@ -200,7 +200,7 @@ class ProjectImageController extends Controller
         return redirect()
             ->back()
             ->with(
-                'success',
+                'deleted',
                 'تصویر با موفقیت حذف شد.'
             );
     }

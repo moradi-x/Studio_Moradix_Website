@@ -68,7 +68,7 @@ class SettingController extends Controller
         return redirect()
             ->route('admin.settings.index')
             ->with(
-                'success',
+                'deleted',
                 'تنظیم «' . $key . '» با موفقیت حذف شد.'
             );
     }

@@ -36,7 +36,7 @@ class ContactMessageController extends Controller
         return redirect()   
             ->route('admin.contact-messages.index')
             ->with(
-                'success',
+                'deleted',
                 'پیام «' . $name . '» با موفقیت حذف شد.'
             );
     }

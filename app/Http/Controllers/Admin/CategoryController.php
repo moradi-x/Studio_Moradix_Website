@@ -65,33 +65,6 @@ class CategoryController extends Controller
         ]);
     }
 
-
-
-
-    // public function update(Request $request, Category $category)
-    // {
-
-    //     $validated = $request->validate([
-
-    //         'name' => 'required|string|max:255',
-
-    //         'slug' => 'required|string|max:255|unique:categories,slug,' . $category->id,
-
-    //     ]);
-
-
-    //     $category->update($validated);
-
-
-
-    //     return redirect()
-
-    //         ->route('admin.categories.index')
-
-    //         ->with('success', 'Category updated successfully');
-
-    // }
-
     public function update(Request $request, Category $category)
     {
         $validated = $request->validate([
@@ -108,16 +81,15 @@ class CategoryController extends Controller
     }
 
 
-    public function destroy(Category $category)
+    public function destroy(Request $request, Category $category)
     {
         $name = $category->name;
+        $page = $request->input('page', 1);
 
         $category->delete();
 
         return redirect()
-    ->route('admin.categories.index')
-    ->with('success', 'کتگوری «' . $category->name . '» با موفقیت حذف شد.');
+            ->route('admin.categories.index', ['page' => $page])
+            ->with('deleted', 'کتگوری «' . $name . '» با موفقیت حذف شد.');
     }
-
-    
 }
