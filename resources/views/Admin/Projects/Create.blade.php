@@ -1,34 +1,12 @@
-
 @extends('admin.layouts.layout')
 
 @section('title', 'افزودن پروژه')
 
 @section('script')
     <script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.feature-multiselect').forEach(function (element) {
-                if (element.tomselect) return;
-
-                new TomSelect(element, {
-                    plugins: ['remove_button'],
-                    create: false,
-                    persist: false,
-                    closeAfterSelect: false,
-                    hideSelected: true,
-                    maxOptions: 200,
-                    placeholder: 'جست‌وجو و انتخاب ویژگی...',
-                    render: {
-                        no_results: function () {
-                            return '<div class="no-results">موردی پیدا نشد</div>';
-                        }
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="{{ asset('site/js/Admin/projects.js') }}" defer></script>
 @endsection
+
 
 @section('content')
 
@@ -47,26 +25,13 @@
             </a>
         </div>
 
-        {{-- Validation Errors --}}
-        @if ($errors->any())
-            <div class="admin-project-create-errors">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+
 
         {{-- Form --}}
         <div class="admin-project-create-card">
 
-            <form
-                action="{{ route('admin.projects.store') }}"
-                method="POST"
-                enctype="multipart/form-data"
-                autocomplete="off"
-            >
+            <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data"
+                autocomplete="off">
                 @csrf
 
                 {{-- Basic Information --}}
@@ -80,25 +45,20 @@
 
                         <div class="admin-project-create-field">
                             <label for="project-title">نام پروژه</label>
-                            <input
-                                type="text"
-                                id="project-title"
-                                name="title"
-                                value="{{ old('title') }}"
-                                placeholder="نام پروژه"
-                            >
+                            <input type="text" id="project-title" name="title" value="{{ old('title') }}"
+                                placeholder="نام پروژه">
+                            @error('title')
+                                <p class="admin-project-create-field-error">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div class="admin-project-create-field">
                             <label for="project-slug">اسلاگ</label>
-                            <input
-                                type="text"
-                                id="project-slug"
-                                name="slug"
-                                value="{{ old('slug') }}"
-                                placeholder="project-slug"
-                                dir="ltr"
-                            >
+                            <input type="text" id="project-slug" name="slug" value="{{ old('slug') }}"
+                                placeholder="project-slug" dir="ltr">
+                            @error('slug')
+                                <p class="admin-project-create-field-error">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div class="admin-project-create-field">
@@ -107,34 +67,31 @@
                                 <option value="">انتخاب دسته‌بندی</option>
 
                                 @foreach ($categories as $category)
-                                    <option
-                                        value="{{ $category->id }}"
-                                        @selected(old('category_id') == $category->id)
-                                    >
+                                    <option value="{{ $category->id }}" @selected(old('category_id') == $category->id)>
                                         {{ $category->name }}
                                     </option>
                                 @endforeach
+
                             </select>
+                            @error('category_id')
+                                <p class="admin-project-create-field-error">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div class="admin-project-create-field admin-project-create-full">
                             <label for="short-description">توضیح کوتاه</label>
-                            <textarea
-                                id="short-description"
-                                name="short_description"
-                                rows="3"
-                                placeholder="توضیح کوتاهی درباره پروژه..."
-                            >{{ old('short_description') }}</textarea>
+                            <textarea id="short-description" name="short_description" rows="3" placeholder="توضیح کوتاهی درباره پروژه...">{{ old('short_description') }}</textarea>
+                            @error('short_description')
+                                <p class="admin-project-create-field-error">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div class="admin-project-create-field admin-project-create-full">
                             <label for="project-description">توضیحات کامل</label>
-                            <textarea
-                                id="project-description"
-                                name="description"
-                                rows="5"
-                                placeholder="توضیحات کامل پروژه..."
-                            >{{ old('description') }}</textarea>
+                            <textarea id="project-description" name="description" rows="5" placeholder="توضیحات کامل پروژه...">{{ old('description') }}</textarea>
+                            @error('description')
+                                <p class="admin-project-create-field-error">{{ $message }}</p>
+                            @enderror
                         </div>
 
                     </div>
@@ -143,9 +100,7 @@
                 {{-- Project Features --}}
                 @php
                     $oldFeatureIds = old('feature_ids', []);
-                    $selectedFeatureIds = is_array($oldFeatureIds)
-                        ? array_map('intval', $oldFeatureIds)
-                        : [];
+                    $selectedFeatureIds = is_array($oldFeatureIds) ? array_map('intval', $oldFeatureIds) : [];
                 @endphp
 
                 <section class="admin-project-create-section">
@@ -169,7 +124,6 @@
                         @forelse ($featureCategories as $featureCategory)
 
                             @if ($featureCategory->features->isNotEmpty())
-
                                 <div class="admin-project-create-feature-card">
 
                                     <label for="features-category-{{ $featureCategory->id }}">
@@ -182,25 +136,16 @@
                                         </p>
                                     @endif
 
-                                    <select
-                                        id="features-category-{{ $featureCategory->id }}"
-                                        name="feature_ids[]"
-                                        class="feature-multiselect"
-                                        multiple
-                                        placeholder="جست‌وجو و انتخاب ویژگی..."
-                                    >
+                                    <select id="features-category-{{ $featureCategory->id }}" name="feature_ids[]"
+                                        class="feature-multiselect" multiple placeholder="جست‌وجو و انتخاب ویژگی...">
                                         @foreach ($featureCategory->features as $feature)
-                                            <option
-                                                value="{{ $feature->id }}"
-                                                @selected(in_array($feature->id, $selectedFeatureIds, true))
-                                            >
+                                            <option value="{{ $feature->id }}" @selected(in_array($feature->id, $selectedFeatureIds, true))>
                                                 {{ $feature->name }}
                                             </option>
                                         @endforeach
                                     </select>
 
                                 </div>
-
                             @endif
 
                         @empty
@@ -230,12 +175,17 @@
                                 <span>انتخاب تصویر اصلی</span>
                                 <small>فرمت‌های JPG، PNG و WEBP</small>
 
-                                <input
-                                    type="file"
-                                    name="primary_image"
-                                    accept="image/jpeg,image/png,image/webp"
-                                >
+                                <input type="file" id="primary-image" name="primary_image"
+                                    accept="image/jpeg,image/png,image/webp">
                             </label>
+                            @error('primary_image')
+                                <p class="admin-project-create-field-error">
+                                    {{ $message }}
+                                </p>
+                            @enderror
+                            <p class="admin-project-create-file-name" id="primary-image-name">
+                                هنوز تصویری انتخاب نشده است.
+                            </p>
                         </div>
 
                         {{-- Gallery Images --}}
@@ -247,13 +197,25 @@
                                 <span>انتخاب تصاویر گالری</span>
                                 <small>امکان انتخاب چند تصویر وجود دارد</small>
 
-                                <input
-                                    type="file"
-                                    name="images[]"
-                                    multiple
-                                    accept="image/jpeg,image/png,image/webp"
-                                >
+                                <input type="file" id="gallery-images" name="images[]" multiple
+                                    accept="image/jpeg,image/png,image/webp">
                             </label>
+                            @error('images')
+                                <p class="admin-project-create-field-error">
+                                    {{ $message }}
+                                </p>
+                            @enderror
+
+                            @foreach ($errors->get('images.*') as $messages)
+                                @foreach ($messages as $message)
+                                    <p class="admin-project-create-field-error">
+                                        {{ $message }}
+                                    </p>
+                                @endforeach
+                            @endforeach
+                            <div class="admin-project-create-file-name" id="gallery-images-names">
+                                هنوز تصویری انتخاب نشده است.
+                            </div>
                         </div>
 
                     </div>
@@ -270,42 +232,24 @@
 
                         <div class="admin-project-create-field">
                             <label for="project-url">لینک پروژه</label>
-                            <input
-                                type="url"
-                                id="project-url"
-                                name="project_url"
-                                value="{{ old('project_url') }}"
-                                placeholder="https://example.com"
-                                dir="ltr"
-                            >
+                            <input type="url" id="project-url" name="project_url" value="{{ old('project_url') }}"
+                                placeholder="https://example.com" dir="ltr">
                         </div>
 
                         <div class="admin-project-create-field">
                             <label for="github-url">لینک GitHub</label>
-                            <input
-                                type="url"
-                                id="github-url"
-                                name="github_url"
-                                value="{{ old('github_url') }}"
-                                placeholder="https://github.com/..."
-                                dir="ltr"
-                            >
+                            <input type="url" id="github-url" name="github_url" value="{{ old('github_url') }}"
+                                placeholder="https://github.com/..." dir="ltr">
                         </div>
 
                         <div class="admin-project-create-field">
                             <label for="status">وضعیت پروژه</label>
                             <select name="status" id="status">
-                                <option
-                                    value="0"
-                                    {{ old('status', '0') == '0' ? 'selected' : '' }}
-                                >
+                                <option value="0" {{ old('status', '0') == '0' ? 'selected' : '' }}>
                                     در حال توسعه
                                 </option>
 
-                                <option
-                                    value="1"
-                                    {{ old('status') == '1' ? 'selected' : '' }}
-                                >
+                                <option value="1" {{ old('status') == '1' ? 'selected' : '' }}>
                                     تکمیل شده
                                 </option>
                             </select>
@@ -317,10 +261,7 @@
                 {{-- Buttons --}}
                 <div class="admin-project-create-actions">
 
-                    <a
-                        href="{{ route('admin.projects.index') }}"
-                        class="admin-project-create-cancel"
-                    >
+                    <a href="{{ route('admin.projects.index') }}" class="admin-project-create-cancel">
                         انصراف
                     </a>
 

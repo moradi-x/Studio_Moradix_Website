@@ -44,8 +44,9 @@
                 <div class="admin-contact-show-field admin-contact-show-full">
                     <label>تاریخ</label>
                     <div class="admin-contact-show-value">
-                        {{ $contactMessage->created_at?->format('Y/m/d H:i') ?? '-' }}
-                    </div>
+{{ $contactMessage->created_at
+    ? \Morilog\Jalali\Jalalian::fromCarbon($contactMessage->created_at)->format('%d %B %Y ساعت %H:%M')
+    : '-' }}                    </div>
                 </div>
 
                 <div class="admin-contact-show-field admin-contact-show-full">

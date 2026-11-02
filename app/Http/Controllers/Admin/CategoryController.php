@@ -75,8 +75,9 @@ class CategoryController extends Controller
 
         $category->update($validated);
 
+        $page = $request->input('page', 1);
         return redirect()
-            ->route('admin.categories.index')->with('success', 'این کتگوری با نام «' .
+            ->route('admin.categories.index', ['page' => $page])->with('success', 'این کتگوری با نام «' .
                 $category->name . '» با موفقیت ویرایش شد.');
     }
 

@@ -6055,3 +6055,13 @@
 }
 
 
+/* دکمه مشاهده همه پروژه‌ها در موبایل */
+.pf-projects-more {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .pf-projects-more {
+        display: block;
+    }
+}

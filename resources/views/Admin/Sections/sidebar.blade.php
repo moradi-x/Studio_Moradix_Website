@@ -47,7 +47,9 @@
         <div class="admin-sidebar-divider"></div>
 
         {{-- Logout --}}
-        <form method="POST" action="{{ route('admin.logout') }}" class="admin-logout-form">
+        <form method="POST" action="{{ route('admin.logout') }}" class="admin-logout-form"
+            onsubmit="return confirm('آیا مطمئن هستید که می‌خواهید از پنل مدیریت خارج شوید؟');">
+
             @csrf
 
             <button type="submit" class="admin-logout-button">

@@ -61,7 +61,7 @@ class ProjectController extends Controller
             'images.*' => ['image', 'mimes:jpg,jpeg,png,webp',],
             'project_url' => ['nullable'],
             'github_url' => ['nullable'],
-            'status' => ['required',    'boolean',],
+            'status' => ['required', 'boolean',],
             'feature_ids' => ['nullable', 'array'],
             'feature_ids.*' => [
                 'integer',
@@ -136,8 +136,6 @@ class ProjectController extends Controller
 
         return view('admin.projects.show', compact('project'));
     }
-
-   
 
 
     public function edit(Project $project)
@@ -261,7 +259,7 @@ class ProjectController extends Controller
             );
     }
 
-    public function destroy(Project $project)
+    public function destroy(Request $request, Project $project)
     {
         try {
             DB::beginTransaction();
@@ -304,6 +302,8 @@ class ProjectController extends Controller
             // حذف خود پروژه
             $project->delete();
 
+            $page = $request->input('page', 1);
+
             DB::commit();
         } catch (\Throwable $ex) {
 
@@ -318,7 +318,7 @@ class ProjectController extends Controller
         }
 
         return redirect()
-            ->route('admin.projects.index')
+            ->route('admin.projects.index', ['page' => $page])
             ->with(
                 'deleted',
                 'پروژه «' . $project->title . '» با موفقیت حذف شد.'

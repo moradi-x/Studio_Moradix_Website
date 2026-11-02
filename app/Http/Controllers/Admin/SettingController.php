@@ -37,8 +37,10 @@ class SettingController extends Controller
             );
     }
 
-    public function edit(Setting $setting)
+    public function edit(Request $request, Setting $setting)
     {
+        $page = $request->query('page', 1);
+
         return view('admin.settings.edit', compact('setting'));
     }
 
@@ -49,29 +51,32 @@ class SettingController extends Controller
             'value' => 'nullable|string',
         ]);
 
+        $page = $request->input('page', 1);
+
         $setting->update($validated);
 
         return redirect()
-            ->route('admin.settings.index')
+            ->route('admin.settings.index', ['page' => $page])
             ->with(
                 'success',
                 'تنظیم «' . $setting->key . '» با موفقیت ویرایش شد.'
             );
     }
 
-    public function destroy(Setting $setting)
+    public function destroy(Request $request, Setting $setting)
     {
         $key = $setting->key;
+
+        $page = $request->input('page', 1);
+
 
         $setting->delete();
 
         return redirect()
-            ->route('admin.settings.index')
+            ->route('admin.settings.index', ['page' => $page])
             ->with(
                 'deleted',
                 'تنظیم «' . $key . '» با موفقیت حذف شد.'
             );
     }
-
-   
 }

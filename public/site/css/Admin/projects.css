@@ -2078,3 +2078,12 @@
         margin: 0;
     }
 }
+
+.admin-project-create-file-name {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #64748b;
+    direction: rtl;
+    overflow-wrap: anywhere;
+    line-height: 1.8;
+}

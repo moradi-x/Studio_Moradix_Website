@@ -62,9 +62,9 @@
                         @forelse($projects as $project)
                             <tr>
 
-                                {{-- ID --}}
+                                {{-- Row Number --}}
                                 <td class="admin-project-index-id">
-                                    {{ $project->id }}
+                                    {{ $projects->firstItem() + $loop->index }}
                                 </td>
 
                                 {{-- Project Name --}}
@@ -135,6 +135,7 @@
                                                 @csrf
                                                 @method('DELETE')
 
+                                                <input type="hidden" name="page" value="{{ request('page', 1) }}">
                                                 <button type="submit" class="admin-project-index-menu-delete">
                                                     حذف پروژه
                                                 </button>

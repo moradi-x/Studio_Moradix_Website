@@ -1964,3 +1964,7 @@
         text-align: center;
     }
 }
+
+.pf-overview-description {
+    white-space: pre-line;
+}

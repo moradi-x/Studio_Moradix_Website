@@ -57,10 +57,20 @@
                                 <td>
                                     <div class="admin-setting-index-actions">
 
-                                        <a href="{{ route('admin.settings.edit', $setting) }}"
+                                        {{-- <a href="{{ route('admin.settings.edit', $setting) }}"
+                                            class="admin-setting-index-edit">
+                                            ویرایش
+                                        </a> --}}
+
+
+                                        <a href="{{ route('admin.settings.edit', [
+                                            'setting' => $setting,
+                                            'page' => request('page', 1),
+                                        ]) }}"
                                             class="admin-setting-index-edit">
                                             ویرایش
                                         </a>
+
 
                                         <form action="{{ route('admin.settings.destroy', $setting) }}" method="POST"
                                             onsubmit="return confirm('آیا از حذف این تنظیمات مطمئن هستید؟');">
@@ -69,6 +79,7 @@
                                             @csrf
                                             @method('DELETE')
 
+                                            <input type="hidden" name="page" value="{{ request('page', 1) }}">
                                             <button type="submit" class="admin-setting-index-delete">
                                                 حذف
                                             </button>

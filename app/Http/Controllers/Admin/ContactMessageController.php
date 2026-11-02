@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ContactMessage;
+use Illuminate\Http\Request;
 
 class ContactMessageController extends Controller
 {
@@ -27,14 +28,16 @@ class ContactMessageController extends Controller
         );
     }
 
-    public function destroy(ContactMessage $contactMessage)
+    public function destroy(Request $request, ContactMessage $contactMessage)
     {
         $name = $contactMessage->name;
 
         $contactMessage->delete();
 
-        return redirect()   
-            ->route('admin.contact-messages.index')
+        $page = $request->input('page', 1);
+
+        return redirect()
+            ->route('admin.contact-messages.index', ['page' => $page])
             ->with(
                 'deleted',
                 'پیام «' . $name . '» با موفقیت حذف شد.'

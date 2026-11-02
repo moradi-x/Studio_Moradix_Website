@@ -15,22 +15,16 @@
             </h1>
         </div>
 
-        <form action="{{ route('admin.categories.update', $category) }}"
-              method="POST"
-              class="admin-category-edit-form">
+        <form action="{{ route('admin.categories.update', $category) }}" method="POST" class="admin-category-edit-form">
 
             @csrf
+            <input type="hidden" name="page" value="{{ request('page', 1) }}">
             @method('PUT')
 
             <div class="admin-category-edit-field">
                 <label for="category-name">نام</label>
 
-                <input
-                    type="text"
-                    id="category-name"
-                    name="name"
-                    value="{{ old('name', $category->name) }}"
-                >
+                <input type="text" id="category-name" name="name" value="{{ old('name', $category->name) }}">
 
                 @error('name')
                     <p class="admin-category-edit-error">{{ $message }}</p>
@@ -40,12 +34,7 @@
             <div class="admin-category-edit-field">
                 <label for="category-slug">اسلاگ</label>
 
-                <input
-                    type="text"
-                    id="category-slug"
-                    name="slug"
-                    value="{{ old('slug', $category->slug) }}"
-                >
+                <input type="text" id="category-slug" name="slug" value="{{ old('slug', $category->slug) }}">
 
                 @error('slug')
                     <p class="admin-category-edit-error">{{ $message }}</p>
@@ -57,8 +46,7 @@
                     ویرایش
                 </button>
 
-                <a href="{{ route('admin.categories.index') }}"
-                   class="admin-category-edit-back">
+                <a href="{{ route('admin.categories.index') }}" class="admin-category-edit-back">
                     برگشت
                 </a>
             </div>
@@ -67,4 +55,3 @@
     </div>
 
 @endsection
-

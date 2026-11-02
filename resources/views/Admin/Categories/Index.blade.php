@@ -49,8 +49,11 @@
                                 <td>
                                     <div class="admin-category-index-actions">
 
-                                        <a href="{{ route('admin.categories.edit', $category) }}"
-                                            class="admin-category-index-edit">
+                                        <a class="admin-category-index-edit"
+                                            href="{{ route('admin.categories.edit', [
+                                                'category' => $category,
+                                                'page' => request('page', 1),
+                                            ]) }}">
                                             ویرایش
                                         </a>
 

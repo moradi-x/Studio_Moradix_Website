@@ -66,7 +66,9 @@
                                 </td>
 
                                 <td>
-                                    {{ $contactMessage->created_at?->format('Y/m/d H:i') ?? '-' }}
+                                    {{ $contactMessage->created_at
+                                        ? \Morilog\Jalali\Jalalian::fromCarbon($contactMessage->created_at)->format('%d %B %Y ساعت %H:%M')
+                                        : '-' }}
                                 </td>
 
                                 <td>
@@ -80,6 +82,7 @@
                                             method="POST" onsubmit="return confirm('از حذف این پیام مطمئن هستید؟')">
                                             @csrf
                                             @method('DELETE')
+                                            <input type="hidden" name="page" value="{{ request('page', 1) }}">
 
                                             <button type="submit" class="admin-contact-index-delete">
                                                 حذف
