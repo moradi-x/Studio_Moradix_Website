@@ -104,3 +104,4 @@ Route::get('/services/custom-systems', [ServicePageController::class, 'customSys
 // فرم تماس با ما
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contact-us-form', [HomeController::class, 'contactUsForm'])->name('contact-us.form');
+

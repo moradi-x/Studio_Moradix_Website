@@ -11,6 +11,8 @@ use App\Models\PlanPrice;
 use App\Models\Project;
 use App\Models\StudioService;
 use App\Models\StudioTechnology;
+use Illuminate\Support\Facades\Log;
+
 
 class HomeController extends Controller
 {
@@ -69,6 +71,10 @@ class HomeController extends Controller
         $key = 'contact-form:' . $request->ip();
 
         if (RateLimiter::tooManyAttempts($key, 5)) {
+            Log::channel('security')->warning('Contact form rate limit exceeded', [
+                'ip' => $request->ip(),
+                'request_id' => $request->attributes->get('request_id'),
+            ]);
             return redirect()->back()
                 ->withErrors([
                     'contact_limit' => 'تعداد درخواست‌های شما بیش از حد مجاز است. لطفاً بعداً دوباره تلاش کنید.',
@@ -89,12 +95,18 @@ class HomeController extends Controller
         ]);
         RateLimiter::hit($key, 3600);
 
-        ContactMessage::create([
+        $contactMessage = ContactMessage::create([
             'request_type' => $validated['request_type'],
             'name' => $validated['name'],
             'phone' => $validated['phone'],
             'project_type' => $validated['project_type'],
             'message' => $validated['message'] ?? null,
+        ]);
+
+        Log::channel('application')->info('Contact message submitted successfully', [
+            'contact_message_id' => $contactMessage->id,
+            'request_type' => $contactMessage->request_type,
+            'project_type' => $contactMessage->project_type,
         ]);
 
         return redirect()->back()->with(

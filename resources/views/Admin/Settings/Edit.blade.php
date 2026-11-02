@@ -6,7 +6,7 @@
 
     <div class="admin-setting-edit">
 
-        @include('admin.sections.errors')
+        {{-- @include('admin.sections.errors') --}}
 
         <div class="admin-setting-edit-header">
             <h1 class="admin-setting-edit-title">
@@ -47,17 +47,6 @@
                 @enderror
 
             </div>
-
-            {{-- <div class="admin-setting-edit-actions"> --}}
-
-            {{-- <button type="submit" class="admin-setting-edit-save">
-                    ویرایش
-                </button> --}}
-
-            {{-- <a href="{{ route('admin.settings.index') }}" class="admin-setting-edit-back">
-                    بازگشت
-                </a> --}}
-            {{-- </div> --}}
 
             <div class="admin-setting-edit-actions">
 

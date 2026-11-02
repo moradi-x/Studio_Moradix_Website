@@ -5,6 +5,7 @@ use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\TrackSiteVisit;
+use App\Http\Middleware\RequestIdMiddleware;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -16,10 +17,13 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->web(
             append: [
+                RequestIdMiddleware::class,
                 TrackSiteVisit::class,
             ]
         );
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
+        $exceptions->context(fn() => [
+            'request_id' => request()->attributes->get('request_id'),
+        ]);
     })->create();

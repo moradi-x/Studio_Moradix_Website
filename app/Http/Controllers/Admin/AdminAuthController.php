@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\Log;
+
 
 class AdminAuthController extends Controller
 {
@@ -56,6 +58,16 @@ class AdminAuthController extends Controller
             RateLimiter::hit($ipKey, 60);
             RateLimiter::hit($identityKey, 60);
 
+            Log::channel('security')->warning('Admin login failed', [
+                'ip' => $request->ip(),
+                'request_id' => $request->attributes->get('request_id'),
+            ]);
+
+            Log::channel('security')->warning('Admin login rate limit exceeded', [
+                'ip' => $request->ip(),
+                'request_id' => $request->attributes->get('request_id'),
+            ]);
+
             return back()->withErrors([
                 'password' => 'نام کاربری یا رمز عبور اشتباه است.',
             ])->onlyInput('name');
@@ -68,6 +80,12 @@ class AdminAuthController extends Controller
         // ورود مدیر
         Auth::guard('admin')->login($admin);
 
+        Log::channel('security')->info('Admin login successful', [
+            'admin_id' => $admin->getKey(),
+            'ip' => $request->ip(),
+            'request_id' => $request->attributes->get('request_id'),
+        ]);
+
         // جلوگیری از Session Fixation
         $request->session()->regenerate();
 
@@ -76,6 +94,11 @@ class AdminAuthController extends Controller
 
     public function logout(Request $request)
     {
+        Log::channel('security')->info('Admin logout successful', [
+            'admin_id' => Auth::guard('admin')->id(),
+            'ip' => $request->ip(),
+            'request_id' => $request->attributes->get('request_id'),
+        ]);
         Auth::guard('admin')->logout();
 
         $request->session()->invalidate();

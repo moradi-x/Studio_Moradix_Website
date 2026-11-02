@@ -7,7 +7,7 @@
 
     <div class="admin-category-edit">
 
-        @include('admin.sections.errors')
+        {{-- @include('admin.sections.errors') --}}
 
         <div class="admin-category-edit-header">
             <h1 class="admin-category-edit-title">

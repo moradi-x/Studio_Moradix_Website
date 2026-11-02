@@ -50,7 +50,6 @@
         </div>
 
         {{-- Errors --}}
-        @include('admin.sections.errors')
 
         {{-- Form --}}
         <div class="admin-project-edit-card">
