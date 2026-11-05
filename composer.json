@@ -11,6 +11,7 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",
         "morilog/jalali": "^3.5",
+        "opcodesio/log-viewer": "^3.24",
         "realrashid/sweet-alert": "^7.3",
         "spatie/laravel-backup": "^10.3",
         "tightenco/ziggy": "^2.0"

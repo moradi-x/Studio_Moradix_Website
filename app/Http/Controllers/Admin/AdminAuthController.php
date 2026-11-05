@@ -28,6 +28,7 @@ class AdminAuthController extends Controller
             'name' => ['bail', 'required', 'string', 'max:255'],
             'password' => ['bail', 'required', 'string', 'max:255'],
         ]);
+        $userAgent = $request->userAgent();
 
         // محدودیت بر اساس IP
         $ipKey = 'admin-login:ip:' . $request->ip();
@@ -43,6 +44,13 @@ class AdminAuthController extends Controller
             RateLimiter::tooManyAttempts($ipKey, 5) ||
             RateLimiter::tooManyAttempts($identityKey, 5)
         ) {
+            Log::channel('security')->warning('Admin login rate limit exceeded', [
+                'username' => $validated['name'],
+                'ip' => $request->ip(),
+                'user_agent' => $userAgent,
+                'request_id' => $request->attributes->get('request_id'),
+            ]);
+
             return back()->withErrors([
                 'password' => 'تعداد تلاش‌های ناموفق زیاد است. کمی بعد دوباره امتحان کنید.',
             ])->onlyInput('name');
@@ -59,12 +67,9 @@ class AdminAuthController extends Controller
             RateLimiter::hit($identityKey, 60);
 
             Log::channel('security')->warning('Admin login failed', [
+                'username' => $validated['name'],
                 'ip' => $request->ip(),
-                'request_id' => $request->attributes->get('request_id'),
-            ]);
-
-            Log::channel('security')->warning('Admin login rate limit exceeded', [
-                'ip' => $request->ip(),
+                'user_agent' => $userAgent,
                 'request_id' => $request->attributes->get('request_id'),
             ]);
 
@@ -82,7 +87,9 @@ class AdminAuthController extends Controller
 
         Log::channel('security')->info('Admin login successful', [
             'admin_id' => $admin->getKey(),
+            'username' => $admin->name,
             'ip' => $request->ip(),
+            'user_agent' => $userAgent,
             'request_id' => $request->attributes->get('request_id'),
         ]);
 
@@ -97,8 +104,10 @@ class AdminAuthController extends Controller
         Log::channel('security')->info('Admin logout successful', [
             'admin_id' => Auth::guard('admin')->id(),
             'ip' => $request->ip(),
+            'user_agent' => $request->userAgent(),
             'request_id' => $request->attributes->get('request_id'),
         ]);
+
         Auth::guard('admin')->logout();
 
         $request->session()->invalidate();

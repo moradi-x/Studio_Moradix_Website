@@ -7,14 +7,14 @@ use App\Models\AdminNotification;
 
 class NotificationController extends Controller
 {
-    public function index()
+    public function readAll()
     {
-        $notifications = AdminNotification::latest()->get();
+        AdminNotification::where('is_read', false)
+            ->update([
+                'is_read' => true,
+            ]);
 
-        return view(
-            'admin.notifications.index',
-            compact('notifications')
-        );
+        return redirect()->route('admin.contact-messages.index');
     }
 
     public function read(AdminNotification $notification)

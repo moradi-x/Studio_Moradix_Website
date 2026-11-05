@@ -12,6 +12,8 @@ use App\Models\Project;
 use App\Models\StudioService;
 use App\Models\StudioTechnology;
 use Illuminate\Support\Facades\Log;
+use App\Models\AdminNotification;
+use Illuminate\Support\Facades\DB;
 
 
 class HomeController extends Controller
@@ -65,9 +67,9 @@ class HomeController extends Controller
         return view('Home.contact', compact('settings'));
     }
 
+
     public function contactUsForm(Request $request)
     {
-
         $key = 'contact-form:' . $request->ip();
 
         if (RateLimiter::tooManyAttempts($key, 5)) {
@@ -75,6 +77,7 @@ class HomeController extends Controller
                 'ip' => $request->ip(),
                 'request_id' => $request->attributes->get('request_id'),
             ]);
+
             return redirect()->back()
                 ->withErrors([
                     'contact_limit' => 'تعداد درخواست‌های شما بیش از حد مجاز است. لطفاً بعداً دوباره تلاش کنید.',
@@ -93,21 +96,36 @@ class HomeController extends Controller
             'message' => ['nullable', 'string', 'max:2000'],
             'website' => ['nullable', 'string', 'max:0'],
         ]);
+
         RateLimiter::hit($key, 3600);
 
-        $contactMessage = ContactMessage::create([
-            'request_type' => $validated['request_type'],
-            'name' => $validated['name'],
-            'phone' => $validated['phone'],
-            'project_type' => $validated['project_type'],
-            'message' => $validated['message'] ?? null,
-        ]);
+        DB::transaction(function () use ($validated, $request) {
+            $contactMessage = ContactMessage::create([
+                'request_type' => $validated['request_type'],
+                'name' => $validated['name'],
+                'phone' => $validated['phone'],
+                'project_type' => $validated['project_type'],
+                'message' => $validated['message'] ?? null,
+            ]);
 
-        Log::channel('application')->info('Contact message submitted successfully', [
-            'contact_message_id' => $contactMessage->id,
-            'request_type' => $contactMessage->request_type,
-            'project_type' => $contactMessage->project_type,
-        ]);
+            AdminNotification::create([
+                'contact_message_id' => $contactMessage->id,
+                'type' => 'contact_message',
+                'title' => 'پیام جدید',
+                'message' => "یک پیام جدید از طرف {$contactMessage->name} دریافت شد.",
+                'url' => route('admin.contact-messages.index'),
+                'is_read' => false,
+            ]);
+
+            Log::channel('application')->info('Contact message submitted successfully', [
+                'contact_message_id' => $contactMessage->id,
+                'request_type' => $contactMessage->request_type,
+                'project_type' => $contactMessage->project_type,
+                'ip' => $request->ip(),
+                'user_agent' => $request->userAgent(),
+                'request_id' => $request->attributes->get('request_id'),
+            ]);
+        });
 
         return redirect()->back()->with(
             'contact_success',

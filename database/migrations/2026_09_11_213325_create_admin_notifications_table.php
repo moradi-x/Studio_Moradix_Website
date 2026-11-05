@@ -11,9 +11,17 @@ return new class extends Migration
         Schema::create('admin_notifications', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignId('contact_message_id')
+                ->nullable()
+                ->unique()
+                ->constrained('contact_messages')
+                ->nullOnDelete();
+
             $table->string('type');
             $table->string('title');
             $table->text('message');
+
+            $table->string('url', 2048)->nullable();
 
             $table->boolean('is_read')->default(false);
 

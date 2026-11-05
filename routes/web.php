@@ -23,7 +23,6 @@ Route::prefix('control-x7m9p2')->name('admin.')->group(function () {
 
     Route::post('/enter', [AdminAuthController::class, 'login'])
         ->name('login.store');
-
 });
 
 
@@ -56,9 +55,14 @@ Route::prefix('admin')->name('admin.')->middleware(AdminMiddleware::class)
             ->name('plan-prices.update');
 
         // notifications
-        Route::get('/notifications',   [NotificationController::class, 'index'])->name('notifications.index');
-        Route::patch('/notifications/{id}/read', [NotificationController::class, 'read'])->name('notifications.read');
-        Route::delete('/notifications/{id}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
+        Route::get('/notifications/read-all', [NotificationController::class, 'readAll'])
+            ->name('notifications.readAll');
+
+        Route::patch('/notifications/{notification}/read', [NotificationController::class, 'read'])
+            ->name('notifications.read');
+
+        Route::delete('/notifications/{notification}', [NotificationController::class, 'destroy'])
+            ->name('notifications.destroy');
 
         // خروج ادمین
         Route::post('/logout', [AdminAuthController::class, 'logout'])
@@ -104,4 +108,3 @@ Route::get('/services/custom-systems', [ServicePageController::class, 'customSys
 // فرم تماس با ما
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contact-us-form', [HomeController::class, 'contactUsForm'])->name('contact-us.form');
-
