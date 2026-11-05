@@ -8,11 +8,25 @@ use App\Models\ContactMessage;
 use App\Models\Project;
 use App\Models\SiteVisit;
 use Illuminate\Support\Facades\DB;
+use Morilog\Jalali\Jalalian;
+
+
 
 class DashboardController extends Controller
 {
     public function index()
     {
+
+        // تفکیک پیام‌ها بر اساس نوع درخواست
+        $messageTypes = ContactMessage::select(
+            'request_type',
+            DB::raw('COUNT(*) as total')
+        )
+            ->groupBy('request_type')
+            ->get();
+
+        $messageTypesLabels = $messageTypes->pluck('request_type');
+        $messageTypesData = $messageTypes->pluck('total');
         // پروژه‌ها
         $projectsCount = Project::count();
 
@@ -21,10 +35,26 @@ class DashboardController extends Controller
         // پیام‌ها و درخواست‌های واقعی
         $newRequestsCount = ContactMessage::count();
 
+        $messageTypeLabels = [
+            'consultation' => 'درخواست مشاوره',
+            'project' => 'درخواست پروژه',
+        ];
+
         $messagesByType = ContactMessage::query()
             ->select('request_type', DB::raw('COUNT(*) as total'))
             ->groupBy('request_type')
-            ->get();
+            ->get()
+            ->map(function ($item) use ($messageTypeLabels) {
+                $item->label = $messageTypeLabels[$item->request_type] ?? 'سایر درخواست‌ها';
+                $item->total = (int) $item->total;
+
+                return $item;
+            });
+
+        $messageTypesChart = [
+            'labels' => $messagesByType->pluck('label')->values(),
+            'data' => $messagesByType->pluck('total')->values(),
+        ];
 
         $latestRequests = ContactMessage::query()
             ->latest()
@@ -88,6 +118,32 @@ class DashboardController extends Controller
             ->take(6)
             ->get();
 
+
+        // آمار بازدید روزانه در ۷ روز اخیر
+
+        $startDate = now()->startOfDay()->subDays(29);
+        $endDate = now()->endOfDay();
+
+        $dailyVisits = SiteVisit::selectRaw('visit_date, COUNT(*) as total')
+            ->whereBetween('visit_date', [
+                $startDate->toDateString(),
+                $endDate->toDateString()
+            ])
+            ->groupBy('visit_date')
+            ->pluck('total', 'visit_date');
+
+        // آماده‌سازی اطلاعات برای نمودار
+        $visitChartLabels = [];
+        $visitChartData = [];
+
+        for ($i = 0; $i < 30; $i++) {
+            $date = $startDate->copy()->addDays($i);
+            $dateKey = $date->toDateString();
+
+           $visitChartLabels[] = Jalalian::fromCarbon($date)->format('%d %B');
+            $visitChartData[] = (int) ($dailyVisits[$dateKey] ?? 0);
+        }
+
         return view(
             'admin.dashboard',
             compact(
@@ -103,6 +159,11 @@ class DashboardController extends Controller
                 'latestProjects',
                 'projectsByCategory',
                 'visitsLast24Hours',
+                'messageTypesChart',
+                'messageTypesLabels',
+                'messageTypesData',
+                'visitChartLabels',
+                'visitChartData',
             )
         );
     }

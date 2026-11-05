@@ -201,18 +201,18 @@ return [
          * After creating the zip, verify it can be opened and contains files.
          * Recommended for critical backups but adds a small overhead.
          */
-        'verify_backup' => false,
+        'verify_backup' => true,
 
         /*
          * The number of attempts, in case the backup command encounters an exception
          */
-        'tries' => 1,
+        'tries' => 3,
 
         /*
          * The number of seconds to wait before attempting a new backup if the previous try failed
          * Set to `0` for none
          */
-        'retry_delay' => 0,
+        'retry_delay' => 5,
     ],
 
     /*
@@ -374,13 +374,13 @@ return [
         /*
          * The number of attempts, in case the cleanup command encounters an exception
          */
-        'tries' => 1,
+        'tries' => 3,
 
         /*
          * The number of seconds to wait before attempting a new cleanup if the previous try failed
          * Set to `0` for none
          */
-        'retry_delay' => 0,
+        'retry_delay' => 5,
     ],
 
 ];

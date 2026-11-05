@@ -127,15 +127,15 @@
         {{-- Visit Chart --}}
         {{-- ========================================================= --}}
 
-
         <div class="admin-panel-card admin-visits-panel">
 
             <div class="admin-panel-header">
 
                 <div>
                     <h2 class="admin-panel-title">آمار بازدید سایت</h2>
+
                     <p class="admin-panel-subtitle">
-                        روند بازدید ۳۰ روز اخیر
+                        روند بازدید ۷ روز اخیر
                     </p>
                 </div>
 
@@ -147,11 +147,17 @@
             </div>
 
             <div class="admin-visits-chart">
-                <canvas id="visitsChart" data-visits='@json($visitsChart)'></canvas>
+
+                <canvas id="dailyVisitsChart" data-labels='@json($visitChartLabels)'
+                    data-values='@json($visitChartData)'></canvas>
+
+                <div id="dailyVisitsEmpty" class="admin-chart-empty" hidden>
+                    هنوز اطلاعاتی برای نمایش بازدیدها وجود ندارد.
+                </div>
+
             </div>
 
         </div>
-
 
         {{-- ========================================================= --}}
         {{-- Requests + Categories --}}
@@ -162,7 +168,6 @@
 
             {{-- Message Types --}}
             <div class="admin-panel-card">
-
                 <div class="admin-panel-section-heading">
                     <h2 class="admin-panel-title">تفکیک پیام‌ها</h2>
                     <p class="admin-panel-subtitle">
@@ -170,39 +175,10 @@
                     </p>
                 </div>
 
-                <div class="admin-message-types">
-
-                    @forelse ($messagesByType as $item)
-                        @php
-                            $typeLabel = match ($item->request_type) {
-                                'project' => 'درخواست پروژه',
-                                'contact' => 'پیام عمومی',
-                                default => $item->request_type,
-                            };
-                        @endphp
-
-                        <div class="admin-message-type-row">
-
-                            <div class="admin-message-type-info">
-                                <span class="admin-message-type-dot"></span>
-                                <span>{{ $typeLabel }}</span>
-                            </div>
-
-                            <span class="admin-message-type-count">
-                                {{ number_format($item->total) }}
-                            </span>
-
-                        </div>
-
-                    @empty
-
-                        <p class="admin-empty-message">
-                            هنوز پیامی ثبت نشده است.
-                        </p>
-                    @endforelse
-
+                <div class="admin-chart-container">
+                    <canvas id="messageTypesChart" data-labels='@json($messageTypesLabels)'
+                        data-values='@json($messageTypesData)'></canvas>
                 </div>
-
             </div>
 
 
@@ -415,6 +391,9 @@
         {{-- Chart.js --}}
         {{-- ============================================================= --}}
 
+        @section('script')
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        @endsection
 
 
     @endsection
