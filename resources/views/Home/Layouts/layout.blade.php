@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
-
+<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'fa' ? 'rtl' : 'ltr' }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

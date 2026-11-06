@@ -44,6 +44,14 @@
             <span>تنظیمات</span>
         </a>
 
+        {{-- System Logs --}}
+        <a href="{{ url('/log-viewer') }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="admin-menu-link {{ request()->is('log-viewer*') ? 'active' : '' }}">
+            <span>گزارش‌های سیستم</span>
+        </a>
+
         <div class="admin-sidebar-divider"></div>
 
         {{-- Logout --}}

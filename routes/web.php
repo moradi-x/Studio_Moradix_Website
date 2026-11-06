@@ -109,3 +109,28 @@ Route::get('/services/custom-systems', [ServicePageController::class, 'customSys
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contact-us-form', [HomeController::class, 'contactUsForm'])->name('contact-us.form');
 
+
+// English public routes
+Route::prefix('en')
+    ->name('en.')
+    ->middleware(\App\Http\Middleware\SetLocale::class)
+    ->group(function () {
+
+        Route::get('/', [HomeController::class, 'index'])->name('home');
+        Route::get('/about', [HomeController::class, 'about'])->name('about');
+        Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');
+
+        Route::get('/portfolio', [HomeController::class, 'portfolioIndex'])->name('portfolio');
+        Route::get('/portfolio/{slug}', [HomeController::class, 'portfolioShow'])
+            ->name('portfolio.show');
+
+        Route::get('/services', [ServicePageController::class, 'index'])->name('services');
+        Route::get('/services/web-design', [ServicePageController::class, 'webDesign'])->name('services.web-design');
+        Route::get('/services/ecommerce', [ServicePageController::class, 'ecommerce'])->name('services.ecommerce');
+        Route::get('/services/seo', [ServicePageController::class, 'seo'])->name('services.seo');
+        Route::get('/services/redesign', [ServicePageController::class, 'redesign'])->name('services.redesign');
+        Route::get('/services/custom-systems', [ServicePageController::class, 'customSystems'])->name('services.custom-systems');
+
+        Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+        Route::post('/contact-us-form', [HomeController::class, 'contactUsForm'])->name('contact-us.form');
+    });

@@ -35,9 +35,8 @@ class AppServiceProvider extends ServiceProvider
             );
         });
 
-        // Log Viewer authorization
         LogViewer::auth(function ($request) {
-            return Auth::guard('admin')->check();
+            return Auth::check();
         });
 
         // Prevent deleting individual log files

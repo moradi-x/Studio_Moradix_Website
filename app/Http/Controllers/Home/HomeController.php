@@ -74,6 +74,7 @@ class HomeController extends Controller
     public function contactUsForm(Request $request)
     {
         $key = 'contact-form:' . $request->ip();
+        // $locale = app()->getLocale();
 
         if (RateLimiter::tooManyAttempts($key, 5)) {
             Log::channel('security')->warning('Contact form rate limit exceeded', [
@@ -83,7 +84,7 @@ class HomeController extends Controller
 
             return redirect()->back()
                 ->withErrors([
-                    'contact_limit' => 'تعداد درخواست‌های شما بیش از حد مجاز است. لطفاً بعداً دوباره تلاش کنید.',
+                    'contact_limit' => __('site.contact_limit'),
                 ])
                 ->withInput();
         }
@@ -99,7 +100,7 @@ class HomeController extends Controller
 
             return redirect()->back()->with(
                 'contact_success',
-                'پیام شما با موفقیت ارسال شد.'
+                __('site.contact_success')
             );
         }
 
@@ -161,10 +162,10 @@ class HomeController extends Controller
             ]);
         });
 
-        return redirect()->back()->with(
-            'contact_success',
-            'پیام شما با موفقیت ارسال شد.'
-        );
+       return redirect()->back()->with(
+    'contact_success',
+    __('site.contact_success')
+);
     }
 
     public function pricing()

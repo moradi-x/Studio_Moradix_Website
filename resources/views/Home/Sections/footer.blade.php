@@ -1,52 +1,85 @@
+
+@php
+    $routePrefix = app()->getLocale() === 'en' ? 'en.' : '';
+@endphp
+
 <!-- ==================== Footer ==================== -->
 <footer class="footer" role="contentinfo">
     <div class="container">
         <div class="footer-content">
+
             <!-- About -->
             <div class="footer-about">
-                <div class="logo"> Studio Moradix</div>
-                <p>استودیوی تخصصی توسعه‌ی وب با Laravel. ساخت فروشگاه اینترنتی، سایت شرکتی و سیستم‌های سفارشی با کیفیت
-                    بالا و پشتیبانی قابل اعتماد.</p>
+                <div class="logo">Studio Moradix</div>
+                <p>{{ __('site.footer_description') }}</p>
             </div>
 
             <!-- Quick Links -->
             <div class="footer-section">
-                <h4>دسترسی سریع</h4>
+                <h4>{{ __('site.quick_access') }}</h4>
+
                 <ul class="footer-links">
-                    <li><a href="{{ route('services') }}">خدمات</a></li>
-                    <li><a href="{{ route('portfolio') }}">نمونه‌کارها</a></li>
-                    <li><a href="{{ route('pricing') }}"> تعرفه ها و پلن ها</a></li>
-                    <li><a href=" {{ route('about') }} ">درباره ما</a></li>
-                    <li><a href="{{ route('contact') }}">تماس با ما</a></li>
+                    <li>
+                        <a href="{{ route($routePrefix . 'services') }}">
+                            {{ __('site.services') }}
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route($routePrefix . 'portfolio') }}">
+                            {{ __('site.portfolio') }}
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route($routePrefix . 'pricing') }}">
+                            {{ __('site.pricing_plans') }}
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route($routePrefix . 'about') }}">
+                            {{ __('site.about') }}
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route($routePrefix . 'contact') }}">
+                            {{ __('site.contact') }}
+                        </a>
+                    </li>
                 </ul>
             </div>
 
             <!-- Contact -->
             <div class="footer-section">
-                <h4>ارتباط با ما</h4>
+                <h4>{{ __('site.contact_us') }}</h4>
+
                 <div class="footer-contact">
-                    <!-- PLACEHOLDER: شماره تماس واقعی -->
+
                     <div class="footer-contact-item">
                         <span>📞</span>
-                        <span>0992-624-5951</span>
+                        <span>{{ __('site.phone') }}: 0992-624-5951</span>
                     </div>
-                    <!-- PLACEHOLDER: ایمیل واقعی -->
+
                     <div class="footer-contact-item">
                         <span>✉️</span>
-                        <span>moraix.2004@gmail</span>
+                        <span>{{ __('site.email') }}: moraix.2004@gmail</span>
                     </div>
-                    <!-- PLACEHOLDER: آدرس واقعی (اختیاری) -->
+
                     <div class="footer-contact-item">
                         <span>📍</span>
-                        <span>ایران،
-                            تهران </span>
+                        <span>{{ __('site.address') }}: ایران، تهران</span>
                     </div>
+
                 </div>
             </div>
+
         </div>
 
         <div class="footer-bottom">
-            <p>تمامی حقوق محفوظ است © 1405 Moradix Studio</p>
+            <p>{{ __('site.all_rights_reserved') }} © 1405 Moradix Studio</p>
         </div>
+
     </div>
 </footer>

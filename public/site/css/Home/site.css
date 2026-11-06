@@ -6065,3 +6065,193 @@
         display: block;
     }
 }
+
+
+/* =========================================
+   MORADIX - ERROR PAGES
+========================================= */
+
+.error-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    background: #FAFAF9;
+    color: #1C1917;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+.error-page *,
+.error-page *::before,
+.error-page *::after {
+    box-sizing: border-box;
+}
+
+.error-container {
+    width: 100%;
+    max-width: 540px;
+    text-align: center;
+}
+
+.error-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 45px;
+    color: #1C1917;
+    font-size: 19px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.error-brand-icon {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: #0F766E;
+    color: #fff;
+    font-size: 21px;
+}
+
+.error-icon {
+    width: 112px;
+    height: 112px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    background: #F0FDFA;
+    color: #0F766E;
+}
+
+.error-icon svg {
+    width: 52px;
+    height: 52px;
+}
+
+.error-code {
+    margin-bottom: 12px;
+    color: #0F766E;
+    font-size: clamp(52px, 12vw, 78px);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.error-title {
+    margin-bottom: 14px;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.error-description {
+    max-width: 440px;
+    margin: 0 auto;
+    color: #57534E;
+    font-size: 14px;
+    line-height: 2.2;
+}
+
+.error-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.error-btn {
+    min-width: 155px;
+    padding: 12px 22px;
+    border: 1px solid #E7E5E4;
+    border-radius: 10px;
+    background: #fff;
+    color: #1C1917;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.error-btn-primary {
+    border-color: #0F766E;
+    background: #0F766E;
+    color: #fff;
+}
+
+.error-btn-primary:hover {
+    border-color: #115E59;
+    background: #115E59;
+}
+
+.error-btn-secondary:hover {
+    border-color: #0F766E;
+    color: #0F766E;
+}
+
+.error-footer {
+    margin-top: 60px;
+    color: #A8A29E;
+    font-size: 12px;
+}
+
+@media (max-width: 480px) {
+    .error-brand {
+        margin-bottom: 35px;
+    }
+
+    .error-title {
+        font-size: 20px;
+    }
+
+    .error-actions {
+        flex-direction: column;
+    }
+
+    .error-btn {
+        width: 100%;
+    }
+
+    .error-footer {
+        margin-top: 42px;
+    }
+}
+
+
+/* =====================================
+   ENGLISH VERSION - LTR ADJUSTMENTS
+   ===================================== */
+
+/* Header dropdown */
+html[dir="ltr"] .nav-desktop .dropdown {
+    right: auto;
+    left: 0;
+}
+
+/* Mobile submenu */
+html[dir="ltr"] .nav-mobile .submenu {
+    padding: 7px 0 7px 12px;
+    border-right: 0;
+    border-left: 2px solid #0f766e;
+    border-radius: 9px 0 0 9px;
+}
+
+/* Footer heading underline */
+html[dir="ltr"] .footer-section h4::after {
+    right: auto;
+    left: 0;
+}
+
+/* Footer contact information */
+html[dir="ltr"] .footer-contact-item {
+    direction: ltr;
+}
+
+/* Footer link hover direction */
+html[dir="ltr"] .footer-links a:hover {
+    transform: translateX(4px);
+}
