@@ -8,6 +8,8 @@ use App\Models\AdminNotification;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 use Opcodes\LogViewer\Facades\LogViewer;
+use Illuminate\Support\Facades\Gate;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -36,6 +38,16 @@ class AppServiceProvider extends ServiceProvider
         // Log Viewer authorization
         LogViewer::auth(function ($request) {
             return Auth::guard('admin')->check();
+        });
+
+        // Prevent deleting individual log files
+        Gate::define('deleteLogFile', function ($user, $file) {
+            return false;
+        });
+
+        // Prevent deleting entire log folders
+        Gate::define('deleteLogFolder', function ($user, $folder) {
+            return false;
         });
     }
 }

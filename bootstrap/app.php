@@ -2,10 +2,9 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
-use Illuminate\Foundation\Configuration\Middleware;
-use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\TrackSiteVisit;
 use App\Http\Middleware\RequestIdMiddleware;
+
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -23,7 +22,25 @@ return Application::configure(basePath: dirname(__DIR__))
         );
     })
     ->withExceptions(function (Exceptions $exceptions): void {
+
         $exceptions->context(fn() => [
             'request_id' => request()->attributes->get('request_id'),
         ]);
+
+        $exceptions->report(function (Throwable $e) {
+
+            if ($e instanceof \Illuminate\Database\QueryException) {
+
+                \Illuminate\Support\Facades\Log::channel('operations')->error(
+                    'Database query exception',
+                    [
+                        'exception' => get_class($e),
+                        'message' => 'Database query failed.',
+                        'file' => $e->getFile(),
+                        'line' => $e->getLine(),
+                        'request_id' => request()->attributes->get('request_id'),
+                    ]
+                );
+            }
+        });
     })->create();

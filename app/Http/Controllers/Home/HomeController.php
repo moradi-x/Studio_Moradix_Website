@@ -14,6 +14,9 @@ use App\Models\StudioTechnology;
 use Illuminate\Support\Facades\Log;
 use App\Models\AdminNotification;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Validator;
+
 
 
 class HomeController extends Controller
@@ -85,7 +88,22 @@ class HomeController extends Controller
                 ->withInput();
         }
 
-        $validated = $request->validate([
+        // Detect bots using the honeypot field
+        if ($request->filled('website')) {
+            Log::channel('security')->warning('Contact form honeypot triggered', [
+                'ip' => $request->ip(),
+                'user_agent' => $request->userAgent(),
+                'request_id' => $request->attributes->get('request_id'),
+                'path' => $request->path(),
+            ]);
+
+            return redirect()->back()->with(
+                'contact_success',
+                'پیام شما با موفقیت ارسال شد.'
+            );
+        }
+
+        $validator = Validator::make($request->all(), [
             'request_type' => ['required', 'in:consultation,project'],
             'name' => ['required', 'string', 'min:2', 'max:100'],
             'phone' => ['required', 'string', 'regex:/^09[0-9]{9}$/'],
@@ -96,6 +114,22 @@ class HomeController extends Controller
             'message' => ['nullable', 'string', 'max:2000'],
             'website' => ['nullable', 'string', 'max:0'],
         ]);
+
+        if ($validator->fails()) {
+            Log::channel('security')->warning('Contact form validation failed', [
+                'ip' => $request->ip(),
+                'user_agent' => $request->userAgent(),
+                'request_id' => $request->attributes->get('request_id'),
+                'path' => $request->path(),
+                'failed_fields' => array_keys($validator->failed()),
+            ]);
+
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput($request->except('website'));
+        }
+
+        $validated = $validator->validated();
 
         RateLimiter::hit($key, 3600);
 

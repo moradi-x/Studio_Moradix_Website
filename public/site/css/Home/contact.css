@@ -329,14 +329,10 @@
 }
 
 .ct-form-error {
-    display: none;
+    display: block;
     margin-block-start: 0.5rem;
     font-size: 0.875rem;
     color: var(--color-error);
-}
-
-.ct-form-group.error .ct-form-error {
-    display: block;
 }
 
 .ct-form-group.error .ct-form-input,
