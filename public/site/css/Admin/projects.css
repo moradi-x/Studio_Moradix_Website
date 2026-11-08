@@ -2087,3 +2087,131 @@
     overflow-wrap: anywhere;
     line-height: 1.8;
 }
+
+/* =========================================
+   English Project Information
+========================================= */
+
+.admin-project-create-english-section {
+    position: relative;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.admin-project-create-english-section
+.admin-project-create-section-heading {
+    margin-bottom: 24px;
+}
+
+.admin-project-create-english-section
+.admin-project-create-section-heading p {
+    margin-top: 8px;
+    color: #999;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.admin-project-create-english-section
+.admin-project-create-field label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.admin-project-create-english-section
+.admin-project-create-field input,
+.admin-project-create-english-section
+.admin-project-create-field textarea {
+    direction: ltr;
+    text-align: left;
+    unicode-bidi: plaintext;
+}
+
+.admin-project-create-english-section
+.admin-project-create-field input::placeholder,
+.admin-project-create-english-section
+.admin-project-create-field textarea::placeholder {
+    direction: ltr;
+    text-align: left;
+}
+
+.admin-project-create-english-section
+.admin-project-create-field textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .admin-project-create-english-section {
+        padding-top: 22px;
+    }
+
+    .admin-project-create-english-section
+    .admin-project-create-section-heading {
+        margin-bottom: 18px;
+    }
+}
+
+/* =========================================
+   English Project Information - Edit
+========================================= */
+
+.admin-project-edit-english-section {
+    position: relative;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.admin-project-edit-english-section
+.admin-project-edit-section-heading {
+    margin-bottom: 24px;
+}
+
+.admin-project-edit-english-section
+.admin-project-edit-section-heading p {
+    margin-top: 8px;
+    color: #999;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.admin-project-edit-english-section
+.admin-project-edit-field label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.admin-project-edit-english-section
+.admin-project-edit-field input,
+.admin-project-edit-english-section
+.admin-project-edit-field textarea {
+    direction: ltr;
+    text-align: left;
+    unicode-bidi: plaintext;
+}
+
+.admin-project-edit-english-section
+.admin-project-edit-field input::placeholder,
+.admin-project-edit-english-section
+.admin-project-edit-field textarea::placeholder {
+    direction: ltr;
+    text-align: left;
+}
+
+.admin-project-edit-english-section
+.admin-project-edit-field textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .admin-project-edit-english-section {
+        padding-top: 22px;
+    }
+
+    .admin-project-edit-english-section
+    .admin-project-edit-section-heading {
+        margin-bottom: 18px;
+    }
+}

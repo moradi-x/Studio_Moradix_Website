@@ -2133,3 +2133,7 @@ html[dir="ltr"] .about-why__number {
     left: auto;
     right: 22px;
 }
+
+html[dir="ltr"] .si-cta-primary svg {
+    transform: rotate(180deg);
+}

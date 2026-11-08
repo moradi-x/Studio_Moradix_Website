@@ -1,4 +1,3 @@
-
 @php
     $routePrefix = app()->getLocale() === 'en' ? 'en.' : '';
 @endphp
@@ -69,7 +68,9 @@
 
                     <div class="footer-contact-item">
                         <span>📍</span>
-                        <span>{{ __('site.address') }}: ایران، تهران</span>
+                        <span>
+                            {{ __('site.address') }}: {{ __('site.footer_address') }}
+                        </span>
                     </div>
 
                 </div>

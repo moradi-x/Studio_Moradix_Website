@@ -263,5 +263,132 @@ return [
 
 'pricing_faq_q5' => 'نحوه‌ی پرداخت چطوره؟',
 'pricing_faq_a5' => 'نحوه‌ی پرداخت بر اساس توافق و قرارداد مشخص می‌شه. معمولاً یک بخش در ابتدا و بقیه در مراحل مشخص یا پایان پروژه. جزئیات رو بعد از مشاوره‌ی اولیه باهات در میون می‌ذاریم.',
+'footer_address' => 'ایران، تهران',
+
+// Portfolio Index Page
+
+// Meta
+'portfolio_page_title' => 'نمونه‌کارها و پروژه‌های در حال توسعه | Moradix Studio',
+'portfolio_page_description' => 'مروری بر پروژه‌های منتخب و پروژه‌های در حال توسعه Moradix Studio در زمینه طراحی وب‌سایت، فروشگاه اینترنتی و راهکارهای دیجیتال.',
+
+// Breadcrumb
+'portfolio_breadcrumb_label' => 'مسیر صفحه',
+'portfolio_breadcrumb_home' => 'صفحه اصلی',
+'portfolio_breadcrumb_current' => 'نمونه‌کارها',
+
+// Hero
+'portfolio_hero_title' => 'از ایده تا اجرا؛',
+'portfolio_hero_title_highlight' => 'مسیر خلق پروژه‌های ما',
+'portfolio_hero_description' => 'ما تازه مسیر را شروع کرده‌ایم، برای همین هر پروژه را با وضعیت واقعی‌اش نشان می‌دهیم: پروژه‌های ساخته‌شده، و کارهایی که الان برای کارفرما در حال توسعه‌اند.',
+'portfolio_hero_projects_button' => 'مشاهده‌ی پروژه‌ها',
+'portfolio_hero_contact_button' => 'درباره‌ی پروژه‌ی تو صحبت کنیم',
+
+// Hero Stats
+'portfolio_stat_completed' => 'پروژه‌ی ساخته‌شده',
+'portfolio_stat_development' => 'در حال توسعه برای کارفرما',
+
+// Hero Artwork
+'portfolio_art_label' => 'پیش‌نمایش پروژه‌ها',
+'portfolio_card_store' => 'فروشگاه اینترنتی',
+'portfolio_status_development' => 'در حال توسعه',
+'portfolio_card_website' => 'طراحی وب‌سایت',
+'portfolio_status_personal' => 'پروژه‌ی شخصی',
+'portfolio_card_technical' => 'پروژه‌ی فنی',
+'portfolio_status_mvc' => 'معماری MVC',
+
+// Projects Section
+'portfolio_projects_title' => 'پروژه‌هایی که ساخته‌ایم',
+'portfolio_category_default' => 'پروژه',
+'portfolio_status_completed' => 'تکمیل شده',
+'portfolio_project_details' => 'مشاهده جزئیات پروژه',
+'portfolio_projects_empty' => 'در حال آماده‌سازی نمونه‌کارهای ما هستیم.',
+
+// Process Section
+'portfolio_process_title' => 'هر پروژه، یک مسیر مشخص دارد.',
+'portfolio_process_description' => 'طراحی خوب فقط ظاهر زیبا نیست؛ باید به نیاز کاربر پاسخ دهد و مسیر رسیدن به هدف را ساده‌تر کند.',
+
+'portfolio_process_step_1_title' => 'شناخت نیاز',
+'portfolio_process_step_1_text' => 'بررسی هدف کسب‌وکار، مخاطبان و نیازهای اصلی پروژه.',
+
+'portfolio_process_step_2_title' => 'طراحی تجربه',
+'portfolio_process_step_2_text' => 'شکل دادن به ساختار صفحات، مسیرهای کاربر و ظاهر رابط.',
+
+'portfolio_process_step_3_title' => 'پیاده‌سازی',
+'portfolio_process_step_3_text' => 'تبدیل طرح به یک تجربه وب واکنش‌گرا و کاربردی.',
+
+'portfolio_process_step_4_title' => 'بررسی و انتشار',
+'portfolio_process_step_4_text' => 'بررسی عملکرد، سازگاری صفحات و آماده‌سازی برای انتشار.',
+
+// Final CTA
+'portfolio_cta_eyebrow' => 'آماده شروع هستیم',
+'portfolio_cta_title' => 'برای قدم بعدی',
+'portfolio_cta_title_highlight' => 'کسب‌وکارت آماده‌ای؟',
+'portfolio_cta_description' => 'از طراحی یک وب‌سایت جدید تا بهبود و توسعه سایت فعلی؛ بیایید درباره نیازهای کسب‌وکارت صحبت کنیم و راهکار مناسب پروژه‌ات رو پیدا کنیم.',
+'portfolio_cta_primary' => 'شروع گفتگو درباره پروژه',
+'portfolio_cta_secondary' => 'مشاهده خدمات',
+
+// Portfolio Show Page
+
+// Meta
+'portfolio_show_meta_suffix' => 'نمونه‌کارهای Moradix Studio',
+'portfolio_show_default_description' => 'نگاهی به جزئیات این پروژه و راهکارهای اجراشده در آن داشته باشید.',
+
+// Breadcrumb
+'portfolio_show_breadcrumb_label' => 'مسیر صفحه',
+'portfolio_show_breadcrumb_home' => 'صفحه اصلی',
+'portfolio_show_breadcrumb_portfolio' => 'نمونه‌کارها',
+'portfolio_show_breadcrumb_project' => 'پروژه',
+
+// Hero
+'portfolio_show_website_button' => 'دیدن وب‌سایت پروژه',
+'portfolio_show_details_button' => 'جزئیات و ویژگی‌های پروژه',
+'portfolio_show_hero_image_alt' => 'پیش‌نمایش پروژه',
+
+// Overview
+'portfolio_show_overview_eyebrow' => 'معرفی پروژه',
+
+// Features
+'portfolio_show_features_title' => 'ویژگی‌ها و امکانات پروژه',
+'portfolio_show_features_aria' => 'ویژگی‌ها و امکانات پروژه',
+'portfolio_show_default_feature' => 'ویژگی پروژه',
+
+// Gallery
+'portfolio_show_gallery_eyebrow' => 'گالری پروژه',
+'portfolio_show_gallery_title' => 'تصاویر و جزئیات اجرا',
+'portfolio_show_gallery_count' => 'تصویر',
+'portfolio_show_gallery_image_alt' => 'نمایش بزرگ‌تر تصویر',
+'portfolio_show_lightbox_aria' => 'نمایش تصویر پروژه',
+'portfolio_show_lightbox_close' => 'بستن تصویر',
+'portfolio_show_lightbox_backdrop' => 'بستن نمایش تصویر',
+
+// Metadata
+'portfolio_show_metadata_aria' => 'مشخصات پروژه',
+'portfolio_show_metadata_title' => 'مشخصات پروژه',
+'portfolio_show_metadata_description' => 'نگاهی کوتاه به اطلاعات و جزئیات این پروژه داشته باشید.',
+'portfolio_show_responsive_label' => 'طراحی واکنش‌گرا',
+'portfolio_show_responsive_value' => 'موبایل، تبلت و لپ‌تاپ',
+
+// Related Projects
+'portfolio_show_related_title' => 'پروژه‌های مرتبط',
+'portfolio_show_related_description' => 'نمونه‌کارهای بیشتری را در همین زمینه بررسی کنید.',
+'portfolio_show_related_all' => 'مشاهده همه پروژه‌ها',
+'portfolio_show_related_details' => 'مشاهده جزئیات',
+
+// Final CTA
+'portfolio_show_cta_eyebrow' => 'آماده شروع هستیم',
+'portfolio_show_cta_title' => 'برای قدم بعدی',
+'portfolio_show_cta_title_highlight' => 'کسب‌وکارت آماده‌ای؟',
+'portfolio_show_cta_description' => 'از طراحی یک وب‌سایت جدید تا بهبود و توسعه سایت فعلی؛ بیایید درباره نیازهای کسب‌وکارت صحبت کنیم و راهکار مناسب پروژه‌ات رو پیدا کنیم.',
+'portfolio_show_cta_primary' => 'شروع گفتگو درباره پروژه',
+'portfolio_show_cta_secondary' => 'مشاهده خدمات',
+
+'portfolio_show_category_label' => 'دسته‌بندی پروژه',
+'portfolio_show_status_label' => 'وضعیت پروژه',
+'portfolio_show_status_completed' => 'تکمیل شده',
+'portfolio_show_status_in_progress' => 'در حال توسعه',
+'portfolio_show_features_count_label' => 'تعداد ویژگی‌ها',
+'portfolio_show_features_count_value' => ':count ویژگی ثبت‌شده',
+'portfolio_show_website_label' => 'وب‌سایت پروژه',
+'portfolio_show_website_value' => 'مشاهده وب‌سایت',
 
 ];

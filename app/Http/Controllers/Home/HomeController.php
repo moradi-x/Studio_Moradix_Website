@@ -162,10 +162,10 @@ class HomeController extends Controller
             ]);
         });
 
-       return redirect()->back()->with(
-    'contact_success',
-    __('site.contact_success')
-);
+        return redirect()->back()->with(
+            'contact_success',
+            __('site.contact_success')
+        );
     }
 
     public function pricing()
@@ -225,8 +225,8 @@ class HomeController extends Controller
 
         // وضعیت پروژه
         $statusLabel = $project->status == 1
-            ? 'تکمیل شده'
-            : 'در حال توسعه';
+            ? __('site.portfolio_show_status_completed')
+            : __('site.portfolio_show_status_in_progress');
 
         // مسیر تصاویر
         $uploadPath = trim(
@@ -279,26 +279,30 @@ class HomeController extends Controller
         // اطلاعات مشخصات پروژه
         $metadataItems = [
             [
-                'label' => 'دسته‌بندی پروژه',
-                'value' => $categoryName,
+                'label' => __('site.portfolio_show_category_label'),
+                'value' => app()->getLocale() === 'en'
+                    ? ($projectCategory->slug ?? $categoryName)
+                    : $categoryName,
                 'icon' => 'grid',
             ],
             [
-                'label' => 'وضعیت پروژه',
+                'label' => __('site.portfolio_show_status_label'),
                 'value' => $statusLabel,
                 'icon' => 'check-circle',
             ],
             [
-                'label' => 'تعداد ویژگی‌ها',
+                'label' => __('site.portfolio_show_features_count_label'),
                 'value' => $projectFeatures->count()
-                    ? $projectFeatures->count() . ' ویژگی ثبت‌شده'
+                    ? __('site.portfolio_show_features_count_value', [
+                        'count' => $projectFeatures->count()
+                    ])
                     : null,
                 'icon' => 'layers',
             ],
             [
-                'label' => 'وب‌سایت پروژه',
+                'label' => __('site.portfolio_show_website_label'),
                 'value' => $project->project_url
-                    ? 'مشاهده وب‌سایت'
+                    ? __('site.portfolio_show_website_value')
                     : null,
                 'icon' => 'external-link',
             ],

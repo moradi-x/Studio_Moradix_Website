@@ -1,10 +1,9 @@
 @extends('Home.Layouts.layout')
 
-@section('title', 'نمونه‌کارها و پروژه‌های در حال توسعه | Moradix Studio')
+@section('title', __('site.portfolio_page_title'))
 
-@section('description',
-    'مروری بر پروژه‌های منتخب و پروژه‌های در حال توسعه Moradix Studio در زمینه طراحی وب‌سایت،
-    فروشگاه اینترنتی و راهکارهای دیجیتال.')
+@section('description', __('site.portfolio_page_description'))
+
     @push('styles')
         <link rel="stylesheet" href="{{ asset('site/css/Home/portfolio/portfolio-index.css') }}">
     @endpush
@@ -16,63 +15,63 @@
 
         {{-- Breadcrumb --}}
 
-        <nav class="sv-breadcrumb" aria-label="مسیر صفحه">
+        <nav class="sv-breadcrumb" aria-label="{{ __('site.portfolio_breadcrumb_label') }}">
             <div class="container">
                 <ol class="sv-breadcrumb-list">
                     <li class="sv-breadcrumb-item">
-                        <a href="{{ route('home') }}">صفحه اصلی</a>
+                        <a href="{{ route(app()->getLocale() === 'en' ? 'en.home' : 'home') }}">
+                            {{ __('site.portfolio_breadcrumb_home') }}
+                        </a>
                     </li>
+
                     <li class="sv-breadcrumb-item" aria-current="page">
-                        نمونه کارها
+                        {{ __('site.portfolio_breadcrumb_current') }}
                     </li>
                 </ol>
             </div>
         </nav>
 
-
         {{-- Portfolio Hero — place after $projects is prepared --}}
 
 
 
-
-        {{--  hero --}}
+        {{-- Hero --}}
         <section class="pfh" aria-labelledby="pfh-title">
             <div class="container pfh-inner">
 
                 {{-- Text content --}}
                 <div class="pfh-text">
 
-
                     <h1 id="pfh-title">
-                        از ایده تا اجرا؛
-                        <span class="pfh-grad">مسیر خلق پروژه‌های ما</span>
+                        {{ __('site.portfolio_hero_title') }}
+                        <span class="pfh-grad">{{ __('site.portfolio_hero_title_highlight') }}</span>
                     </h1>
 
                     <p class="pfh-lead">
-                        ما تازه مسیر را شروع کرده‌ایم، برای همین هر پروژه را با وضعیت واقعی‌اش نشان می‌دهیم:
-                        پروژه‌های ساخته‌شده، و کارهایی که الان برای کارفرما در حال توسعه‌اند.
+                        {{ __('site.portfolio_hero_description') }}
                     </p>
 
                     <div class="pfh-actions">
                         <a href="#pf-projects" class="pfh-btn pfh-btn--primary">
-                            مشاهده‌ی پروژه‌ها
+                            {{ __('site.portfolio_hero_projects_button') }}
                             <span aria-hidden="true">←</span>
                         </a>
 
-                        <a href="{{ route('contact') }}" class="pfh-btn pfh-btn--ghost">
-                            درباره‌ی پروژه‌ی تو صحبت کنیم
+                        <a href="{{ route(app()->getLocale() === 'en' ? 'en.contact' : 'contact') }}"
+                            class="pfh-btn pfh-btn--ghost">
+                            {{ __('site.portfolio_hero_contact_button') }}
                         </a>
                     </div>
 
                     @if (isset($completedProjects, $developmentProjects))
                         <dl class="pfh-stats">
                             <div>
-                                <dt>پروژه‌ی ساخته‌شده</dt>
+                                <dt>{{ __('site.portfolio_stat_completed') }}</dt>
                                 <dd>{{ $pfhFa($completedProjects) }}</dd>
                             </div>
 
                             <div>
-                                <dt>در حال توسعه برای کارفرما</dt>
+                                <dt>{{ __('site.portfolio_stat_development') }}</dt>
                                 <dd>{{ $pfhFa($developmentProjects) }}</dd>
                             </div>
                         </dl>
@@ -80,7 +79,7 @@
                 </div>
 
                 {{-- Animated project cards --}}
-                <div class="pfh-art" aria-label="پیش‌نمایش پروژه‌ها">
+                <div class="pfh-art" aria-label="{{ __('site.portfolio_art_label') }}">
                     <span class="pfh-glow" aria-hidden="true"></span>
                     <span class="pfh-ring" aria-hidden="true"></span>
 
@@ -108,10 +107,10 @@
                             </div>
 
                             <figcaption class="pfh-meta">
-                                <b>فروشگاه اینترنتی</b>
+                                <b>{{ __('site.portfolio_card_store') }}</b>
                                 <span class="pfh-st pfh-st--dev">
                                     <i></i>
-                                    در حال توسعه
+                                    {{ __('site.portfolio_status_development') }}
                                 </span>
                             </figcaption>
                         </figure>
@@ -145,10 +144,10 @@
                             </div>
 
                             <figcaption class="pfh-meta">
-                                <b>طراحی وب‌سایت</b>
+                                <b>{{ __('site.portfolio_card_website') }}</b>
                                 <span class="pfh-st pfh-st--own">
                                     <i></i>
-                                    پروژه‌ی شخصی
+                                    {{ __('site.portfolio_status_personal') }}
                                 </span>
                             </figcaption>
                         </figure>
@@ -169,10 +168,10 @@
                             </div>
 
                             <figcaption class="pfh-meta">
-                                <b>پروژه‌ی فنی</b>
+                                <b>{{ __('site.portfolio_card_technical') }}</b>
                                 <span class="pfh-st pfh-st--tech">
                                     <i></i>
-                                    معماری MVC
+                                    {{ __('site.portfolio_status_mvc') }}
                                 </span>
                             </figcaption>
                         </figure>
@@ -190,23 +189,21 @@
 
         {{-- Projects --}}
         <section class="pf-section" id="pf-projects">
-            <div class="container pf-container ">
+            <div class="container pf-container">
 
                 <div class="pf-section-heading">
                     <div>
-
                         <h2 class="pf-section-title">
-                            پروژه‌هایی که ساخته‌ایم
+                            {{ __('site.portfolio_projects_title') }}
                         </h2>
                     </div>
-
                 </div>
 
                 <div class="pf-project-grid">
 
                     @forelse($projects as $project)
                         <article class="pf-project-card">
-                            <div class="pf-project-preview  pf-preview-auto">
+                            <div class="pf-project-preview pf-preview-auto">
 
                                 @if ($project->primary_image)
                                     <img src="{{ asset(
@@ -225,11 +222,11 @@
 
                                 <div class="pf-project-meta">
                                     <span class="pf-project-category">
-                                        {{ $project->category?->name ?? 'پروژه' }}
+                                        {{ $project->category?->name ?? __('site.portfolio_category_default') }}
                                     </span>
 
                                     <span class="pf-status {{ $project->status ? 'is-completed' : 'is-development' }}">
-                                        {{ $project->status ? 'تکمیل شده' : 'در حال توسعه' }}
+                                        {{ $project->status ? __('site.portfolio_status_completed') : __('site.portfolio_status_development') }}
                                     </span>
                                 </div>
 
@@ -241,7 +238,6 @@
                                     {{ $project->short_description }}
                                 </p>
 
-
                                 @if ($project->features->isNotEmpty())
                                     <div class="pf-project-tags">
                                         @foreach ($project->features->take(3) as $feature)
@@ -250,18 +246,16 @@
                                     </div>
                                 @endif
 
-
-                                <a href="{{ route('portfolio.show', $project->slug) }}" class="pf-project-link"
-                                    target="_blank" rel="noopener noreferrer">
-                                    مشاهده جزئیات پروژه
+                                <a href="{{ route(app()->getLocale() === 'en' ? 'en.portfolio.show' : 'portfolio.show', $project->slug) }}"
+                                    class="pf-project-link" target="_blank" rel="noopener noreferrer">
+                                    {{ __('site.portfolio_project_details') }}
                                 </a>
 
                             </div>
-
                         </article>
                     @empty
                         <div class="pf-project-empty">
-                            <p>در حال آماده‌سازی نمونه‌کارهای ما هستیم.</p>
+                            <p>{{ __('site.portfolio_projects_empty') }}</p>
                         </div>
                     @endforelse
 
@@ -271,15 +265,13 @@
         </section>
 
 
-
         {{-- Process --}}
         <section class="pf-process">
             <div class="container pf-container">
                 <div class="pf-process-heading">
-                    <h2>هر پروژه، یک مسیر مشخص دارد.</h2>
+                    <h2>{{ __('site.portfolio_process_title') }}</h2>
                     <p>
-                        طراحی خوب فقط ظاهر زیبا نیست؛ باید به نیاز کاربر پاسخ
-                        دهد و مسیر رسیدن به هدف را ساده‌تر کند.
+                        {{ __('site.portfolio_process_description') }}
                     </p>
                 </div>
 
@@ -287,36 +279,36 @@
                     <div class="pf-process-item" data-reveal>
                         <span class="pf-process-number">1</span>
                         <div class="pf-process-icon" aria-hidden="true">⌕</div>
-                        <h3>شناخت نیاز</h3>
+                        <h3>{{ __('site.portfolio_process_step_1_title') }}</h3>
                         <p>
-                            بررسی هدف کسب‌وکار، مخاطبان و نیازهای اصلی پروژه.
+                            {{ __('site.portfolio_process_step_1_text') }}
                         </p>
                     </div>
 
                     <div class="pf-process-item" data-reveal>
                         <span class="pf-process-number">2</span>
                         <div class="pf-process-icon" aria-hidden="true">◇</div>
-                        <h3>طراحی تجربه</h3>
+                        <h3>{{ __('site.portfolio_process_step_2_title') }}</h3>
                         <p>
-                            شکل دادن به ساختار صفحات، مسیرهای کاربر و ظاهر رابط.
+                            {{ __('site.portfolio_process_step_2_text') }}
                         </p>
                     </div>
 
                     <div class="pf-process-item" data-reveal>
                         <span class="pf-process-number">3</span>
                         <div class="pf-process-icon" aria-hidden="true">⌘</div>
-                        <h3>پیاده‌سازی</h3>
+                        <h3>{{ __('site.portfolio_process_step_3_title') }}</h3>
                         <p>
-                            تبدیل طرح به یک تجربه وب واکنش‌گرا و کاربردی.
+                            {{ __('site.portfolio_process_step_3_text') }}
                         </p>
                     </div>
 
                     <div class="pf-process-item" data-reveal>
                         <span class="pf-process-number">4</span>
                         <div class="pf-process-icon" aria-hidden="true">↗</div>
-                        <h3>بررسی و انتشار</h3>
+                        <h3>{{ __('site.portfolio_process_step_4_title') }}</h3>
                         <p>
-                            بررسی عملکرد، سازگاری صفحات و آماده‌سازی برای انتشار.
+                            {{ __('site.portfolio_process_step_4_text') }}
                         </p>
                     </div>
                 </div>
@@ -345,23 +337,22 @@
                                     stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
                             </svg>
 
-                            آماده شروع هستیم
+                            {{ __('site.portfolio_cta_eyebrow') }}
                         </span>
 
                         <h2 class="si-cta-title">
-                            برای قدم بعدی
-                            <span>کسب‌وکارت آماده‌ای؟</span>
+                            {{ __('site.portfolio_cta_title') }}
+                            <span>{{ __('site.portfolio_cta_title_highlight') }}</span>
                         </h2>
 
                         <p class="si-cta-description">
-                            از طراحی یک وب‌سایت جدید تا بهبود و توسعه سایت فعلی؛
-                            بیایید درباره نیازهای کسب‌وکارت صحبت کنیم و
-                            راهکار مناسب پروژه‌ات رو پیدا کنیم.
+                            {{ __('site.portfolio_cta_description') }}
                         </p>
 
                         <div class="si-cta-actions">
-                            <a href="{{ route('contact') }}" class="si-cta-primary">
-                                شروع گفتگو درباره پروژه
+                            <a href="{{ route(app()->getLocale() === 'en' ? 'en.contact' : 'contact') }}"
+                                class="si-cta-primary">
+                                {{ __('site.portfolio_cta_primary') }}
 
                                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                     <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="1.8"
@@ -369,11 +360,11 @@
                                 </svg>
                             </a>
 
-                            <a href="{{ route('services') }}" class="si-cta-secondary">
-                                مشاهده خدمات
+                            <a href="{{ route(app()->getLocale() === 'en' ? 'en.services' : 'services') }}"
+                                class="si-cta-secondary">
+                                {{ __('site.portfolio_cta_secondary') }}
                             </a>
                         </div>
-
 
                     </div>
                 </div>

@@ -1968,3 +1968,206 @@
 .pf-overview-description {
     white-space: pre-line;
 }
+
+/* Reverse Breadcrumb Arrow in English */
+html[dir="ltr"] .sv-breadcrumb-item:not(:last-child)::after {
+    transform: rotate(180deg);
+}
+
+/* Mobile Gallery Title - English */
+@media (max-width: 600px) {
+    html[dir="ltr"] .pf-gallery-title {
+        width: 100%;
+        max-width: 100%;
+        font-size: clamp(20px, 5.5vw, 24px);
+        line-height: 1.4;
+        letter-spacing: -0.6px;
+        overflow-wrap: normal;
+        word-break: normal;
+        text-wrap: balance;
+    }
+}
+
+@media (max-width: 600px) {
+    html[dir="ltr"] .pf-gallery-title {
+        text-align: center !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .pf-gallery-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .pf-gallery-count {
+        margin-top: 0 !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .pf-gallery-count {
+        align-self: flex-start !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
+}
+
+@media (max-width: 600px) {
+    html[dir="rtl"] .pf-gallery-header > div {
+        width: 100%;
+        text-align: right !important;
+        padding-right: 12px;
+    }
+}
+
+/* English Desktop Gallery - Left Align */
+@media (min-width: 768px) {
+    html[dir="ltr"] .pf-gallery-header {
+        direction: ltr !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+    }
+
+    html[dir="ltr"] .pf-gallery-header > div {
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
+
+    html[dir="ltr"] .pf-gallery-title,
+    html[dir="ltr"] .pf-gallery-header .pf-section-eyebrow {
+        text-align: left !important;
+    }
+}
+
+/* English Desktop - Project Overview Left Align */
+@media (min-width: 768px) {
+    html[dir="ltr"] .pf-overview-section {
+        direction: ltr !important;
+        text-align: left !important;
+    }
+
+    html[dir="ltr"] .pf-overview-content {
+        direction: ltr !important;
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
+
+    html[dir="ltr"] .pf-overview-content .pf-section-eyebrow,
+    html[dir="ltr"] .pf-overview-title,
+    html[dir="ltr"] .pf-overview-description {
+        text-align: left !important;
+    }
+}
+
+/* English Desktop - Project Information Left Align */
+@media (min-width: 768px) {
+    html[dir="ltr"] .pf-metadata-heading {
+        direction: ltr !important;
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
+
+    html[dir="ltr"] .pf-metadata-heading h2,
+    html[dir="ltr"] .pf-metadata-heading p {
+        text-align: left !important;
+    }
+}
+
+/* English Desktop - Related Projects Left Align */
+@media (min-width: 768px) {
+    html[dir="ltr"] .pf-related-heading {
+        direction: ltr !important;
+        text-align: left !important;
+        justify-content: flex-start !important;
+    }
+
+    html[dir="ltr"] .pf-related-heading > div {
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
+
+    html[dir="ltr"] .pf-related-heading h2,
+    html[dir="ltr"] .pf-related-heading p {
+        text-align: left !important;
+    }
+}
+html[dir="ltr"] .pf-related-all svg {
+    transform: rotate(180deg);
+}
+
+html[dir="ltr"] .si-cta-primary svg {
+    transform: rotate(180deg);
+}
+
+/* English Project Metadata Cards - Desktop */
+@media (min-width: 768px) {
+    html[dir="ltr"] .pf-metadata-card {
+        direction: ltr !important;
+        text-align: left !important;
+    }
+
+    html[dir="ltr"] .pf-metadata-text {
+        direction: ltr !important;
+        text-align: left !important;
+        align-items: flex-start !important;
+    }
+
+    html[dir="ltr"] .pf-metadata-label,
+    html[dir="ltr"] .pf-metadata-value {
+        direction: ltr !important;
+        text-align: left !important;
+        width: 100%;
+    }
+}
+
+/* English Project Information - Mobile */
+@media (max-width: 767px) {
+    html[dir="ltr"] .pf-metadata-heading {
+        direction: ltr !important;
+        text-align: left !important;
+        align-items: flex-start !important;
+    }
+
+    html[dir="ltr"] .pf-metadata-heading h2,
+    html[dir="ltr"] .pf-metadata-heading p {
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
+}
+
+/* English Related Projects - Mobile */
+@media (max-width: 767px) {
+    html[dir="ltr"] .pf-related-heading {
+        direction: ltr !important;
+        text-align: left !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+    }
+
+    html[dir="ltr"] .pf-related-heading > div {
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+        align-items: flex-start !important;
+    }
+
+    html[dir="ltr"] .pf-related-heading h2,
+    html[dir="ltr"] .pf-related-heading p {
+        text-align: left !important;
+    }
+
+    html[dir="ltr"] .pf-related-all {
+        direction: ltr !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
+}

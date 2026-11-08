@@ -265,4 +265,131 @@ return [
 
 'pricing_faq_q5' => 'How does the payment process work?',
 'pricing_faq_a5' => 'Payment terms are determined by mutual agreement and specified in the contract. Typically, part of the payment is made upfront, with the remainder paid at agreed milestones or upon project completion. We will discuss the details after the initial consultation.',
+'footer_address' => 'Tehran, Iran',
+
+// Portfolio Index Page
+
+// Meta
+'portfolio_page_title' => 'Portfolio & Projects in Development | Moradix Studio',
+'portfolio_page_description' => 'Explore selected projects and ongoing work by Moradix Studio in website design, e-commerce, and digital solutions.',
+
+// Breadcrumb
+'portfolio_breadcrumb_label' => 'Breadcrumb',
+'portfolio_breadcrumb_home' => 'Home',
+'portfolio_breadcrumb_current' => 'Portfolio',
+
+// Hero
+'portfolio_hero_title' => 'From Idea to Execution ',
+'portfolio_hero_title_highlight' => 'The Journey Behind Our Projects',
+'portfolio_hero_description' => 'We are just getting started, so we present every project with its actual status: completed projects and work currently being developed for clients.',
+'portfolio_hero_projects_button' => 'Explore Projects',
+'portfolio_hero_contact_button' => 'Let’s Discuss Your Project',
+
+// Hero Stats
+'portfolio_stat_completed' => 'Completed Projects',
+'portfolio_stat_development' => 'Projects in Development',
+
+// Hero Artwork
+'portfolio_art_label' => 'Project Previews',
+'portfolio_card_store' => 'E-commerce Website',
+'portfolio_status_development' => 'In Development',
+'portfolio_card_website' => 'Website Design',
+'portfolio_status_personal' => 'Personal Project',
+'portfolio_card_technical' => 'Technical Project',
+'portfolio_status_mvc' => 'MVC Architecture',
+
+// Projects Section
+'portfolio_projects_title' => 'Projects We Have Built',
+'portfolio_category_default' => 'Project',
+'portfolio_status_completed' => 'Completed',
+'portfolio_project_details' => 'View Project Details',
+'portfolio_projects_empty' => 'We are currently preparing our portfolio projects.',
+
+// Process Section
+'portfolio_process_title' => 'Every Project Follows a Clear Process.',
+'portfolio_process_description' => 'Good design is more than an attractive appearance; it should address user needs and make the path to the goal easier.',
+
+'portfolio_process_step_1_title' => 'Understanding Needs',
+'portfolio_process_step_1_text' => 'Identifying business goals, target audiences, and the project’s core requirements.',
+
+'portfolio_process_step_2_title' => 'Experience Design',
+'portfolio_process_step_2_text' => 'Shaping page structures, user journeys, and interface design.',
+
+'portfolio_process_step_3_title' => 'Development',
+'portfolio_process_step_3_text' => 'Turning the design into a responsive and functional web experience.',
+
+'portfolio_process_step_4_title' => 'Testing & Launch',
+'portfolio_process_step_4_text' => 'Reviewing performance, checking page compatibility, and preparing for launch.',
+
+// Final CTA
+'portfolio_cta_eyebrow' => 'Ready to Get Started',
+'portfolio_cta_title' => 'Ready for the Next Step',
+'portfolio_cta_title_highlight' => 'for Your Business ?',
+'portfolio_cta_description' => 'From designing a new website to improving and expanding your existing one, let’s discuss your business needs and find the right solution for your project.',
+'portfolio_cta_primary' => 'Let’s Discuss Your Project',
+'portfolio_cta_secondary' => 'Explore Our Services',
+
+// Portfolio Show Page
+
+// Meta
+'portfolio_show_meta_suffix' => 'Moradix Studio Portfolio',
+'portfolio_show_default_description' => 'Explore the details of this project and the solutions implemented.',
+
+// Breadcrumb
+'portfolio_show_breadcrumb_label' => 'Breadcrumb',
+'portfolio_show_breadcrumb_home' => 'Home',
+'portfolio_show_breadcrumb_portfolio' => 'Portfolio',
+'portfolio_show_breadcrumb_project' => 'Project',
+
+// Hero
+'portfolio_show_website_button' => 'Visit Project Website',
+'portfolio_show_details_button' => 'Project Details & Features',
+'portfolio_show_hero_image_alt' => 'Project Preview',
+
+// Overview
+'portfolio_show_overview_eyebrow' => 'Project Overview',
+
+// Features
+'portfolio_show_features_title' => 'Project Features & Capabilities',
+'portfolio_show_features_aria' => 'Project Features & Capabilities',
+'portfolio_show_default_feature' => 'Project Feature',
+
+// Gallery
+'portfolio_show_gallery_eyebrow' => 'Project Gallery',
+'portfolio_show_gallery_title' => 'Screenshots & Implementation Details',
+'portfolio_show_gallery_count' => 'Images',
+'portfolio_show_gallery_image_alt' => 'View Larger Image',
+'portfolio_show_lightbox_aria' => 'Project Image Viewer',
+'portfolio_show_lightbox_close' => 'Close Image',
+'portfolio_show_lightbox_backdrop' => 'Close Image Viewer',
+
+// Metadata
+'portfolio_show_metadata_aria' => 'Project Information',
+'portfolio_show_metadata_title' => 'Project Information',
+'portfolio_show_metadata_description' => 'A quick look at this project’s information and details.',
+'portfolio_show_responsive_label' => 'Responsive Design',
+'portfolio_show_responsive_value' => 'Mobile, Tablet & Laptop',
+
+// Related Projects
+'portfolio_show_related_title' => 'Related Projects',
+'portfolio_show_related_description' => 'Explore more projects in the same field.',
+'portfolio_show_related_all' => 'View All Projects',
+'portfolio_show_related_details' => 'View Details',
+
+// Final CTA
+'portfolio_show_cta_eyebrow' => 'Ready to Get Started',
+'portfolio_show_cta_title' => 'Ready for the Next Step',
+'portfolio_show_cta_title_highlight' => 'for Your Business?',
+'portfolio_show_cta_description' => 'From designing a new website to improving and expanding your existing one, let’s discuss your business needs and find the right solution for your project.',
+'portfolio_show_cta_primary' => 'Let’s Discuss Your Project',
+'portfolio_show_cta_secondary' => 'Explore Our Services',
+
+'portfolio_show_category_label' => 'Project Category',
+'portfolio_show_status_label' => 'Project Status',
+'portfolio_show_status_completed' => 'Completed',
+'portfolio_show_status_in_progress' => 'In Progress',
+'portfolio_show_features_count_label' => 'Features Count',
+'portfolio_show_features_count_value' => ':count Registered Features',
+'portfolio_show_website_label' => 'Project Website',
+'portfolio_show_website_value' => 'Visit Website',
 ];

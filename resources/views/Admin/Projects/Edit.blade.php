@@ -1,4 +1,3 @@
-
 @extends('admin.layouts.layout')
 
 @section('title', 'ویرایش پروژه')
@@ -7,8 +6,8 @@
     <script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.feature-multiselect').forEach(function (element) {
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.feature-multiselect').forEach(function(element) {
                 if (element.tomselect) return;
 
                 new TomSelect(element, {
@@ -20,7 +19,7 @@
                     maxOptions: 200,
                     placeholder: 'جست‌وجو و انتخاب ویژگی...',
                     render: {
-                        no_results: function () {
+                        no_results: function() {
                             return '<div class="no-results">موردی پیدا نشد</div>';
                         }
                     }
@@ -43,8 +42,7 @@
                 {{ $project->title }}
             </h1>
 
-            <a href="{{ route('admin.projects.index') }}"
-               class="admin-project-edit-back-top">
+            <a href="{{ route('admin.projects.index') }}" class="admin-project-edit-back-top">
                 بازگشت
             </a>
         </div>
@@ -54,11 +52,7 @@
         {{-- Form --}}
         <div class="admin-project-edit-card">
 
-            <form
-                action="{{ route('admin.projects.update', $project) }}"
-                method="POST"
-                autocomplete="off"
-            >
+            <form action="{{ route('admin.projects.update', $project) }}" method="POST" autocomplete="off">
                 @csrf
                 @method('PUT')
 
@@ -78,10 +72,7 @@
                                 <option value="">انتخاب دسته‌بندی</option>
 
                                 @foreach ($categories as $category)
-                                    <option
-                                        value="{{ $category->id }}"
-                                        @selected(old('category_id', $project->category_id) == $category->id)
-                                    >
+                                    <option value="{{ $category->id }}" @selected(old('category_id', $project->category_id) == $category->id)>
                                         {{ $category->name }}
                                     </option>
                                 @endforeach
@@ -95,13 +86,8 @@
                         <div class="admin-project-edit-field">
                             <label for="project-title">نام پروژه</label>
 
-                            <input
-                                type="text"
-                                id="project-title"
-                                name="title"
-                                value="{{ old('title', $project->title) }}"
-                                placeholder="نام پروژه"
-                            >
+                            <input type="text" id="project-title" name="title"
+                                value="{{ old('title', $project->title) }}" placeholder="نام پروژه">
 
                             @error('title')
                                 <p class="admin-project-edit-error">{{ $message }}</p>
@@ -111,14 +97,8 @@
                         <div class="admin-project-edit-field">
                             <label for="project-slug">اسلاگ</label>
 
-                            <input
-                                type="text"
-                                id="project-slug"
-                                name="slug"
-                                value="{{ old('slug', $project->slug) }}"
-                                placeholder="project-slug"
-                                dir="ltr"
-                            >
+                            <input type="text" id="project-slug" name="slug" value="{{ old('slug', $project->slug) }}"
+                                placeholder="project-slug" dir="ltr">
 
                             @error('slug')
                                 <p class="admin-project-edit-error">{{ $message }}</p>
@@ -140,12 +120,7 @@
                         <div class="admin-project-edit-field">
                             <label for="short-description">توضیح کوتاه</label>
 
-                            <textarea
-                                id="short-description"
-                                name="short_description"
-                                rows="4"
-                                placeholder="توضیح کوتاه پروژه..."
-                            >{{ old('short_description', $project->short_description) }}</textarea>
+                            <textarea id="short-description" name="short_description" rows="4" placeholder="توضیح کوتاه پروژه...">{{ old('short_description', $project->short_description) }}</textarea>
 
                             @error('short_description')
                                 <p class="admin-project-edit-error">{{ $message }}</p>
@@ -155,12 +130,7 @@
                         <div class="admin-project-edit-field">
                             <label for="project-description">توضیحات کامل</label>
 
-                            <textarea
-                                id="project-description"
-                                name="description"
-                                rows="4"
-                                placeholder="توضیحات کامل پروژه..."
-                            >{{ old('description', $project->description) }}</textarea>
+                            <textarea id="project-description" name="description" rows="4" placeholder="توضیحات کامل پروژه...">{{ old('description', $project->description) }}</textarea>
 
                             @error('description')
                                 <p class="admin-project-edit-error">{{ $message }}</p>
@@ -170,16 +140,73 @@
                     </div>
                 </section>
 
+                {{-- English Descriptions --}}
+                <section class="admin-project-edit-section admin-project-edit-english-section">
+
+                    <div class="admin-project-edit-section-heading">
+                        <h2 class="admin-project-edit-section-title">
+                            اطلاعات انگلیسی پروژه
+                        </h2>
+
+                        <p>
+                            اطلاعات انگلیسی پروژه را برای نمایش در نسخه انگلیسی سایت وارد کنید.
+                        </p>
+                    </div>
+
+                    <div class="admin-project-edit-fields">
+
+                        English Title
+                        <div class="admin-project-edit-field">
+                            <label for="project-title-en">
+                                نام انگلیسی پروژه
+                            </label>
+
+                            <input type="text" id="project-title-en" name="title_en"
+                                value="{{ old('title_en', $project->title_en) }}" placeholder="E-commerce Website"
+                                dir="ltr">
+
+                            @error('title_en')
+                                <p class="admin-project-edit-error">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        {{-- English Short Description --}}
+                        <div class="admin-project-edit-field admin-project-edit-full">
+                            <label for="short-description-en">
+                                توضیح کوتاه انگلیسی
+                            </label>
+
+                            <textarea id="short-description-en" name="short_description_en" rows="4"
+                                placeholder="A modern and professional e-commerce website." dir="ltr">{{ old('short_description_en', $project->short_description_en) }}</textarea>
+
+                            @error('short_description_en')
+                                <p class="admin-project-edit-error">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        {{-- English Description --}}
+                        <div class="admin-project-edit-field admin-project-edit-full">
+                            <label for="project-description-en">
+                                توضیحات کامل انگلیسی
+                            </label>
+
+                            <textarea id="project-description-en" name="description_en" rows="4"
+                                placeholder="Describe the project in English..." dir="ltr">{{ old('description_en', $project->description_en) }}</textarea>
+
+                            @error('description_en')
+                                <p class="admin-project-edit-error">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                    </div>
+
+                </section>
+
                 {{-- Project Features --}}
                 @php
-                    $oldFeatureIds = old(
-                        'feature_ids',
-                        $project->features->pluck('id')->toArray()
-                    );
+                    $oldFeatureIds = old('feature_ids', $project->features->pluck('id')->toArray());
 
-                    $selectedFeatureIds = is_array($oldFeatureIds)
-                        ? array_map('intval', $oldFeatureIds)
-                        : [];
+                    $selectedFeatureIds = is_array($oldFeatureIds) ? array_map('intval', $oldFeatureIds) : [];
                 @endphp
 
                 <section class="admin-project-edit-section">
@@ -203,7 +230,6 @@
                         @forelse ($featureCategories as $featureCategory)
 
                             @if ($featureCategory->features->isNotEmpty())
-
                                 <div class="admin-project-edit-feature-card">
 
                                     <label for="features-category-{{ $featureCategory->id }}">
@@ -216,18 +242,10 @@
                                         </p>
                                     @endif
 
-                                    <select
-                                        id="features-category-{{ $featureCategory->id }}"
-                                        name="feature_ids[]"
-                                        class="feature-multiselect"
-                                        multiple
-                                        placeholder="جست‌وجو و انتخاب ویژگی..."
-                                    >
+                                    <select id="features-category-{{ $featureCategory->id }}" name="feature_ids[]"
+                                        class="feature-multiselect" multiple placeholder="جست‌وجو و انتخاب ویژگی...">
                                         @foreach ($featureCategory->features as $feature)
-                                            <option
-                                                value="{{ $feature->id }}"
-                                                @selected(in_array($feature->id, $selectedFeatureIds, true))
-                                            >
+                                            <option value="{{ $feature->id }}" @selected(in_array($feature->id, $selectedFeatureIds, true))>
                                                 {{ $feature->name }}
                                             </option>
                                         @endforeach
@@ -238,7 +256,6 @@
                                     </p>
 
                                 </div>
-
                             @endif
 
                         @empty
@@ -264,14 +281,9 @@
                         <div class="admin-project-edit-field">
                             <label for="project-url">لینک پروژه</label>
 
-                            <input
-                                type="url"
-                                id="project-url"
-                                name="project_url"
-                                value="{{ old('project_url', $project->project_url) }}"
-                                placeholder="https://example.com"
-                                dir="ltr"
-                            >
+                            <input type="url" id="project-url" name="project_url"
+                                value="{{ old('project_url', $project->project_url) }}" placeholder="https://example.com"
+                                dir="ltr">
 
                             @error('project_url')
                                 <p class="admin-project-edit-error">{{ $message }}</p>
@@ -281,14 +293,9 @@
                         <div class="admin-project-edit-field">
                             <label for="github-url">لینک گیت‌هاب</label>
 
-                            <input
-                                type="url"
-                                id="github-url"
-                                name="github_url"
+                            <input type="url" id="github-url" name="github_url"
                                 value="{{ old('github_url', $project->github_url) }}"
-                                placeholder="https://github.com/..."
-                                dir="ltr"
-                            >
+                                placeholder="https://github.com/..." dir="ltr">
 
                             @error('github_url')
                                 <p class="admin-project-edit-error">{{ $message }}</p>
@@ -310,17 +317,11 @@
                         <label for="status">وضعیت</label>
 
                         <select name="status" id="status">
-                            <option
-                                value="0"
-                                @selected(old('status', $project->status) == '0')
-                            >
+                            <option value="0" @selected(old('status', $project->status) == '0')>
                                 در حال توسعه
                             </option>
 
-                            <option
-                                value="1"
-                                @selected(old('status', $project->status) == '1')
-                            >
+                            <option value="1" @selected(old('status', $project->status) == '1')>
                                 تکمیل شده
                             </option>
                         </select>
@@ -335,10 +336,7 @@
                 {{-- Actions --}}
                 <div class="admin-project-edit-actions">
 
-                    <a
-                        href="{{ route('admin.projects.index') }}"
-                        class="admin-project-edit-cancel"
-                    >
+                    <a href="{{ route('admin.projects.index') }}" class="admin-project-edit-cancel">
                         انصراف
                     </a>
 

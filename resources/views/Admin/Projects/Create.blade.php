@@ -97,6 +97,67 @@
                     </div>
                 </section>
 
+                {{-- English Project Information --}}
+                <section class="admin-project-create-section admin-project-create-english-section">
+
+                    <div class="admin-project-create-section-heading">
+                        <h2 class="admin-project-create-section-title">
+                            اطلاعات انگلیسی پروژه
+                        </h2>
+
+                        <p>
+                            اطلاعات انگلیسی پروژه را برای نمایش در نسخه انگلیسی سایت وارد کنید.
+                        </p>
+                    </div>
+
+                    <div class="admin-project-create-fields">
+
+                        {{-- English Title --}}
+                        <div class="admin-project-create-field">
+                            <label for="project-title-en">
+                                نام انگلیسی پروژه
+                            </label>
+
+                            <input type="text" id="project-title-en" name="title_en" value="{{ old('title_en') }}"
+                                placeholder="E-commerce Website" dir="ltr">
+
+                            @error('title_en')
+                                <p class="admin-project-create-field-error">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        {{-- English Short Description --}}
+                        <div class="admin-project-create-field admin-project-create-full">
+                            <label for="short-description-en">
+                                توضیح کوتاه انگلیسی
+                            </label>
+
+                            <textarea id="short-description-en" name="short_description_en" rows="3"
+                                placeholder="A modern and professional e-commerce website." dir="ltr">{{ old('short_description_en') }}</textarea>
+
+                            @error('short_description_en')
+                                <p class="admin-project-create-field-error">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        {{-- English Description --}}
+                        <div class="admin-project-create-field admin-project-create-full">
+                            <label for="project-description-en">
+                                توضیحات کامل انگلیسی
+                            </label>
+
+                            <textarea id="project-description-en" name="description_en" rows="5"
+                                placeholder="Describe the project in English..." dir="ltr">{{ old('description_en') }}</textarea>
+
+                            @error('description_en')
+                                <p class="admin-project-create-field-error">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                    </div>
+
+                </section>
+
                 {{-- Project Features --}}
                 @php
                     $oldFeatureIds = old('feature_ids', []);

@@ -15,26 +15,30 @@
     <main class="pd-page">
 
         {{-- Breadcrumb --}}
-
-        <nav class="sv-breadcrumb" aria-label="مسیر صفحه">
+        <nav class="sv-breadcrumb" aria-label="{{ __('site.portfolio_show_breadcrumb_label') }}">
             <div class="container">
                 <ol class="sv-breadcrumb-list">
                     <li class="sv-breadcrumb-item">
-                        <a href="{{ route('home') }}">صفحه اصلی</a>
+                        <a href="{{ route(app()->getLocale() === 'en' ? 'en.home' : 'home') }}">
+                            {{ __('site.portfolio_show_breadcrumb_home') }}
+                        </a>
                     </li>
+
                     <li class="sv-breadcrumb-item">
-                        <a href="{{ route('portfolio') }}"> نمونه کار ها </a>
+                        <a href="{{ route(app()->getLocale() === 'en' ? 'en.portfolio' : 'portfolio') }}">
+                            {{ __('site.portfolio_show_breadcrumb_portfolio') }}
+                        </a>
                     </li>
+
                     <li class="sv-breadcrumb-item" aria-current="page">
-                        پروژه {{ $project->title }}
+                        {{ __('site.portfolio_show_breadcrumb_project') }} {{ $project->title }}
                     </li>
                 </ol>
             </div>
         </nav>
 
+
         {{-- Hero --}}
-
-
         <section class="ph-hero" aria-labelledby="ph-title">
             <div class="ph-container">
 
@@ -42,8 +46,6 @@
 
                     {{-- Project Information --}}
                     <div class="ph-content">
-
-
 
                         <h1 class="ph-title" id="ph-title">
                             {{ $project->title }}
@@ -55,7 +57,7 @@
                             </p>
                         @else
                             <p class="ph-description">
-                                نگاهی به جزئیات این پروژه و راهکارهای اجراشده در آن داشته باشید.
+                                {{ __('site.portfolio_show_default_description') }}
                             </p>
                         @endif
 
@@ -64,7 +66,8 @@
                             @if ($project->project_url)
                                 <a href="{{ $project->project_url }}" class="ph-button ph-button-primary" target="_blank"
                                     rel="noopener noreferrer">
-                                    <span>دیدن وب‌سایت پروژه</span>
+
+                                    <span>{{ __('site.portfolio_show_website_button') }}</span>
 
                                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                         <path d="M14 4h6v6m0-6-9 9" stroke="currentColor" stroke-width="1.8"
@@ -76,7 +79,8 @@
                             @endif
 
                             <a href="#project-details" class="ph-button ph-button-secondary" data-ph-scroll>
-                                <span>جزئیات و ویژگی‌های پروژه</span>
+
+                                <span>{{ __('site.portfolio_show_details_button') }}</span>
 
                                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                     <path d="M12 5v14m0 0 6-6m-6 6-6-6" stroke="currentColor" stroke-width="1.8"
@@ -102,7 +106,8 @@
 
                             <div class="ph-image-content">
                                 @if ($heroImage)
-                                    <img src="{{ $heroImage }}" alt="پیش‌نمایش پروژه {{ $project->title }}"
+                                    <img src="{{ $heroImage }}"
+                                        alt="{{ __('site.portfolio_show_hero_image_alt') }} {{ $project->title }}"
                                         class="ph-project-image" fetchpriority="high">
                                 @else
                                     {{-- placeholder --}}
@@ -126,12 +131,11 @@
         <section class="pf-overview-section" id="project-details">
 
             {{-- Short Project Introduction --}}
-
             <div class="container">
                 <div class="pf-overview-content">
 
                     <span class="pf-section-eyebrow">
-                        معرفی پروژه
+                        {{ __('site.portfolio_show_overview_eyebrow') }}
                     </span>
 
                     <h2 class="pf-overview-title">
@@ -152,14 +156,15 @@
                     <div class="container">
                         <div class="pf-features-heading">
 
-
                             <h3 class="pf-features-title">
-                                ویژگی‌ها و امکانات پروژه
+                                {{ __('site.portfolio_show_features_title') }}
                             </h3>
+
                         </div>
                     </div>
 
-                    <div class="pf-features-marquee" data-pf-marquee aria-label="ویژگی‌ها و امکانات پروژه">
+                    <div class="pf-features-marquee" data-pf-marquee
+                        aria-label="{{ __('site.portfolio_show_features_aria') }}">
 
                         <div class="pf-marquee-track">
 
@@ -178,7 +183,9 @@
                                         </span>
 
                                         <span class="pf-marquee-label">
-                                            {{ $feature->title ?? ($feature->name ?? 'ویژگی پروژه') }}
+                                            {{ app()->getLocale() === 'en'
+                                                ? \Illuminate\Support\Str::headline($feature->slug)
+                                                : $feature->name ?? __('site.portfolio_show_default_feature') }}
                                         </span>
 
                                     </div>
@@ -201,7 +208,9 @@
                                         </span>
 
                                         <span class="pf-marquee-label">
-                                            {{ $feature->title ?? ($feature->name ?? 'ویژگی پروژه') }}
+                                            {{ app()->getLocale() === 'en'
+                                                ? \Illuminate\Support\Str::headline($feature->slug)
+                                                : $feature->name ?? __('site.portfolio_show_default_feature') }}
                                         </span>
 
                                     </div>
@@ -213,15 +222,12 @@
                     </div>
 
                 </div>
-
             @endif
 
         </section>
 
 
         {{-- Project Gallery --}}
-
-
         @if ($galleryImages->isNotEmpty())
             <section class="pf-gallery-section" id="project-gallery">
                 <div class="container">
@@ -229,16 +235,17 @@
                     <div class="pf-gallery-header">
                         <div>
                             <span class="pf-section-eyebrow">
-                                گالری پروژه
+                                {{ __('site.portfolio_show_gallery_eyebrow') }}
                             </span>
 
                             <h2 class="pf-gallery-title">
-                                تصاویر و جزئیات اجرا
+                                {{ __('site.portfolio_show_gallery_title') }}
                             </h2>
                         </div>
 
                         <span class="pf-gallery-count">
-                            {{ $galleryImages->count() }} تصویر
+                            {{ $galleryImages->count() }}
+                            {{ __('site.portfolio_show_gallery_count') }}
                         </span>
                     </div>
 
@@ -246,7 +253,8 @@
                         @foreach ($galleryImages as $index => $image)
                             <button type="button" class="pf-gallery-item" data-gallery-image="{{ $image['path'] }}"
                                 data-gallery-alt="{{ $image['alt'] }}"
-                                aria-label="نمایش بزرگ‌تر تصویر {{ $index + 1 }}">
+                                aria-label="{{ __('site.portfolio_show_gallery_image_alt') }} {{ $index + 1 }}">
+
                                 <img src="{{ $image['path'] }}" alt="{{ $image['alt'] }}" loading="lazy"
                                     decoding="async">
 
@@ -258,6 +266,7 @@
                                             stroke-width="1.7" stroke-linecap="round" />
                                     </svg>
                                 </span>
+
                             </button>
                         @endforeach
                     </div>
@@ -267,37 +276,43 @@
 
             {{-- Image lightbox --}}
             <div class="pf-gallery-lightbox" data-gallery-lightbox aria-hidden="true" role="dialog" aria-modal="true"
-                aria-label="نمایش تصویر پروژه">
-                <button type="button" class="pf-lightbox-close" data-gallery-close aria-label="بستن تصویر">
+                aria-label="{{ __('site.portfolio_show_lightbox_aria') }}">
+
+                <button type="button" class="pf-lightbox-close" data-gallery-close
+                    aria-label="{{ __('site.portfolio_show_lightbox_close') }}">
                     &times;
                 </button>
 
                 <button type="button" class="pf-lightbox-backdrop" data-gallery-close
-                    aria-label="بستن نمایش تصویر"></button>
+                    aria-label="{{ __('site.portfolio_show_lightbox_backdrop') }}">
+                </button>
 
                 <figure class="pf-lightbox-figure">
                     <img data-gallery-preview src="" alt="">
                     <figcaption data-gallery-caption></figcaption>
                 </figure>
+
             </div>
         @endif
 
 
+
         {{-- Project Metadata --}}
-
-
         @if ($metadataItems->isNotEmpty())
-            <section class="pf-metadata-section" aria-label="مشخصات پروژه">
+            <section class="pf-metadata-section" aria-label="{{ __('site.portfolio_show_metadata_aria') }}">
+
                 <div class="container">
 
                     <div class="pf-metadata-heading">
-                        <h2>مشخصات پروژه</h2>
+                        <h2>{{ __('site.portfolio_show_metadata_title') }}</h2>
+
                         <p>
-                            نگاهی کوتاه به اطلاعات و جزئیات این پروژه داشته باشید.
+                            {{ __('site.portfolio_show_metadata_description') }}
                         </p>
                     </div>
 
                     <div class="pf-metadata-grid">
+
                         @foreach ($metadataItems->take(3) as $item)
                             <div class="pf-metadata-card">
 
@@ -328,6 +343,7 @@
                                 </span>
 
                                 <div class="pf-metadata-text">
+
                                     <span class="pf-metadata-label">
                                         {{ $item['label'] }}
                                     </span>
@@ -348,7 +364,9 @@
                             </div>
                         @endforeach
 
+                        {{-- Responsive Design --}}
                         <div class="pf-metadata-card">
+
                             <span class="pf-metadata-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" fill="none">
                                     <rect x="2.5" y="3.5" width="19" height="13" rx="2" />
@@ -358,17 +376,20 @@
                             </span>
 
                             <div class="pf-metadata-text">
+
                                 <span class="pf-metadata-label">
-                                    طراحی واکنش‌گرا
+                                    {{ __('site.portfolio_show_responsive_label') }}
                                 </span>
 
                                 <span class="pf-metadata-value">
-                                    موبایل، تبلت و لپ‌تاپ
+                                    {{ __('site.portfolio_show_responsive_value') }}
                                 </span>
-                            </div>
-                        </div>
-                    </div>
 
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
             </section>
         @endif
@@ -381,14 +402,18 @@
 
                     <div class="pf-related-heading">
                         <div>
-                            <h2>پروژه‌های مرتبط</h2>
+                            <h2>{{ __('site.portfolio_show_related_title') }}</h2>
+
                             <p>
-                                نمونه‌کارهای بیشتری را در همین زمینه بررسی کنید.
+                                {{ __('site.portfolio_show_related_description') }}
                             </p>
                         </div>
 
-                        <a href="{{ route('portfolio') }}" class="pf-related-all">
-                            مشاهده همه پروژه‌ها
+                        <a href="{{ route(app()->getLocale() === 'en' ? 'en.portfolio' : 'portfolio') }}"
+                            class="pf-related-all">
+
+                            {{ __('site.portfolio_show_related_all') }}
+
                             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                 <path d="M19 12H5M11 18l-6-6 6-6" />
                             </svg>
@@ -430,13 +455,17 @@
                                     @endif
                                 </div>
 
-                                <a href="{{ route('portfolio.show', $relatedProject->slug) }}" class="pf-related-link">
-                                    مشاهده جزئیات
+                                <a href="{{ route(app()->getLocale() === 'en' ? 'en.portfolio.show' : 'portfolio.show', $relatedProject->slug) }}"
+                                    class="pf-related-link">
+
+                                    {{ __('site.portfolio_show_related_details') }}
+
                                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                         <path d="M19 12H5M11 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8"
                                             stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </a>
+
                             </div>
                         @endforeach
                     </div>
@@ -453,7 +482,6 @@
 
                     {{-- Decorative Elements --}}
                     <span class="si-cta-orb si-cta-orb-one" aria-hidden="true"></span>
-
                     <span class="si-cta-orb si-cta-orb-two" aria-hidden="true"></span>
 
                     <div class="si-cta-content">
@@ -466,23 +494,23 @@
                                     stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
                             </svg>
 
-                            آماده شروع هستیم
+                            {{ __('site.portfolio_show_cta_eyebrow') }}
                         </span>
 
                         <h2 class="si-cta-title">
-                            برای قدم بعدی
-                            <span>کسب‌وکارت آماده‌ای؟</span>
+                            {{ __('site.portfolio_show_cta_title') }}
+                            <span>{{ __('site.portfolio_show_cta_title_highlight') }}</span>
                         </h2>
 
                         <p class="si-cta-description">
-                            از طراحی یک وب‌سایت جدید تا بهبود و توسعه سایت فعلی؛
-                            بیایید درباره نیازهای کسب‌وکارت صحبت کنیم و
-                            راهکار مناسب پروژه‌ات رو پیدا کنیم.
+                            {{ __('site.portfolio_show_cta_description') }}
                         </p>
 
                         <div class="si-cta-actions">
-                            <a href="/contact" class="si-cta-primary">
-                                شروع گفتگو درباره پروژه
+                            <a href="{{ route(app()->getLocale() === 'en' ? 'en.contact' : 'contact') }}"
+                                class="si-cta-primary">
+
+                                {{ __('site.portfolio_show_cta_primary') }}
 
                                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                     <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="1.8"
@@ -490,11 +518,12 @@
                                 </svg>
                             </a>
 
-                            <a href="{{ route('services') }}" class="si-cta-secondary">
-                                مشاهده خدمات
+                            <a href="{{ route(app()->getLocale() === 'en' ? 'en.services' : 'services') }}"
+                                class="si-cta-secondary">
+
+                                {{ __('site.portfolio_show_cta_secondary') }}
                             </a>
                         </div>
-
 
                     </div>
                 </div>
