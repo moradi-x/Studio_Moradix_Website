@@ -6255,3 +6255,12 @@ html[dir="ltr"] .footer-contact-item {
 html[dir="ltr"] .footer-links a:hover {
     transform: translateX(4px);
 }
+
+/* English Desktop Dropdown - Long Labels */
+@media (min-width: 1024px) {
+    html[dir="ltr"] .nav-desktop .dropdown a {
+        white-space: normal;
+        line-height: 1.5;
+        overflow-wrap: break-word;
+    }
+}

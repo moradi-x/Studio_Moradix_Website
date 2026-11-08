@@ -1,24 +1,27 @@
 @extends('Home.Layouts.layout')
 
-@section('title', 'درباره ما | Moradix Studio')
+@php
+    $routePrefix = app()->getLocale() === 'en' ? 'en.' : '';
+@endphp
+
+@section('title', __('site.about_page_title') . ' | Moradix Studio')
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('site/css/Home/about.css') }}">
 @endpush
 
 @section('content')
-    <main class="about-page" dir="rtl">
-
+    <main class="about-page" dir="{{ app()->getLocale() === 'fa' ? 'rtl' : 'ltr' }}">
         {{-- Breadcrumb --}}
 
-        <nav class="sv-breadcrumb" aria-label="مسیر صفحه">
+        <nav class="sv-breadcrumb" aria-label="{{ __('site.about_breadcrumb') }}">
             <div class="container">
                 <ol class="sv-breadcrumb-list">
                     <li class="sv-breadcrumb-item">
-                        <a href="{{ route('home') }}">صفحه اصلی</a>
+                        <a href="{{ route($routePrefix . 'home') }}">{{ __('site.home') }}</a>
                     </li>
                     <li class="sv-breadcrumb-item" aria-current="page">
-                        درباره ما
+                        {{ __('site.about_page_title') }}
                     </li>
                 </ol>
             </div>
@@ -31,27 +34,30 @@
                 <div class="about-hero-content">
 
                     <h1>
-                        ایده‌های خوب،
-                        <span class="about-gradient">با مهندسی درست</span>
-                        به واقعیت می‌رسند.
+                        @if (app()->getLocale() === 'en')
+                            Great ideas become
+                            <span class="about-gradient">reality through thoughtful engineering.</span>
+                        @else
+                            ایده‌های خوب،
+                            <span class="about-gradient">با مهندسی درست</span>
+                            به واقعیت می‌رسند.
+                        @endif
                     </h1>
 
                     <p class="about-hero-description">
-                        ما در Studio Moradix به ساخت تجربه‌های دیجیتال فکر می‌کنیم؛
-                        راهکارهایی سنجیده، خوش‌ساخت و متناسب با نیاز واقعی
-                        هر کسب‌وکار.
+                        {{ __('site.about_hero_description') }}
                     </p>
 
                     <div class="about-hero-actions">
-                        <a href="{{ route('contact') }}" class="about-btn about-btn-primary">
-                            درباره‌ی همکاری صحبت کنیم
+                        <a href="{{ route($routePrefix . 'contact') }}" class="about-btn about-btn-primary">
+                            {{ __('site.about_collaboration') }}
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M19 12H5m0 0 6 6m-6-6 6-6" />
                             </svg>
                         </a>
 
                         <a href="#about-story" class="about-text-link">
-                            با فلسفه‌ی ما آشنا شوید
+                            {{ __('site.about_philosophy') }}
                         </a>
                     </div>
 
@@ -146,35 +152,27 @@
 
                 <div class="about-section-heading">
                     <h2>
-                        ما به چیزی بیشتر از
-                        <span class="about-gradient">ساختن یک وب‌سایت</span>
-                        فکر می‌کنیم.
+                        {{ __('site.about_story_title') }}
                     </h2>
                 </div>
 
                 <div class="about-story-content">
                     <p class="about-story-intro">
-                        در Studio Moradix، فناوری زمانی ارزشمند است
-                        که مسئله‌ای واقعی را حل کند.
+                        {{ __('site.about_story_intro') }}
                     </p>
 
                     <p>
-                        هر پروژه برای ما ترکیبی از طراحی سنجیده،
-                        مهندسی دقیق و شناخت نیازهای کسب‌وکار است.
-                        هدفمان ساخت محصولاتی کاربردی، قابل اتکا
-                        و آماده‌ی توسعه است.
+                        {{ __('site.about_story_text') }}
                     </p>
 
                     <p>
-                        کیفیت، ارتباط شفاف و مسئولیت‌پذیری،
-                        پایه‌ی همکاری ما با هر مشتری است.
+                        {{ __('site.about_story_quality') }}
                     </p>
 
                     <div class="about-quote">
                         <span class="about-quote-mark">“</span>
                         <p>
-                            فناوری خوب فقط کار نمی‌کند؛
-                            باید دلیل خوبی برای ساخته‌شدن داشته باشد.
+                            {{ __('site.about_quote') }}
                         </p>
                     </div>
                 </div>
@@ -190,12 +188,15 @@
 
 
                     <h2 id="about-why-title">
-                        چرا <span>Studio Moradix</span> ؟
+                        @if (app()->getLocale() === 'en')
+                            Why <span>Studio Moradix</span> ?
+                        @else
+                            چرا <span>Studio Moradix </span>؟
+                        @endif
                     </h2>
 
                     <p>
-                        ما به ساختن راهکارهایی فکر می‌کنیم که فقط زیبا به نظر نرسند؛
-                        بلکه دقیق، کاربردی و متناسب با اهداف واقعی هر کسب‌وکار باشند.
+                        {{ __('site.about_why_description') }}
                     </p>
                 </div>
 
@@ -211,12 +212,8 @@
                             </svg>
                         </div>
 
-                        <h3>نگاه دقیق به جزئیات</h3>
-
-                        <p>
-                            از ساختار و تجربه کاربری تا کوچک‌ترین جزئیات بصری؛
-                            هر تصمیم باید دلیل و هدف مشخصی داشته باشد.
-                        </p>
+                        <h3>{{ __('site.about_reason_1_title') }}</h3>
+                        <p>{{ __('site.about_reason_1_text') }}</p>
                     </article>
 
                     <article class="about-why__card" data-why-reveal>
@@ -229,12 +226,8 @@
                             </svg>
                         </div>
 
-                        <h3>مهندسی اصولی</h3>
-
-                        <p>
-                            راهکارهای دیجیتال باید علاوه بر ظاهر حرفه‌ای،
-                            ساختاری منظم، قابل نگهداری و متناسب با نیاز پروژه داشته باشند.
-                        </p>
+                        <h3>{{ __('site.about_reason_2_title') }}</h3>
+                        <p>{{ __('site.about_reason_2_text') }}</p>
                     </article>
 
                     <article class="about-why__card" data-why-reveal>
@@ -249,12 +242,8 @@
                             </svg>
                         </div>
 
-                        <h3>تعهد به کیفیت</h3>
-
-                        <p>
-                            کیفیت فقط در زمان تحویل معنا ندارد؛
-                            توجه به جزئیات و مسئولیت‌پذیری باید در تمام مسیر حفظ شود.
-                        </p>
+                        <h3>{{ __('site.about_reason_3_title') }}</h3>
+                        <p>{{ __('site.about_reason_3_text') }}</p>
                     </article>
 
                     <article class="about-why__card" data-why-reveal>
@@ -269,12 +258,8 @@
                             </svg>
                         </div>
 
-                        <h3>ارتباط شفاف</h3>
-
-                        <p>
-                            درک درست نیازها، گفت‌وگوی روشن و مشخص بودن انتظارات،
-                            پایه تصمیم‌گیری بهتر و همکاری حرفه‌ای است.
-                        </p>
+                        <h3>{{ __('site.about_reason_4_title') }}</h3>
+                        <p>{{ __('site.about_reason_4_text') }}</p>
                     </article>
 
                 </div>
@@ -284,7 +269,7 @@
                     <p>
                         Moradix Studio
                         <span>—</span>
-                        طراحی با فکر، توسعه با دقت
+                        {{ __('site.about_tagline') }}
                     </p>
                     <span class="about-why__footer-line"></span>
                 </div>
@@ -299,19 +284,15 @@
                 <div class="about-team-header">
                     <div class="about-section-heading">
 
-                        <h2>یک استودیو، با یک نگاه مشترک.</h2>
-
+                        <h2>{{ __('site.about_team_title') }}</h2>
                         <p>
-                            Studio Moradix بر پایه‌ی کیفیت، یادگیری و مسئولیت‌پذیری
-                            شکل می‌گیرد؛ با فضایی برای رشد و همراهی متخصصان
-                            هم‌فکر.
+                            {{ __('site.about_team_description') }}
                         </p>
                     </div>
 
                     <span class="about-team-label">
                         <span></span>
-                        مدیریت استودیو
-                    </span>
+                        {{ __('site.about_team_label') }} </span>
                 </div>
 
 
@@ -320,16 +301,16 @@
                     <article class="about-person-card">
                         <div class="about-person-image-wrap">
 
-                            <img src="{{ asset('site/images/profile.jpg') }}" alt="محمد مرادی، مدیر Studio Moradix Studio"
-                                class="about-person-image" loading="lazy">
+                            <img src="{{ asset('site/images/profile.jpg') }}"
+                                alt="محمد مرادی، مدیر Studio Moradix Studio" class="about-person-image" loading="lazy">
 
                             <span class="about-person-index">M / 01</span>
                         </div>
 
                         <div class="about-person-info">
                             <div>
-                                <h3> مهندس محمد مرادی</h3>
-                                <p>بنیان‌گذار و مدیر استودیو</p>
+                                <h3> {{ __('site.about_founder_name') }} </h3>
+                                <p> {{ __('site.about_founder_role') }} </p>
                             </div>
 
                             <span class="about-person-arrow" aria-hidden="true">
@@ -345,17 +326,14 @@
                         <span class="about-team-plus">+</span>
 
 
-                        <h3>این تازه شروع ماست.</h3>
+                        <h3> {{ __('site.about_team_note_title') }}</h3>
 
                         <p>
-                            Studio Moradix برای رشد ساخته می‌شود. با گسترش استودیو،
-                            متخصصانی که به این نگاه و استانداردها باور دارند،
-                            به جمع ما اضافه خواهند شد.
+                            {{ __('site.about_team_note_text') }}
                         </p>
 
                         <span class="about-team-note-footer">
-                            یک مسیر مشترک، کیفیتی ماندگار.
-                        </span>
+                            {{ __('site.about_team_note_footer') }} </span>
                     </div>
 
                 </div>
@@ -374,29 +352,25 @@
                     <span class="si-cta-orb si-cta-orb-two" aria-hidden="true"></span>
                     <div class="si-cta-content">
                         <h2 class="si-cta-title">
-                            برای قدم بعدی
-                            <span>کسب‌وکارت آماده‌ای؟</span>
+                            {{ __('site.about_cta_title_first') }}
+                            <span>{{ __('site.about_cta_title_highlight') }}</span>
                         </h2>
 
                         <p class="si-cta-description">
-                            از طراحی یک وب‌سایت جدید تا بهبود و توسعه سایت فعلی؛
-                            بیایید درباره نیازهای کسب‌وکارت صحبت کنیم و
-                            راهکار مناسب پروژه‌ات رو پیدا کنیم.
+                            {{ __('site.about_cta_description') }}
                         </p>
 
                         <div class="si-cta-actions">
-                            <a href="/contact" class="si-cta-primary">
-                                شروع گفتگو درباره پروژه
-
+                            <a href="{{ route(app()->getLocale() === 'en' ? 'en.contact' : 'contact') }}"
+                                class="si-cta-primary"> {{ __('site.about_cta_button') }}
                                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                     <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="1.8"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                             </a>
 
-                            <a href="{{ route('services') }}" class="si-cta-secondary">
-                                مشاهده خدمات
-                            </a>
+                          <a href="{{ route(app()->getLocale() === 'en' ? 'en.services' : 'services') }}" class="si-cta-secondary">
+                                {{ __('site.about_cta_services') }} </a>
                         </div>
 
 

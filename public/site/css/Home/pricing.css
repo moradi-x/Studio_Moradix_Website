@@ -3138,3 +3138,19 @@
         margin-right: auto;
     }
 }
+
+/* English Breadcrumb Arrow */
+html[dir="ltr"] .sv-breadcrumb-item:not(:last-child)::after {
+    content: '→';
+}
+
+
+/* English Hero Button Arrow */
+html[dir="ltr"] .ph-btn--primary::after {
+    content: "→";
+}
+
+html[dir="ltr"] .ph-btn--primary:hover::after {
+    transform: translateX(3px);
+}
+

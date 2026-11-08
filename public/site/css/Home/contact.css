@@ -1038,3 +1038,42 @@
         padding-top: 0.5rem;
     }
 }
+
+/* English Contact Cards - LTR */
+html[dir="ltr"] .ct-info-card {
+    flex-direction: row-reverse;
+}
+
+html[dir="ltr"] .ct-info-content {
+    align-items: flex-end;
+    text-align: right;
+}
+
+html[dir="ltr"] .ct-info-label {
+    margin-bottom: 0;
+}
+
+html[dir="ltr"] .ct-info-value {
+    direction: ltr;
+    text-align: right;
+}
+
+/* Center contact info on English desktop */
+@media (min-width: 768px) {
+    html[dir="ltr"] .ct-main-grid {
+        display: flex;
+        justify-content: center;
+    }
+
+    html[dir="ltr"] .ct-main-grid .ct-info-column {
+        width: 100%;
+        max-width: 650px;
+        margin-inline: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    html[dir="ltr"] .sv-breadcrumb-item:not(:last-child)::after {
+        content: '→';
+    }
+}

@@ -1,30 +1,33 @@
-{{-- resources/views/Home/Pricing/pricing.blade.php --}}
-
 @extends('Home.Layouts.layout')
 
-@section('title', 'تعرفه‌ها و پلن‌ها | Moradix Studio')
+@php
+    $routePrefix = app()->getLocale() === 'en' ? 'en.' : '';
+@endphp
 
-@section('description',
-    'تعرفه‌های شفاف طراحی سایت و فروشگاه اینترنتی Moradix Studio. پلن‌های پایه و حرفه‌ای با
-    قیمت‌گذاری واضح، مشاوره‌ی رایگان و بدون هزینه‌ی پنهان.')
+@section('title', __('site.pricing_plans') . ' | Moradix Studio')
 
-    @push('styles')
-        <link rel="stylesheet" href="{{ asset('site/css/Home/pricing.css') }}">
-    @endpush
+
+@section('description', __('site.pricing_plans'))
+
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('site/css/Home/pricing.css') }}">
+@endpush
 
 @section('content')
     <div class="pr-page">
 
         {{-- Breadcrumb --}}
 
-        <nav class="sv-breadcrumb" aria-label="مسیر صفحه">
+        <nav class="sv-breadcrumb" aria-label="{{ __('site.pricing_plans') }}">
             <div class="container">
                 <ol class="sv-breadcrumb-list">
                     <li class="sv-breadcrumb-item">
-                        <a href="{{ route('home') }}">صفحه اصلی</a>
+                        <a href="{{ route($routePrefix . 'home') }}">
+                            {{ __('site.home') }}
+                        </a>
                     </li>
                     <li class="sv-breadcrumb-item" aria-current="page">
-                        تعرفه ها و پلن ها
+                        {{ __('site.pricing_plans') }}
                     </li>
                 </ol>
             </div>
@@ -40,36 +43,52 @@
 
                     <h1 id="ph-title">
                         <span class="ph-title-line">
-                            پلن <mark class="ph-mark">مناسب</mark> کسب‌ و کارت
+                            {{ __('site.pricing_hero_title_before') }}<mark
+                                class="ph-mark">{{ __('site.pricing_hero_title_highlight') }}</mark>{{ __('site.pricing_hero_title_after') }}
                         </span>
                         <span class="ph-title-line">
-                            را پیدا کن
+                            {{ __('site.pricing_hero_title_line_2') }}
                         </span>
                     </h1>
 
                     <p class="ph-lead">
-                        پلن‌ها را کنار هم مقایسه کن. قیمت نهایی بعد از تعیین محدوده‌ی کار و قبل از شروع، شفاف مشخص می‌شود.
+                        {{ __('site.pricing_hero_description') }}
                     </p>
 
                     <div class="ph-actions">
-                        <a href="#plans" class="ph-btn ph-btn--primary">مشاهده‌ی پلن‌ها</a>
-                        <a href="{{ route('contact') }}" class="ph-btn ph-btn--ghost">مشاوره‌ی رایگان</a>
+                        <a href="#plans" class="ph-btn ph-btn--primary">
+                            {{ __('site.pricing_hero_button') }}
+                        </a>
+
+                        <a href="{{ route($routePrefix . 'contact') }}" class="ph-btn ph-btn--ghost">
+                            {{ __('site.pricing_hero_contact') }}
+                        </a>
                     </div>
 
+
+
                     <ul class="ph-points">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="m5 12 4 4L19 6" />
+                            </svg>
+                            {{ __('site.pricing_point_1') }}
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="m5 12 4 4L19 6" />
+                            </svg>
+                            {{ __('site.pricing_point_2') }}
+                        </li>
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="m5 12 4 4L19 6" />
-                            </svg>قرارداد شفاف</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="m5 12 4 4L19 6" />
-                            </svg>قیمت قبل از شروع</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="m5 12 4 4L19 6" />
-                            </svg>مشاوره‌ی رایگان</li>
+                            </svg>{{ __('site.pricing_point_3') }}</li>
                     </ul>
+
+
                 </div>
 
                 {{-- تصویر مینیمال: دو کارت پلن (تزئینی) --}}
@@ -130,7 +149,7 @@
 
                 {{-- Website Plans --}}
                 <div class="pr-section-heading" id="plans">
-                    <h2>پلن‌های طراحی وب‌سایت</h2>
+                    <h2>{{ __('site.pricing_section_title') }}</h2>
                 </div>
 
                 <div class="pr-panel" id="panel-shop">
@@ -140,18 +159,16 @@
                         {{-- Plan 1: پایه --}}
                         <article class="pr-plan-card pr-callout-right pr-website-basic">
                             <div class="pr-plan-header">
-                                <h3 class="pr-plan-name">پایه</h3>
-
+                                <h3 class="pr-plan-name">{{ __('site.pricing_basic') }}</h3>
 
                             </div>
 
                             <div class="pr-plan-price">
                                 {{-- PRICE: قیمت  طراحی سایت پایه --}}
-                                <span class="pr-price-label">از</span>
-                                <span
+                                <span class="pr-price-label">{{ __('site.pricing_from') }}</span> <span
                                     class="pr-price-amount">{{ $plans->get('website')?->basic_price_formatted ?? '۰' }}
                                 </span>
-                                <span class="pr-price-currency">تومان</span>
+                                <span class="pr-price-currency">{{ __('site.pricing_currency') }}</span>
                             </div>
 
 
@@ -163,7 +180,7 @@
                                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                     {{-- TIME: زمان اجرا --}}
-                                    <span>۲ تا ۳ هفته</span>
+                                    <span>{{ __('site.pricing_website_basic_duration') }}</span>
                                 </div>
                                 <div class="pr-meta-item">
                                     <svg class="pr-meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -171,12 +188,12 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
                                     </svg>
-                                    <span>۱ ماه پشتیبانی فنی رایگان</span>
+                                    <span>{{ __('site.pricing_website_basic_support') }}</span>
                                 </div>
                             </div>
 
                             <div class="pr-plan-features">
-                                <h4 class="pr-features-title">امکانات:</h4>
+                                <h4 class="pr-features-title">{{ __('site.pricing_features') }}</h4>
                                 <ul class="pr-features-list">
                                     <li>
                                         <svg class="pr-check-icon" fill="none" stroke="currentColor"
@@ -184,9 +201,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>طراحی
-                                            بر پایه‌ی برند اختصاصی
-                                        </span>
+                                        <span>{{ __('site.pricing_website_basic_feature_1') }}</span>
                                     </li>
                                     <li>
                                         <svg class="pr-check-icon" fill="none" stroke="currentColor"
@@ -194,9 +209,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>
-                                            تنظیم رنگ و فونت برند
-                                        </span>
+                                        <span>{{ __('site.pricing_website_basic_feature_2') }}</span>
                                     </li>
                                     <li>
                                         <svg class="pr-check-icon" fill="none" stroke="currentColor"
@@ -204,7 +217,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span> ۶ صفحه: خانه، درباره ما، خدمات، گالری و نمونه‌کار، تماس</span>
+                                        <span>{{ __('site.pricing_website_basic_feature_3') }}</span>
                                     </li>
                                     <li>
                                         <svg class="pr-check-icon" fill="none" stroke="currentColor"
@@ -212,7 +225,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>فرم تماس و راه‌های ارتباطی</span>
+                                        <span>{{ __('site.pricing_website_basic_feature_4') }}</span>
                                     </li>
                                     <li>
                                         <svg class="pr-check-icon" fill="none" stroke="currentColor"
@@ -220,7 +233,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>ریسپانسیو کامل (موبایل، تبلت، دسکتاپ)</span>
+                                        <span>{{ __('site.pricing_website_basic_feature_5') }}</span>
                                     </li>
                                     <li>
                                         <svg class="pr-check-icon" fill="none" stroke="currentColor"
@@ -228,7 +241,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>پنل مدیریت برای ویرایش متن و تصاویر، همراه آموزش کار با آن</span>
+                                        <span>{{ __('site.pricing_website_basic_feature_6') }}</span>
                                     </li>
                                     <li>
                                         <svg class="pr-check-icon" fill="none" stroke="currentColor"
@@ -236,7 +249,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>ساختار آماده‌ی سئو </span>
+                                        <span>{{ __('site.pricing_website_basic_feature_7') }}</span>
                                     </li>
                                 </ul>
 
@@ -246,15 +259,13 @@
                             </div>
 
                             <a href="{{ route('contact') }}" class="pr-plan-btn">
-                                شروع این پلن
-                            </a>
+                                {{ __('site.pricing_start_plan') }} </a>
                             <a href="{{ route('contact') }}" class="pr-plan-consult">
-                                مطمئن نیستی؟ مشاوره‌ی رایگان
-                            </a>
-                            <div class="pr-plan-callouts" aria-label="کاربردهای پلن پایه">
-                                <span class="pr-callout">وب‌سایت رزومه‌ای</span>
-                                <span class="pr-callout">معرفی کسب‌وکار</span>
-                                <span class="pr-callout">سایت شخصی و نمونه‌کار</span>
+                                {{ __('site.pricing_unsure_consult') }} </a>
+                            <div class="pr-plan-callouts" aria-label="{{ __('site.pricing_aria_website_basic') }}">
+                                <span class="pr-callout">{{ __('site.pricing_website_basic_callout_1') }}</span>
+                                <span class="pr-callout">{{ __('site.pricing_website_basic_callout_2') }}</span>
+                                <span class="pr-callout">{{ __('site.pricing_website_basic_callout_3') }}</span>
                             </div>
                         </article>
 
@@ -262,20 +273,18 @@
                         <article class="pr-plan-card pr-plan-featured pr-callout-left">
                             <span class="pr-featured-badge">پیشنهاد ما</span>
                             <div class="pr-plan-header">
-                                <h3 class="pr-plan-name">حرفه‌ای</h3>
-
+                                <h3 class="pr-plan-name">{{ __('site.pricing_professional') }}</h3>
 
                             </div>
 
                             <div class="pr-plan-price">
                                 {{-- PRICE: قیمت  طراحی سایت حرفه‌ای --}}
-                                <span class="pr-price-label">از</span>
-                                <span
+                                <span class="pr-price-label">{{ __('site.pricing_from') }}</span> <span
                                     class="pr-price-amount">{{ $plans->get('website')?->professional_price_formatted ?? '۰' }}
 
 
                                 </span>
-                                <span class="pr-price-currency">تومان</span>
+                                <span class="pr-price-currency">{{ __('site.pricing_currency') }}</span>
                             </div>
 
 
@@ -287,7 +296,7 @@
                                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                     {{-- TIME: زمان اجرا --}}
-                                    <span>۴ تا ۶ هفته</span>
+                                    <span>{{ __('site.pricing_website_pro_duration') }}</span>
                                 </div>
                                 <div class="pr-meta-item">
                                     <svg class="pr-meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -295,12 +304,12 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
                                     </svg>
-                                    <span>۲ ماه پشتیبانی فنی رایگان</span>
+                                    <span>{{ __('site.pricing_website_pro_support') }}</span>
                                 </div>
                             </div>
 
                             <div class="pr-plan-features">
-                                <h4 class="pr-features-title">همه‌ی امکانات پایه، به‌علاوه:</h4>
+                                <h4 class="pr-features-title">{{ __('site.pricing_features') }}</h4>
                                 <ul class="pr-features-list pr-collapsible">
                                     <li>
                                         <svg class="pr-check-icon" fill="none" stroke="currentColor"
@@ -308,7 +317,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>طراحی رابط کاربری اختصاصی متناسب با برند</span>
+                                        <span>{{ __('site.pricing_website_pro_feature_1') }}</span>
                                     </li>
                                     <li>
                                         <svg class="pr-check-icon" fill="none" stroke="currentColor"
@@ -316,7 +325,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>تا ۱۵ صفحه</span>
+                                        <span>{{ __('site.pricing_website_pro_feature_2') }}</span>
                                     </li>
                                     <li>
                                         <svg class="pr-check-icon" fill="none" stroke="currentColor"
@@ -324,7 +333,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>بلاگ و مدیریت محتوا</span>
+                                        <span>{{ __('site.pricing_website_pro_feature_3') }}</span>
                                     </li>
                                     <li>
                                         <svg class="pr-check-icon" fill="none" stroke="currentColor"
@@ -332,7 +341,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>ورود و پنل کاربری</span>
+                                        <span>{{ __('site.pricing_website_pro_feature_4') }}</span>
                                     </li>
                                     <li>
                                         <svg class="pr-check-icon" fill="none" stroke="currentColor"
@@ -340,8 +349,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>سئوی فنی
-                                        </span>
+                                        <span>{{ __('site.pricing_website_pro_feature_5') }}</span>
                                     </li>
                                     <li>
                                         <svg class="pr-check-icon" fill="none" stroke="currentColor"
@@ -349,7 +357,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>بهینه‌سازی سرعت</span>
+                                        <span>{{ __('site.pricing_website_pro_feature_6') }}</span>
                                     </li>
                                 </ul>
 
@@ -359,12 +367,11 @@
                                 شروع این پلن
                             </a>
                             <a href="{{ route('contact') }}" class="pr-plan-consult">
-                                مطمئن نیستی؟ مشاوره‌ی رایگان
-                            </a>
-                            <div class="pr-plan-callouts" aria-label="کاربردهای پلن حرفه‌ای">
-                                <span class="pr-callout">سایت شرکتی حرفه‌ای</span>
-                                <span class="pr-callout">وبلاگ و مجله آنلاین</span>
-                                <span class="pr-callout">سایت خدماتی و محتوایی</span>
+                                {{ __('site.pricing_unsure_consult') }} </a>
+                            <div class="pr-plan-callouts" aria-label="{{ __('site.pricing_aria_website_pro') }}">
+                                <span class="pr-callout">{{ __('site.pricing_website_pro_callout_1') }}</span>
+                                <span class="pr-callout">{{ __('site.pricing_website_pro_callout_2') }}</span>
+                                <span class="pr-callout">{{ __('site.pricing_website_pro_callout_3') }}</span>
                             </div>
                         </article>
                     </div>
@@ -380,19 +387,17 @@
                         {{-- Shop Plan 1: پایه --}}
                         <article class="pr-plan-card pr-callout-right">
                             <div class="pr-plan-header">
-                                <h3 class="pr-plan-name">پایه</h3>
-
+                                <h3 class="pr-plan-name">{{ __('site.pricing_basic') }}</h3>
                             </div>
 
                             <div class="pr-plan-price">
                                 {{-- PRICE: قیمت پایه فروشگاهی --}}
-                                <span class="pr-price-label">از</span>
-                                <span
+                                <span class="pr-price-label">{{ __('site.pricing_from') }}</span> <span
                                     class="pr-price-amount">{{ $plans->get('ecommerce')?->basic_price_formatted ?? '۰' }}
 
 
                                 </span>
-                                <span class="pr-price-currency">تومان</span>
+                                <span class="pr-price-currency">{{ __('site.pricing_currency') }}</span>
                             </div>
 
 
@@ -417,7 +422,7 @@
                             </div>
 
                             <div class="pr-plan-features">
-                                <h4 class="pr-features-title">امکانات:</h4>
+                                <h4 class="pr-features-title">{{ __('site.pricing_features') }}</h4>
                                 <ul class="pr-features-list pr-collapsible">
                                     <li>
                                         <svg class="pr-check-icon" fill="none" stroke="currentColor"
@@ -506,17 +511,16 @@
                         <article class="pr-plan-card pr-plan-featured pr-callout-left">
                             <span class="pr-featured-badge">پیشنهاد ما</span>
                             <div class="pr-plan-header">
-                                <h3 class="pr-plan-name">حرفه‌ای
-
+                                <h3 class="pr-plan-name">{{ __('site.pricing_professional') }}</h3>
                             </div>
 
                             <div class="pr-plan-price">
                                 {{-- PRICE: قیمت  فروشگاه حرفه‌ای --}}
-                                <span class="pr-price-label">از</span>
-                                <span class="pr-price-amount">
-                                   {{ $plans->get('ecommerce')?->professional_price_formatted ?? '۰' }}
+                                <span class="pr-price-label">{{ __('site.pricing_from') }}</span> <span
+                                    class="pr-price-amount">
+                                    {{ $plans->get('ecommerce')?->professional_price_formatted ?? '۰' }}
                                 </span>
-                                <span class="pr-price-currency">تومان</span>
+                                <span class="pr-price-currency">{{ __('site.pricing_currency') }}</span>
                             </div>
 
 
@@ -541,7 +545,7 @@
                             </div>
 
                             <div class="pr-plan-features">
-                                <h4 class="pr-features-title">همه‌ی امکانات پایه، به‌علاوه:</h4>
+                                <h4 class="pr-features-title">{{ __('site.pricing_features') }}</h4>
                                 <ul class="pr-features-list pr-collapsible">
                                     <li>
                                         <svg class="pr-check-icon" fill="none" stroke="currentColor"

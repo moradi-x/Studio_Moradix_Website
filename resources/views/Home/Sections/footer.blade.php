@@ -59,7 +59,7 @@
 
                     <div class="footer-contact-item">
                         <span>📞</span>
-                        <span>{{ __('site.phone') }}: 0992-624-5951</span>
+                        <span>{{ __('site.phone') }}: 09926245951 </span>
                     </div>
 
                     <div class="footer-contact-item">

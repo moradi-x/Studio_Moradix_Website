@@ -2098,3 +2098,38 @@
 .about-btn-primary {
     color: #fff !important;
 }
+
+/* English Desktop Breadcrumb Arrow */
+@media (min-width: 768px) {
+    html[dir="ltr"] .sv-breadcrumb-item:not(:last-child)::after {
+        content: '→';
+    }
+}
+
+
+/* English Mobile Hero Button */
+@media (max-width: 767px) {
+    html[dir="ltr"] .about-btn-primary {
+        font-size: 13px;
+        padding: 12px 10px;
+        gap: 8px;
+        white-space: nowrap;
+    }
+
+    html[dir="ltr"] .about-btn-primary svg {
+        flex-shrink: 0;
+        width: 18px;
+    }
+}
+
+/* Reverse directional arrows in English */
+html[dir="ltr"] .about-btn svg {
+    transform: scaleX(-1);
+}
+
+
+/* English - Why Moradix Card Numbers */
+html[dir="ltr"] .about-why__number {
+    left: auto;
+    right: 22px;
+}
