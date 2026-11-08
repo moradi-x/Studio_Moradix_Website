@@ -147,8 +147,7 @@ return [
 // Website Professional Plan
 'pricing_website_pro_duration' => '۴ تا ۶ هفته',
 'pricing_website_pro_support' => '۲ ماه پشتیبانی فنی رایگان',
-'pricing_all_basic_plus' => 'همه‌ی امکانات پایه، به‌علاوه:',
-'pricing_website_pro_feature_1' => 'طراحی رابط کاربری اختصاصی متناسب با برند',
+'pricing_all_basic_plus' => 'امکانات پایه، به‌علاوه:','pricing_website_pro_feature_1' => 'طراحی رابط کاربری اختصاصی متناسب با برند',
 'pricing_website_pro_feature_2' => 'تا ۱۵ صفحه',
 'pricing_website_pro_feature_3' => 'بلاگ و مدیریت محتوا',
 'pricing_website_pro_feature_4' => 'ورود و پنل کاربری',
@@ -191,4 +190,78 @@ return [
 'pricing_unsure_consult' => 'مطمئن نیستی؟ مشاوره‌ی رایگان',
 'pricing_aria_website_basic' => 'کاربردهای پلن پایه',
 'pricing_aria_website_pro' => 'کاربردهای پلن حرفه‌ای',
+'pricing_ecommerce_section_title' => 'پلن‌های طراحی سایت فروشگاهی',
+
+
+// Custom Services
+'pricing_custom_title' => 'خدمات اختصاصی',
+'pricing_custom_subtitle' => 'راهکارهایی متناسب با نیاز و اهداف کسب‌وکار شما',
+
+'pricing_custom_seo_title' => 'سئو و بهینه‌سازی',
+'pricing_custom_seo_text' => 'بهبود عملکرد و ساختار سایت برای رشد بهتر',
+'pricing_custom_seo_feature_1' => 'بهینه‌سازی سرعت سایت',
+'pricing_custom_seo_feature_2' => 'بررسی سئوی فنی',
+'pricing_custom_seo_feature_3' => 'بهبود ساختار صفحات',
+
+'pricing_custom_redesign_title' => 'بازطراحی و ارتقای سایت',
+'pricing_custom_redesign_text' => 'به‌روزرسانی سایت متناسب با نیازهای جدید',
+'pricing_custom_redesign_feature_1' => 'بهبود ظاهر سایت',
+'pricing_custom_redesign_feature_2' => 'بهبود تجربه کاربری',
+'pricing_custom_redesign_feature_3' => 'مهاجرت به کدنویسی اختصاصی',
+
+'pricing_custom_systems_title' => 'سیستم‌های اختصاصی',
+'pricing_custom_systems_text' => 'توسعه امکانات ویژه برای کسب‌وکار شما',
+'pricing_custom_systems_feature_1' => 'طراحی سیستم رزرو',
+'pricing_custom_systems_feature_2' => 'پنل مدیریت مشتریان',
+'pricing_custom_systems_feature_3' => 'پیاده‌سازی فرایندهای اختصاصی',
+
+'pricing_custom_price_label' => 'هزینه اجرا',
+'pricing_custom_price_value' => 'پس از بررسی پروژه',
+
+// Custom Services Footer
+'pricing_custom_note' => 'ابتدا نیاز پروژه بررسی می‌شود؛ سپس هزینه و محدوده اجرا مشخص خواهد شد.',
+'pricing_custom_consult_button' => 'درخواست مشاوره رایگان',
+
+// Price Factors
+'pricing_factors_title' => 'قیمت به چی بستگی داره؟',
+'pricing_factor_pages' => 'تعداد صفحات و محصولات',
+'pricing_factor_features' => 'قابلیت‌های اختصاصی',
+'pricing_factor_design' => 'طراحی اختصاصی و پیچیدگی رابط کاربری',
+'pricing_factor_integrations' => 'اتصال به سرویس‌های بیرونی (درگاه، پیامک)',
+'pricing_factor_multilingual' => 'چندزبانه بودن',
+'pricing_factor_content' => 'تولید یا آماده‌سازی محتوا',
+
+// Included vs Separate
+'pricing_included_title' => 'در همه‌ی پلن‌ها',
+'pricing_included_contract' => 'قرارداد شفاف',
+'pricing_included_timeline' => 'زمان‌بندی مشخص از ابتدا',
+'pricing_included_code' => 'کد تمیز',
+'pricing_included_training' => 'آموزش کار با پنل',
+'pricing_included_support' => 'پشتیبانی فنی رایگان بعد از تحویل',
+
+'pricing_separate_title' => 'جدا حساب می‌شه',
+'pricing_separate_domain' => 'دامنه و هاست',
+'pricing_separate_content' => 'تولید متن و عکاسی',
+'pricing_separate_sms' => 'اعتبار پیامک',
+'pricing_separate_gateway' => 'کارمزد درگاه پرداخت',
+'pricing_separate_changes' => 'افزودن محتوا و تغییرات بعد از تحویل',
+
+// FAQ
+'pricing_faq_title' => 'سوالات متداول',
+
+'pricing_faq_q1' => 'قیمت نهایی چطور مشخص می‌شه؟',
+'pricing_faq_a1' => 'بعد از مشاوره‌ی رایگان و شنیدن نیازت، محدوده‌ی کار رو دقیق مشخص می‌کنیم (چند صفحه، چه قابلیت‌هایی، چه اتصالاتی). بعد قیمت رو می‌گیم و توی قرارداد می‌نویسیم. این قیمت شفافه و هیچ هزینه‌ی پنهانی نداره.',
+
+'pricing_faq_q2' => 'دامنه و هاست شامل پلن هست؟',
+'pricing_faq_a2' => 'نه، دامنه و هاست جداست و خودت باید تهیه کنی. ولی ما راهنماییت می‌کنیم که کدوم سرویس مناسب کسب‌وکارته، و نصب و راه‌اندازی رو روی هاست انجام می‌دیم.',
+
+'pricing_faq_q3' => 'بعد از تحویل می‌تونم تغییر بخوام؟',
+'pricing_faq_a3' => 'تغییرات جزئی و رفع باگ در دوره‌ی پشتیبانی فنی رایگان شامل می‌شه. ولی افزودن قابلیت جدید، تغییر ظاهر یا محتوا، یا توسعه‌های بعدی، جدا قیمت‌گذاری می‌شن و پروژه‌ی جداگانه‌ای محسوب می‌شن.',
+
+'pricing_faq_q4' => 'فرق پشتیبانی فنی و نگهداری چیه؟',
+'pricing_faq_a4' => 'پشتیبانی فنی رایگان فقط رفع باگ‌های پروژه‌ی خودمونه. نگهداری یعنی بکاپ، بروزرسانی امنیتی، افزودن محتوا و تغییرات مداوم، که پولی و بر اساس بسته‌ی ماهانه یا سالانه‌ست.',
+
+'pricing_faq_q5' => 'نحوه‌ی پرداخت چطوره؟',
+'pricing_faq_a5' => 'نحوه‌ی پرداخت بر اساس توافق و قرارداد مشخص می‌شه. معمولاً یک بخش در ابتدا و بقیه در مراحل مشخص یا پایان پروژه. جزئیات رو بعد از مشاوره‌ی اولیه باهات در میون می‌ذاریم.',
+
 ];

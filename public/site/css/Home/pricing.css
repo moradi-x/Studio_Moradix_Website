@@ -3154,3 +3154,142 @@ html[dir="ltr"] .ph-btn--primary:hover::after {
     transform: translateX(3px);
 }
 
+
+
+/* Keep pricing callouts on the outer sides in English */
+@media (min-width: 901px) {
+    html[dir="ltr"] .pr-callout-right .pr-plan-callouts {
+        left: auto;
+        right: calc(100% + 24px);
+        align-items: flex-end;
+    }
+
+    html[dir="ltr"] .pr-callout-right .pr-callout::before {
+        left: auto;
+        right: -24px;
+    }
+
+    html[dir="ltr"] .pr-callout-right .pr-callout::after {
+        left: auto;
+        right: -27px;
+    }
+
+    html[dir="ltr"] .pr-callout-left .pr-plan-callouts {
+        right: auto;
+        left: calc(100% + 12px);
+        align-items: flex-start;
+    }
+
+    html[dir="ltr"] .pr-callout-left .pr-callout::before {
+        right: auto;
+        left: -12px;
+    }
+
+    html[dir="ltr"] .pr-callout-left .pr-callout::after {
+        right: auto;
+        left: -15px;
+    }
+}
+
+
+
+@media (max-width: 767px) {
+    html[dir="ltr"] #panel-shop .pr-section-heading h2 {
+        font-size: 11px !important;
+        white-space: nowrap !important;
+        display: block !important;
+        width: 100% !important;
+    }
+}
+
+/* English Custom Services Text Direction */
+/* English Custom Services */
+html[dir="ltr"] .pr-custom-item {
+    direction: ltr !important;
+    text-align: left !important;
+    align-items: flex-start !important;
+}
+
+html[dir="ltr"] .pr-custom-item > .pr-custom-icon-wrap {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    margin-bottom: 8px !important;
+    align-self: flex-start !important;
+    float: none !important;
+}
+
+html[dir="ltr"] .pr-custom-features {
+    direction: ltr !important;
+    text-align: left !important;
+    padding-left: 20px !important;
+    padding-right: 0 !important;
+}
+
+html[dir="ltr"] .pr-custom-features li {
+    padding-right: 0 !important;
+    padding-left: 1.25rem !important;
+}
+
+html[dir="ltr"] .pr-custom-features li::before {
+    right: auto !important;
+    left: 0 !important;
+}
+
+/* Compact Custom Services Footer */
+.pr-custom-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--color-border);
+}
+
+.pr-custom-note {
+    margin: 0;
+    max-width: 36rem;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.pr-custom-btn {
+    width: auto;
+    min-height: 36px;
+    padding: 7px 12px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+}
+
+.pr-custom-btn svg {
+    width: 15px;
+    height: 15px;
+}
+
+@media (max-width: 600px) {
+    .pr-custom-footer {
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+
+    .pr-custom-note {
+        font-size: 0.7rem;
+        line-height: 1.6;
+    }
+
+    .pr-custom-btn {
+        width: auto;
+        min-height: 34px;
+        padding: 6px 12px;
+        font-size: 0.72rem;
+    }
+}
+
+html[dir="ltr"] .pr-custom-btn svg {
+    transform: rotate(180deg);
+}

@@ -191,4 +191,78 @@ return [
 'pricing_unsure_consult' => 'Not sure? Get a free consultation',
 'pricing_aria_website_basic' => 'Basic plan use cases',
 'pricing_aria_website_pro' => 'Professional plan use cases',
+
+'pricing_ecommerce_section_title' => 'E-commerce Website Plans',
+
+
+// Custom Services
+'pricing_custom_title' => 'Custom Services',
+'pricing_custom_subtitle' => 'Tailored solutions to match your business needs and goals',
+
+'pricing_custom_seo_title' => 'SEO & Optimization',
+'pricing_custom_seo_text' => 'Improve your website performance and structure for better growth',
+'pricing_custom_seo_feature_1' => 'Website speed optimization',
+'pricing_custom_seo_feature_2' => 'Technical SEO audit',
+'pricing_custom_seo_feature_3' => 'Page structure improvement',
+
+'pricing_custom_redesign_title' => 'Website Redesign & Upgrade',
+'pricing_custom_redesign_text' => 'Update your website to meet your evolving needs',
+'pricing_custom_redesign_feature_1' => 'Visual design improvement',
+'pricing_custom_redesign_feature_2' => 'Better user experience',
+'pricing_custom_redesign_feature_3' => 'Migration to custom-coded solutions',
+
+'pricing_custom_systems_title' => 'Custom Systems',
+'pricing_custom_systems_text' => 'Develop tailored features for your business',
+'pricing_custom_systems_feature_1' => 'Booking system development',
+'pricing_custom_systems_feature_2' => 'Customer management dashboard',
+'pricing_custom_systems_feature_3' => 'Custom workflow implementation',
+
+'pricing_custom_price_label' => 'Development Cost',
+'pricing_custom_price_value' => 'After project evaluation',
+
+// Custom Services Footer
+'pricing_custom_note' => 'We first review your project requirements, then define the scope and cost.',
+'pricing_custom_consult_button' => 'Request a Free Consultation',
+
+// Price Factors
+'pricing_factors_title' => 'What Determines the Price?',
+'pricing_factor_pages' => 'Number of Pages and Products',
+'pricing_factor_features' => 'Custom Features',
+'pricing_factor_design' => 'Custom Design and UI Complexity',
+'pricing_factor_integrations' => 'External Integrations (Payment Gateway, SMS)',
+'pricing_factor_multilingual' => 'Multilingual Support',
+'pricing_factor_content' => 'Content Creation or Preparation',
+
+// Included vs Separate
+'pricing_included_title' => 'Included in Every Plan',
+'pricing_included_contract' => 'Transparent Contract',
+'pricing_included_timeline' => 'Clear Timeline from the Start',
+'pricing_included_code' => 'Clean Code',
+'pricing_included_training' => 'Admin Panel Training',
+'pricing_included_support' => 'Free Technical Support After Delivery',
+
+'pricing_separate_title' => 'Charged Separately',
+'pricing_separate_domain' => 'Domain and Hosting',
+'pricing_separate_content' => 'Copywriting and Photography',
+'pricing_separate_sms' => 'SMS Credits',
+'pricing_separate_gateway' => 'Payment Gateway Fees',
+'pricing_separate_changes' => 'Content Additions and Changes After Delivery',
+
+// FAQ
+'pricing_faq_title' => 'Frequently Asked Questions',
+
+'pricing_faq_q1' => 'How is the final price determined?',
+'pricing_faq_a1' => 'After a free consultation and understanding your requirements, we define the project scope in detail, including the number of pages, required features, and integrations. Then we provide the price and include it in the contract. The pricing is transparent, with no hidden costs.',
+
+'pricing_faq_q2' => 'Are domain and hosting included in the plan?',
+'pricing_faq_a2' => 'No. Domain and hosting are separate, and you will need to purchase them. However, we will help you choose the right service for your business and handle the installation and setup on your hosting.',
+
+'pricing_faq_q3' => 'Can I request changes after delivery?',
+'pricing_faq_a3' => 'Minor changes and bug fixes are covered during the free technical support period. However, adding new features, changing the design or content, and further development are priced separately and treated as new work.',
+
+'pricing_faq_q4' => 'What is the difference between technical support and maintenance?',
+'pricing_faq_a4' => 'Free technical support covers only bug fixes in the project we developed. Maintenance includes backups, security updates, content additions, and ongoing changes. It is a paid service based on a monthly or yearly package.',
+
+'pricing_faq_q5' => 'How does the payment process work?',
+'pricing_faq_a5' => 'Payment terms are determined by mutual agreement and specified in the contract. Typically, part of the payment is made upfront, with the remainder paid at agreed milestones or upon project completion. We will discuss the details after the initial consultation.',
 ];
