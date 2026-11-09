@@ -4,9 +4,9 @@
 
 @section('description', __('site.portfolio_page_description'))
 
-    @push('styles')
-        <link rel="stylesheet" href="{{ asset('site/css/Home/portfolio/portfolio-index.css') }}">
-    @endpush
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('site/css/Home/portfolio/portfolio-index.css') }}">
+@endpush
 
 
 @section('content')
@@ -209,10 +209,11 @@
                                     <img src="{{ asset(
                                         trim(env('PROJECT_IMAGES_UPLOAD_PATH', 'uploads/projects/images'), '/') . '/' . $project->primary_image,
                                     ) }}"
-                                        alt="{{ $project->title }}" loading="lazy">
+                                        alt="{{ app()->getLocale() === 'en' && $project->title_en ? $project->title_en : $project->title }}"
+                                        loading="lazy">
                                 @else
                                     <div class="pf-project-placeholder">
-                                        <span>{{ $project->title }}</span>
+                                        <span>{{ app()->getLocale() === 'en' && $project->title_en ? $project->title_en : $project->title }}</span>
                                     </div>
                                 @endif
 
@@ -222,7 +223,9 @@
 
                                 <div class="pf-project-meta">
                                     <span class="pf-project-category">
-                                        {{ $project->category?->name ?? __('site.portfolio_category_default') }}
+                                        {{ app()->getLocale() === 'en'
+                                            ? $project->category?->slug ?? __('site.portfolio_category_default')
+                                            : $project->category?->name ?? __('site.portfolio_category_default') }}
                                     </span>
 
                                     <span class="pf-status {{ $project->status ? 'is-completed' : 'is-development' }}">
@@ -231,11 +234,13 @@
                                 </div>
 
                                 <h3 class="pf-project-title">
-                                    {{ $project->title }}
+                                    {{ app()->getLocale() === 'en' && $project->title_en ? $project->title_en : $project->title }}
                                 </h3>
 
                                 <p class="pf-project-description">
-                                    {{ $project->short_description }}
+                                    {{ app()->getLocale() === 'en' && $project->short_description_en
+                                        ? $project->short_description_en
+                                        : $project->short_description }}
                                 </p>
 
                                 @if ($project->features->isNotEmpty())

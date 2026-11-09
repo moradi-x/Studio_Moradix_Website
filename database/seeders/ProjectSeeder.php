@@ -50,7 +50,7 @@ class ProjectSeeder extends Seeder
 
             'primary_image' => 'fake-project-2.png',
             'project_url' => 'https://example.com',
-            'github_url' => null,
+            'github_url' => 'https://github.com/example/ecommerce',
             'status' => true,
         ]);
 

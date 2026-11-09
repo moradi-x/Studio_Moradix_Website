@@ -63,6 +63,26 @@
 
                 </div>
 
+                {{-- English Information --}}
+                <div class="admin-project-show-fields admin-project-show-two-columns">
+
+                    <div class="admin-project-show-field">
+                        <label>نام پروژه (انگلیسی)</label>
+                        <div dir="ltr">{{ $project->title_en ?: 'ثبت نشده' }}</div>
+                    </div>
+
+                    <div class="admin-project-show-field">
+                        <label>توضیح کوتاه (انگلیسی)</label>
+                        <div class="admin-project-show-description" dir="ltr">{{ $project->short_description_en ?: 'ثبت نشده' }}</div>
+                    </div>
+
+                    <div class="admin-project-show-field">
+                        <label>توضیحات کامل (انگلیسی)</label>
+                        <div class="admin-project-show-description" dir="ltr">{{ $project->description_en ?: 'ثبت نشده' }}</div>
+                    </div>
+
+                </div>
+                
             </section>
 
             {{-- Project Links --}}

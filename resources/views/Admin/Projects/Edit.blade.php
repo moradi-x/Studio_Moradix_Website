@@ -143,19 +143,11 @@
                 {{-- English Descriptions --}}
                 <section class="admin-project-edit-section admin-project-edit-english-section">
 
-                    <div class="admin-project-edit-section-heading">
-                        <h2 class="admin-project-edit-section-title">
-                            اطلاعات انگلیسی پروژه
-                        </h2>
-
-                        <p>
-                            اطلاعات انگلیسی پروژه را برای نمایش در نسخه انگلیسی سایت وارد کنید.
-                        </p>
-                    </div>
+                    
 
                     <div class="admin-project-edit-fields">
 
-                        English Title
+
                         <div class="admin-project-edit-field">
                             <label for="project-title-en">
                                 نام انگلیسی پروژه

@@ -68,6 +68,9 @@ class ProjectController extends Controller
                 'distinct',
                 'exists:features,id',
             ],
+            'title_en' => ['nullable', 'string', 'max:255'],
+            'short_description_en' => ['nullable', 'string'],
+            'description_en' => ['nullable', 'string'],
         ]);
 
         try {
@@ -83,10 +86,18 @@ class ProjectController extends Controller
             // ایجاد پروژه
             $project = Project::create([
                 'category_id' => $request->category_id,
+
                 'title' => $request->title,
+                'title_en' => $request->title_en,
+
                 'slug' => $request->slug,
+
                 'short_description' => $request->short_description,
+                'short_description_en' => $request->short_description_en,
+
                 'description' => $request->description,
+                'description_en' => $request->description_en,
+
                 'primary_image' => $fileNameImages['fileNamePrimaryImage'],
                 'project_url' => $request->project_url,
                 'github_url' => $request->github_url,
@@ -164,7 +175,7 @@ class ProjectController extends Controller
 
     public function update(Request $request, Project $project)
     {
-        $request->validate([
+        $validated =  $request->validate([
             'category_id' => [
                 'required',
                 'exists:categories,id',
@@ -213,30 +224,53 @@ class ProjectController extends Controller
                 'distinct',
                 'exists:features,id',
             ],
+            'title_en' => ['nullable', 'string', 'max:255'],
+            'short_description_en' => ['nullable', 'string'],
+            'description_en' => ['nullable', 'string'],
 
         ]);
+
 
         try {
 
             DB::beginTransaction();
 
+
+
+
+
             // ویرایش اطلاعات پروژه
             $project->update([
                 'category_id' => $request->category_id,
+
                 'title' => $request->title,
+                'title_en' => $request->title_en,
+
                 'slug' => $request->slug,
                 'short_description' => $request->short_description,
+                'short_description_en' => $request->short_description_en,
+
                 'description' => $request->description,
+                'description_en' => $request->description_en,
+
                 'project_url' => $request->project_url,
                 'github_url' => $request->github_url,
                 'status' => $request->status,
             ]);
+
+
 
             $project->features()->sync(
                 $request->input('feature_ids', [])
             );
 
             DB::commit();
+
+            dd(
+                DB::table('projects')
+                    ->where('id', $project->id)
+                    ->first()
+            );
         } catch (\Throwable $ex) {
 
             DB::rollBack();

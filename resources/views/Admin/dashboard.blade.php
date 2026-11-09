@@ -135,7 +135,7 @@
                     <h2 class="admin-panel-title">آمار بازدید سایت</h2>
 
                     <p class="admin-panel-subtitle">
-                        روند بازدید ۷ روز اخیر
+                        روند بازدید 30 روز اخیر
                     </p>
                 </div>
 
