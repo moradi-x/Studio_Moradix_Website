@@ -2586,3 +2586,42 @@ html[dir="ltr"] .pf-process-item .pf-process-icon {
     margin-right: 0 !important;
     transform: none !important;
 }
+
+
+
+/* English Portfolio - LTR */
+html[lang="en"] .sv-breadcrumb-list {
+    direction: ltr;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+html[lang="en"] .pfh-inner {
+    direction: ltr;
+}
+
+html[lang="en"] .pfh-text {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] .pfh-actions,
+html[lang="en"] .pfh-stats {
+    direction: ltr;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+html[lang="en"] .pfh-stats dt,
+html[lang="en"] .pfh-stats dd {
+    text-align: left;
+}
+
+html[lang="en"] .pfh-btn--primary {
+    direction: rtl;
+}
+
+html[lang="en"] .pfh-btn--primary span {
+    display: inline-block;
+    transform: rotate(180deg);
+}

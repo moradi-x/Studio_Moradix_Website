@@ -3293,3 +3293,13 @@ html[dir="ltr"] .pr-custom-features li::before {
 html[dir="ltr"] .pr-custom-btn svg {
     transform: rotate(180deg);
 }
+
+
+html[lang="en"] .pr-faq,
+html[lang="en"] .pr-faq .pr-faq-question,
+html[lang="en"] .pr-faq .pr-faq-answer,
+html[lang="en"] .pr-faq .pr-faq-answer-content,
+html[lang="en"] .pr-faq .pr-faq-answer-content p {
+    direction: ltr;
+    text-align: left;
+}

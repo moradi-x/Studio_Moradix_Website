@@ -31,8 +31,7 @@
                     </li>
 
                     <li class="sv-breadcrumb-item" aria-current="page">
-                        {{ __('site.portfolio_show_breadcrumb_project') }} {{ $project->title }}
-                    </li>
+                        {{ app()->getLocale() === 'en' ? $project->title_en : $project->title }} </li>
                 </ol>
             </div>
         </nav>
@@ -48,12 +47,14 @@
                     <div class="ph-content">
 
                         <h1 class="ph-title" id="ph-title">
-                            {{ $project->title }}
+                            {{ app()->getLocale() === 'en' ? ($project->title_en ?: $project->title) : $project->title }}
                         </h1>
 
-                        @if ($project->short_description)
+
+
+                        @if ($shortDescription)
                             <p class="ph-description">
-                                {{ $project->short_description }}
+                                {{ $shortDescription }}
                             </p>
                         @else
                             <p class="ph-description">
@@ -107,7 +108,7 @@
                             <div class="ph-image-content">
                                 @if ($heroImage)
                                     <img src="{{ $heroImage }}"
-                                        alt="{{ __('site.portfolio_show_hero_image_alt') }} {{ $project->title }}"
+                                        alt="{{ __('site.portfolio_show_hero_image_alt') }} {{ app()->getLocale() === 'en' ? ($project->title_en ?: $project->title) : $project->title }}"
                                         class="ph-project-image" fetchpriority="high">
                                 @else
                                     {{-- placeholder --}}
@@ -139,7 +140,7 @@
                     </span>
 
                     <h2 class="pf-overview-title">
-                        {{ $project->title }}
+                        {{ app()->getLocale() === 'en' ? ($project->title_en ?: $project->title) : $project->title }}
                     </h2>
 
                     <p class="pf-overview-description">
@@ -427,7 +428,7 @@
                                 <div class="pf-related-image">
                                     @if ($relatedProject->primary_image)
                                         <img src="{{ asset('uploads/projects/images/' . $relatedProject->primary_image) }}"
-                                            alt="{{ $relatedProject->title }}" loading="lazy">
+                                            alt="{{ $relatedProject->display_title }}" loading="lazy">
                                     @else
                                         <div class="pf-related-placeholder">
                                             <span>Moradix Studio</span>
@@ -442,16 +443,16 @@
                                 </div>
 
                                 <div class="pf-related-content">
-                                    @if ($relatedProject->category)
+                                    @if ($relatedProject->display_category)
                                         <span class="pf-related-category">
-                                            {{ $relatedProject->category->name }}
+                                            {{ $relatedProject->display_category }}
                                         </span>
                                     @endif
 
-                                    <h3>{{ $relatedProject->title }}</h3>
+                                    <h3>{{ $relatedProject->display_title }}</h3>
 
-                                    @if ($relatedProject->short_description)
-                                        <p>{{ $relatedProject->short_description }}</p>
+                                    @if ($relatedProject->display_short_description)
+                                        <p>{{ $relatedProject->display_short_description }}</p>
                                     @endif
                                 </div>
 

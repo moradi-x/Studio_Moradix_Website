@@ -246,7 +246,9 @@
                                 @if ($project->features->isNotEmpty())
                                     <div class="pf-project-tags">
                                         @foreach ($project->features->take(3) as $feature)
-                                            <span>{{ $feature->name }}</span>
+                                            <span>
+                                                {{ app()->getLocale() === 'en' ? str_replace('-', ' ', $feature->slug) : $feature->name }}
+                                            </span>
                                         @endforeach
                                     </div>
                                 @endif

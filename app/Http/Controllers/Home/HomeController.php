@@ -70,7 +70,6 @@ class HomeController extends Controller
         return view('Home.contact', compact('settings'));
     }
 
-
     public function contactUsForm(Request $request)
     {
         $key = 'contact-form:' . $request->ip();
@@ -185,18 +184,22 @@ class HomeController extends Controller
 
         $developmentProjects = $projects->where('status', 0)->count();
 
-        $pfhFa = fn($n) => strtr((string) $n, [
-            '0' => '۰',
-            '1' => '۱',
-            '2' => '۲',
-            '3' => '۳',
-            '4' => '۴',
-            '5' => '۵',
-            '6' => '۶',
-            '7' => '۷',
-            '8' => '۸',
-            '9' => '۹',
-        ]);
+
+        $pfhFa = fn($n) => app()->getLocale() === 'en'
+            ? (string) $n
+            : strtr((string) $n, [
+                '0' => '۰',
+                '1' => '۱',
+                '2' => '۲',
+                '3' => '۳',
+                '4' => '۴',
+                '5' => '۵',
+                '6' => '۶',
+                '7' => '۷',
+                '8' => '۸',
+                '9' => '۹',
+            ]);
+
 
 
         return view('Home.Portfolio.index', compact(
@@ -209,6 +212,8 @@ class HomeController extends Controller
 
     public function portfolioShow(string $slug)
     {
+
+
         $project = Project::with([
             'category',
             'features',
@@ -221,7 +226,36 @@ class HomeController extends Controller
             ->where('id', '!=', $project->id)
             ->latest()
             ->take(3)
-            ->get();
+            ->get()
+            ->map(function ($relatedProject) {
+
+                $isEnglish = app()->getLocale() === 'en';
+
+                // نام پروژه
+                $relatedProject->display_title = $isEnglish
+                    ? ($relatedProject->title_en ?: $relatedProject->title)
+                    : $relatedProject->title;
+
+                // توضیح کوتاه پروژه
+                $relatedProject->display_short_description = $isEnglish
+                    ? ($relatedProject->short_description_en ?: $relatedProject->short_description)
+                    : $relatedProject->short_description;
+
+                // نام دسته‌بندی
+                $relatedProject->display_category = $relatedProject->category
+                    ? (
+                        $isEnglish
+                        ? (
+                            $relatedProject->category->slug
+                            ? \Illuminate\Support\Str::headline($relatedProject->category->slug)
+                            : $relatedProject->category->name
+                        )
+                        : $relatedProject->category->name
+                    )
+                    : null;
+
+                return $relatedProject;
+            });
 
         // وضعیت پروژه
         $statusLabel = $project->status == 1
@@ -240,8 +274,11 @@ class HomeController extends Controller
             : null;
 
         // توضیحات پروژه
-        $description = $project->description ?? '';
+        $description = app()->getLocale() === 'en'
+            ? ($project->description_en ?: $project->description)
+            : $project->description;
 
+        $description = $description ?? '';
         // ویژگی‌های پروژه
         $projectFeatures = $project->features;
 
@@ -312,6 +349,11 @@ class HomeController extends Controller
             ->filter(fn($item) => filled($item['value']))
             ->values();
 
+
+        $shortDescription = app()->getLocale() === 'en'
+            ? ($project->short_description_en ?: $project->short_description)
+            : $project->short_description;
+
         return view('Home.Portfolio.show', compact(
             'project',
             'relatedProjects',
@@ -322,7 +364,9 @@ class HomeController extends Controller
             'projectCategory',
             'categoryName',
             'galleryImages',
-            'metadataItems'
+            'metadataItems',
+            'shortDescription'
+
         ));
     }
 }

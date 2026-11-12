@@ -266,11 +266,6 @@ class ProjectController extends Controller
 
             DB::commit();
 
-            dd(
-                DB::table('projects')
-                    ->where('id', $project->id)
-                    ->first()
-            );
         } catch (\Throwable $ex) {
 
             DB::rollBack();
