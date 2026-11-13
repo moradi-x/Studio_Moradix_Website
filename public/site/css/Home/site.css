@@ -6264,3 +6264,141 @@ html[dir="ltr"] .footer-links a:hover {
         overflow-wrap: break-word;
     }
 }
+
+html[lang="en"] .hero .btn::after,
+html[lang="en"] .hero .btn::before {
+    transform: scaleX(-1);
+}
+
+/* Fix mobile hero top spacing - FA & EN */
+@media (max-width: 767px) {
+    html body #hero.hero {
+        padding-top: 110px !important;
+        padding-bottom: 36px !important;
+    }
+}
+
+/* English Services Alignment */
+html[lang="en"] #services {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] #services .si-services-heading,
+html[lang="en"] #services .services-featured-header,
+html[lang="en"] #services .services-specialized-header,
+html[lang="en"] #services .service-card-content,
+html[lang="en"] #services .service-footer {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] #services .service-card-top {
+    direction: ltr;
+}
+
+/* English Services Heading Alignment */
+html[lang="en"] #services .si-services-heading,
+html[lang="en"] #services .services-featured-header {
+    text-align: center !important;
+    direction: ltr;
+}
+
+html[lang="en"] #services .si-services-title,
+html[lang="en"] #services .services-featured-header h2,
+html[lang="en"] #services .services-featured-header p {
+    text-align: center !important;
+}
+
+html[lang="en"] #services .service-link span {
+    display: inline-block;
+    transform: scaleX(-1);
+}
+
+/* English Specialized Services Heading */
+html[lang="en"] #services .services-specialized-header {
+    direction: ltr;
+    text-align: center !important;
+}
+
+html[lang="en"] #services .services-specialized-header h2,
+html[lang="en"] #services .services-specialized-header p {
+    text-align: center !important;
+    margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+    html[lang="en"] #pf-projects .pf-section-heading {
+        direction: ltr;
+        text-align: left;
+    }
+
+    html[lang="en"] #pf-projects .pf-section-title {
+        text-align: left;
+    }
+
+    html[lang="en"] #pf-projects .pf-projects-more-link {
+        direction: ltr;
+    }
+
+    html[lang="en"] #pf-projects .pf-projects-more-link span {
+        display: inline-block;
+        transform: scaleX(-1);
+    }
+}
+
+@media (max-width: 767px) {
+    html[lang="en"] #pf-projects .pf-projects-more-link span {
+        display: inline-block;
+        transform: scaleX(-1);
+    }
+}
+
+@media (min-width: 768px) {
+    html[lang="en"] #faq > .container > .section-header {
+        direction: ltr;
+        text-align: left;
+    }
+
+    html[lang="en"] #faq > .container > .section-header h2,
+    html[lang="en"] #faq > .container > .section-header p {
+        text-align: left;
+    }
+}
+
+
+/* English CTA & Contact Form */
+html[lang="en"] #contact .cta-content,
+html[lang="en"] #contact .cta-header,
+html[lang="en"] #contact .ct-form-card {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] #contact .cta-header h2,
+html[lang="en"] #contact .cta-header p,
+html[lang="en"] #contact .ct-form-title,
+html[lang="en"] #contact .ct-form-subtitle,
+html[lang="en"] #contact .ct-form-label,
+html[lang="en"] #contact .ct-request-type-label {
+    text-align: left;
+}
+
+html[lang="en"] #contact .ct-form-input,
+html[lang="en"] #contact .ct-form-select,
+html[lang="en"] #contact .ct-form-textarea {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] #faq .section-header {
+    direction: ltr;
+    text-align: center !important;
+}
+
+html[lang="en"] #faq .section-header h2,
+html[lang="en"] #faq .section-header p {
+    text-align: center !important;
+    margin-inline: auto;
+}
+

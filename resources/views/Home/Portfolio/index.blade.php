@@ -284,8 +284,10 @@
 
                 <div class="pf-process-grid">
                     <div class="pf-process-item" data-reveal>
-                        <span class="pf-process-number">1</span>
-                        <div class="pf-process-icon" aria-hidden="true">⌕</div>
+                        <div class="pf-process-top">
+                            <span class="pf-process-number">1</span>
+                            <div class="pf-process-icon" aria-hidden="true">⌕</div>
+                        </div>
                         <h3>{{ __('site.portfolio_process_step_1_title') }}</h3>
                         <p>
                             {{ __('site.portfolio_process_step_1_text') }}
@@ -293,8 +295,10 @@
                     </div>
 
                     <div class="pf-process-item" data-reveal>
-                        <span class="pf-process-number">2</span>
-                        <div class="pf-process-icon" aria-hidden="true">◇</div>
+                        <div class="pf-process-top">
+                            <span class="pf-process-number">2</span>
+                            <div class="pf-process-icon" aria-hidden="true">◇</div>
+                        </div>
                         <h3>{{ __('site.portfolio_process_step_2_title') }}</h3>
                         <p>
                             {{ __('site.portfolio_process_step_2_text') }}
@@ -302,8 +306,10 @@
                     </div>
 
                     <div class="pf-process-item" data-reveal>
-                        <span class="pf-process-number">3</span>
-                        <div class="pf-process-icon" aria-hidden="true">⌘</div>
+                        <div class="pf-process-top">
+                            <span class="pf-process-number">3</span>
+                            <div class="pf-process-icon" aria-hidden="true">⌘</div>
+                        </div>
                         <h3>{{ __('site.portfolio_process_step_3_title') }}</h3>
                         <p>
                             {{ __('site.portfolio_process_step_3_text') }}
@@ -311,8 +317,10 @@
                     </div>
 
                     <div class="pf-process-item" data-reveal>
-                        <span class="pf-process-number">4</span>
-                        <div class="pf-process-icon" aria-hidden="true">↗</div>
+                        <div class="pf-process-top">
+                            <span class="pf-process-number">4</span>
+                            <div class="pf-process-icon" aria-hidden="true">↗</div>
+                        </div>
                         <h3>{{ __('site.portfolio_process_step_4_title') }}</h3>
                         <p>
                             {{ __('site.portfolio_process_step_4_text') }}

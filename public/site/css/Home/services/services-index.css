@@ -2816,3 +2816,271 @@
         height: 20px;
     }
 }
+
+/* English Services Page - Breadcrumb */
+html[lang="en"] .sv-breadcrumb-list {
+    direction: ltr;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+/* English Services Page - Hero */
+html[lang="en"] .si-hero-content {
+    direction: ltr;
+    text-align: left;
+    align-items: flex-start;
+}
+
+html[lang="en"] .si-hero-title,
+html[lang="en"] .si-hero-description {
+    text-align: left;
+}
+
+html[lang="en"] .si-hero-actions {
+    direction: ltr;
+    justify-content: flex-start;
+}
+
+/* Reverse Hero Button Arrow in English */
+html[lang="en"] .si-hero-button-arrow {
+    transform: scaleX(-1);
+}
+
+/* Hero Mobile - Center Align in Both Languages */
+@media (max-width: 767px) {
+    .si-hero-content {
+        direction: inherit;
+        text-align: center;
+        align-items: center;
+    }
+
+    .si-hero-title,
+    .si-hero-description {
+        text-align: center;
+    }
+
+    .si-hero-actions {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+html[lang="en"] .si-hero-button-arrow,
+html[lang="en"] .si-hero-actions .btn:hover .si-hero-button-arrow {
+    transform: scaleX(-1);
+}
+/* English Services Breadcrumb Arrow */
+html[lang="en"] .sv-breadcrumb-item:not(:last-child)::after {
+    content: '→';
+    transform: none;
+}
+
+/* English Services Hero - Mobile Center Alignment */
+@media (max-width: 767px) {
+    html[lang="en"] .si-hero-title,
+    html[lang="en"] .si-hero-description {
+        text-align: center;
+    }
+}
+
+/* =========================================
+   English Services Section - LTR Alignment
+========================================= */
+
+html[lang="en"] .services {
+    direction: ltr;
+}
+
+html[lang="en"] .si-services-heading,
+html[lang="en"] .si-services-title {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] .services-featured {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] .services-featured-header,
+html[lang="en"] .services-specialized-header {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] .service-card {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] .service-card-content {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] .service-footer {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] .service-link {
+    direction: ltr;
+}
+
+/* English Service Link Arrow */
+html[lang="en"] .service-link span {
+    display: inline-block;
+    transform: none;
+}
+
+/* English Services Section - LTR */
+html[lang="en"] .services,
+html[lang="en"] .services-featured,
+html[lang="en"] .services-featured-header,
+html[lang="en"] .services-specialized-header,
+html[lang="en"] .service-card,
+html[lang="en"] .service-card-content,
+html[lang="en"] .service-footer {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] .service-link {
+    direction: ltr;
+}
+/* English Services Headers - Center Alignment */
+html[lang="en"] .services-featured-header,
+html[lang="en"] .services-specialized-header {
+    text-align: center;
+    direction: ltr;
+}
+
+html[lang="en"] .services-featured-header h2,
+html[lang="en"] .services-featured-header p,
+html[lang="en"] .services-specialized-header h2,
+html[lang="en"] .services-specialized-header p {
+    text-align: center;
+}
+
+/* English Service Cards - Reverse Arrows */
+html[lang="en"] .service-link span {
+    transform: scaleX(-1);
+}
+
+
+@media (max-width: 767px) {
+    html[lang="en"] .si-services-title {
+        text-align: center;
+    }
+}
+
+/* English Services Process - LTR */
+html[lang="en"] .si-process {
+    direction: ltr;
+}
+
+html[lang="en"] .si-process-heading {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] .si-process-eyebrow,
+html[lang="en"] .si-process-title,
+html[lang="en"] .si-process-description {
+    text-align: left;
+}
+
+html[lang="en"] .si-process-card {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] .si-process-card-top {
+    direction: ltr;
+}
+
+/* English Services FAQ - LTR */
+html[lang="en"] .si-faq {
+    direction: ltr;
+}
+
+html[lang="en"] .si-faq h2 {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] .si-faq-item,
+html[lang="en"] .si-faq-question,
+html[lang="en"] .si-faq-answer,
+html[lang="en"] .si-faq-answer-content {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] .si-faq-question {
+    flex-direction: row;
+}
+
+/* English Services Process - LTR */
+html[lang="en"] .si-process,
+html[lang="en"] .si-process-heading,
+html[lang="en"] .si-process-card {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] .si-process-eyebrow,
+html[lang="en"] .si-process-title,
+html[lang="en"] .si-process-description,
+html[lang="en"] .si-process-card h3,
+html[lang="en"] .si-process-card p {
+    text-align: left;
+}
+
+html[lang="en"] .si-process-card-top {
+    direction: ltr;
+}
+
+/* English Services CTA - LTR */
+html[lang="en"] .si-cta,
+html[lang="en"] .si-cta-card,
+html[lang="en"] .si-cta-content {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] .si-cta-eyebrow,
+html[lang="en"] .si-cta-title,
+html[lang="en"] .si-cta-description {
+    text-align: left;
+}
+
+html[lang="en"] .si-cta-actions {
+    direction: ltr;
+    justify-content: flex-start;
+}
+
+html[lang="en"] .si-cta-primary {
+    direction: ltr;
+}
+
+html[lang="en"] .si-cta-primary svg {
+    transform: scaleX(-1);
+}
+
+/* English Services Process - Mobile Center */
+@media (max-width: 767px) {
+    html[lang="en"] .si-process-heading,
+    html[lang="en"] .si-process-eyebrow,
+    html[lang="en"] .si-process-title,
+    html[lang="en"] .si-process-description {
+        text-align: center;
+    }
+}
+
+/* English Services FAQ - Mobile Center */
+@media (max-width: 767px) {
+    html[lang="en"] .si-faq h2 {
+        text-align: center;
+    }
+}

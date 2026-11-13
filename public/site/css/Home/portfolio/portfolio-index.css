@@ -2540,52 +2540,7 @@ html[dir="ltr"] .pf-process-heading p {
     margin-right: auto !important;
 }
 
-/* Reduce Process Number to Icon Spacing */
-.pf-process-number {
-    margin-bottom: -10px !important;
-}
 
-.pf-process-icon {
-    margin-top: 8px !important;
-}
-
-/* English Process Cards Text Alignment */
-html[dir="ltr"] .pf-process-item h3,
-html[dir="ltr"] .pf-process-item p {
-    direction: ltr !important;
-    text-align: left !important;
-}
-
-/* English Final CTA Button Arrow */
-html[dir="ltr"] .si-cta-primary {
-    flex-direction: row-reverse;
-}
-
-html[dir="ltr"] .pf-process-number {
-    direction: ltr !important;
-    text-align: left !important;
-    align-self: flex-start !important;
-    margin-left: 0 !important;
-    margin-right: auto !important;
-}
-
-/* Reverse Process Cards Order in English */
-html[dir="ltr"] .pf-process-grid {
-    direction: ltr !important;
-}
-
-
-/* English Process: Number Left, Icon Right */
-html[dir="ltr"] .pf-process-item .pf-process-number {
-    align-self: flex-start !important;
-}
-
-html[dir="ltr"] .pf-process-item .pf-process-icon {
-    align-self: flex-end !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    transform: none !important;
-}
 
 
 
@@ -2624,4 +2579,73 @@ html[lang="en"] .pfh-btn--primary {
 html[lang="en"] .pfh-btn--primary span {
     display: inline-block;
     transform: rotate(180deg);
+}
+
+/* Center Portfolio Hero Text on Mobile */
+@media (max-width: 767px) {
+    .pfh-text {
+        text-align: center;
+        direction: rtl;
+    }
+
+    .pfh-text h1,
+    .pfh-text .pfh-lead {
+        text-align: center;
+    }
+
+    .pfh-actions,
+    .pfh-stats {
+        justify-content: center;
+    }
+
+    .pfh-stats {
+        text-align: center;
+    }
+}
+
+
+/* Process Number and Icon - Final Layout */
+
+.pf-process-item {
+    align-items: stretch;
+}
+
+.pf-process-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    direction: rtl;
+    margin-bottom: 1rem;
+}
+
+.pf-process-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    margin: 0 !important;
+    font-size: 0.75rem;
+}
+
+.pf-process-icon {
+    display: grid;
+    place-items: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    margin: 0 !important;
+    flex-shrink: 0;
+}
+
+/* English */
+html[dir="ltr"] .pf-process-top {
+    direction: ltr;
+}
+
+/* Left Align Process Card Content */
+.pf-process-item h3,
+.pf-process-item p {
+    direction: ltr;
+    text-align: left;
 }

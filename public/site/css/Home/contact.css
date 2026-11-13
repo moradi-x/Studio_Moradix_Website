@@ -1077,3 +1077,79 @@ html[dir="ltr"] .ct-info-value {
         content: '→';
     }
 }
+
+/* English Contact Cards - Inline Centered Layout */
+
+html[lang="en"] .ct-info-card {
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 16px !important;
+    min-height: 86px !important;
+    padding: 18px 20px !important;
+}
+
+html[lang="en"] .ct-info-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    width: auto !important;
+    flex: 0 0 auto !important;
+    text-align: left !important;
+}
+
+html[lang="en"] .ct-info-label,
+html[lang="en"] .ct-info-value {
+    width: auto !important;
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+html[lang="en"] .ct-info-icon-wrapper {
+    margin: 0 !important;
+    flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+    html[lang="en"] .ct-info-card {
+        min-height: 74px !important;
+        padding: 12px 14px !important;
+    }
+}
+html[lang="en"] .ct-info-card {
+    min-height: 68px !important;
+    padding: 10px 16px !important;
+    gap: 12px !important;
+}
+
+html[lang="en"] .ct-info-icon-wrapper {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+}
+
+html[lang="en"] .ct-info-content {
+    gap: 2px;
+}
+
+html[lang="en"] .ct-info-label {
+    font-size: 0.85rem;
+}
+
+html[lang="en"] .ct-info-value {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 767px) {
+    html[lang="en"] .ct-info-card {
+        min-height: 62px !important;
+        padding: 9px 12px !important;
+    }
+
+    html[lang="en"] .ct-info-icon-wrapper {
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+    }
+}

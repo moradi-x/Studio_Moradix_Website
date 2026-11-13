@@ -8,11 +8,11 @@ class StudioService extends Model
 {
     protected $fillable = [
         'title',
+        'title_en',
         'icon',
         'sort_order',
         'is_active',
     ];
-
     protected function casts(): array
     {
         return [

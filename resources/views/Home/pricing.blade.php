@@ -96,8 +96,7 @@
                     <span class="ph-orb"></span>
 
                     <div class="ph-card ph-card--a">
-                        <span class="ph-name">پایه</span>
-                        <div class="ph-rows">
+<span class="ph-name">{{ __('site.pricing_plan_basic_name') }}</span>                        <div class="ph-rows">
                             <div class="ph-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                                     <path class="ph-tick" d="m5 12 4 4L19 6" />
@@ -115,8 +114,7 @@
 
                     <div class="ph-card ph-card--b">
                         <span class="ph-badge"> {{ __('site.pricing_recommended') }}</span>
-                        <span class="ph-name">حرفه‌ای</span>
-                        <div class="ph-rows">
+<span class="ph-name">{{ __('site.pricing_plan_professional_name') }}</span>                        <div class="ph-rows">
                             <div class="ph-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                                     <path class="ph-tick" d="m5 12 4 4L19 6" />

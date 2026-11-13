@@ -392,4 +392,204 @@ return [
 'portfolio_show_features_count_value' => ':count Registered Features',
 'portfolio_show_website_label' => 'Project Website',
 'portfolio_show_website_value' => 'Visit Website',
+
+'pricing_plan_basic_name' => 'Basic',
+'pricing_plan_professional_name' => 'Professional',
+
+// Services Page
+'services_page_title' => 'Services | Moradix Studio',
+'services_page_meta_description' => 'Moradix Studio web development services: website design, e-commerce development, WordPress website upgrades, UI/UX redesign, SEO and optimization, and custom Laravel systems.',
+'services_page_breadcrumb_aria' => 'Breadcrumb',
+'services_page_home' => 'Home',
+'services_page_breadcrumb_current' => 'Services',
+
+'services_page_hero_title_before' => 'Your business is ready for its next step ',
+'services_page_hero_title_highlight' => 'What about your website ?',
+'services_page_hero_description' => 'From website and e-commerce design to redesign, custom systems, and SEO, we help you grow your online presence in line with your business needs and goals.',
+'services_page_hero_view_services' => 'Explore Services',
+'services_page_hero_consultation' => 'Project Consultation',
+'services_page_panel_heading' => 'Digital Solutions',
+'services_page_service_web_design' => 'Website Design',
+'services_page_service_ecommerce' => 'E-commerce',
+'services_page_service_seo' => 'SEO & Optimization',
+'services_page_service_redesign' => 'Website Redesign & Upgrades',
+'services_page_service_custom_systems' => 'Custom Systems',
+'services_page_panel_footer' => 'From Idea to Digital Solution',
+'services_page_floating_targeted_design' => 'Purposeful Design',
+'services_page_floating_business_fit' => 'Tailored to Your Business Needs',
+
+'services_page_section_title' => 'What Does Your Business Need to Grow ?',
+'services_page_featured_title' => 'Popular Services',
+'services_page_featured_description' => 'Two popular solutions to help your business establish a professional online presence.',
+
+'services_page_card_web_title' => 'Website Design',
+'services_page_card_web_description' => 'Your customer’s first impression of your brand is no coincidence. Build a website that inspires trust at first glance and delivers a smooth, professional experience on every device.',
+'services_page_card_ecommerce_title' => 'E-commerce Website Design',
+'services_page_card_ecommerce_description' => 'Sell your products online with a well-organized store, a simple checkout process, and easy order management.',
+
+'services_page_specialized_title' => 'Our Specialized Services',
+'services_page_specialized_description' => 'From upgrading your existing website to developing custom systems and improving your business visibility on Google.',
+
+'services_page_card_redesign_title' => 'Website Redesign & Upgrades',
+'services_page_card_redesign_description' => 'An outdated website shouldn’t hold your business back. Improve its appearance, speed, and user experience without unnecessarily rebuilding everything from scratch.',
+'services_page_card_custom_title' => 'Custom Systems',
+'services_page_card_custom_description' => 'Develop custom platforms and admin panels tailored to your business processes, helping you manage your operations more efficiently.',
+'services_page_card_seo_title' => 'SEO',
+'services_page_card_seo_description' => 'Can potential customers find you when they search online? Improve your website with effective SEO practices and increase your visibility in relevant Google searches.',
+'services_page_details' => 'View Details',
+
+'services_page_process_eyebrow' => 'Our Process',
+'services_page_process_title' => 'From Understanding Your Needs to Delivering the Solution',
+'services_page_process_description' => 'Every project follows its own path. Throughout the process, our goal is to deliver a solution that meets your business’s actual needs.',
+
+'services_page_process_step1_title' => 'Understanding Your Needs',
+'services_page_process_step1_description' => 'Reviewing your project goals, business requirements, and expectations for the proposed solution.',
+'services_page_process_step2_title' => 'Project Planning',
+'services_page_process_step2_description' => 'Defining the project scope, priorities, and execution plan based on the identified requirements.',
+'services_page_process_step3_title' => 'Development & Implementation',
+'services_page_process_step3_description' => 'Implementing the agreed solution with a focus on quality, user experience, and project requirements.',
+'services_page_process_step4_title' => 'Review & Delivery',
+'services_page_process_step4_description' => 'Reviewing the results, addressing agreed-upon items, and delivering the defined project outcomes.',
+
+'services_page_faq_title' => 'Frequently Asked Questions',
+'services_page_faq_q1' => 'How do I get started with a project?',
+'services_page_faq_a1' => 'Simply contact us through the communication channels on our website and tell us about your project goals, needs, and expectations. After an initial review, we will identify the right service and recommend an implementation plan.',
+'services_page_faq_q2' => 'Can I order just one of your services?',
+'services_page_faq_a2' => 'Yes. You can choose a single service based on your business needs, such as website design, SEO, e-commerce development, redesign, or custom system development. If your project would benefit from additional services, we can also explore relevant options.',
+'services_page_faq_q3' => 'How are project costs and timelines determined?',
+'services_page_faq_a3' => 'The cost and timeline depend on the type of service, project complexity, required features, and scope of work. Once we understand your needs and define the project details, we will provide an estimate tailored to your project.',
+'services_page_faq_q4' => 'Can you redesign my existing website?',
+'services_page_faq_a4' => 'Yes. If your current website needs improvements in design, user experience, speed, or its admin panel, we can review its current state and recommend the right approach for redesign, optimization, or further development.',
+'services_page_faq_q5' => 'Do you provide support after project delivery?',
+'services_page_faq_a5' => 'Post-delivery support and maintenance terms are determined based on the type of project and our agreement. These details can be reviewed and finalized before the collaboration begins.',
+
+'services_page_cta_eyebrow' => 'Ready to Get Started?',
+'services_page_cta_title_before' => 'Ready for Your Business’s Next Step?',
+'services_page_cta_title_highlight' => 'Let’s Get Started','services_page_cta_description' => 'From building a new website to improving and expanding your existing one, let’s discuss your business needs and find the right solution for your project.',
+'services_page_cta_primary' => 'Let’s Discuss Your Project',
+'services_page_cta_secondary' => 'Explore Services',
+
+    // ==================== Homepage Hero ====================
+    'home_hero_title' => 'A Professional Website for Your Business',
+    'home_hero_description' => 'Behind every successful business, there is a unique idea and journey. We help you continue that journey online with a custom-built website.',
+    'home_hero_cta_primary' => 'Start a Project',
+    'home_hero_cta_secondary' => 'View Our Portfolio',
+    'home_hero_image_alt' => 'Illustration of a developer working at a desk with two monitors, writing code and designing a website',
+    'home_hero_chip_responsive' => 'Responsive',
+
+    // ==================== Studio Capabilities ====================
+    'home_capabilities_title' => 'Our Capabilities',
+    'home_services_aria' => 'Studio services and capabilities',
+    'home_technologies_title' => 'Tools & Technologies',
+    'home_technologies_aria' => 'Technologies we use',
+
+    // ==================== Services Section ====================
+    'home_services_heading' => 'What Does Your Business Need to Grow ?',
+    'home_services_featured_title' => 'Popular Services',
+    'home_services_featured_description' => 'Two popular solutions to help your business establish a professional online presence.',
+    'home_service_web_title' => 'Website Design',
+    'home_service_web_description' => 'Your customer’s first impression of your brand matters. Build a website that earns trust at first glance and delivers a smooth, professional experience on every device.',
+    'home_service_ecommerce_title' => 'E-commerce Website Design',
+    'home_service_ecommerce_description' => 'Sell your products online with a well-organized store, a simple checkout process, and easy order management.',
+    'home_service_details' => 'View Details',
+    'home_services_specialized_title' => 'Our Specialized Services',
+    'home_services_specialized_description' => 'From upgrading your existing website to developing custom systems and increasing your business visibility on Google.',
+    'home_service_redesign_title' => 'Website Redesign & Upgrade',
+    'home_service_redesign_description' => 'An outdated website shouldn’t hold your business back. Improve its design, speed, and user experience without unnecessarily rebuilding everything from scratch.',
+    'home_service_custom_title' => 'Custom Systems',
+    'home_service_custom_description' => 'Get a custom platform and management panel tailored to your business processes, helping you work smarter and more efficiently.',
+    'home_service_seo_title' => 'SEO Optimization',
+    'home_service_seo_description' => 'Can potential customers find you when they search online? Improve your website with proper SEO practices and increase your visibility in relevant Google searches.',
+
+    // ==================== Projects Section ====================
+    'home_projects_title' => 'Projects We Have Built',
+    'home_projects_view_all' => 'View All Projects',
+    'home_project_fallback_category' => 'Project',
+    'home_project_status_completed' => 'Completed',
+    'home_project_status_development' => 'In Development',
+    'home_project_details' => 'View Project Details',
+    'home_projects_empty' => 'We are currently preparing our portfolio.',
+
+    // ==================== Why Us Section ====================
+    'home_why_title' => 'Why Studio Moradix?',
+    'home_why_subtitle' => 'The Real Benefits of Working With Us',
+    'home_why_item1_title' => 'Clean Code & Complete Documentation',
+    'home_why_item1_description' => 'Every project is delivered with standardized code, clear comments, and technical documentation to make future development easier.',
+    'home_why_item2_title' => 'One Dedicated Point of Contact',
+    'home_why_item2_description' => 'From consultation to delivery and ongoing support, you communicate with one dedicated person without confusion or unnecessary back-and-forth.',
+    'home_why_item3_title' => 'SEO & Performance from Day One',
+    'home_why_item3_description' => 'Search engine optimization and high performance are built into the development process from the start, not treated as afterthoughts.',
+    'home_why_item4_title' => 'Post-Delivery Support',
+    'home_why_item4_description' => 'Enjoy three months of free support for bug fixes and guidance on using your website’s management panel.',
+
+    // ==================== Process Section ====================
+    'home_process_title' => 'Our Process',
+    'home_process_subtitle' => 'We Work With You Every Step of the Way, from Idea to Delivery',
+    'home_process_step1_title' => 'Free Consultation',
+    'home_process_step1_description' => 'Understanding your needs, recommending the right solution, and estimating the timeline and cost.',
+    'home_process_step2_title' => 'Planning & Agreement',
+    'home_process_step2_description' => 'Defining the project requirements, signing the agreement, and receiving the initial payment.',
+    'home_process_step3_title' => 'Design & Development',
+    'home_process_step3_description' => 'Developing your project, providing regular progress updates, and gathering your feedback.',
+    'home_process_step4_title' => 'Testing & Delivery',
+    'home_process_step4_description' => 'Thorough functionality testing, fixing issues, final delivery, and management panel training.',
+    'home_process_step5_title' => 'Support',
+    'home_process_step5_description' => 'Three months of free support, bug fixes, and answers to your questions.',
+
+    // ==================== FAQ Section ====================
+    'home_faq_title' => 'Frequently Asked Questions',
+    'home_faq_subtitle' => 'Answers to Questions You May Have',
+
+    'home_faq_q1' => 'How much does it cost to build a website?',
+    'home_faq_a1' => 'The cost depends on the type of project and the features you need. Custom systems are priced based on a detailed analysis of your requirements. After a free consultation, we will provide you with an accurate estimate.',
+
+    'home_faq_q2' => 'How long does it take to complete a project?',
+    'home_faq_a2' => 'The timeline depends on the project scope. A corporate website usually takes 2 to 3 weeks, an e-commerce website takes 4 to 6 weeks, and larger systems may take 2 to 3 months. The exact timeline is specified in the agreement, and you will receive regular progress updates.',
+
+    'home_faq_q3' => 'Do you also provide the domain and hosting?',
+    'home_faq_a3' => 'Purchasing the domain and hosting is your responsibility, but we will help you choose the most suitable services. We also install and configure your website on the hosting server and apply the necessary security and performance settings.',
+
+    'home_faq_q4' => 'What kind of support do you provide after delivery?',
+    'home_faq_a4' => 'Three months of free support includes fixing potential bugs, helping you use the management panel, and answering technical questions. After this period, you can arrange a monthly support plan or request new changes and development work as separate projects.',
+
+    'home_faq_q5' => 'Will my website be optimized for SEO?',
+    'home_faq_a5' => 'Yes. All websites we build are technically optimized for search engines. This includes proper URL structures, meta tags, loading speed, responsive design, and clean, standards-compliant HTML. Content SEO, such as writing optimized content and building backlinks, is a separate service that we can also help you with.',
+
+    'home_faq_q6' => 'Can I make changes to my website after delivery?',
+    'home_faq_a6' => 'Yes. Minor changes are covered during the free support period. Larger changes, such as adding new sections or complex features, are estimated and implemented as separate projects. Since we deliver clean, well-documented code, future development will be much easier.',
+
+    // ==================== CTA & Contact Form ====================
+    'home_cta_title' => 'Ready to Start Your Project?',
+    'home_cta_description' => 'Fill out the form below, and we will contact you as soon as possible to provide a free consultation.',
+
+    'home_contact_form_title' => 'Request a Consultation',
+    'home_contact_form_subtitle' => 'Enter your information so we can contact you and coordinate the next steps.',
+    'home_contact_success' => 'Your message has been sent successfully. We will contact you soon.',
+
+    'home_contact_request_type' => 'Request Type:',
+    'home_contact_consultation' => 'Free Consultation',
+    'home_contact_project_request' => 'Start a Project',
+
+    'home_contact_name' => 'Full Name',
+    'home_contact_name_placeholder' => 'e.g. John Smith',
+
+    'home_contact_phone' => 'Mobile Number',
+    'home_contact_phone_placeholder' => 'e.g. 09123456789',
+
+    'home_contact_project_type' => 'Project Type',
+    'home_contact_select_placeholder' => 'Please Select',
+    'home_contact_not_sure' => 'I’m Not Sure Yet',
+    'home_contact_website_design' => 'Website Design',
+    'home_contact_online_shop' => 'E-commerce Website Design',
+    'home_contact_redesign' => 'Website Redesign & Upgrade',
+    'home_contact_custom_system' => 'Custom Systems',
+    'home_contact_seo' => 'SEO & Optimization',
+
+    'home_contact_message' => 'Project Details (Optional)',
+    'home_contact_message_placeholder' => 'Briefly describe the project you have in mind...',
+
+    'home_contact_honeypot' => 'Website',
+    'home_contact_submit' => 'Submit Request',
+
+
 ];

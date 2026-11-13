@@ -7,15 +7,21 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>
-                        وب‌سایت تخصصی برای<br class="mobile-break">
-                        کسب‌وکار شما
+                        {{ __('site.home_hero_title') }}
+
                     </h1>
                     <p>
-                        پشت هر کسب‌وکار موفق، یه ایده و یه مسیر منحصربه‌فرد وجود داره. ما کمک می‌کنیم این مسیر رو با یه
-                        وب‌سایت اختصاصی، آنلاین ادامه بدی. </p>
+                        {{ __('site.home_hero_description') }}
+                    </p>
                     <div class="hero-buttons">
-                        <a href="{{ route('contact') }}" class="btn btn-primary">ثبت درخواست پروژه</a>
-                        <a href="{{ route('portfolio') }}" class="btn btn-outline">مشاهده نمونه‌کارها</a>
+                        <a href="{{ app()->getLocale() === 'en' ? route('en.contact') : route('contact') }}"
+                            class="btn btn-primary">
+                            {{ __('site.home_hero_cta_primary') }}
+                        </a>
+                        <a href="{{ app()->getLocale() === 'en' ? route('en.portfolio') : route('portfolio') }}"
+                            class="btn btn-outline">
+                            {{ __('site.home_hero_cta_secondary') }}
+                        </a>
                     </div>
                 </div>
 
@@ -24,7 +30,8 @@
                     aria-label="تصویر: برنامه‌نویسی پشت میز با دو مانیتور که کد می‌نویسد و وب‌سایت طراحی می‌کند">
                     <span class="hv-chip hv-chip--a" aria-hidden="true"><b dir="ltr">&lt;/&gt;</b>
                         code</span>
-                    <span class="hv-chip hv-chip--b" aria-hidden="true">ریسپانسیو</span>
+                    <span class="hv-chip hv-chip--b" aria-hidden="true"> {{ __('site.home_hero_chip_responsive') }}
+                    </span>
                     <span class="hv-chip hv-chip--c" aria-hidden="true">UI / UX</span>
 
                     <svg class="hv-svg" viewBox="0 0 640 430" aria-hidden="true" focusable="false">
@@ -299,7 +306,8 @@
 
 
             <h2 class="studio-marquee-title">
-                توانمندی‌ها
+                {{ __('site.home_capabilities_title') }}
+
             </h2>
 
 
@@ -395,7 +403,7 @@
         </svg>
 
         {{-- First marquee: services --}}
-        <section class="studio-marquee studio-marquee-services" aria-label="خدمات و توانمندی‌های استودیو">
+        <section class="studio-marquee studio-marquee-services" aria-label="{{ __('site.home_services_aria') }}">
             <div class="studio-marquee-track studio-marquee-track-left">
 
                 @for ($copy = 0; $copy < 4; $copy++)
@@ -412,7 +420,7 @@
                                 </span>
 
                                 <span class="studio-marquee-label">
-                                    {{ $service->title }}
+                                    {{ app()->getLocale() === 'en' && $service->title_en ? $service->title_en : $service->title }}
                                 </span>
 
                             </div>
@@ -429,12 +437,12 @@
 
 
             <h2 class="studio-marquee-title">
-                ابزارها و تکنولوژی‌ ها
+                {{ __('site.home_technologies_title') }}
             </h2>
         </div>
 
         {{-- Second marquee: technology logos --}}
-        <section class="studio-marquee studio-marquee-tech" aria-label="تکنولوژی‌های مورد استفاده">
+        <section class="studio-marquee studio-marquee-tech" aria-label="{{ __('site.home_technologies_aria') }}">
             <div class="studio-marquee-track studio-marquee-track-right">
 
                 @for ($copy = 0; $copy < 4; $copy++)
@@ -443,8 +451,9 @@
                         @foreach ($techStack as $tech)
                             <div class="studio-tech-item">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/{{ $tech->logo }}"
-                                    alt="{{ $tech->name }}" title="{{ $tech->name }}" width="36" height="36"
-                                    loading="lazy" decoding="async">
+                                    alt="{{ app()->getLocale() === 'en' && $tech->name_en ? $tech->name_en : $tech->name }}"
+                                    title="{{ app()->getLocale() === 'en' && $tech->name_en ? $tech->name_en : $tech->name }}"width="36"
+                                    height="36" loading="lazy" decoding="async">
                             </div>
                         @endforeach
                     </div>
@@ -463,8 +472,7 @@
 
 
                 <h2 class="si-services-title" id="si-services-title">
-                    چه چیزی برای رشد کسب‌وکارت نیاز داری؟
-                </h2>
+                    {{ __('site.home_services_heading') }} </h2>
             </div>
             <div class="services-grid">
 
@@ -475,12 +483,8 @@
                     <div class="services-featured-header">
 
 
-                        <h2>خدمات پرفروش</h2>
-
-                        <p>
-                            دو راهکار محبوب برای شروع حرفه‌ای
-                            کسب‌وکار شما در فضای وب
-                        </p>
+                        <h2>{{ __('site.home_services_featured_title') }}</h2>
+                        <p>{{ __('site.home_services_featured_description') }}</p>
                     </div>
 
                     {{-- Primary Services --}}
@@ -506,20 +510,16 @@
                             </div>
 
                             <div class="service-card-content">
-                                <h3>طراحی وب‌سایت</h3>
-
-                                <p>اولین برخورد مشتری با برندت، اتفاقی نیست.
-
-                                    سایتی بساز که در نگاه اول اعتماد ایجاد کنه و در هر دستگاه، حرفه‌ای و روان کار کنه.
-                                </p>
+                                <h3>{{ __('site.home_service_web_title') }}</h3>
+                                <p>{{ __('site.home_service_web_description') }}</p>
                             </div>
 
                             <div class="service-footer">
 
 
-                                <a href="{{ route('services.web-design') }}" class="service-link">
-                                    مشاهده جزئیات
-                                    <span aria-hidden="true">←</span>
+                                <a
+                                    href="{{ app()->getLocale() === 'en' ? route('en.services.web-design') : route('services.web-design') }}"class="service-link">
+                                    {{ __('site.home_service_details') }} <span aria-hidden="true">←</span>
                                 </a>
                             </div>
 
@@ -545,18 +545,16 @@
                             </div>
 
                             <div class="service-card-content">
-                                <h3>طراحی فروشگاه اینترنتی</h3>
-
-                                <p> محصولاتت رو آنلاین بفروش؛ با فروشگاهی منظم، فرایند خرید ساده و مدیریت آسان سفارش‌ها.
-                                </p>
+                                <h3>{{ __('site.home_service_ecommerce_title') }}</h3>
+                                <p>{{ __('site.home_service_ecommerce_description') }}</p>
                             </div>
 
                             <div class="service-footer">
 
 
-                                <a href="{{ route('services.ecommerce') }}" class="service-link">
-                                    مشاهده جزئیات
-                                    <span aria-hidden="true">←</span>
+                                <a
+                                    href="{{ app()->getLocale() === 'en' ? route('en.services.ecommerce') : route('services.ecommerce') }}"class="service-link">
+                                    {{ __('site.home_service_details') }} <span aria-hidden="true">←</span>
                                 </a>
                             </div>
 
@@ -568,12 +566,8 @@
                     <div class="services-specialized-header">
 
 
-                        <h2>خدمات تخصصی ما </h2>
-
-                        <p>
-                            از ارتقای سایت فعلی تا توسعه سیستم‌های اختصاصی
-                            و افزایش دیده‌شدن کسب‌وکار شما در گوگل
-                        </p>
+                        <h2>{{ __('site.home_services_specialized_title') }}</h2>
+                        <p>{{ __('site.home_services_specialized_description') }}</p>
                     </div>
 
                     {{-- Secondary Services --}}
@@ -597,19 +591,17 @@
                             </div>
 
                             <div class="service-card-content">
-                                <h3>بازطراحی و ارتقای سایت</h3>
+                                <h3>{{ __('site.home_service_redesign_title') }}</h3>
 
-                                <p>سایت قدیمی، نباید جلوی رشدت رو بگیره.
-
-                                    ظاهر، سرعت و تجربه کاربری سایتت رو ارتقا بده؛ بدون بازسازی غیرضروری از صفر.
-                                </p>
+                                <p>{{ __('site.home_service_redesign_description') }}</p>
                             </div>
 
                             <div class="service-footer">
 
 
-                                <a href="{{ route('services.redesign') }}" class="service-link">
-                                    مشاهده جزئیات
+                                <a
+                                    href="{{ app()->getLocale() === 'en' ? route('en.services.redesign') : route('services.redesign') }}"class="service-link">
+                                    {{ __('site.home_service_details') }}
                                     <span aria-hidden="true">←</span>
                                 </a>
                             </div>
@@ -639,18 +631,17 @@
                             </div>
 
                             <div class="service-card-content">
-                                <h3>سیستم‌های اختصاصی</h3>
+                                <h3>{{ __('site.home_service_custom_title') }}</h3>
 
-                                <p>سامانه و پنل مدیریتی متناسب با فرایندهای کسب‌وکارت توسعه بده و کارها رو هوشمندانه‌تر پیش
-                                    ببر.
-                                </p>
+                                <p>{{ __('site.home_service_custom_description') }}</p>
                             </div>
 
                             <div class="service-footer">
 
 
-                                <a href="{{ route('services.custom-systems') }}" class="service-link">
-                                    مشاهده جزئیات
+                                <a
+                                    href="{{ app()->getLocale() === 'en' ? route('en.services.custom-systems') : route('services.custom-systems') }}"class="service-link">
+                                    {{ __('site.home_service_details') }}
                                     <span aria-hidden="true">←</span>
                                 </a>
                             </div>
@@ -677,19 +668,17 @@
                             </div>
 
                             <div class="service-card-content">
-                                <h3>سئو سایت</h3>
+                                <h3>{{ __('site.home_service_seo_title') }}</h3>
 
-                                <p>وقتی مشتری دنبالت می‌گرده، پیدات می‌کنه؟
-
-                                    با بهینه‌سازی اصولی سایت، شانس دیده‌شدن در جست‌وجوهای مرتبط گوگل رو بیشتر کن.
-                                </p>
+                                <p>{{ __('site.home_service_seo_description') }}</p>
                             </div>
 
                             <div class="service-footer">
 
 
-                                <a href="{{ route('services.seo') }}" class="service-link">
-                                    مشاهده جزئیات
+                                <a
+                                    href="{{ app()->getLocale() === 'en' ? route('en.services.seo') : route('services.seo') }}"class="service-link">
+                                    {{ __('site.home_service_details') }}
                                     <span aria-hidden="true">←</span>
                                 </a>
                             </div>
@@ -707,17 +696,18 @@
 
     {{-- Projects --}}
     <section class="pf-section" id="pf-projects">
-        <div class="container pf-container ">
+        <div class="container pf-container">
 
             <div class="pf-section-heading">
                 <div>
                     <h2 class="pf-section-title">
-                        پروژه‌هایی که ساخته‌ایم
+                        {{ __('site.home_projects_title') }}
                     </h2>
                 </div>
 
-                <a href="{{ route('portfolio') }}" class="pf-projects-more-link">
-                    مشاهده همه پروژه‌ها
+                <a href="{{ route(app()->getLocale() === 'en' ? 'en.portfolio' : 'portfolio') }}"
+                    class="pf-projects-more-link">
+                    {{ __('site.home_projects_view_all') }}
                     <span>←</span>
                 </a>
             </div>
@@ -725,17 +715,27 @@
             <div class="pf-project-grid">
 
                 @forelse($projects as $project)
+                    @php
+                        $projectTitle =
+                            app()->getLocale() === 'en' && $project->title_en ? $project->title_en : $project->title;
+
+                        $projectDescription =
+                            app()->getLocale() === 'en' && $project->short_description_en
+                                ? $project->short_description_en
+                                : $project->short_description;
+                    @endphp
+
                     <article class="pf-project-card">
-                        <div class="pf-project-preview  pf-preview-auto">
+                        <div class="pf-project-preview pf-preview-auto">
 
                             @if ($project->primary_image)
                                 <img src="{{ asset(
                                     trim(env('PROJECT_IMAGES_UPLOAD_PATH', 'uploads/projects/images'), '/') . '/' . $project->primary_image,
                                 ) }}"
-                                    alt="{{ $project->title }}" loading="lazy">
+                                    alt="{{ $projectTitle }}" loading="lazy">
                             @else
                                 <div class="pf-project-placeholder">
-                                    <span>{{ $project->title }}</span>
+                                    <span>{{ $projectTitle }}</span>
                                 </div>
                             @endif
 
@@ -745,318 +745,248 @@
 
                             <div class="pf-project-meta">
                                 <span class="pf-project-category">
-                                    {{ $project->category?->name ?? 'پروژه' }}
+                                    {{ app()->getLocale() === 'en'
+                                        ? ($project->category?->slug
+                                            ? str_replace('-', ' ', $project->category->slug)
+                                            : __('site.home_project_fallback_category'))
+                                        : $project->category?->name ?? __('site.home_project_fallback_category') }}
                                 </span>
 
                                 <span class="pf-status {{ $project->status ? 'is-completed' : 'is-development' }}">
-                                    {{ $project->status ? 'تکمیل شده' : 'در حال توسعه' }}
+                                    {{ $project->status ? __('site.home_project_status_completed') : __('site.home_project_status_development') }}
                                 </span>
                             </div>
 
                             <h3 class="pf-project-title">
-                                {{ $project->title }}
+                                {{ $projectTitle }}
                             </h3>
 
                             <p class="pf-project-description">
-                                {{ $project->short_description }}
+                                {{ $projectDescription }}
                             </p>
-
 
                             @if ($project->features->isNotEmpty())
                                 <div class="pf-project-tags">
                                     @foreach ($project->features->take(3) as $feature)
-                                        <span>{{ $feature->name }}</span>
+                                        <span>
+                                            {{ app()->getLocale() === 'en' ? str_replace('-', ' ', $feature->slug) : $feature->name }}
+                                        </span>
                                     @endforeach
                                 </div>
                             @endif
 
-
-                            <a href="{{ route('portfolio.show', $project->slug) }}" class="pf-project-link"
-                                target="_blank" rel="noopener noreferrer">
-                                مشاهده جزئیات پروژه
+                            <a href="{{ route(app()->getLocale() === 'en' ? 'en.portfolio.show' : 'portfolio.show', $project->slug) }}"
+                                class="pf-project-link" target="_blank" rel="noopener noreferrer">
+                                {{ __('site.home_project_details') }}
                             </a>
 
                         </div>
-
                     </article>
+
                 @empty
                     <div class="pf-project-empty">
-                        <p>در حال آماده‌سازی نمونه‌کارهای ما هستیم.</p>
+                        <p>{{ __('site.home_projects_empty') }}</p>
                     </div>
                 @endforelse
 
             </div>
+
             <div class="pf-projects-more">
-                <a href="{{ route('portfolio') }}" class="pf-projects-more-link">
-                    مشاهده همه پروژه‌ها
+                <a href="{{ route(app()->getLocale() === 'en' ? 'en.portfolio' : 'portfolio') }}"
+                    class="pf-projects-more-link">
+                    {{ __('site.home_projects_view_all') }}
                     <span>←</span>
                 </a>
             </div>
+
         </div>
     </section>
 
-    <!-- ==================== Why Us Section ==================== -->
+
+
+    {{-- ==================== Why Us Section ==================== --}}
     <section class="section why-us" id="why-us">
         <div class="container">
             <div class="section-header">
                 <h2>
-                    چرا <span class="brand-highlight">Studio Moradix </span>؟
+                    {{ __('site.home_why_title') }}
                 </h2>
-                <p>مزیت‌های واقعی همکاری با ما</p>
+                <p>{{ __('site.home_why_subtitle') }}</p>
             </div>
 
             <div class="why-grid">
-                <!-- Why Item 1 -->
+
+                {{-- Why Item 1 --}}
                 <div class="why-item">
                     <svg class="why-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                     <div class="why-content">
-                        <h3>کد تمیز و مستندات کامل</h3>
-                        <p>تحویل پروژه با کدنویسی استاندارد، کامنت‌گذاری و مستندات فنی برای توسعه‌های آینده</p>
+                        <h3>{{ __('site.home_why_item1_title') }}</h3>
+                        <p>{{ __('site.home_why_item1_description') }}</p>
                     </div>
                 </div>
 
-                <!-- Why Item 2 -->
+                {{-- Why Item 2 --}}
                 <div class="why-item">
                     <svg class="why-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
                     <div class="why-content">
-                        <h3>یک نفر مسئول پروژه‌ی شما</h3>
-                        <p>از مشاوره تا تحویل و پشتیبانی، همیشه با یک نفر در ارتباط هستید، بدون سردرگمی</p>
+                        <h3>{{ __('site.home_why_item2_title') }}</h3>
+                        <p>{{ __('site.home_why_item2_description') }}</p>
                     </div>
                 </div>
 
-                <!-- Why Item 3 -->
+                {{-- Why Item 3 --}}
                 <div class="why-item">
                     <svg class="why-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                     <div class="why-content">
-                        <h3>سئو و سرعت از ابتدا</h3>
-                        <p>بهینه‌سازی برای موتورهای جستجو و سرعت بالا بخشی از کدنویسی اولیه است، نه کار اضافی بعدی</p>
+                        <h3>{{ __('site.home_why_item3_title') }}</h3>
+                        <p>{{ __('site.home_why_item3_description') }}</p>
                     </div>
                 </div>
 
-                <!-- Why Item 4 -->
+                {{-- Why Item 4 --}}
                 <div class="why-item">
                     <svg class="why-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
                     <div class="why-content">
-                        <h3>پشتیبانی پس از تحویل</h3>
-                        <p>۳ ماه پشتیبانی رایگان برای رفع باگ و راهنمایی استفاده از پنل مدیریت</p>
+                        <h3>{{ __('site.home_why_item4_title') }}</h3>
+                        <p>{{ __('site.home_why_item4_description') }}</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
-    <!-- ==================== Process Section ==================== -->
+
+
+
+
+    {{-- ==================== Process Section ==================== --}}
     <section class="section process" id="process">
         <div class="container">
             <div class="section-header">
-                <h2>فرآیند کار</h2>
-                <p>از ایده تا تحویل، گام‌به‌گام با شما هستیم</p>
+                <h2>{{ __('site.home_process_title') }}</h2>
+                <p>{{ __('site.home_process_subtitle') }}</p>
             </div>
 
             <div class="process-timeline">
-                <!-- Step 1 -->
+
+                {{-- Step 1 --}}
                 <div class="process-step">
-                    <div class="process-number" aria-label="مرحله ۱">۱</div>
-                    <h3>مشاوره رایگان</h3>
-                    <p>بررسی نیاز شما، پیشنهاد راه‌کار مناسب و برآورد زمان و هزینه</p>
+                    <div class="process-number" aria-label="{{ app()->getLocale() === 'en' ? 'Step 1' : 'مرحله ۱' }}">
+                        {{ app()->getLocale() === 'en' ? '1' : '۱' }}
+                    </div>
+                    <h3>{{ __('site.home_process_step1_title') }}</h3>
+                    <p>{{ __('site.home_process_step1_description') }}</p>
                 </div>
 
-                <!-- Step 2 -->
+                {{-- Step 2 --}}
                 <div class="process-step">
-                    <div class="process-number" aria-label="مرحله ۲">۲</div>
-                    <h3>تحلیل و قرارداد</h3>
-                    <p>مشخص کردن دقیق ویژگی‌ها، امضای قرارداد و دریافت پیش‌پرداخت</p>
+                    <div class="process-number" aria-label="{{ app()->getLocale() === 'en' ? 'Step 2' : 'مرحله ۲' }}">
+                        {{ app()->getLocale() === 'en' ? '2' : '۲' }}
+                    </div>
+                    <h3>{{ __('site.home_process_step2_title') }}</h3>
+                    <p>{{ __('site.home_process_step2_description') }}</p>
                 </div>
 
-                <!-- Step 3 -->
+                {{-- Step 3 --}}
                 <div class="process-step">
-                    <div class="process-number" aria-label="مرحله ۳">۳</div>
-                    <h3>طراحی و توسعه</h3>
-                    <p>کدنویسی و گزارش پیشرفت منظم و دریافت بازخورد شما</p>
+                    <div class="process-number" aria-label="{{ app()->getLocale() === 'en' ? 'Step 3' : 'مرحله ۳' }}">
+                        {{ app()->getLocale() === 'en' ? '3' : '۳' }}
+                    </div>
+                    <h3>{{ __('site.home_process_step3_title') }}</h3>
+                    <p>{{ __('site.home_process_step3_description') }}</p>
                 </div>
 
-                <!-- Step 4 -->
+                {{-- Step 4 --}}
                 <div class="process-step">
-                    <div class="process-number" aria-label="مرحله ۴">۴</div>
-                    <h3>تست و تحویل</h3>
-                    <p>تست کامل عملکرد، رفع نواقص، تحویل نهایی و آموزش کار با پنل</p>
+                    <div class="process-number" aria-label="{{ app()->getLocale() === 'en' ? 'Step 4' : 'مرحله ۴' }}">
+                        {{ app()->getLocale() === 'en' ? '4' : '۴' }}
+                    </div>
+                    <h3>{{ __('site.home_process_step4_title') }}</h3>
+                    <p>{{ __('site.home_process_step4_description') }}</p>
                 </div>
 
-                <!-- Step 5 -->
+                {{-- Step 5 --}}
                 <div class="process-step">
-                    <div class="process-number" aria-label="مرحله ۵">۵</div>
-                    <h3>پشتیبانی</h3>
-                    <p>۳ ماه پشتیبانی رایگان، رفع باگ و پاسخ‌گویی به سوالات شما</p>
+                    <div class="process-number" aria-label="{{ app()->getLocale() === 'en' ? 'Step 5' : 'مرحله ۵' }}">
+                        {{ app()->getLocale() === 'en' ? '5' : '۵' }}
+                    </div>
+                    <h3>{{ __('site.home_process_step5_title') }}</h3>
+                    <p>{{ __('site.home_process_step5_description') }}</p>
                 </div>
+
             </div>
         </div>
     </section>
-    <!-- ==================== FAQ Section ==================== -->
 
+
+
+    {{-- FAQ Section --}}
     <section class="pr-faq" id="faq">
         <div class="container">
 
             <div class="section-header">
-                <h2>سوالات متداول</h2>
-                <p>پاسخ سوالاتی که احتمالاً برای شما پیش آمده</p>
+                <h2>{{ __('site.home_faq_title') }}</h2>
+                <p>{{ __('site.home_faq_subtitle') }}</p>
             </div>
 
-            <div class="pr-faq-list">
+            <div class="faq-list">
+                @for ($i = 1; $i <= 6; $i++)
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span>{{ __("site.home_faq_q{$i}") }}</span>
+                            <span class="faq-icon">+</span>
+                        </button>
 
-                <!-- FAQ 1 -->
-                <div class="pr-faq-item">
-                    <button class="pr-faq-question" type="button" aria-expanded="false">
-                        <span>هزینه‌ی ساخت یک وب‌سایت چقدر است؟</span>
-                        <svg class="pr-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="pr-faq-answer">
-                        <div class="pr-faq-answer-content">
-                            <p>هزینه بستگی به نوع پروژه و امکانات مورد نیاز دارد و سیستم‌های سفارشی بر اساس تحلیل نیاز
-                                قیمت‌گذاری می‌شوند. بعد از مشاوره رایگان، برآورد دقیق به شما ارائه می‌دهیم.</p>
+                        <div class="faq-answer">
+                            <p>{{ __("site.home_faq_a{$i}") }}</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- FAQ 2 -->
-                <div class="pr-faq-item">
-                    <button class="pr-faq-question" type="button" aria-expanded="false">
-                        <span>مدت زمان تحویل پروژه چقدر است؟</span>
-                        <svg class="pr-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="pr-faq-answer">
-                        <div class="pr-faq-answer-content">
-                            <p>زمان تحویل بسته به حجم کار متفاوت است. یک سایت شرکتی معمولاً ۲ تا ۳ هفته، فروشگاه اینترنتی ۴
-                                تا ۶ هفته و سیستم‌های بزرگ‌تر ممکن است ۲ تا ۳ ماه زمان ببرند. در قرارداد، زمان‌بندی دقیق
-                                مشخص می‌شود و گزارش پیشرفت منظم دریافت می‌کنید.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="pr-faq-item">
-                    <button class="pr-faq-question" type="button" aria-expanded="false">
-                        <span>آیا دامنه و هاست را هم شما تهیه می‌کنید؟</span>
-                        <svg class="pr-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="pr-faq-answer">
-                        <div class="pr-faq-answer-content">
-                            <p>خرید دامنه و هاست به عهده‌ی خود شماست، اما ما در انتخاب مناسب‌ترین سرویس راهنمایی‌تان
-                                می‌کنیم. همچنین نصب و راه‌اندازی سایت روی هاست را انجام می‌دهیم و تنظیمات لازم برای امنیت و
-                                سرعت را اعمال می‌کنیم.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 4 -->
-                <div class="pr-faq-item">
-                    <button class="pr-faq-question" type="button" aria-expanded="false">
-                        <span>پشتیبانی بعد از تحویل چگونه است؟</span>
-                        <svg class="pr-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="pr-faq-answer">
-                        <div class="pr-faq-answer-content">
-                            <p>۳ ماه پشتیبانی رایگان شامل رفع باگ‌های احتمالی، راهنمایی استفاده از پنل مدیریت و پاسخ به
-                                سوالات فنی است. بعد از این مدت، امکان قرارداد پشتیبانی ماهانه یا انجام تغییرات و توسعه‌های
-                                جدید به‌صورت پروژه‌ای وجود دارد.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 5 -->
-                <div class="pr-faq-item">
-                    <button class="pr-faq-question" type="button" aria-expanded="false">
-                        <span>آیا سایت من برای سئو بهینه خواهد بود؟</span>
-                        <svg class="pr-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="pr-faq-answer">
-                        <div class="pr-faq-answer-content">
-                            <p>بله، تمام سایت‌هایی که می‌سازیم از نظر سئوی فنی بهینه‌اند. این شامل ساختار URL صحیح،
-                                متاتگ‌ها، سرعت بارگذاری، ریسپانسیو بودن و استاندارد بودن کد HTML است. البته سئوی محتوایی
-                                (نوشتن متن بهینه و بک‌لینک‌سازی) بخش جداگانه‌ای است که می‌توانیم در آن هم راهنمایی کنیم.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 6 -->
-                <div class="pr-faq-item">
-                    <button class="pr-faq-question" type="button" aria-expanded="false">
-                        <span>آیا بعد از تحویل می‌توانم تغییرات بدهم؟</span>
-                        <svg class="pr-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="pr-faq-answer">
-                        <div class="pr-faq-answer-content">
-                            <p>بله، تغییرات جزئی در دوره‌ی پشتیبانی رایگان انجام می‌شود. تغییرات بزرگ‌تر مثل اضافه کردن بخش
-                                جدید یا ویژگی‌های پیچیده، به‌صورت پروژه‌ی جداگانه برآورد و اجرا می‌شوند. چون کد تمیز و مستند
-                                تحویل می‌دهیم، توسعه‌های آینده بسیار راحت‌تر خواهد بود.</p>
-                        </div>
-                    </div>
-                </div>
-
+                @endfor
             </div>
+
         </div>
     </section>
 
-    <!-- ==================== CTA & Form Section ==================== -->
 
+
+    {{-- ==================== CTA & Form Section ==================== --}}
     <section class="section cta-section" id="contact">
         <div class="container">
             <div class="cta-content">
 
                 <div class="cta-header">
-                    <h2>آماده‌ی شروع پروژه‌تان هستید؟</h2>
-                    <p>
-                        فرم زیر را پر کنید تا در اسرع وقت با شما تماس بگیریم
-                        و مشاوره رایگان ارائه دهیم.
-                    </p>
+                    <h2>{{ __('site.home_cta_title') }}</h2>
+                    <p>{{ __('site.home_cta_description') }}</p>
                 </div>
 
                 <div class="ct-form-card" id="contact-form-section">
 
-                    <h2 class="ct-form-title">فرم درخواست مشاوره</h2>
+                    <h2 class="ct-form-title">{{ __('site.home_contact_form_title') }}</h2>
                     <p class="ct-form-subtitle">
-                        اطلاعاتت رو وارد کن تا برای هماهنگی باهات تماس بگیریم.
+                        {{ __('site.home_contact_form_subtitle') }}
                     </p>
 
                     {{-- Success Message --}}
                     @if (session('contact_success'))
                         <div class="ct-form-success show" id="ct-success-message" role="alert" aria-live="polite">
-                            <span>
-                                پیام شما با موفقیت ارسال شد.
-                                به‌زودی با شما تماس می‌گیریم.
-                            </span>
+                            <span>{{ __('site.home_contact_success') }}</span>
                         </div>
                     @endif
 
-                    <form id="ct-contact-form" action="{{ route('contact-us.form') }}#contact-form-section"
+                    <form id="ct-contact-form"
+                        action="{{ route(app()->getLocale() === 'en' ? 'en.contact-us.form' : 'contact-us.form') }}#contact-form-section"
                         method="POST" novalidate>
                         @csrf
 
@@ -1067,7 +997,7 @@
                         {{-- Request Type --}}
                         <div class="ct-request-type">
                             <label class="ct-request-type-label">
-                                نوع درخواست:
+                                {{ __('site.home_contact_request_type') }}
                             </label>
 
                             <div class="ct-pills">
@@ -1075,13 +1005,13 @@
                                     value="consultation" class="ct-pill-input"
                                     {{ old('request_type', 'consultation') === 'consultation' ? 'checked' : '' }}>
                                 <label for="home-request-consultation" class="ct-pill-label">
-                                    مشاوره رایگان
+                                    {{ __('site.home_contact_consultation') }}
                                 </label>
 
                                 <input type="radio" id="home-request-project" name="request_type" value="project"
                                     class="ct-pill-input" {{ old('request_type') === 'project' ? 'checked' : '' }}>
                                 <label for="home-request-project" class="ct-pill-label">
-                                    ثبت درخواست پروژه
+                                    {{ __('site.home_contact_project_request') }}
                                 </label>
                             </div>
 
@@ -1093,12 +1023,13 @@
                         {{-- Name --}}
                         <div class="ct-form-group">
                             <label for="home-ct-name" class="ct-form-label">
-                                نام و نام خانوادگی
+                                {{ __('site.home_contact_name') }}
                                 <span class="required">*</span>
                             </label>
 
                             <input type="text" id="home-ct-name" name="name" class="ct-form-input"
-                                value="{{ old('name') }}" placeholder="مثال: علی احمدی" autocomplete="name"
+                                value="{{ old('name') }}"
+                                placeholder="{{ __('site.home_contact_name_placeholder') }}" autocomplete="name"
                                 required>
 
                             @error('name')
@@ -1109,12 +1040,13 @@
                         {{-- Phone --}}
                         <div class="ct-form-group">
                             <label for="home-ct-phone" class="ct-form-label">
-                                شماره موبایل
+                                {{ __('site.home_contact_phone') }}
                                 <span class="required">*</span>
                             </label>
 
                             <input type="tel" id="home-ct-phone" name="phone" class="ct-form-input"
-                                value="{{ old('phone') }}" placeholder="۰۹۱۲۳۴۵۶۷۸۹" inputmode="tel"
+                                value="{{ old('phone') }}"
+                                placeholder="{{ __('site.home_contact_phone_placeholder') }}" inputmode="tel"
                                 autocomplete="tel" required>
 
                             @error('phone')
@@ -1125,39 +1057,39 @@
                         {{-- Project Type --}}
                         <div class="ct-form-group">
                             <label for="home-ct-project-type" class="ct-form-label">
-                                نوع پروژه
+                                {{ __('site.home_contact_project_type') }}
                                 <span class="required">*</span>
                             </label>
 
                             <select id="home-ct-project-type" name="project_type" class="ct-form-select" required>
-                                <option value="">انتخاب کنید</option>
+                                <option value="">{{ __('site.home_contact_select_placeholder') }}</option>
 
                                 <option value="not-sure" {{ old('project_type') === 'not-sure' ? 'selected' : '' }}>
-                                    هنوز مطمئن نیستم
+                                    {{ __('site.home_contact_not_sure') }}
                                 </option>
 
                                 <option value="website-design"
                                     {{ old('project_type') === 'website-design' ? 'selected' : '' }}>
-                                    طراحی وب‌سایت
+                                    {{ __('site.home_contact_website_design') }}
                                 </option>
 
                                 <option value="online-shop"
                                     {{ old('project_type') === 'online-shop' ? 'selected' : '' }}>
-                                    طراحی فروشگاه اینترنتی
+                                    {{ __('site.home_contact_online_shop') }}
                                 </option>
 
                                 <option value="wordpress-upgrade"
                                     {{ old('project_type') === 'wordpress-upgrade' ? 'selected' : '' }}>
-                                    بازطراحی و ارتقای سایت
+                                    {{ __('site.home_contact_redesign') }}
                                 </option>
 
                                 <option value="custom-system"
                                     {{ old('project_type') === 'custom-system' ? 'selected' : '' }}>
-                                    سیستم‌های اختصاصی
+                                    {{ __('site.home_contact_custom_system') }}
                                 </option>
 
                                 <option value="seo-speed" {{ old('project_type') === 'seo-speed' ? 'selected' : '' }}>
-                                    سئو و بهینه‌سازی
+                                    {{ __('site.home_contact_seo') }}
                                 </option>
                             </select>
 
@@ -1169,11 +1101,11 @@
                         {{-- Message --}}
                         <div class="ct-form-group">
                             <label for="home-ct-message" class="ct-form-label">
-                                توضیحات پروژه (اختیاری)
+                                {{ __('site.home_contact_message') }}
                             </label>
 
                             <textarea id="home-ct-message" name="message" class="ct-form-textarea"
-                                placeholder="در چند خط توضیح بده چه پروژه‌ای مدنظرت هست...">{{ old('message') }}</textarea>
+                                placeholder="{{ __('site.home_contact_message_placeholder') }}">{{ old('message') }}</textarea>
 
                             @error('message')
                                 <div class="ct-form-error">{{ $message }}</div>
@@ -1182,14 +1114,14 @@
 
                         {{-- Honeypot --}}
                         <div class="ct-honeypot" aria-hidden="true">
-                            <label for="home-ct-website">وب‌سایت</label>
+                            <label for="home-ct-website">{{ __('site.home_contact_honeypot') }}</label>
                             <input type="text" id="home-ct-website" name="website" value=""
                                 tabindex="-1" autocomplete="off">
                         </div>
 
                         {{-- Submit --}}
                         <button type="submit" class="ct-form-submit">
-                            ارسال درخواست
+                            {{ __('site.home_contact_submit') }}
                         </button>
 
                     </form>
@@ -1197,6 +1129,7 @@
             </div>
         </div>
     </section>
+
 
     @if ($errors->any() || session('contact_success') || session('contact_limit'))
         <script>

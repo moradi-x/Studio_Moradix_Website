@@ -2200,3 +2200,76 @@ html[lang="en"] .ph-actions {
     direction: ltr;
     justify-content: flex-start;
 }
+/* English Portfolio Show Hero - Mobile Center */
+@media (max-width: 767px) {
+    html[lang="en"] .ph-content {
+        direction: ltr;
+        text-align: center;
+    }
+
+    html[lang="en"] .ph-title,
+    html[lang="en"] .ph-description {
+        text-align: center;
+    }
+
+    html[lang="en"] .ph-actions {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .pf-related-card .pf-related-content h3,
+    .pf-related-card .pf-related-content p {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .pf-related-card .pf-related-content .pf-related-category {
+        display: block !important;
+        width: 100% !important;
+        text-align: right !important;
+    }
+}
+
+/* Related Projects - English Desktop Alignment */
+@media (min-width: 768px) {
+    html[lang="en"] #related-projects .pf-related-card {
+        direction: ltr;
+        text-align: left;
+    }
+
+    html[lang="en"] #related-projects .pf-related-content {
+        direction: ltr;
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    html[lang="en"] #related-projects .pf-related-category,
+    html[lang="en"] #related-projects .pf-related-content h3,
+    html[lang="en"] #related-projects .pf-related-content p {
+        text-align: left;
+    }
+
+    html[lang="en"] #related-projects .pf-related-link {
+        direction: ltr;
+        justify-content: flex-start;
+    }
+
+    html[lang="en"] #related-projects .pf-related-link svg {
+        transform: scaleX(-1);
+    }
+
+    html[lang="en"] #related-projects .pf-related-heading {
+        direction: ltr;
+        text-align: left;
+    }
+
+    html[lang="en"] #related-projects .pf-related-heading h2,
+    html[lang="en"] #related-projects .pf-related-heading p {
+        text-align: left;
+    }
+}
