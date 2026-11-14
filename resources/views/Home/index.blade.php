@@ -932,8 +932,9 @@
 
 
 
-    {{-- FAQ Section --}}
-    <section class="pr-faq" id="faq">
+
+    {{-- ==================== FAQ Section ==================== --}}
+    <section class="pr-faq si-faq" id="faq">
         <div class="container">
 
             <div class="section-header">
@@ -941,211 +942,208 @@
                 <p>{{ __('site.home_faq_subtitle') }}</p>
             </div>
 
-            <div class="faq-list">
+            <div class="pr-faq-list si-faq-list">
+
                 @for ($i = 1; $i <= 6; $i++)
-                    <div class="faq-item">
-                        <button class="faq-question" type="button">
+                    <div class="pr-faq-item si-faq-item">
+                        <button class="pr-faq-question si-faq-question" type="button" aria-expanded="false">
+
                             <span>{{ __("site.home_faq_q{$i}") }}</span>
-                            <span class="faq-icon">+</span>
+
+                            <svg class="pr-faq-icon si-faq-icon" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
                         </button>
 
-                        <div class="faq-answer">
-                            <p>{{ __("site.home_faq_a{$i}") }}</p>
+                        <div class="pr-faq-answer si-faq-answer">
+                            <div class="pr-faq-answer-content">
+                                <p>{{ __("site.home_faq_a{$i}") }}</p>
+                            </div>
                         </div>
                     </div>
                 @endfor
-            </div>
 
+            </div>
         </div>
     </section>
+
 
 
 
     {{-- ==================== CTA & Form Section ==================== --}}
-    <section class="section cta-section" id="contact">
-        <div class="container">
-            <div class="cta-content">
+    @if (app()->getLocale() !== 'en')
+        <section class="section cta-section" id="contact">
+            <div class="container">
+                <div class="cta-content">
 
-                <div class="cta-header">
-                    <h2>{{ __('site.home_cta_title') }}</h2>
-                    <p>{{ __('site.home_cta_description') }}</p>
-                </div>
+                    <div class="cta-header">
+                        <h2>{{ __('site.home_cta_title') }}</h2>
+                        <p>{{ __('site.home_cta_description') }}</p>
+                    </div>
 
-                <div class="ct-form-card" id="contact-form-section">
+                    <div class="ct-form-card" id="contact-form-section"
+                        data-scroll-to-form="{{ $errors->any() || session('contact_success') || session('contact_limit') ? 'true' : 'false' }}">
+                        <h2 class="ct-form-title">{{ __('site.home_contact_form_title') }}</h2>
+                        <p class="ct-form-subtitle">
+                            {{ __('site.home_contact_form_subtitle') }}
+                        </p>
 
-                    <h2 class="ct-form-title">{{ __('site.home_contact_form_title') }}</h2>
-                    <p class="ct-form-subtitle">
-                        {{ __('site.home_contact_form_subtitle') }}
-                    </p>
+                        {{-- Success Message --}}
+                        @if (session('contact_success'))
+                            <div class="ct-form-success show" id="ct-success-message" role="alert" aria-live="polite">
+                                <span>{{ __('site.home_contact_success') }}</span>
+                            </div>
+                        @endif
 
-                    {{-- Success Message --}}
-                    @if (session('contact_success'))
-                        <div class="ct-form-success show" id="ct-success-message" role="alert" aria-live="polite">
-                            <span>{{ __('site.home_contact_success') }}</span>
-                        </div>
-                    @endif
+                        <form id="ct-contact-form"
+                            action="{{ route(app()->getLocale() === 'en' ? 'en.contact-us.form' : 'contact-us.form') }}#contact-form-section"
+                            method="POST" novalidate>
+                            @csrf
 
-                    <form id="ct-contact-form"
-                        action="{{ route(app()->getLocale() === 'en' ? 'en.contact-us.form' : 'contact-us.form') }}#contact-form-section"
-                        method="POST" novalidate>
-                        @csrf
+                            @error('contact_limit')
+                                <div class="ct-form-error">{{ $message }}</div>
+                            @enderror
 
-                        @error('contact_limit')
-                            <div class="ct-form-error">{{ $message }}</div>
-                        @enderror
-
-                        {{-- Request Type --}}
-                        <div class="ct-request-type">
-                            <label class="ct-request-type-label">
-                                {{ __('site.home_contact_request_type') }}
-                            </label>
-
-                            <div class="ct-pills">
-                                <input type="radio" id="home-request-consultation" name="request_type"
-                                    value="consultation" class="ct-pill-input"
-                                    {{ old('request_type', 'consultation') === 'consultation' ? 'checked' : '' }}>
-                                <label for="home-request-consultation" class="ct-pill-label">
-                                    {{ __('site.home_contact_consultation') }}
+                            {{-- Request Type --}}
+                            <div class="ct-request-type">
+                                <label class="ct-request-type-label">
+                                    {{ __('site.home_contact_request_type') }}
                                 </label>
 
-                                <input type="radio" id="home-request-project" name="request_type" value="project"
-                                    class="ct-pill-input" {{ old('request_type') === 'project' ? 'checked' : '' }}>
-                                <label for="home-request-project" class="ct-pill-label">
-                                    {{ __('site.home_contact_project_request') }}
-                                </label>
+                                <div class="ct-pills">
+                                    <input type="radio" id="home-request-consultation" name="request_type"
+                                        value="consultation" class="ct-pill-input"
+                                        {{ old('request_type', 'consultation') === 'consultation' ? 'checked' : '' }}>
+                                    <label for="home-request-consultation" class="ct-pill-label">
+                                        {{ __('site.home_contact_consultation') }}
+                                    </label>
+
+                                    <input type="radio" id="home-request-project" name="request_type" value="project"
+                                        class="ct-pill-input" {{ old('request_type') === 'project' ? 'checked' : '' }}>
+                                    <label for="home-request-project" class="ct-pill-label">
+                                        {{ __('site.home_contact_project_request') }}
+                                    </label>
+                                </div>
+
+                                @error('request_type')
+                                    <div class="ct-form-error">{{ $message }}</div>
+                                @enderror
                             </div>
 
-                            @error('request_type')
-                                <div class="ct-form-error">{{ $message }}</div>
-                            @enderror
-                        </div>
+                            {{-- Name --}}
+                            <div class="ct-form-group">
+                                <label for="home-ct-name" class="ct-form-label">
+                                    {{ __('site.home_contact_name') }}
+                                    <span class="required">*</span>
+                                </label>
 
-                        {{-- Name --}}
-                        <div class="ct-form-group">
-                            <label for="home-ct-name" class="ct-form-label">
-                                {{ __('site.home_contact_name') }}
-                                <span class="required">*</span>
-                            </label>
+                                <input type="text" id="home-ct-name" name="name" class="ct-form-input"
+                                    value="{{ old('name') }}"
+                                    placeholder="{{ __('site.home_contact_name_placeholder') }}" autocomplete="name"
+                                    required>
 
-                            <input type="text" id="home-ct-name" name="name" class="ct-form-input"
-                                value="{{ old('name') }}"
-                                placeholder="{{ __('site.home_contact_name_placeholder') }}" autocomplete="name"
-                                required>
+                                @error('name')
+                                    <div class="ct-form-error">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-                            @error('name')
-                                <div class="ct-form-error">{{ $message }}</div>
-                            @enderror
-                        </div>
+                            {{-- Phone --}}
+                            <div class="ct-form-group">
+                                <label for="home-ct-phone" class="ct-form-label">
+                                    {{ __('site.home_contact_phone') }}
+                                    <span class="required">*</span>
+                                </label>
 
-                        {{-- Phone --}}
-                        <div class="ct-form-group">
-                            <label for="home-ct-phone" class="ct-form-label">
-                                {{ __('site.home_contact_phone') }}
-                                <span class="required">*</span>
-                            </label>
+                                <input type="tel" id="home-ct-phone" name="phone" class="ct-form-input"
+                                    value="{{ old('phone') }}"
+                                    placeholder="{{ __('site.home_contact_phone_placeholder') }}" inputmode="tel"
+                                    autocomplete="tel" required>
 
-                            <input type="tel" id="home-ct-phone" name="phone" class="ct-form-input"
-                                value="{{ old('phone') }}"
-                                placeholder="{{ __('site.home_contact_phone_placeholder') }}" inputmode="tel"
-                                autocomplete="tel" required>
+                                @error('phone')
+                                    <div class="ct-form-error">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-                            @error('phone')
-                                <div class="ct-form-error">{{ $message }}</div>
-                            @enderror
-                        </div>
+                            {{-- Project Type --}}
+                            <div class="ct-form-group">
+                                <label for="home-ct-project-type" class="ct-form-label">
+                                    {{ __('site.home_contact_project_type') }}
+                                    <span class="required">*</span>
+                                </label>
 
-                        {{-- Project Type --}}
-                        <div class="ct-form-group">
-                            <label for="home-ct-project-type" class="ct-form-label">
-                                {{ __('site.home_contact_project_type') }}
-                                <span class="required">*</span>
-                            </label>
+                                <select id="home-ct-project-type" name="project_type" class="ct-form-select" required>
+                                    <option value="">{{ __('site.home_contact_select_placeholder') }}</option>
 
-                            <select id="home-ct-project-type" name="project_type" class="ct-form-select" required>
-                                <option value="">{{ __('site.home_contact_select_placeholder') }}</option>
+                                    <option value="not-sure" {{ old('project_type') === 'not-sure' ? 'selected' : '' }}>
+                                        {{ __('site.home_contact_not_sure') }}
+                                    </option>
 
-                                <option value="not-sure" {{ old('project_type') === 'not-sure' ? 'selected' : '' }}>
-                                    {{ __('site.home_contact_not_sure') }}
-                                </option>
+                                    <option value="website-design"
+                                        {{ old('project_type') === 'website-design' ? 'selected' : '' }}>
+                                        {{ __('site.home_contact_website_design') }}
+                                    </option>
 
-                                <option value="website-design"
-                                    {{ old('project_type') === 'website-design' ? 'selected' : '' }}>
-                                    {{ __('site.home_contact_website_design') }}
-                                </option>
+                                    <option value="online-shop"
+                                        {{ old('project_type') === 'online-shop' ? 'selected' : '' }}>
+                                        {{ __('site.home_contact_online_shop') }}
+                                    </option>
 
-                                <option value="online-shop"
-                                    {{ old('project_type') === 'online-shop' ? 'selected' : '' }}>
-                                    {{ __('site.home_contact_online_shop') }}
-                                </option>
+                                    <option value="wordpress-upgrade"
+                                        {{ old('project_type') === 'wordpress-upgrade' ? 'selected' : '' }}>
+                                        {{ __('site.home_contact_redesign') }}
+                                    </option>
 
-                                <option value="wordpress-upgrade"
-                                    {{ old('project_type') === 'wordpress-upgrade' ? 'selected' : '' }}>
-                                    {{ __('site.home_contact_redesign') }}
-                                </option>
+                                    <option value="custom-system"
+                                        {{ old('project_type') === 'custom-system' ? 'selected' : '' }}>
+                                        {{ __('site.home_contact_custom_system') }}
+                                    </option>
 
-                                <option value="custom-system"
-                                    {{ old('project_type') === 'custom-system' ? 'selected' : '' }}>
-                                    {{ __('site.home_contact_custom_system') }}
-                                </option>
+                                    <option value="seo-speed"
+                                        {{ old('project_type') === 'seo-speed' ? 'selected' : '' }}>
+                                        {{ __('site.home_contact_seo') }}
+                                    </option>
+                                </select>
 
-                                <option value="seo-speed" {{ old('project_type') === 'seo-speed' ? 'selected' : '' }}>
-                                    {{ __('site.home_contact_seo') }}
-                                </option>
-                            </select>
+                                @error('project_type')
+                                    <div class="ct-form-error">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-                            @error('project_type')
-                                <div class="ct-form-error">{{ $message }}</div>
-                            @enderror
-                        </div>
+                            {{-- Message --}}
+                            <div class="ct-form-group">
+                                <label for="home-ct-message" class="ct-form-label">
+                                    {{ __('site.home_contact_message') }}
+                                </label>
 
-                        {{-- Message --}}
-                        <div class="ct-form-group">
-                            <label for="home-ct-message" class="ct-form-label">
-                                {{ __('site.home_contact_message') }}
-                            </label>
+                                <textarea id="home-ct-message" name="message" class="ct-form-textarea"
+                                    placeholder="{{ __('site.home_contact_message_placeholder') }}">{{ old('message') }}</textarea>
 
-                            <textarea id="home-ct-message" name="message" class="ct-form-textarea"
-                                placeholder="{{ __('site.home_contact_message_placeholder') }}">{{ old('message') }}</textarea>
+                                @error('message')
+                                    <div class="ct-form-error">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-                            @error('message')
-                                <div class="ct-form-error">{{ $message }}</div>
-                            @enderror
-                        </div>
+                            {{-- Honeypot --}}
+                            <div class="ct-honeypot" aria-hidden="true">
+                                <label for="home-ct-website">{{ __('site.home_contact_honeypot') }}</label>
+                                <input type="text" id="home-ct-website" name="website" value=""
+                                    tabindex="-1" autocomplete="off">
+                            </div>
 
-                        {{-- Honeypot --}}
-                        <div class="ct-honeypot" aria-hidden="true">
-                            <label for="home-ct-website">{{ __('site.home_contact_honeypot') }}</label>
-                            <input type="text" id="home-ct-website" name="website" value=""
-                                tabindex="-1" autocomplete="off">
-                        </div>
+                            {{-- Submit --}}
+                            <button type="submit" class="ct-form-submit">
+                                {{ __('site.home_contact_submit') }}
+                            </button>
 
-                        {{-- Submit --}}
-                        <button type="submit" class="ct-form-submit">
-                            {{ __('site.home_contact_submit') }}
-                        </button>
-
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-
-    @if ($errors->any() || session('contact_success') || session('contact_limit'))
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const formSection = document.getElementById('contact-form-section');
-
-                if (formSection) {
-                    setTimeout(function() {
-                        formSection.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'center'
-                        });
-                    }, 100);
-                }
-            });
-        </script>
+        </section>
     @endif
+
+  
 
 @endsection

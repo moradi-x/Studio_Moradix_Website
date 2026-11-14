@@ -6402,3 +6402,31 @@ html[lang="en"] #faq .section-header p {
     margin-inline: auto;
 }
 
+
+html[lang="en"] #faq .section-header {
+    direction: ltr;
+    text-align: center !important;
+}
+
+html[lang="en"] #faq .section-header h2,
+html[lang="en"] #faq .section-header p {
+    text-align: center !important;
+    margin-inline: auto;
+}
+
+/* English FAQ - Left Alignment */
+html[lang="en"] #faq .pr-faq-question {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] #faq .pr-faq-question span {
+    text-align: left;
+}
+
+html[lang="en"] #faq .pr-faq-answer,
+html[lang="en"] #faq .pr-faq-answer-content,
+html[lang="en"] #faq .pr-faq-answer-content p {
+    direction: ltr;
+    text-align: left;
+}

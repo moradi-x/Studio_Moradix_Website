@@ -592,4 +592,95 @@ return [
     'home_contact_submit' => 'ارسال درخواست',
 
 
+// Web Design Service Page
+
+'web_design_meta_title' => 'طراحی وب‌سایت | استودیو مورادیکس',
+'web_design_meta_description' => 'خدمات طراحی و توسعه وب‌سایت با لاراول و کدنویسی اختصاصی؛ مناسب کسب‌وکارها، مؤسسات آموزشی، آژانس‌های گردشگری و نمونه‌کارهای شخصی. مشاوره رایگان.',
+
+// Breadcrumb
+'web_design_breadcrumb_home' => 'خانه',
+'web_design_breadcrumb_services' => 'خدمات',
+'web_design_breadcrumb_current' => 'طراحی وب‌سایت',
+
+// Hero
+'web_design_hero_title' => 'طراحی وب‌سایت',
+'web_design_hero_subtitle' => 'وب‌سایتی که کسب‌وکار شما را حرفه‌ای معرفی می‌کند و مشتریان بیشتری برایتان به ارمغان می‌آورد.',
+'web_design_hero_description' => 'مناسب کسب‌وکارها، مؤسسات آموزشی، آژانس‌های گردشگری و نمونه‌کارهای شخصی. طراحی و توسعه اختصاصی، همراه با پشتیبانی تیم ما از اولین مشاوره تا پس از راه‌اندازی.',
+'web_design_hero_consultation' => 'مشاوره رایگان',
+'web_design_hero_pricing' => 'مقایسه پلن‌ها و قیمت‌ها',
+'web_design_hero_result' => 'واکنش‌گرا و آماده راه‌اندازی',
+
+// What Changes Section
+'web_design_changes_title' => 'وب‌سایت چگونه می‌تواند کسب‌وکار شما را متحول کند؟',
+'web_design_change_1' => 'مشتریان راحت‌تر کسب‌وکار شما را در گوگل پیدا می‌کنند.',
+'web_design_change_2' => 'نمونه‌کارهای خود را یک‌جا نمایش دهید و دیگر نیازی نیست هر بار عکس‌ها را جداگانه ارسال کنید.',
+'web_design_change_3' => 'مستقیماً با مشتریان ارتباط برقرار کنید و بدون واسطه درخواست‌های آن‌ها را دریافت کنید.',
+'web_design_change_4' => 'با داشتن یک وب‌سایت حرفه‌ای، اعتماد و اعتبار بیشتری ایجاد کنید.',
+'web_design_changes_note' => 'نیازی به دانش فنی ندارید. از ایده اولیه تا تحویل نهایی، تمام امور فنی را ما انجام می‌دهیم.',
+
+// Is This For You Section
+'web_design_fit_title' => 'آیا این خدمت برای شما مناسب است؟',
+'web_design_fit_yes_title' => 'این خدمت برای شما مناسب است اگر...',
+'web_design_fit_yes_1' => 'می‌خواهید کسب‌وکار، خدمات یا نمونه‌کارهای خود را به‌شکل حرفه‌ای معرفی کنید.',
+'web_design_fit_yes_2' => 'هنوز وب‌سایتی ندارید و می‌خواهید از ابتدا به‌درستی شروع کنید.',
+'web_design_fit_yes_3' => 'به یک وب‌سایت اطلاع‌رسانی ساده یا وب‌سایت شرکتی کامل نیاز دارید که بتوانید خودتان آن را مدیریت کنید.',
+'web_design_fit_yes_4' => 'می‌خواهید مشتریان از طریق فرم تماس یا راه‌های ارتباطی دیگر با شما در ارتباط باشند.',
+'web_design_fit_no_title' => 'این خدمت ممکن است برای شما مناسب نباشد اگر...',
+'web_design_fit_no_1' => 'می‌خواهید محصولات خود را به‌صورت آنلاین بفروشید ← طراحی فروشگاه اینترنتی گزینه مناسب‌تری است.',
+'web_design_fit_no_2' => 'وب‌سایت دارید اما طراحی آن قدیمی شده است ← بازطراحی و ارتقای وب‌سایت.',
+'web_design_fit_no_3' => 'وب‌سایت دارید اما بازدید و دیده‌شدن مناسبی ندارد ← خدمات سئو.',
+
+// Business Types
+'web_design_types_title' => 'این خدمت برای چه کسب‌وکارهایی مناسب است؟',
+'web_design_type_1_title' => 'شرکتی',
+'web_design_type_1_description' => 'معرفی شرکت، خدمات، تیم و اطلاعات تماس.',
+'web_design_type_2_title' => 'گردشگری و مسافرت',
+'web_design_type_2_description' => 'معرفی تورها، مقاصد گردشگری و امکان رزرو آنلاین.',
+'web_design_type_3_title' => 'آموزشی',
+'web_design_type_3_description' => 'معرفی دوره‌ها، مدرس‌ها و امکانات ثبت‌نام.',
+'web_design_type_4_title' => 'نمونه‌کار شخصی',
+'web_design_type_4_description' => 'نمایش تخصص، پروژه‌ها و اطلاعات تماس.',
+
+// Deliverables
+'web_design_deliverables_title' => 'چه امکاناتی دریافت می‌کنید؟',
+'web_design_deliverable_1_title' => 'طراحی واکنش‌گرا',
+'web_design_deliverable_1_description' => 'نمایش بهینه در موبایل، تبلت و دسکتاپ.',
+'web_design_deliverable_2_title' => 'کدنویسی اختصاصی و استاندارد',
+'web_design_deliverable_2_description' => 'ساختاری اصولی برای توسعه و ارتقای آینده.',
+'web_design_deliverable_3_title' => 'سیستم مدیریت محتوا',
+'web_design_deliverable_3_description' => 'ویرایش آسان متن‌ها و تصاویر وب‌سایت.',
+'web_design_deliverable_4_title' => 'آموزش مدیریت سایت',
+'web_design_deliverable_4_description' => 'آموزش از طریق ویدئو یا جلسه آنلاین.',
+'web_design_deliverable_5_title' => 'قرارداد و زمان‌بندی شفاف',
+'web_design_deliverable_5_description' => 'تمام جزئیات پیش از شروع پروژه مشخص می‌شوند.',
+'web_design_deliverable_6_title' => 'پشتیبانی فنی رایگان',
+'web_design_deliverable_6_description' => 'پشتیبانی پس از تحویل پروژه.',
+
+// Process
+'web_design_process_title' => 'مراحل همکاری با ما',
+'web_design_process_1_title' => 'نیازسنجی و مشاوره رایگان',
+'web_design_process_1_description' => 'درباره پروژه و نیازهای شما گفت‌وگو می‌کنیم.',
+'web_design_process_2_title' => 'تعیین محدوده و قیمت',
+'web_design_process_2_description' => 'پیش از شروع، همه جزئیات مشخص می‌شوند.',
+'web_design_process_3_title' => 'طراحی و توسعه',
+'web_design_process_3_description' => 'توسعه مرحله‌به‌مرحله همراه با گزارش منظم پیشرفت.',
+'web_design_process_4_title' => 'تست و تحویل',
+'web_design_process_4_description' => 'بررسی نهایی، آموزش و تحویل پروژه.',
+'web_design_process_cta_question' => 'هنوز مطمئن نیستید کدام خدمت برای شما مناسب است؟',
+'web_design_process_cta_link' => 'برای دریافت مشاوره رایگان با ما تماس بگیرید.',
+
+// Related Projects
+'web_design_related_projects_title' => 'پروژه‌های مرتبط',
+'web_design_related_projects_description' => 'نمونه‌های بیشتری از پروژه‌های ما در این زمینه را مشاهده کنید.',
+'web_design_related_projects_all' => 'مشاهده همه پروژه‌ها',
+'web_design_related_projects_details' => 'مشاهده جزئیات',
+
+// Related Services
+'web_design_related_services_title' => 'خدمات مرتبط',
+'web_design_related_service_1_title' => 'طراحی فروشگاه اینترنتی',
+'web_design_related_service_1_description' => 'برای فروش آنلاین محصولات.',
+'web_design_related_service_2_title' => 'سئو و بهینه‌سازی',
+'web_design_related_service_2_description' => 'برای دیده‌شدن بهتر و عملکرد بالاتر وب‌سایت.',
+
+
 ];

@@ -2446,3 +2446,49 @@
         border-radius: 11px;
     }
 }
+
+
+/* Desktop - English Breadcrumb Alignment */
+@media (min-width: 992px) {
+    .sv-breadcrumb {
+        direction: ltr;
+    }
+
+    .sv-breadcrumb-list {
+        direction: ltr;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .sv-breadcrumb-item {
+        text-align: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .sv-breadcrumb-item:not(:last-child)::after {
+        transform: scaleX(-1);
+    }
+}
+
+/* Desktop - Hero Left Alignment */
+@media (min-width: 992px) {
+    .sv-hero-content {
+        direction: ltr;
+    }
+
+    .sv-hero-text {
+        direction: ltr;
+        text-align: left;
+    }
+
+    .sv-hero-title,
+    .sv-hero-subtitle,
+    .sv-hero-desc {
+        text-align: left;
+    }
+
+    .sv-hero-buttons {
+        justify-content: flex-start;
+    }
+}

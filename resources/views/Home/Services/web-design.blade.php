@@ -15,17 +15,17 @@
 @section('content')
     <div class="sv-page">
         {{-- Breadcrumb --}}
-        <nav class="sv-breadcrumb" aria-label="مسیر صفحه">
+        <nav class="sv-breadcrumb" aria-label="{{ __('site.web_design_breadcrumb_current') }}">
             <div class="container">
                 <ol class="sv-breadcrumb-list">
                     <li class="sv-breadcrumb-item">
-                        <a href="{{ route('home') }}">صفحه اصلی</a>
+                        <a href="{{ route('home') }}">{{ __('site.web_design_breadcrumb_home') }}</a>
                     </li>
                     <li class="sv-breadcrumb-item">
-                        <a href="{{ route('services') }}">خدمات</a>
+                        <a href="{{ route('services') }}">{{ __('site.web_design_breadcrumb_services') }}</a>
                     </li>
                     <li class="sv-breadcrumb-item" aria-current="page">
-                        طراحی وب‌سایت
+                        {{ __('site.web_design_breadcrumb_current') }}
                     </li>
                 </ol>
             </div>
@@ -36,109 +36,149 @@
             <div class="container">
                 <div class="sv-hero-content">
                     <div class="sv-hero-text">
-                        <h1 class="sv-hero-title">طراحی وب‌سایت</h1>
-                        <p class="sv-hero-subtitle">سایتی که کسب‌وکارت رو درست معرفی کنه و مشتری رو به تو برسونه</p>
-                        <p class="sv-hero-desc">برای شرکت، آموزشگاه، دفتر گردشگری یا نمونه‌کار شخصی. طراحی و کدنویسی
-                            اختصاصی، از اولین مشاوره تا بعد از تحویل کنارتیم.</p>
+                        <h1 class="sv-hero-title">{{ __('site.web_design_hero_title') }}</h1>
+
+                        <p class="sv-hero-subtitle">
+                            {{ __('site.web_design_hero_subtitle') }}
+                        </p>
+
+                        <p class="sv-hero-desc">
+                            {{ __('site.web_design_hero_description') }}
+                        </p>
+
                         <div class="sv-hero-buttons">
-                            <a href="{{ route('contact') }}" class="btn btn-primary">مشاوره‌ی رایگان</a>
-                            {{-- بعداً: {{ route('pricing') }}?tab=website برای باز شدن تب طراحی سایت --}}
-                            <a href="{{ route('pricing') }}" class="btn btn-outline">مقایسه‌ی پلن‌ها و تعرفه‌ها</a>
+                            <a href="{{ route('contact') }}" class="btn btn-primary">
+                                {{ __('site.web_design_hero_consultation') }}
+                            </a>
+
+                            <a href="{{ route('pricing') }}" class="btn btn-outline">
+                                {{ __('site.web_design_hero_pricing') }}
+                            </a>
                         </div>
                     </div>
 
-                    {{-- جایگزین mockup قدیمی داخل هیروی web-design.blade.php (فقط همان بخش تصویر، نه کل هیرو) --}}
+                    {{-- Hero Design Mockup --}}
                     <div class="wd-art" aria-hidden="true">
                         <span class="wd-glow"></span>
 
-                        {{-- مرورگر: سایت از وایرفریم تا طراحی نهایی ساخته می‌شود --}}
                         <div class="wd-win">
-                            <div class="wd-bar"><i></i><i></i><i></i><span dir="ltr">your-website.ir</span></div>
+                            <div class="wd-bar">
+                                <i></i><i></i><i></i>
+                                <span dir="ltr">your-website.ir</span>
+                            </div>
 
                             <div class="wd-screen" dir="rtl">
                                 <span class="wd-grid"></span>
 
-                                {{-- نوار بالا --}}
-                                <div class="wd-blk" style="--k:0;--s:6;--t:6;--w:15;--h:6"><span
-                                        class="wd-fill wd-f-bar is-dark"></span></div>
-                                <div class="wd-blk" style="--k:1;--s:28;--t:7.5;--w:7;--h:3"><span
-                                        class="wd-fill wd-f-bar is-gray"></span></div>
-                                <div class="wd-blk" style="--k:2;--s:37;--t:7.5;--w:7;--h:3"><span
-                                        class="wd-fill wd-f-bar is-gray"></span></div>
-                                <div class="wd-blk" style="--k:3;--s:46;--t:7.5;--w:7;--h:3"><span
-                                        class="wd-fill wd-f-bar is-gray"></span></div>
-                                <div class="wd-blk" style="--k:4;--s:80;--t:5.5;--w:14;--h:7;--r:99px"><span
-                                        class="wd-fill wd-f-pill is-teal"></span></div>
+                                {{-- Top Bar --}}
+                                <div class="wd-blk" style="--k:0;--s:6;--t:6;--w:15;--h:6">
+                                    <span class="wd-fill wd-f-bar is-dark"></span>
+                                </div>
+                                <div class="wd-blk" style="--k:1;--s:28;--t:7.5;--w:7;--h:3">
+                                    <span class="wd-fill wd-f-bar is-gray"></span>
+                                </div>
+                                <div class="wd-blk" style="--k:2;--s:37;--t:7.5;--w:7;--h:3">
+                                    <span class="wd-fill wd-f-bar is-gray"></span>
+                                </div>
+                                <div class="wd-blk" style="--k:3;--s:46;--t:7.5;--w:7;--h:3">
+                                    <span class="wd-fill wd-f-bar is-gray"></span>
+                                </div>
+                                <div class="wd-blk" style="--k:4;--s:80;--t:5.5;--w:14;--h:7;--r:99px">
+                                    <span class="wd-fill wd-f-pill is-teal"></span>
+                                </div>
 
-                                {{-- تیتر و متن --}}
-                                <div class="wd-blk" style="--k:5;--s:6;--t:24;--w:50;--h:8"><span
-                                        class="wd-fill wd-f-bar is-dark"></span></div>
-                                <div class="wd-blk" style="--k:6;--s:6;--t:35;--w:34;--h:8"><span
-                                        class="wd-fill wd-f-bar is-dark"></span></div>
-                                <div class="wd-blk" style="--k:7;--s:6;--t:48;--w:46;--h:2.6;--r:4px"><span
-                                        class="wd-fill wd-f-bar is-gray"></span></div>
-                                <div class="wd-blk" style="--k:8;--s:6;--t:53;--w:38;--h:2.6;--r:4px"><span
-                                        class="wd-fill wd-f-bar is-gray"></span></div>
+                                {{-- Title and Text --}}
+                                <div class="wd-blk" style="--k:5;--s:6;--t:24;--w:50;--h:8">
+                                    <span class="wd-fill wd-f-bar is-dark"></span>
+                                </div>
+                                <div class="wd-blk" style="--k:6;--s:6;--t:35;--w:34;--h:8">
+                                    <span class="wd-fill wd-f-bar is-dark"></span>
+                                </div>
+                                <div class="wd-blk" style="--k:7;--s:6;--t:48;--w:46;--h:2.6;--r:4px">
+                                    <span class="wd-fill wd-f-bar is-gray"></span>
+                                </div>
+                                <div class="wd-blk" style="--k:8;--s:6;--t:53;--w:38;--h:2.6;--r:4px">
+                                    <span class="wd-fill wd-f-bar is-gray"></span>
+                                </div>
 
-                                {{-- دکمه‌ها --}}
-                                <div class="wd-blk" style="--k:9;--s:6;--t:62;--w:16;--h:8;--r:99px"><span
-                                        class="wd-fill wd-f-pill is-teal"></span></div>
-                                <div class="wd-blk" style="--k:10;--s:24;--t:62;--w:16;--h:8;--r:99px"><span
-                                        class="wd-fill wd-f-pill is-line"></span></div>
+                                {{-- Buttons --}}
+                                <div class="wd-blk" style="--k:9;--s:6;--t:62;--w:16;--h:8;--r:99px">
+                                    <span class="wd-fill wd-f-pill is-teal"></span>
+                                </div>
+                                <div class="wd-blk" style="--k:10;--s:24;--t:62;--w:16;--h:8;--r:99px">
+                                    <span class="wd-fill wd-f-pill is-line"></span>
+                                </div>
 
-                                {{-- تصویر اصلی هیرو --}}
+                                {{-- Main Hero Image --}}
                                 <div class="wd-blk" style="--k:11;--s:58;--t:20;--w:36;--h:46;--r:16px">
                                     <span class="wd-fill wd-f-img">
                                         <span class="wd-circle"></span>
-                                        <span class="wd-chart"><i style="--h:42%"></i><i style="--h:68%"></i><i
-                                                style="--h:54%"></i><i style="--h:86%"></i></span>
-                                        <span class="wd-glass"><b></b><b class="s"></b></span>
+                                        <span class="wd-chart">
+                                            <i style="--h:42%"></i>
+                                            <i style="--h:68%"></i>
+                                            <i style="--h:54%"></i>
+                                            <i style="--h:86%"></i>
+                                        </span>
+                                        <span class="wd-glass">
+                                            <b></b><b class="s"></b>
+                                        </span>
                                     </span>
                                 </div>
 
-                                {{-- کارت‌ها --}}
-                                <div class="wd-blk" style="--k:12;--s:6;--t:76;--w:27;--h:18;--r:12px"><span
-                                        class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b class="s"></b></span>
+                                {{-- Cards --}}
+                                <div class="wd-blk" style="--k:12;--s:6;--t:76;--w:27;--h:18;--r:12px">
+                                    <span class="wd-fill wd-f-card">
+                                        <i class="wd-ic"></i><b></b><b class="s"></b>
+                                    </span>
                                 </div>
-                                <div class="wd-blk" style="--k:13;--s:36.5;--t:76;--w:27;--h:18;--r:12px"><span
-                                        class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b class="s"></b></span>
+                                <div class="wd-blk" style="--k:13;--s:36.5;--t:76;--w:27;--h:18;--r:12px">
+                                    <span class="wd-fill wd-f-card">
+                                        <i class="wd-ic"></i><b></b><b class="s"></b>
+                                    </span>
                                 </div>
-                                <div class="wd-blk" style="--k:14;--s:67;--t:76;--w:27;--h:18;--r:12px"><span
-                                        class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b class="s"></b></span>
+                                <div class="wd-blk" style="--k:14;--s:67;--t:76;--w:27;--h:18;--r:12px">
+                                    <span class="wd-fill wd-f-card">
+                                        <i class="wd-ic"></i><b></b><b class="s"></b>
+                                    </span>
                                 </div>
 
-                                {{-- ابزار طراحی: کادر انتخاب و نشانگر --}}
+                                {{-- Design Selection Tool --}}
                                 <span class="wd-sel"></span>
-                                <span class="wd-cursor"><svg viewBox="0 0 24 24">
+                                <span class="wd-cursor">
+                                    <svg viewBox="0 0 24 24">
                                         <path d="M5 3l14 7-6 2-2 6z" fill="#0A0A0A" stroke="#fff" stroke-width="1.6"
                                             stroke-linejoin="round" />
-                                    </svg></span>
+                                    </svg>
+                                </span>
                             </div>
                         </div>
 
-                        {{-- نسخه‌ی موبایل --}}
+                        {{-- Mobile Version --}}
                         <div class="wd-phone">
                             <span class="wd-ph-notch"></span>
                             <span class="wd-ph-bar"></span>
-                            <span class="wd-ph-l"></span><span class="wd-ph-l s"></span>
+                            <span class="wd-ph-l"></span>
+                            <span class="wd-ph-l s"></span>
                             <span class="wd-ph-img"></span>
                             <span class="wd-ph-btn"></span>
                             <span class="wd-ph-card"></span>
                         </div>
 
-                        {{-- پالت رنگ --}}
+                        {{-- Color Palette --}}
                         <div class="wd-pal">
-                            <span class="sw sw-w"></span><span class="sw sw-k"></span><span class="sw sw-t"></span>
+                            <span class="sw sw-w"></span>
+                            <span class="sw sw-k"></span>
+                            <span class="sw sw-t"></span>
                             <b dir="ltr">Aa</b>
                         </div>
 
-                        {{-- نتیجه --}}
+                        {{-- Result --}}
                         <div class="wd-chip">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path d="m5 12 4 4L19 6" />
                             </svg>
-                            ریسپانسیو و آماده‌ی انتشار
+                            {{ __('site.web_design_hero_result') }}
                         </div>
                     </div>
                 </div>

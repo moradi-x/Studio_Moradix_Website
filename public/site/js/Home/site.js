@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     (function () {
         const questions = document.querySelectorAll(
-            '.pr-faq-question:not(.si-faq .pr-faq-question)'
+            '#faq .pr-faq-question'
         );
 
         questions.forEach(button => {
@@ -571,3 +571,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
     toggleScrollTopButton();
 });
+
+
+// =========================================
+// CONTACT FORM AUTO SCROLL
+// =========================================
+
+(function () {
+    function initContactFormScroll() {
+        const formSection = document.getElementById('contact-form-section');
+
+        if (!formSection) return;
+
+        const shouldScroll = formSection.dataset.scrollToForm === 'true';
+
+        if (!shouldScroll) return;
+
+        setTimeout(function () {
+            formSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }, 100);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initContactFormScroll);
+    } else {
+        initContactFormScroll();
+    }
+})();

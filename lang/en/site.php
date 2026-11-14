@@ -591,5 +591,94 @@ return [
     'home_contact_honeypot' => 'Website',
     'home_contact_submit' => 'Submit Request',
 
+    // Web Design Service Page
+
+'web_design_meta_title' => 'Website Design | Moradix Studio',
+'web_design_meta_description' => 'Website design and development services using Laravel and custom coding. Ideal for businesses, educational institutes, travel agencies, and personal portfolios. Free consultation.',
+
+// Breadcrumb
+'web_design_breadcrumb_home' => 'Home',
+'web_design_breadcrumb_services' => 'Services',
+'web_design_breadcrumb_current' => 'Website Design',
+
+// Hero
+'web_design_hero_title' => 'Website Design',
+'web_design_hero_subtitle' => 'A website that presents your business professionally and brings you more customers.',
+'web_design_hero_description' => 'For businesses, educational institutes, travel agencies, or personal portfolios. Custom design and development, with our team by your side from the first consultation to after launch.',
+'web_design_hero_consultation' => 'Free Consultation',
+'web_design_hero_pricing' => 'Compare Plans & Pricing',
+'web_design_hero_result' => 'Responsive & Ready to Launch',
+
+// What Changes Section
+'web_design_changes_title' => 'How Can a Website Transform Your Business?',
+'web_design_change_1' => 'Customers can find your business more easily on Google.',
+'web_design_change_2' => 'Showcase your portfolio in one place and stop sending the same photos repeatedly.',
+'web_design_change_3' => 'Connect with customers directly and receive their requests without intermediaries.',
+'web_design_change_4' => 'Build greater trust and credibility with a professional website.',
+'web_design_changes_note' => 'You do not need any technical knowledge. We handle everything technical, from the initial idea to the final delivery.',
+
+// Is This For You Section
+'web_design_fit_title' => 'Is This Service Right for You?',
+'web_design_fit_yes_title' => 'This Is Right for You If...',
+'web_design_fit_yes_1' => 'You want to present your business, services, or portfolio professionally.',
+'web_design_fit_yes_2' => 'You do not have a website and want to start from scratch the right way.',
+'web_design_fit_yes_3' => 'You need a simple informational website or a complete corporate website that you can manage yourself.',
+'web_design_fit_yes_4' => 'You want customers to reach you through a contact form or other communication channels.',
+'web_design_fit_no_title' => 'This May Not Be Right for You If...',
+'web_design_fit_no_1' => 'You want to sell products online → An e-commerce website is a better fit.',
+'web_design_fit_no_2' => 'You already have a website but its design looks outdated → Website redesign and upgrade.',
+'web_design_fit_no_3' => 'You have a website but it is not getting noticed → SEO services.',
+
+// Business Types
+'web_design_types_title' => 'What Types of Businesses Is It For?',
+'web_design_type_1_title' => 'Corporate',
+'web_design_type_1_description' => 'Present your company, services, team, and contact information.',
+'web_design_type_2_title' => 'Travel & Tourism',
+'web_design_type_2_description' => 'Showcase tours, destinations, and online booking options.',
+'web_design_type_3_title' => 'Education',
+'web_design_type_3_description' => 'Present courses, instructors, and registration options.',
+'web_design_type_4_title' => 'Personal Portfolio',
+'web_design_type_4_description' => 'Showcase your expertise, projects, and contact information.',
+
+// Deliverables
+'web_design_deliverables_title' => 'What Will You Get?',
+'web_design_deliverable_1_title' => 'Responsive Design',
+'web_design_deliverable_1_description' => 'Optimized for mobile, tablet, and desktop.',
+'web_design_deliverable_2_title' => 'Clean, Custom Code',
+'web_design_deliverable_2_description' => 'Built to support future development.',
+'web_design_deliverable_3_title' => 'Content Management System',
+'web_design_deliverable_3_description' => 'Edit your website text and images easily.',
+'web_design_deliverable_4_title' => 'CMS Training',
+'web_design_deliverable_4_description' => 'Video tutorials or an online training session.',
+'web_design_deliverable_5_title' => 'Clear Contract & Timeline',
+'web_design_deliverable_5_description' => 'Defined before the project begins.',
+'web_design_deliverable_6_title' => 'Free Technical Support',
+'web_design_deliverable_6_description' => 'Support after project delivery.',
+
+// Process
+'web_design_process_title' => 'How We Work',
+'web_design_process_1_title' => 'Discovery & Free Consultation',
+'web_design_process_1_description' => 'We discuss your project and requirements.',
+'web_design_process_2_title' => 'Scope & Pricing',
+'web_design_process_2_description' => 'Everything is clear before we begin.',
+'web_design_process_3_title' => 'Design & Development',
+'web_design_process_3_description' => 'Step-by-step development with regular progress updates.',
+'web_design_process_4_title' => 'Testing & Delivery',
+'web_design_process_4_description' => 'Final review, training, and project handover.',
+'web_design_process_cta_question' => 'Still not sure which service is right for you?',
+'web_design_process_cta_link' => 'Contact us for a free consultation.',
+
+// Related Projects
+'web_design_related_projects_title' => 'Related Projects',
+'web_design_related_projects_description' => 'Explore more of our projects in this field.',
+'web_design_related_projects_all' => 'View All Projects',
+'web_design_related_projects_details' => 'View Details',
+
+// Related Services
+'web_design_related_services_title' => 'Related Services',
+'web_design_related_service_1_title' => 'E-Commerce Website',
+'web_design_related_service_1_description' => 'For selling products online.',
+'web_design_related_service_2_title' => 'SEO & Optimization',
+'web_design_related_service_2_description' => 'Better visibility and performance.',
 
 ];
