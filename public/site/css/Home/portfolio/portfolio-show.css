@@ -2273,3 +2273,9 @@ html[lang="en"] .ph-actions {
         text-align: left;
     }
 }
+
+@media (max-width: 768px) {
+    html[lang="en"] .pf-overview-content {
+        text-align: left;
+    }
+}

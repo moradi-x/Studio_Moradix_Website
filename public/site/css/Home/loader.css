@@ -1,0 +1,200 @@
+
+/* =========================================
+   STUDIO MORADIX - GLOBAL SKELETON LOADER
+========================================= */
+
+#moradix-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    direction: inherit;
+    background: #ffffff;
+    padding: 0 5%;
+    overflow: hidden;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 700ms cubic-bezier(.22, 1, .36, 1),
+        visibility 700ms ease;
+}
+
+#moradix-loader.loader-hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Skeleton base */
+
+#moradix-loader .sk-item {
+    position: relative;
+    overflow: hidden;
+    background: #eeeeee;
+    border-radius: 9px;
+}
+
+/* Smooth shimmer */
+
+#moradix-loader .sk-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        110deg,
+        transparent 20%,
+        rgba(15, 118, 110, .04) 40%,
+        rgba(15, 118, 110, .12) 50%,
+        rgba(15, 118, 110, .04) 60%,
+        transparent 80%
+    );
+
+    transform: translateX(-100%);
+    animation: moradix-shimmer 2.4s ease-in-out infinite;
+}
+
+@keyframes moradix-shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Header */
+
+#moradix-loader .sk-header {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid rgba(128, 128, 128, .10);
+}
+
+#moradix-loader .sk-logo {
+    width: 145px;
+    height: 48px;
+}
+
+#moradix-loader .sk-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+#moradix-loader .sk-nav-item {
+    width: 65px;
+    height: 13px;
+}
+
+#moradix-loader .sk-action {
+    width: 105px;
+    height: 38px;
+    border-radius: 30px;
+}
+
+/* Main */
+
+#moradix-loader .sk-content {
+    max-width: 1200px;
+    margin: 65px auto;
+}
+
+#moradix-loader .sk-title {
+    width: 45%;
+    height: 35px;
+    margin-bottom: 25px;
+}
+
+#moradix-loader .sk-text {
+    width: 65%;
+    height: 14px;
+    margin-bottom: 14px;
+}
+
+#moradix-loader .sk-text-small {
+    width: 40%;
+}
+
+#moradix-loader .sk-button {
+    width: 115px;
+    height: 40px;
+    margin-top: 20px;
+    border-radius: 25px;
+}
+
+/* Cards */
+
+#moradix-loader .sk-section-title {
+    width: 180px;
+    height: 25px;
+    margin: 65px 0 25px;
+}
+
+#moradix-loader .sk-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+#moradix-loader .sk-card {
+    height: 175px;
+    border-radius: 14px;
+}
+
+/* Mobile */
+
+@media (max-width: 850px) {
+    #moradix-loader .sk-header {
+        height: 66px;
+    }
+
+    #moradix-loader .sk-nav {
+        display: none;
+    }
+
+    #moradix-loader .sk-logo {
+        width: 120px;
+        height: 40px;
+    }
+
+    #moradix-loader .sk-action {
+        width: 75px;
+        height: 34px;
+    }
+
+    #moradix-loader .sk-content {
+        margin-top: 45px;
+    }
+
+    #moradix-loader .sk-title {
+        width: 80%;
+    }
+
+    #moradix-loader .sk-text {
+        width: 90%;
+    }
+
+    #moradix-loader .sk-text-small {
+        width: 65%;
+    }
+
+    #moradix-loader .sk-cards {
+        grid-template-columns: 1fr;
+    }
+
+    #moradix-loader .sk-card {
+        height: 130px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #moradix-loader .sk-item::after {
+        animation: none;
+    }
+
+    #moradix-loader {
+        transition: none;
+    }
+}

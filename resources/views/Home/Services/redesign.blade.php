@@ -399,9 +399,10 @@
                                     @endif
                                 </div>
 
-                                <a href="{{ app()->getLocale() === 'en'
-                                    ? route('en.portfolio.show', $relatedProject->slug)
-                                    : route('portfolio.show', $relatedProject->slug) }}"
+                                <a href="{{ route(
+                                    app()->getLocale() === 'en' ? 'en.portfolio.show' : 'portfolio.show',
+                                    app()->getLocale() === 'en' ? ($relatedProject->slug_en ?: $relatedProject->slug) : $relatedProject->slug,
+                                ) }}"
                                     class="pf-related-link">
                                     {{ __('site.redesign_related_projects_details') }}
                                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">

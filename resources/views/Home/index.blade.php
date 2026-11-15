@@ -775,7 +775,10 @@
                                 </div>
                             @endif
 
-                            <a href="{{ route(app()->getLocale() === 'en' ? 'en.portfolio.show' : 'portfolio.show', $project->slug) }}"
+                            <a href="{{ route(
+                                app()->getLocale() === 'en' ? 'en.portfolio.show' : 'portfolio.show',
+                                app()->getLocale() === 'en' ? ($project->slug_en ?: $project->slug) : $project->slug,
+                            ) }}"
                                 class="pf-project-link" target="_blank" rel="noopener noreferrer">
                                 {{ __('site.home_project_details') }}
                             </a>

@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 use App\Models\AdminNotification;
@@ -9,7 +11,6 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 use Opcodes\LogViewer\Facades\LogViewer;
 use Illuminate\Support\Facades\Gate;
-
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -47,6 +48,15 @@ class AppServiceProvider extends ServiceProvider
         // Prevent deleting entire log folders
         Gate::define('deleteLogFolder', function ($user, $folder) {
             return false;
+        });
+
+        View::composer('Home.Sections.header', function ($view) {
+            $languageController = app(LanguageController::class);
+
+            $view->with([
+                'languageSwitchUrl' => $languageController->getLanguageSwitchUrl(),
+                'languageUrls' => $languageController->getLanguageUrls(),
+            ]);
         });
     }
 }

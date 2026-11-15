@@ -1,4 +1,3 @@
-
 @extends('Home.Layouts.layout')
 
 @section('title', __('site.custom_systems_page_title'))
@@ -132,21 +131,24 @@
 
                                 {{-- کارت‌ها --}}
                                 <div class="wd-blk" style="--k:12;--s:6;--t:76;--w:27;--h:18;--r:12px">
-                                    <span class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b class="s"></b></span>
+                                    <span class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b
+                                            class="s"></b></span>
                                 </div>
                                 <div class="wd-blk" style="--k:13;--s:36.5;--t:76;--w:27;--h:18;--r:12px">
-                                    <span class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b class="s"></b></span>
+                                    <span class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b
+                                            class="s"></b></span>
                                 </div>
                                 <div class="wd-blk" style="--k:14;--s:67;--t:76;--w:27;--h:18;--r:12px">
-                                    <span class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b class="s"></b></span>
+                                    <span class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b
+                                            class="s"></b></span>
                                 </div>
 
                                 {{-- ابزار طراحی --}}
                                 <span class="wd-sel"></span>
                                 <span class="wd-cursor">
                                     <svg viewBox="0 0 24 24">
-                                        <path d="M5 3l14 7-6 2-2 6z" fill="#0A0A0A" stroke="#fff"
-                                            stroke-width="1.6" stroke-linejoin="round" />
+                                        <path d="M5 3l14 7-6 2-2 6z" fill="#0A0A0A" stroke="#fff" stroke-width="1.6"
+                                            stroke-linejoin="round" />
                                     </svg>
                                 </span>
                             </div>
@@ -418,7 +420,8 @@
 
                     @foreach (range(1, 4) as $i)
                         <div class="sv-process-step">
-                            <div class="sv-step-number">{{ app()->getLocale() === 'en' ? $i : ['۱', '۲', '۳', '۴'][$i - 1] }}</div>
+                            <div class="sv-step-number">
+                                {{ app()->getLocale() === 'en' ? $i : ['۱', '۲', '۳', '۴'][$i - 1] }}</div>
                             <h3>{{ __("site.custom_systems_process_{$i}_title") }}</h3>
                             <p>{{ __("site.custom_systems_process_{$i}_description") }}</p>
                         </div>
@@ -495,7 +498,10 @@
                                     @endif
                                 </div>
 
-                                <a href="{{ app()->getLocale() === 'en' ? route('en.portfolio.show', $relatedProject->slug) : route('portfolio.show', $relatedProject->slug) }}"
+                                <a href="{{ route(
+                                    app()->getLocale() === 'en' ? 'en.portfolio.show' : 'portfolio.show',
+                                    app()->getLocale() === 'en' ? ($relatedProject->slug_en ?: $relatedProject->slug) : $relatedProject->slug,
+                                ) }}"
                                     class="pf-related-link">
                                     {{ __('site.custom_systems_related_projects_details') }}
                                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">

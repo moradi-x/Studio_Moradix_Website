@@ -14,6 +14,7 @@ use App\Models\StudioTechnology;
 use Illuminate\Support\Facades\Log;
 use App\Models\AdminNotification;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Validator;
 
@@ -373,18 +374,30 @@ class HomeController extends Controller
     }
 
 
+
+
+
+
+
+
+
+
+    
     public function portfolioIndexLazy()
     {
+        // دریافت پروژه‌ها بدون بارگذاری رابطه‌ها
         $projects = Project::latest()
             ->take(100)
             ->get();
 
+        // بارگذاری رابطه‌ها به‌صورت جداگانه برای هر پروژه
         foreach ($projects as $project) {
             $project->category;
             $project->features;
         }
 
         $completedProjects = $projects->where('status', 1)->count();
+
         $developmentProjects = $projects->where('status', 0)->count();
 
         $pfhFa = fn($n) => app()->getLocale() === 'en'
@@ -409,7 +422,6 @@ class HomeController extends Controller
             'pfhFa'
         ));
     }
-
 
     public function portfolioIndexEager()
     {

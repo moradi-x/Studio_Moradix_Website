@@ -1,4 +1,3 @@
-
 @extends('Home.Layouts.layout')
 
 @section('title', __('site.seo_page_title'))
@@ -75,21 +74,32 @@
                                 <span class="wd-grid"></span>
 
                                 {{-- نوار بالا --}}
-                                <div class="wd-blk" style="--k:0;--s:6;--t:6;--w:15;--h:6"><span class="wd-fill wd-f-bar is-dark"></span></div>
-                                <div class="wd-blk" style="--k:1;--s:28;--t:7.5;--w:7;--h:3"><span class="wd-fill wd-f-bar is-gray"></span></div>
-                                <div class="wd-blk" style="--k:2;--s:37;--t:7.5;--w:7;--h:3"><span class="wd-fill wd-f-bar is-gray"></span></div>
-                                <div class="wd-blk" style="--k:3;--s:46;--t:7.5;--w:7;--h:3"><span class="wd-fill wd-f-bar is-gray"></span></div>
-                                <div class="wd-blk" style="--k:4;--s:80;--t:5.5;--w:14;--h:7;--r:99px"><span class="wd-fill wd-f-pill is-teal"></span></div>
+                                <div class="wd-blk" style="--k:0;--s:6;--t:6;--w:15;--h:6"><span
+                                        class="wd-fill wd-f-bar is-dark"></span></div>
+                                <div class="wd-blk" style="--k:1;--s:28;--t:7.5;--w:7;--h:3"><span
+                                        class="wd-fill wd-f-bar is-gray"></span></div>
+                                <div class="wd-blk" style="--k:2;--s:37;--t:7.5;--w:7;--h:3"><span
+                                        class="wd-fill wd-f-bar is-gray"></span></div>
+                                <div class="wd-blk" style="--k:3;--s:46;--t:7.5;--w:7;--h:3"><span
+                                        class="wd-fill wd-f-bar is-gray"></span></div>
+                                <div class="wd-blk" style="--k:4;--s:80;--t:5.5;--w:14;--h:7;--r:99px"><span
+                                        class="wd-fill wd-f-pill is-teal"></span></div>
 
                                 {{-- تیتر و متن --}}
-                                <div class="wd-blk" style="--k:5;--s:6;--t:24;--w:50;--h:8"><span class="wd-fill wd-f-bar is-dark"></span></div>
-                                <div class="wd-blk" style="--k:6;--s:6;--t:35;--w:34;--h:8"><span class="wd-fill wd-f-bar is-dark"></span></div>
-                                <div class="wd-blk" style="--k:7;--s:6;--t:48;--w:46;--h:2.6;--r:4px"><span class="wd-fill wd-f-bar is-gray"></span></div>
-                                <div class="wd-blk" style="--k:8;--s:6;--t:53;--w:38;--h:2.6;--r:4px"><span class="wd-fill wd-f-bar is-gray"></span></div>
+                                <div class="wd-blk" style="--k:5;--s:6;--t:24;--w:50;--h:8"><span
+                                        class="wd-fill wd-f-bar is-dark"></span></div>
+                                <div class="wd-blk" style="--k:6;--s:6;--t:35;--w:34;--h:8"><span
+                                        class="wd-fill wd-f-bar is-dark"></span></div>
+                                <div class="wd-blk" style="--k:7;--s:6;--t:48;--w:46;--h:2.6;--r:4px"><span
+                                        class="wd-fill wd-f-bar is-gray"></span></div>
+                                <div class="wd-blk" style="--k:8;--s:6;--t:53;--w:38;--h:2.6;--r:4px"><span
+                                        class="wd-fill wd-f-bar is-gray"></span></div>
 
                                 {{-- دکمه‌ها --}}
-                                <div class="wd-blk" style="--k:9;--s:6;--t:62;--w:16;--h:8;--r:99px"><span class="wd-fill wd-f-pill is-teal"></span></div>
-                                <div class="wd-blk" style="--k:10;--s:24;--t:62;--w:16;--h:8;--r:99px"><span class="wd-fill wd-f-pill is-line"></span></div>
+                                <div class="wd-blk" style="--k:9;--s:6;--t:62;--w:16;--h:8;--r:99px"><span
+                                        class="wd-fill wd-f-pill is-teal"></span></div>
+                                <div class="wd-blk" style="--k:10;--s:24;--t:62;--w:16;--h:8;--r:99px"><span
+                                        class="wd-fill wd-f-pill is-line"></span></div>
 
                                 {{-- تصویر اصلی هیرو --}}
                                 <div class="wd-blk" style="--k:11;--s:58;--t:20;--w:36;--h:46;--r:16px">
@@ -105,21 +115,24 @@
 
                                 {{-- کارت‌ها --}}
                                 <div class="wd-blk" style="--k:12;--s:6;--t:76;--w:27;--h:18;--r:12px">
-                                    <span class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b class="s"></b></span>
+                                    <span class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b
+                                            class="s"></b></span>
                                 </div>
                                 <div class="wd-blk" style="--k:13;--s:36.5;--t:76;--w:27;--h:18;--r:12px">
-                                    <span class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b class="s"></b></span>
+                                    <span class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b
+                                            class="s"></b></span>
                                 </div>
                                 <div class="wd-blk" style="--k:14;--s:67;--t:76;--w:27;--h:18;--r:12px">
-                                    <span class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b class="s"></b></span>
+                                    <span class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b
+                                            class="s"></b></span>
                                 </div>
 
                                 {{-- ابزار طراحی --}}
                                 <span class="wd-sel"></span>
                                 <span class="wd-cursor">
                                     <svg viewBox="0 0 24 24">
-                                        <path d="M5 3l14 7-6 2-2 6z" fill="#0A0A0A" stroke="#fff"
-                                            stroke-width="1.6" stroke-linejoin="round" />
+                                        <path d="M5 3l14 7-6 2-2 6z" fill="#0A0A0A" stroke="#fff" stroke-width="1.6"
+                                            stroke-linejoin="round" />
                                     </svg>
                                 </span>
                             </div>
@@ -165,7 +178,8 @@
                 <div class="sv-changes-grid">
 
                     <div class="sv-change-card">
-                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
                             <circle cx="10.5" cy="10.5" r="6.5" stroke-width="1.8" />
                             <path d="M15.5 15.5 21 21" stroke-width="1.8" stroke-linecap="round" />
                             <path d="M7.5 10.5h6" stroke-width="1.8" stroke-linecap="round" />
@@ -175,16 +189,19 @@
                     </div>
 
                     <div class="sv-change-card">
-                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
                             <path d="M4 19V5M4 19h16" stroke-width="1.8" stroke-linecap="round" />
-                            <path d="m7 15 4-4 3 2 5-7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="m7 15 4-4 3 2 5-7" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
                             <path d="M15.5 6H19v3.5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                         <p>{{ __('site.seo_change_2') }}</p>
                     </div>
 
                     <div class="sv-change-card">
-                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
                             <path d="M4 5.5h16v13H4z" stroke-width="1.8" stroke-linejoin="round" />
                             <path d="M8 9h8M8 12h5" stroke-width="1.8" stroke-linecap="round" />
                             <path d="m14 16 2 2 4-4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
@@ -193,7 +210,8 @@
                     </div>
 
                     <div class="sv-change-card">
-                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
                             <circle cx="12" cy="12" r="9" stroke-width="1.8" />
                             <path d="M12 7v5l3.5 2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                             <path d="M7 3.8 5.5 5.3M17 3.8l1.5 1.5" stroke-width="1.8" stroke-linecap="round" />
@@ -224,8 +242,10 @@
                         <ul class="sv-fit-list">
                             @foreach (range(1, 4) as $i)
                                 <li>
-                                    <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
                                     </svg>
                                     <span>{{ __("site.seo_fit_yes_{$i}") }}</span>
                                 </li>
@@ -239,8 +259,10 @@
 
                         <ul class="sv-fit-list">
                             <li>
-                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6l12 12M18 6L6 18" />
+                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 6l12 12M18 6L6 18" />
                                 </svg>
                                 <span>
                                     {{ __('site.seo_fit_no_1_before') }}
@@ -250,15 +272,19 @@
                             </li>
 
                             <li>
-                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6l12 12M18 6L6 18" />
+                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 6l12 12M18 6L6 18" />
                                 </svg>
                                 <span>{{ __('site.seo_fit_no_2') }}</span>
                             </li>
 
                             <li>
-                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6l12 12M18 6L6 18" />
+                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 6l12 12M18 6L6 18" />
                                 </svg>
                                 <span>{{ __('site.seo_fit_no_3') }}</span>
                             </li>
@@ -280,7 +306,8 @@
                 <div class="sv-types-grid">
 
                     <div class="sv-type-card">
-                        <svg class="sv-type-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="sv-type-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7l-8-4z" />
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 12 2 2 4-4" />
@@ -290,7 +317,8 @@
                     </div>
 
                     <div class="sv-type-card">
-                        <svg class="sv-type-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="sv-type-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 5h16v14H4zM8 9h8M8 13h6M8 16h4" />
                         </svg>
@@ -299,7 +327,8 @@
                     </div>
 
                     <div class="sv-type-card">
-                        <svg class="sv-type-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="sv-type-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
                             <circle cx="10.5" cy="10.5" r="6.5" stroke-width="2" />
                             <path d="m15.5 15.5 5 5" stroke-width="2" stroke-linecap="round" />
                             <path d="M8 10.5h5M10.5 8v5" stroke-width="2" stroke-linecap="round" />
@@ -309,7 +338,8 @@
                     </div>
 
                     <div class="sv-type-card">
-                        <svg class="sv-type-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="sv-type-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 19V5M4 19h16M7 15l4-4 3 2 5-7" />
                         </svg>
@@ -332,7 +362,8 @@
                 <div class="sv-deliverables-grid">
 
                     <div class="sv-deliverable-card">
-                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
                             <circle cx="10.5" cy="10.5" r="6.5" stroke-width="2" />
                             <path d="m15.5 15.5 5 5" stroke-width="2" stroke-linecap="round" />
                         </svg>
@@ -341,7 +372,8 @@
                     </div>
 
                     <div class="sv-deliverable-card">
-                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5" />
                         </svg>
@@ -350,7 +382,8 @@
                     </div>
 
                     <div class="sv-deliverable-card">
-                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 5h16v14H4zM8 9h8M8 12h6M8 15h4" />
                         </svg>
@@ -359,7 +392,8 @@
                     </div>
 
                     <div class="sv-deliverable-card">
-                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 3 20 7.5v9L12 21l-8-4.5v-9L12 3zM4.5 7.8l7.5 4.4 7.5-4.4M12 12.2V20" />
                         </svg>
@@ -368,7 +402,8 @@
                     </div>
 
                     <div class="sv-deliverable-card">
-                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 19V5M4 19h16m-13-4 4-4 3 2 5-7" />
                         </svg>
@@ -377,7 +412,8 @@
                     </div>
 
                     <div class="sv-deliverable-card">
-                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
                             <circle cx="12" cy="12" r="9" stroke-width="2" />
                             <path d="M12 7v5l3 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
@@ -399,7 +435,8 @@
 
                     @foreach (range(1, 4) as $i)
                         <div class="sv-process-step">
-                            <div class="sv-step-number">{{ app()->getLocale() === 'en' ? $i : ['۱', '۲', '۳', '۴'][$i - 1] }}</div>
+                            <div class="sv-step-number">
+                                {{ app()->getLocale() === 'en' ? $i : ['۱', '۲', '۳', '۴'][$i - 1] }}</div>
                             <h3>{{ __("site.seo_process_{$i}_title") }}</h3>
                             <p>{{ __("site.seo_process_{$i}_description") }}</p>
                         </div>
@@ -476,7 +513,10 @@
                                     @endif
                                 </div>
 
-                                <a href="{{ app()->getLocale() === 'en' ? route('en.portfolio.show', $relatedProject->slug) : route('portfolio.show', $relatedProject->slug) }}"
+                                <a href="{{ route(
+                                    app()->getLocale() === 'en' ? 'en.portfolio.show' : 'portfolio.show',
+                                    app()->getLocale() === 'en' ? ($relatedProject->slug_en ?: $relatedProject->slug) : $relatedProject->slug,
+                                ) }}"
                                     class="pf-related-link">
                                     {{ __('site.seo_related_projects_details') }}
                                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">

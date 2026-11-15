@@ -456,7 +456,10 @@
                                     @endif
                                 </div>
 
-                                <a href="{{ route(app()->getLocale() === 'en' ? 'en.portfolio.show' : 'portfolio.show', $relatedProject->slug) }}"
+                                <a href="{{ route(
+                                    app()->getLocale() === 'en' ? 'en.portfolio.show' : 'portfolio.show',
+                                    app()->getLocale() === 'en' ? ($relatedProject->slug_en ?: $relatedProject->slug) : $relatedProject->slug,
+                                ) }}"
                                     class="pf-related-link">
 
                                     {{ __('site.portfolio_show_related_details') }}

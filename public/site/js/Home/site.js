@@ -41,6 +41,15 @@ document.addEventListener('DOMContentLoaded', function () {
             mobileNav.classList.toggle('is-open', !isOpen);
         });
 
+        // بستن انتخابگر زبان موبایل هنگام باز کردن منو
+        document.querySelectorAll('.language-selector-mobile.open').forEach(selector => {
+            selector.classList.remove('open');
+
+            const trigger = selector.querySelector('.language-trigger');
+            if (trigger) {
+                trigger.setAttribute('aria-expanded', 'false');
+            }
+        });
         // باز و بسته کردن زیرمنوی خدمات
         mobileNav.addEventListener('click', function (event) {
             const button = event.target.closest('.submenu-toggle');
@@ -209,9 +218,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // =========================================
 
     (function () {
-       const questions = document.querySelectorAll(
-    '.home-page-faq .pr-faq-question'
-);
+        const questions = document.querySelectorAll(
+            '.home-page-faq .pr-faq-question'
+        );
 
         questions.forEach(button => {
             button.addEventListener('click', function () {
@@ -601,3 +610,110 @@ document.addEventListener('DOMContentLoaded', function () {
         initContactFormScroll();
     }
 })();
+
+
+// =========================================
+// LANGUAGE SELECTOR
+// =========================================
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const languageSelectors = document.querySelectorAll('.language-selector');
+
+    languageSelectors.forEach(function (selector) {
+
+        const trigger = selector.querySelector('.language-trigger');
+
+        if (!trigger) return;
+
+        trigger.addEventListener('click', function (event) {
+
+            event.stopPropagation();
+
+
+            // بستن منوی همبرگری هنگام باز کردن انتخابگر زبان موبایل
+            if (selector.classList.contains('language-selector-mobile')) {
+                const menuToggle = document.querySelector('.menu-toggle');
+                const mobileNav = document.querySelector('.nav-mobile');
+
+                if (mobileNav && mobileNav.classList.contains('is-open')) {
+                    mobileNav.classList.remove('is-open');
+
+                    if (menuToggle) {
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                        menuToggle.setAttribute('aria-label', 'باز کردن منو');
+                    }
+                }
+            }
+
+            const isOpen = selector.classList.contains('open');
+
+            // بستن تمام انتخاب‌گرها
+            languageSelectors.forEach(function (otherSelector) {
+
+                otherSelector.classList.remove('open');
+
+                const otherTrigger = otherSelector.querySelector('.language-trigger');
+
+                if (otherTrigger) {
+                    otherTrigger.setAttribute('aria-expanded', 'false');
+                }
+
+            });
+
+            // باز کردن انتخاب‌گر فعلی در صورت بسته بودن
+            if (!isOpen) {
+                selector.classList.add('open');
+                trigger.setAttribute('aria-expanded', 'true');
+            }
+
+        });
+
+    });
+
+    // بستن با کلیک بیرون
+    document.addEventListener('click', function (event) {
+
+        languageSelectors.forEach(function (selector) {
+
+            if (!selector.contains(event.target)) {
+
+                selector.classList.remove('open');
+
+                const trigger = selector.querySelector('.language-trigger');
+
+                if (trigger) {
+                    trigger.setAttribute('aria-expanded', 'false');
+                }
+
+            }
+
+        });
+
+    });
+
+    // بستن با کلید Escape
+    document.addEventListener('keydown', function (event) {
+
+        if (event.key === 'Escape') {
+
+            languageSelectors.forEach(function (selector) {
+
+                selector.classList.remove('open');
+
+                const trigger = selector.querySelector('.language-trigger');
+
+                if (trigger) {
+                    trigger.setAttribute('aria-expanded', 'false');
+                }
+
+            });
+
+        }
+
+    });
+
+});
+
+
+

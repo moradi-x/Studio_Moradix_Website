@@ -454,7 +454,7 @@
             <section class="pf-related-section" id="related-projects">
                 <div class="container">
 
-                  <div class="pf-related-heading {{ app()->getLocale() === 'en' ? 'is-en' : 'is-fa' }}">
+                    <div class="pf-related-heading {{ app()->getLocale() === 'en' ? 'is-en' : 'is-fa' }}">
                         <div>
                             <h2>{{ __('site.ecommerce_related_projects_title') }}</h2>
                             <p>{{ __('site.ecommerce_related_projects_description') }}</p>
@@ -511,7 +511,10 @@
                                     @endif
                                 </div>
 
-                                <a href="{{ app()->getLocale() === 'en' ? route('en.portfolio.show', $relatedProject->slug) : route('portfolio.show', $relatedProject->slug) }}"
+                                <a href="{{ route(
+                                    app()->getLocale() === 'en' ? 'en.portfolio.show' : 'portfolio.show',
+                                    app()->getLocale() === 'en' ? ($relatedProject->slug_en ?: $relatedProject->slug) : $relatedProject->slug,
+                                ) }}"
                                     class="pf-related-link">
                                     {{ __('site.ecommerce_related_projects_details') }}
                                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
