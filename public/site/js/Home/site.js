@@ -209,9 +209,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // =========================================
 
     (function () {
-        const questions = document.querySelectorAll(
-            '#faq .pr-faq-question'
-        );
+       const questions = document.querySelectorAll(
+    '.home-page-faq .pr-faq-question'
+);
 
         questions.forEach(button => {
             button.addEventListener('click', function () {

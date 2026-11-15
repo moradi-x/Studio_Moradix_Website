@@ -934,7 +934,7 @@
 
 
     {{-- ==================== FAQ Section ==================== --}}
-    <section class="pr-faq si-faq" id="faq">
+    <section class="pr-faq si-faq home-page-faq" id="faq">
         <div class="container">
 
             <div class="section-header">
@@ -1144,6 +1144,6 @@
         </section>
     @endif
 
-  
+
 
 @endsection

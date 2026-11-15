@@ -51,11 +51,11 @@
         resizeTimer = setTimeout(checkFeatureLists, 250);
     });
 
-    // ==================== Services FAQ Accordion ====================
-const serviceFaq = document.querySelector('.si-faq');
+    // ==================== Pricing FAQ Accordion ====================
+const pricingFaq = document.querySelector('.pr-faq:not(.si-faq)');
 
-if (serviceFaq) {
-    const faqItems = serviceFaq.querySelectorAll('.pr-faq-item');
+if (pricingFaq) {
+    const faqItems = pricingFaq.querySelectorAll('.pr-faq-item');
 
     faqItems.forEach(item => {
         const question = item.querySelector('.pr-faq-question');
@@ -66,18 +66,18 @@ if (serviceFaq) {
         question.addEventListener('click', function () {
             const isOpen = this.getAttribute('aria-expanded') === 'true';
 
-            // بستن سایر سوال‌ها
             faqItems.forEach(otherItem => {
                 if (otherItem !== item) {
                     otherItem.classList.remove('active');
+
                     otherItem.querySelector('.pr-faq-question')
                         .setAttribute('aria-expanded', 'false');
+
                     otherItem.querySelector('.pr-faq-answer')
                         .style.maxHeight = '0px';
                 }
             });
 
-            // باز و بسته کردن سوال انتخاب‌شده
             item.classList.toggle('active', !isOpen);
             this.setAttribute('aria-expanded', String(!isOpen));
 
