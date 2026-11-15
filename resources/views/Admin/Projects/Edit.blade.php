@@ -143,7 +143,7 @@
                 {{-- English Descriptions --}}
                 <section class="admin-project-edit-section admin-project-edit-english-section">
 
-                    
+
 
                     <div class="admin-project-edit-fields">
 
@@ -158,6 +158,21 @@
                                 dir="ltr">
 
                             @error('title_en')
+                                <p class="admin-project-edit-error">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        {{-- English Slug --}}
+                        <div class="admin-project-edit-field">
+                            <label for="project-slug-en">
+                                اسلاگ انگلیسی پروژه
+                            </label>
+
+                            <input type="text" id="project-slug-en" name="slug_en"
+                                value="{{ old('slug_en', $project->slug_en) }}" placeholder="ecommerce-website"
+                                dir="ltr">
+
+                            @error('slug_en')
                                 <p class="admin-project-edit-error">{{ $message }}</p>
                             @enderror
                         </div>

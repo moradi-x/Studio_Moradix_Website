@@ -47,11 +47,13 @@
                         </p>
 
                         <div class="sv-hero-buttons">
-                            <a href="{{ route('contact') }}" class="btn btn-primary">
+                            <a href="{{ app()->getLocale() === 'en' ? route('en.contact') : route('contact') }}"
+                                class="btn btn-primary">
                                 {{ __('site.web_design_hero_consultation') }}
                             </a>
 
-                            <a href="{{ route('pricing') }}" class="btn btn-outline">
+                            <a href="{{ app()->getLocale() === 'en' ? route('en.pricing') : route('pricing') }}"
+                                class="btn btn-outline">
                                 {{ __('site.web_design_hero_pricing') }}
                             </a>
                         </div>
@@ -188,16 +190,18 @@
         {{-- What Changes Section --}}
         <section class="sv-section sv-changes">
             <div class="container">
-                <h2 class="sv-section-title">سایت برای کسب‌وکارت چیو عوض می‌کنه؟</h2>
+
+                <h2 class="sv-section-title">{{ __('site.web_design_changes_title') }}</h2>
+
                 <div class="sv-changes-grid">
+
                     <div class="sv-change-card">
                         <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
-                        <p>مشتری‌ها راحت‌تر کسب‌وکارت رو در گوگل پیدا می‌کنن.</p>
-
+                        <p>{{ __('site.web_design_change_1') }}</p>
                     </div>
 
                     <div class="sv-change-card">
@@ -206,8 +210,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
-                        <p>نمونه‌کار‌هات رو یک‌جا نمایش بده و از فرستادن عکس‌های تکراری بی‌نیاز شو.</p>
-
+                        <p>{{ __('site.web_design_change_2') }}</p>
                     </div>
 
                     <div class="sv-change-card">
@@ -216,8 +219,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
-
-                        <p>بدون واسطه با مشتری‌ها ارتباط بگیر و درخواست‌هاشون رو مستقیم دریافت کن.</p>
+                        <p>{{ __('site.web_design_change_3') }}</p>
                     </div>
 
                     <div class="sv-change-card">
@@ -226,22 +228,28 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                         </svg>
-                        <p>با یک وب‌سایت حرفه‌ای، اعتماد و اعتبار بیشتری بساز.</p>
+                        <p>{{ __('site.web_design_change_4') }}</p>
                     </div>
+
                 </div>
-                <p class="sv-changes-note">لازم نیست از فنی چیزی بدونی. از ایده تا تحویل، همه‌ی بخش فنی با ماست.</p>
+
+                <p class="sv-changes-note">{{ __('site.web_design_changes_note') }}</p>
+
             </div>
         </section>
 
         {{-- Is This For You Section --}}
         <section class="sv-section sv-fit">
             <div class="container">
-                <h2 class="sv-section-title">این خدمت مناسب توئه اگه...</h2>
+
+                <h2 class="sv-section-title">{{ __('site.web_design_fit_title') }}</h2>
+
                 <div class="sv-fit-grid">
 
                     {{-- Good Fit --}}
                     <div class="sv-fit-card sv-fit-yes">
-                        <h3 class="sv-fit-title">مناسب توئه</h3>
+                        <h3 class="sv-fit-title">{{ __('site.web_design_fit_yes_title') }}</h3>
+
                         <ul class="sv-fit-list">
                             <li>
                                 <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -249,38 +257,41 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M5 13l4 4L19 7" />
                                 </svg>
-                                <span>می‌خوای کسب‌وکارت، خدماتت یا نمونه‌کارهات رو حرفه‌ای معرفی کنی</span>
+                                <span>{{ __('site.web_design_fit_yes_1') }}</span>
                             </li>
+
                             <li>
                                 <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M5 13l4 4L19 7" />
                                 </svg>
-                                <span>سایت نداری و می‌خوای از صفر و درست شروع کنی</span>
+                                <span>{{ __('site.web_design_fit_yes_2') }}</span>
                             </li>
+
                             <li>
                                 <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M5 13l4 4L19 7" />
                                 </svg>
-                                <span>یه سایت معرفی ساده یا شرکتی کامل می‌خوای که خودت بتونی محتواش رو ویرایش کنی</span>
+                                <span>{{ __('site.web_design_fit_yes_3') }}</span>
                             </li>
+
                             <li>
                                 <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M5 13l4 4L19 7" />
                                 </svg>
-                                <span>می‌خوای مشتری از طریق فرم تماس یا راه‌های ارتباطی بهت برسه</span>
+                                <span>{{ __('site.web_design_fit_yes_4') }}</span>
                             </li>
                         </ul>
                     </div>
 
                     {{-- Not a Fit --}}
                     <div class="sv-fit-card sv-fit-no">
-                        <h3 class="sv-fit-title">مناسب تو نیست اگه...</h3>
+                        <h3 class="sv-fit-title">{{ __('site.web_design_fit_no_title') }}</h3>
                         <ul class="sv-fit-list">
                             <li>
                                 <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -288,42 +299,60 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <span>می‌خوای آنلاین محصول بفروشی ← <a href="{{ route('services.ecommerce') }}"
-                                        class="sv-alt-link">فروشگاه اینترنتی
-                                        مناسب‌تره</a></span>
-                                {{-- DYNAMIC: لینک به صفحه‌ی فروشگاه اینترنتی --}}
+                                <span class="sv-fit-text">
+                                    {{ __('site.web_design_fit_no_1') }}
+                                    <span class="sv-fit-arrow" aria-hidden="true"></span>
+                                    <a href="{{ app()->getLocale() === 'en' ? route('en.services.ecommerce') : route('services.ecommerce') }}"
+                                        class="sv-alt-link">
+                                        {{ __('site.web_design_fit_ecommerce_link') }}
+                                    </a>
+                                </span>
                             </li>
+
                             <li>
                                 <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <span>سایت داری و فقط ظاهرش قدیمیه ← <a href="{{ route('services.redesign') }}"
-                                        class="sv-alt-link">بازطراحی و
-                                        ارتقا</a></span>
-                                {{-- DYNAMIC: لینک به صفحه‌ی بازطراحی --}}
+                                <span class="sv-fit-text">
+                                    {{ __('site.web_design_fit_no_2') }}
+                                    <span class="sv-fit-arrow" aria-hidden="true"></span>
+                                    <a href="{{ app()->getLocale() === 'en' ? route('en.services.redesign') : route('services.redesign') }}"
+                                        class="sv-alt-link">
+                                        {{ __('site.web_design_fit_redesign_link') }}
+                                    </a>
+                                </span>
                             </li>
+
                             <li>
                                 <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <span>سایتت هست ولی دیده نمی‌شه ← <a href="{{ route('services.seo') }}"
-                                        class="sv-alt-link">سئو</a></span>
-                                {{-- DYNAMIC: لینک به صفحه‌ی سئو --}}
+                                <span class="sv-fit-text">
+                                    {{ __('site.web_design_fit_no_3') }}
+                                    <span class="sv-fit-arrow" aria-hidden="true"></span>
+                                    <a href="{{ app()->getLocale() === 'en' ? route('en.services.seo') : route('services.seo') }}"
+                                        class="sv-alt-link">
+                                        {{ __('site.web_design_fit_seo_link') }}
+                                    </a>
+                                </span>
                             </li>
                         </ul>
+
                     </div>
+
                 </div>
             </div>
         </section>
 
+
         {{-- Types Section --}}
         <section class="sv-section sv-types">
             <div class="container">
-                <h2 class="sv-section-title">برای چه نوع کسب‌وکاری؟</h2>
+                <h2 class="sv-section-title">{{ __('site.web_design_types_title') }}</h2>
                 <div class="sv-types-grid">
                     <div class="sv-type-card">
                         <svg class="sv-type-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -331,8 +360,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                         </svg>
-                        <h3>شرکتی</h3>
-                        <p>معرفی شرکت، خدمات، تیم و راه‌های تماس</p>
+                        <h3>{{ __('site.web_design_type_1_title') }}</h3>
+                        <p>{{ __('site.web_design_type_1_description') }}</p>
                     </div>
 
                     <div class="sv-type-card">
@@ -341,8 +370,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <h3>گردشگری</h3>
-                        <p>معرفی تورها، مقاصد و رزرو آنلاین</p>
+                        <h3>{{ __('site.web_design_type_2_title') }}</h3>
+                        <p>{{ __('site.web_design_type_2_description') }}</p>
                     </div>
 
                     <div class="sv-type-card">
@@ -351,8 +380,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                         </svg>
-                        <h3>آموزشی و دانشجویی</h3>
-                        <p>معرفی دوره‌ها، اساتید و ثبت‌نام</p>
+                        <h3>{{ __('site.web_design_type_3_title') }}</h3>
+                        <p>{{ __('site.web_design_type_3_description') }}</p>
                     </div>
 
                     <div class="sv-type-card">
@@ -361,8 +390,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
-                        <h3>رزومه و نمونه‌کار</h3>
-                        <p>نمایش تخصص، پروژه‌ها و راه‌های ارتباطی</p>
+                        <h3>{{ __('site.web_design_type_4_title') }}</h3>
+                        <p>{{ __('site.web_design_type_4_description') }}</p>
                     </div>
                 </div>
             </div>
@@ -370,10 +399,12 @@
 
 
 
+
+
         {{-- Deliverables Section --}}
         <section class="sv-section sv-deliverables">
             <div class="container">
-                <h2 class="sv-section-title">چی تحویل می‌گیری؟</h2>
+                <h2 class="sv-section-title">{{ __('site.web_design_deliverables_title') }}</h2>
                 <div class="sv-deliverables-grid">
                     <div class="sv-deliverable-card">
                         <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -381,8 +412,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                         </svg>
-                        <h3>طراحی ریسپانسیو</h3>
-                        <p>موبایل، تبلت و دسکتاپ</p>
+                        <h3>{{ __('site.web_design_deliverable_1_title') }}</h3>
+                        <p>{{ __('site.web_design_deliverable_1_description') }}</p>
                     </div>
 
                     <div class="sv-deliverable-card">
@@ -391,8 +422,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                         </svg>
-                        <h3>کدنویسی اختصاصی و تمیز</h3>
-                        <p>برای توسعه‌های آینده</p>
+                        <h3>{{ __('site.web_design_deliverable_2_title') }}</h3>
+                        <p>{{ __('site.web_design_deliverable_2_description') }}</p>
                     </div>
 
                     <div class="sv-deliverable-card">
@@ -401,8 +432,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
                         </svg>
-                        <h3>پنل مدیریت محتوا</h3>
-                        <p>برای ویرایش متن و تصاویر</p>
+                        <h3>{{ __('site.web_design_deliverable_3_title') }}</h3>
+                        <p>{{ __('site.web_design_deliverable_3_description') }}</p>
                     </div>
 
                     <div class="sv-deliverable-card">
@@ -411,8 +442,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                         </svg>
-                        <h3>آموزش کار با پنل</h3>
-                        <p>ویدیو یا جلسه‌ی آنلاین</p>
+                        <h3>{{ __('site.web_design_deliverable_4_title') }}</h3>
+                        <p>{{ __('site.web_design_deliverable_4_description') }}</p>
                     </div>
 
                     <div class="sv-deliverable-card">
@@ -421,8 +452,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                         </svg>
-                        <h3>قرارداد و زمان‌بندی شفاف</h3>
-                        <p>از قبل از شروع</p>
+                        <h3>{{ __('site.web_design_deliverable_5_title') }}</h3>
+                        <p>{{ __('site.web_design_deliverable_5_description') }}</p>
                     </div>
 
                     <div class="sv-deliverable-card">
@@ -431,66 +462,72 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
                         </svg>
-                        <h3>پشتیبانی فنی رایگان</h3>
-                        <p>بعد از تحویل</p>
+                        <h3>{{ __('site.web_design_deliverable_6_title') }}</h3>
+                        <p>{{ __('site.web_design_deliverable_6_description') }}</p>
                     </div>
                 </div>
             </div>
         </section>
+
+
 
         {{-- Process Section --}}
         <section class="sv-section sv-process">
             <div class="container">
-                <h2 class="sv-section-title">مراحل کار</h2>
+                <h2 class="sv-section-title">{{ __('site.web_design_process_title') }}</h2>
                 <div class="sv-process-steps">
                     <div class="sv-process-step">
                         <div class="sv-step-number">۱</div>
-                        <h3>نیازسنجی و مشاوره‌ی رایگان</h3>
-                        <p>درباره‌ی پروژه حرف می‌زنیم</p>
+                        <h3>{{ __('site.web_design_process_1_title') }}</h3>
+                        <p>{{ __('site.web_design_process_1_description') }}</p>
                     </div>
 
                     <div class="sv-process-step">
                         <div class="sv-step-number">۲</div>
-                        <h3>تعیین محدوده و هزینه</h3>
-                        <p>شفاف و قبل از شروع</p>
+                        <h3>{{ __('site.web_design_process_2_title') }}</h3>
+                        <p>{{ __('site.web_design_process_2_description') }}</p>
                     </div>
 
                     <div class="sv-process-step">
                         <div class="sv-step-number">۳</div>
-                        <h3>طراحی و توسعه</h3>
-                        <p>مرحله‌به‌مرحله با گزارش پیشرفت</p>
+                        <h3>{{ __('site.web_design_process_3_title') }}</h3>
+                        <p>{{ __('site.web_design_process_3_description') }}</p>
                     </div>
 
                     <div class="sv-process-step">
                         <div class="sv-step-number">۴</div>
-                        <h3>تست و تحویل</h3>
-                        <p>بررسی، آموزش و تحویل نهایی</p>
+                        <h3>{{ __('site.web_design_process_4_title') }}</h3>
+                        <p>{{ __('site.web_design_process_4_description') }}</p>
                     </div>
                 </div>
 
                 <p class="sv-process-cta">
-                    هنوز نمی‌دونی کدوم خدمت برات مناسبه؟
-                    <a href="{{ route('contact') }}">برای مشاوره رایگان با ما در ارتباط باش.</a>
+                    {{ __('site.web_design_process_cta_question') }}
+                    <a href="{{ app()->getLocale() === 'en' ? route('en.contact') : route('contact') }}">
+                        {{ __('site.web_design_process_cta_link') }}
+                    </a>
                 </p>
 
             </div>
         </section>
+
+
 
         {{-- Related Projects --}}
         @if (isset($relatedProjects) && $relatedProjects->isNotEmpty())
             <section class="pf-related-section" id="related-projects">
                 <div class="container">
 
-                    <div class="pf-related-heading">
-                        <div>
-                            <h2>پروژه‌های مرتبط</h2>
+   <div class="pf-related-heading {{ app()->getLocale() === 'en' ? 'is-en' : 'is-fa' }}">                        <div>
+                            <h2>{{ __('site.web_design_related_projects_title') }}</h2>
                             <p>
-                                نمونه‌کارهای بیشتری را در همین زمینه بررسی کنید.
+                                {{ __('site.web_design_related_projects_description') }}
                             </p>
                         </div>
 
-                        <a href="{{ route('portfolio') }}" class="pf-related-all">
-                            مشاهده همه پروژه‌ها
+                        <a href="{{ app()->getLocale() === 'en' ? route('en.portfolio') : route('portfolio') }}"
+                            class="pf-related-all">
+                            {{ __('site.web_design_related_projects_all') }}
                             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                 <path d="M19 12H5M11 18l-6-6 6-6" />
                             </svg>
@@ -518,22 +555,28 @@
                                     </span>
                                 </div>
 
-                                <div class="pf-related-content">
+                                <div class="pf-related-content {{ app()->getLocale() === 'en' ? 'is-en' : 'is-fa' }}">
                                     @if ($relatedProject->category)
                                         <span class="pf-related-category">
-                                            {{ $relatedProject->category->name }}
+                                            {{ app()->getLocale() === 'en' ? $relatedProject->category->slug : $relatedProject->category->name }}
                                         </span>
                                     @endif
 
-                                    <h3>{{ $relatedProject->title }}</h3>
-
-                                    @if ($relatedProject->short_description)
+                                    <h3>
+                                        {{ app()->getLocale() === 'en' && $relatedProject->title_en
+                                            ? $relatedProject->title_en
+                                            : $relatedProject->title }}
+                                    </h3>
+                                    @if (app()->getLocale() === 'en' && $relatedProject->short_description_en)
+                                        <p>{{ $relatedProject->short_description_en }}</p>
+                                    @elseif ($relatedProject->short_description)
                                         <p>{{ $relatedProject->short_description }}</p>
                                     @endif
                                 </div>
 
-                                <a href="{{ route('portfolio.show', $relatedProject->slug) }}" class="pf-related-link">
-                                    مشاهده جزئیات
+                                <a href="{{ app()->getLocale() === 'en' ? route('en.portfolio.show', $relatedProject->slug) : route('portfolio.show', $relatedProject->slug) }}"
+                                    class="pf-related-link">
+                                    {{ __('site.web_design_related_projects_details') }}
                                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                         <path d="M19 12H5M11 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8"
                                             stroke-linecap="round" stroke-linejoin="round" />
@@ -548,36 +591,41 @@
         @endif
 
 
+
+
         {{-- Related Services --}}
         <section class="sv-section sv-related">
             <div class="container">
-                <h2 class="sv-section-title">خدمات مرتبط</h2>
+                <h2 class="sv-section-title">{{ __('site.web_design_related_services_title') }}</h2>
 
                 <div class="sv-related-grid">
-                    <a href="{{ route('services.ecommerce') }}" class="sv-related-card">
+                    <a href="{{ app()->getLocale() === 'en' ? route('en.services.ecommerce') : route('services.ecommerce') }}"
+                        class="sv-related-card">
                         {{-- DYNAMIC: لینک به صفحه‌ی فروشگاه اینترنتی --}}
                         <svg class="sv-related-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
-                        <h3>فروشگاه اینترنتی</h3>
-                        <p>برای فروش آنلاین محصولات</p>
+                        <h3>{{ __('site.web_design_related_service_1_title') }}</h3>
+                        <p>{{ __('site.web_design_related_service_1_description') }}</p>
                     </a>
 
-                    <a href="{{ route('services.seo') }}" class="sv-related-card">
+                    <a href="{{ app()->getLocale() === 'en' ? route('en.services.seo') : route('services.seo') }}"
+                        class="sv-related-card">
                         {{-- DYNAMIC: لینک به صفحه‌ی سئو --}}
                         <svg class="sv-related-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
-                        <h3>سئو و بهینه‌سازی</h3>
-                        <p>دیده‌شدن و سرعت بهتر</p>
+                        <h3>{{ __('site.web_design_related_service_2_title') }}</h3>
+                        <p>{{ __('site.web_design_related_service_2_description') }}</p>
                     </a>
                 </div>
             </div>
         </section>
+
 
 
     @endsection

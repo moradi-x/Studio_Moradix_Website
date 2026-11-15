@@ -24,6 +24,7 @@ class Project extends Model
         'description_en',
 
         'slug',
+        'slug_en',
         'primary_image',
         'project_url',
         'github_url',

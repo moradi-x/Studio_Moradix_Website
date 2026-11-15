@@ -2215,3 +2215,29 @@
         margin-bottom: 18px;
     }
 }
+
+/* English Slug Field */
+.admin-project-create-english-section #project-slug-en {
+    direction: ltr;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    letter-spacing: 0.3px;
+}
+
+.admin-project-create-english-section #project-slug-en::placeholder {
+    direction: ltr;
+    text-align: left;
+}
+
+/* English Slug Field */
+.admin-project-edit-english-section #project-slug-en {
+    direction: ltr;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    letter-spacing: 0.3px;
+}
+
+.admin-project-edit-english-section #project-slug-en::placeholder {
+    direction: ltr;
+    text-align: left;
+}

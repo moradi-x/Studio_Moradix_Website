@@ -2492,3 +2492,112 @@
         justify-content: flex-start;
     }
 }
+
+/* Persian Hero - Desktop RTL */
+@media (min-width: 992px) {
+    html[lang="fa"] .sv-hero-content {
+        direction: rtl;
+    }
+
+    html[lang="fa"] .sv-hero-text {
+        direction: rtl;
+        text-align: right;
+    }
+
+    html[lang="fa"] .sv-hero-title,
+    html[lang="fa"] .sv-hero-subtitle,
+    html[lang="fa"] .sv-hero-desc {
+        text-align: right;
+    }
+
+    html[lang="fa"] .sv-hero-buttons {
+        direction: rtl;
+        justify-content: flex-start;
+    }
+}
+
+
+/* Fit section arrow */
+.sv-fit-arrow::before {
+    content: "←";
+    display: inline-block;
+    margin: 0 6px;
+}
+
+html[lang="en"] .sv-fit-arrow::before {
+    content: "→";
+}
+
+@media (min-width: 992px) {
+    .pf-related-card .pf-related-content.is-en {
+        direction: ltr !important;
+        text-align: left !important;
+    }
+
+    .pf-related-card .pf-related-content.is-en h3,
+    .pf-related-card .pf-related-content.is-en p {
+        direction: ltr !important;
+        text-align: left !important;
+    }
+
+    .pf-related-card .pf-related-content.is-fa {
+        direction: rtl !important;
+        text-align: right !important;
+    }
+
+    .pf-related-card .pf-related-content.is-fa h3,
+    .pf-related-card .pf-related-content.is-fa p {
+        direction: rtl !important;
+        text-align: right !important;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .pf-related-heading.is-en > div {
+        direction: ltr !important;
+        text-align: left !important;
+        margin-right: auto !important;
+        margin-left: 0 !important;
+    }
+
+    .pf-related-heading.is-en > div h2,
+    .pf-related-heading.is-en > div p {
+        direction: ltr !important;
+        text-align: left !important;
+    }
+
+    .pf-related-heading.is-fa > div {
+        direction: rtl !important;
+        text-align: right !important;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+    }
+
+    .pf-related-heading.is-fa > div h2,
+    .pf-related-heading.is-fa > div p {
+        direction: rtl !important;
+        text-align: right !important;
+    }
+}
+@media (min-width: 992px) {
+
+    .pf-related-heading.is-en {
+        direction: ltr !important;
+    }
+
+    .pf-related-heading.is-en .pf-related-all {
+        direction: ltr !important;
+        display: inline-flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        text-align: right !important;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+    }
+
+    .pf-related-heading.is-en .pf-related-all svg {
+        transform: rotate(180deg) !important;
+    }
+}

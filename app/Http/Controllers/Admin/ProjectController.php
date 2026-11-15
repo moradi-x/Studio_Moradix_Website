@@ -50,24 +50,55 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'category_id' => ['required', 'exists:categories,id'],
+
             'title' => ['required', 'string', 'max:255'],
-            'slug' => ['required', 'string',  'max:255', 'unique:projects,slug',],
-            'short_description' => ['required', 'string',],
-            'description' => ['required', 'string',],
-            'primary_image' => ['required', 'image', 'mimes:jpg,jpeg,png,webp',],
-            'images' => ['required', 'array',],
-            'images.*' => ['image', 'mimes:jpg,jpeg,png,webp',],
+
+            'slug' => [
+                'required',
+                'string',
+                'max:255',
+                'unique:projects,slug',
+            ],
+
+            // English Slug
+            'slug_en' => [
+                'nullable',
+                'string',
+                'max:255',
+                'unique:projects,slug_en',
+            ],
+
+            'short_description' => ['required', 'string'],
+            'description' => ['required', 'string'],
+
+            'primary_image' => [
+                'required',
+                'image',
+                'mimes:jpg,jpeg,png,webp',
+            ],
+
+            'images' => ['required', 'array'],
+
+            'images.*' => [
+                'image',
+                'mimes:jpg,jpeg,png,webp',
+            ],
+
             'project_url' => ['nullable'],
             'github_url' => ['nullable'],
-            'status' => ['required', 'boolean',],
+
+            'status' => ['required', 'boolean'],
+
             'feature_ids' => ['nullable', 'array'],
+
             'feature_ids.*' => [
                 'integer',
                 'distinct',
                 'exists:features,id',
             ],
+
             'title_en' => ['nullable', 'string', 'max:255'],
             'short_description_en' => ['nullable', 'string'],
             'description_en' => ['nullable', 'string'],
@@ -75,6 +106,7 @@ class ProjectController extends Controller
 
         try {
             DB::beginTransaction();
+
             // آپلود تصاویر
             $ProjectImageController = new ProjectImageController();
 
@@ -85,23 +117,26 @@ class ProjectController extends Controller
 
             // ایجاد پروژه
             $project = Project::create([
-                'category_id' => $request->category_id,
+                'category_id' => $validated['category_id'],
 
-                'title' => $request->title,
-                'title_en' => $request->title_en,
+                'title' => $validated['title'],
+                'title_en' => $validated['title_en'] ?? null,
 
-                'slug' => $request->slug,
+                'slug' => $validated['slug'],
+                'slug_en' => $validated['slug_en'] ?? null,
 
-                'short_description' => $request->short_description,
-                'short_description_en' => $request->short_description_en,
+                'short_description' => $validated['short_description'],
+                'short_description_en' => $validated['short_description_en'] ?? null,
 
-                'description' => $request->description,
-                'description_en' => $request->description_en,
+                'description' => $validated['description'],
+                'description_en' => $validated['description_en'] ?? null,
 
                 'primary_image' => $fileNameImages['fileNamePrimaryImage'],
-                'project_url' => $request->project_url,
-                'github_url' => $request->github_url,
-                'status' => $request->status,
+
+                'project_url' => $validated['project_url'] ?? null,
+                'github_url' => $validated['github_url'] ?? null,
+
+                'status' => $validated['status'],
             ]);
 
             // ایجاد تصاویر پروژه
@@ -112,13 +147,16 @@ class ProjectController extends Controller
                 ]);
             }
 
+            // ثبت ویژگی‌های پروژه
             $project->features()->sync(
-                $request->input('feature_ids', [])
+                $validated['feature_ids'] ?? []
             );
 
             DB::commit();
         } catch (\Throwable $ex) {
+
             DB::rollBack();
+
             return redirect()
                 ->back()
                 ->withInput()
@@ -128,7 +166,6 @@ class ProjectController extends Controller
                         . $ex->getMessage()
                 );
         }
-
 
         return redirect()
             ->route('admin.projects.index')
@@ -175,7 +212,7 @@ class ProjectController extends Controller
 
     public function update(Request $request, Project $project)
     {
-        $validated =  $request->validate([
+        $validated = $request->validate([
             'category_id' => [
                 'required',
                 'exists:categories,id',
@@ -192,6 +229,14 @@ class ProjectController extends Controller
                 'string',
                 'max:255',
                 'unique:projects,slug,' . $project->id,
+            ],
+
+            // English Slug
+            'slug_en' => [
+                'nullable',
+                'string',
+                'max:255',
+                'unique:projects,slug_en,' . $project->id,
             ],
 
             'short_description' => [
@@ -218,54 +263,66 @@ class ProjectController extends Controller
                 'required',
                 'boolean',
             ],
-            'feature_ids' => ['nullable', 'array'],
+
+            'feature_ids' => [
+                'nullable',
+                'array',
+            ],
+
             'feature_ids.*' => [
                 'integer',
                 'distinct',
                 'exists:features,id',
             ],
-            'title_en' => ['nullable', 'string', 'max:255'],
-            'short_description_en' => ['nullable', 'string'],
-            'description_en' => ['nullable', 'string'],
 
+            'title_en' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+
+            'short_description_en' => [
+                'nullable',
+                'string',
+            ],
+
+            'description_en' => [
+                'nullable',
+                'string',
+            ],
         ]);
 
-
         try {
-
             DB::beginTransaction();
-
-
-
-
 
             // ویرایش اطلاعات پروژه
             $project->update([
-                'category_id' => $request->category_id,
+                'category_id' => $validated['category_id'],
 
-                'title' => $request->title,
-                'title_en' => $request->title_en,
+                'title' => $validated['title'],
+                'title_en' => $validated['title_en'] ?? null,
 
-                'slug' => $request->slug,
-                'short_description' => $request->short_description,
-                'short_description_en' => $request->short_description_en,
+                'slug' => $validated['slug'],
+                'slug_en' => $validated['slug_en'] ?? null,
 
-                'description' => $request->description,
-                'description_en' => $request->description_en,
+                'short_description' => $validated['short_description'],
+                'short_description_en' => $validated['short_description_en'] ?? null,
 
-                'project_url' => $request->project_url,
-                'github_url' => $request->github_url,
-                'status' => $request->status,
+                'description' => $validated['description'],
+                'description_en' => $validated['description_en'] ?? null,
+
+                'project_url' => $validated['project_url'] ?? null,
+                'github_url' => $validated['github_url'] ?? null,
+
+                'status' => $validated['status'],
             ]);
 
-
-
+            // ویرایش ویژگی‌های پروژه
             $project->features()->sync(
-                $request->input('feature_ids', [])
+                $validated['feature_ids'] ?? []
             );
 
             DB::commit();
-
         } catch (\Throwable $ex) {
 
             DB::rollBack();
@@ -275,8 +332,7 @@ class ProjectController extends Controller
                 ->withInput()
                 ->with(
                     'error',
-                    'مشکلی در ویرایش پروژه رخ داد: '
-                        . $ex->getMessage()
+                    'مشکلی در ویرایش پروژه رخ داد: ' . $ex->getMessage()
                 );
         }
 

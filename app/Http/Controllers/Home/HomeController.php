@@ -212,14 +212,14 @@ class HomeController extends Controller
 
     public function portfolioShow(string $slug)
     {
-
+        $isEnglish = app()->getLocale() === 'en';
 
         $project = Project::with([
             'category',
             'features',
             'images',
         ])
-            ->where('slug', $slug)
+            ->where($isEnglish ? 'slug_en' : 'slug', $slug)
             ->firstOrFail();
 
         $relatedProjects = Project::with('category')
@@ -230,6 +230,8 @@ class HomeController extends Controller
             ->map(function ($relatedProject) {
 
                 $isEnglish = app()->getLocale() === 'en';
+
+                // ادامه کد فعلی خودت بدون تغییر...
 
                 // نام پروژه
                 $relatedProject->display_title = $isEnglish
@@ -369,4 +371,157 @@ class HomeController extends Controller
 
         ));
     }
+
+
+    public function portfolioIndexLazy()
+    {
+        $projects = Project::latest()
+            ->take(100)
+            ->get();
+
+        foreach ($projects as $project) {
+            $project->category;
+            $project->features;
+        }
+
+        $completedProjects = $projects->where('status', 1)->count();
+        $developmentProjects = $projects->where('status', 0)->count();
+
+        $pfhFa = fn($n) => app()->getLocale() === 'en'
+            ? (string) $n
+            : strtr((string) $n, [
+                '0' => '۰',
+                '1' => '۱',
+                '2' => '۲',
+                '3' => '۳',
+                '4' => '۴',
+                '5' => '۵',
+                '6' => '۶',
+                '7' => '۷',
+                '8' => '۸',
+                '9' => '۹',
+            ]);
+
+        return view('Home.Portfolio.index', compact(
+            'projects',
+            'completedProjects',
+            'developmentProjects',
+            'pfhFa'
+        ));
+    }
+
+
+    public function portfolioIndexEager()
+    {
+        $projects = Project::with(['category', 'features'])
+            ->latest()
+            ->take(100)
+            ->get();
+
+        $completedProjects = $projects->where('status', 1)->count();
+        $developmentProjects = $projects->where('status', 0)->count();
+
+        $pfhFa = fn($n) => app()->getLocale() === 'en'
+            ? (string) $n
+            : strtr((string) $n, [
+                '0' => '۰',
+                '1' => '۱',
+                '2' => '۲',
+                '3' => '۳',
+                '4' => '۴',
+                '5' => '۵',
+                '6' => '۶',
+                '7' => '۷',
+                '8' => '۸',
+                '9' => '۹',
+            ]);
+
+        return view('Home.Portfolio.index', compact(
+            'projects',
+            'completedProjects',
+            'developmentProjects',
+            'pfhFa'
+        ));
+    }
+
+
+
+    public function portfolioIndexRaw()
+    {
+        // دریافت پروژه‌ها و دسته‌بندی‌ها
+        $projects = DB::table('projects')
+            ->leftJoin('categories', 'projects.category_id', '=', 'categories.id')
+            ->select(
+                'projects.*',
+                'categories.name as category_name',
+                'categories.slug as category_slug'
+            )
+            ->orderByDesc('projects.created_at')
+            ->limit(100)
+            ->get();
+
+        // استخراج شناسه پروژه‌ها
+        $projectIds = $projects->pluck('id');
+
+        // دریافت تمام ویژگی‌های پروژه‌ها با یک Query
+        $features = DB::table('feature_project')
+            ->join('features', 'feature_project.feature_id', '=', 'features.id')
+            ->whereIn('feature_project.project_id', $projectIds)
+            ->select(
+                'feature_project.project_id',
+                'features.*'
+            )
+            ->get()
+            ->groupBy('project_id');
+
+        // آماده‌سازی خروجی برای استفاده در Blade
+        foreach ($projects as $project) {
+
+            // شبیه‌سازی رابطه category
+            $project->category = $project->category_id
+                ? (object) [
+                    'name' => $project->category_name,
+                    'slug' => $project->category_slug,
+                ]
+                : null;
+
+            // شبیه‌سازی رابطه features
+            $project->features = $features->get(
+                $project->id,
+                collect()
+            );
+        }
+
+        $completedProjects = $projects->where('status', 1)->count();
+        $developmentProjects = $projects->where('status', 0)->count();
+
+        $pfhFa = fn($n) => app()->getLocale() === 'en'
+            ? (string) $n
+            : strtr((string) $n, [
+                '0' => '۰',
+                '1' => '۱',
+                '2' => '۲',
+                '3' => '۳',
+                '4' => '۴',
+                '5' => '۵',
+                '6' => '۶',
+                '7' => '۷',
+                '8' => '۸',
+                '9' => '۹',
+            ]);
+
+        return view('Home.Portfolio.index', compact(
+            'projects',
+            'completedProjects',
+            'developmentProjects',
+            'pfhFa'
+        ));
+    }
+
+    // public function portfolioIndex()
+    // {
+    //     // return $this->portfolioIndexLazy();
+    //     // return $this->portfolioIndexEager();
+    //     // return $this->portfolioIndexRaw();
+    // }
 }

@@ -15,12 +15,13 @@ class ProjectSeeder extends Seeder
 
             // اطلاعات فارسی
             'title' => 'فروشگاه اینترنتی',
-            'slug' => 'ecommerce-website',
+            'slug' => 'فروشگاه-اینترنتی',
             'short_description' => 'یک فروشگاه اینترنتی مدرن و حرفه‌ای.',
             'description' => 'طراحی و توسعه یک فروشگاه اینترنتی مدرن با امکانات کامل.',
 
             // اطلاعات انگلیسی
             'title_en' => 'E-commerce Website',
+            'slug_en' => 'ecommerce-website',
             'short_description_en' => 'A modern and professional e-commerce website.',
             'description_en' => 'Design and development of a modern e-commerce website with complete features.',
 
@@ -39,12 +40,13 @@ class ProjectSeeder extends Seeder
 
             // اطلاعات فارسی
             'title' => 'سایت شرکتی',
-            'slug' => 'corporate-website',
+            'slug' => 'سایت-شرکتی',
             'short_description' => 'وب‌سایت معرفی یک شرکت.',
             'description' => 'طراحی و توسعه یک وب‌سایت شرکتی برای معرفی خدمات و فعالیت‌های شرکت.',
 
             // اطلاعات انگلیسی
             'title_en' => 'Corporate Website',
+            'slug_en' => 'corporate-website',
             'short_description_en' => 'A website designed to introduce a company.',
             'description_en' => 'Design and development of a corporate website to showcase the company’s services and activities.',
 

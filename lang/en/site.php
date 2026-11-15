@@ -680,5 +680,342 @@ return [
 'web_design_related_service_1_description' => 'For selling products online.',
 'web_design_related_service_2_title' => 'SEO & Optimization',
 'web_design_related_service_2_description' => 'Better visibility and performance.',
+'web_design_fit_ecommerce_link' => 'E-commerce website',
+'web_design_fit_redesign_link' => 'Website redesign and upgrade',
+'web_design_fit_seo_link' => 'SEO',
+
+// Ecommerce Design Page
+
+'ecommerce_page_title' => 'E-commerce Website Design | Moradix Studio',
+'ecommerce_page_description' => 'Custom e-commerce website design and development with Laravel, from product management and shopping carts to online payments and admin dashboards. Get a free consultation for your online store.',
+
+'ecommerce_breadcrumb_home' => 'Home',
+'ecommerce_breadcrumb_services' => 'Services',
+'ecommerce_breadcrumb_current' => 'E-commerce Website Design',
+
+'ecommerce_hero_title' => 'E-commerce Website Design',
+'ecommerce_hero_subtitle' => 'Build an online store that showcases your products professionally and makes shopping easy for your customers.',
+'ecommerce_hero_description' => 'From professional product displays to shopping carts, online payments, and order management, we build an online store tailored to your business and support you from consultation to launch.',
+'ecommerce_hero_consultation' => 'Free Consultation',
+'ecommerce_hero_pricing' => 'View Plans and Pricing',
+'ecommerce_hero_result' => 'Responsive and Ready to Launch',
+
+'ecommerce_changes_title' => 'How Can an Online Store Transform Your Business?',
+'ecommerce_change_1' => 'Customers can browse your products and place orders at any time of the day.',
+'ecommerce_change_2' => 'Display product images, prices, and details in one organized place.',
+'ecommerce_change_3' => 'Build customer trust with professional product pages and a simple checkout process.',
+'ecommerce_change_4' => 'Manage orders more efficiently and reduce reliance on scattered messages.',
+'ecommerce_changes_note' => 'You do not need technical knowledge. We guide you through every step, from understanding your needs to launching your store.',
+
+'ecommerce_fit_title' => 'An Online Store Is Right for You If...',
+'ecommerce_fit_yes_title' => 'A Good Fit',
+'ecommerce_fit_yes_1' => 'You have physical or digital products and want to sell them online.',
+'ecommerce_fit_yes_2' => 'You want to launch your store from scratch with a scalable foundation.',
+'ecommerce_fit_yes_3' => 'You want to manage products, categories, prices, and inventory through an admin panel.',
+'ecommerce_fit_yes_4' => 'You want customers to select products, place orders, and pay online.',
+'ecommerce_fit_no_title' => 'Another Solution May Be Better If...',
+'ecommerce_fit_no_1' => 'You only need a simple website to introduce your business:',
+'ecommerce_fit_no_2' => 'You already have an online store but its design looks outdated:',
+'ecommerce_fit_no_3' => 'Your store is not visible in search results:',
+'ecommerce_fit_web_design' => 'Corporate Website Design',
+'ecommerce_fit_redesign' => 'Website Redesign and Upgrade',
+'ecommerce_fit_seo' => 'SEO and Optimization',
+
+'ecommerce_types_title' => 'What Products Can You Sell Online?',
+'ecommerce_type_1_title' => 'Clothing and Accessories',
+'ecommerce_type_1_description' => 'Showcase products, colors, sizes, and order details.',
+'ecommerce_type_2_title' => 'Physical Products',
+'ecommerce_type_2_description' => 'Sell products with categories, inventory, and shipping information.',
+'ecommerce_type_3_title' => 'Digital Products',
+'ecommerce_type_3_description' => 'Sell files, courses, or downloadable content tailored to your project.',
+'ecommerce_type_4_title' => 'Handmade and Specialized Products',
+'ecommerce_type_4_description' => 'Present unique products in detail and receive orders online.',
+
+'ecommerce_deliverables_title' => 'What Features Will Your Online Store Include?',
+'ecommerce_deliverable_1_title' => 'Mobile-Friendly Design',
+'ecommerce_deliverable_1_description' => 'A smooth shopping experience on mobile, tablet, and desktop.',
+'ecommerce_deliverable_2_title' => 'Customizable and Scalable Infrastructure',
+'ecommerce_deliverable_2_description' => 'Ready for future features and expansion.',
+'ecommerce_deliverable_3_title' => 'Store Management Dashboard',
+'ecommerce_deliverable_3_description' => 'Manage products, prices, and orders.',
+'ecommerce_deliverable_4_title' => 'Store Management Training',
+'ecommerce_deliverable_4_description' => 'Learn how to manage products and orders.',
+'ecommerce_deliverable_5_title' => 'Clear Scope and Timeline',
+'ecommerce_deliverable_5_description' => 'Defined before the project begins.',
+'ecommerce_deliverable_6_title' => 'Post-Launch Support',
+'ecommerce_deliverable_6_description' => 'Based on the agreed project terms.',
+
+'ecommerce_process_title' => 'How We Build Your Online Store',
+'ecommerce_process_1_title' => 'Discovery and Free Consultation',
+'ecommerce_process_1_description' => 'We review your products, customers, and store requirements.',
+'ecommerce_process_2_title' => 'Defining Scope and Budget',
+'ecommerce_process_2_description' => 'We define the features, timeline, and project cost.',
+'ecommerce_process_3_title' => 'Design and Development',
+'ecommerce_process_3_description' => 'We design your store and build the features you need.',
+'ecommerce_process_4_title' => 'Testing and Delivery',
+'ecommerce_process_4_description' => 'We test the shopping experience, show you how to use the dashboard, and deliver your store.',
+'ecommerce_process_cta_question' => 'Still not sure which service is right for you?',
+'ecommerce_process_cta_link' => 'Contact us for a free consultation.',
+
+'ecommerce_related_projects_title' => 'Related Projects',
+'ecommerce_related_projects_description' => 'Explore more projects in this field.',
+'ecommerce_related_projects_all' => 'View All Projects',
+'ecommerce_related_projects_details' => 'View Details',
+
+'ecommerce_related_services_title' => 'Additional Services for Your Online Store',
+'ecommerce_related_service_1_title' => 'Website Design',
+'ecommerce_related_service_1_description' => 'For presenting your brand and services.',
+'ecommerce_related_service_2_title' => 'Store SEO and Optimization',
+'ecommerce_related_service_2_description' => 'To attract more visitors and improve the shopping experience.',
+
+
+// Redesign Page
+'redesign_page_title' => 'Website Redesign and Improvement | Moradix Studio',
+'redesign_page_description' => 'Website redesign and improvements to your existing website’s user interface, user experience, speed, and admin dashboard. We evaluate the best way to upgrade your website before considering a complete rebuild.',
+
+'redesign_breadcrumb_label' => 'Breadcrumb',
+'redesign_breadcrumb_home' => 'Home',
+'redesign_breadcrumb_services' => 'Services',
+'redesign_breadcrumb_current' => 'Website Redesign and Improvement',
+
+'redesign_hero_title' => 'Website Redesign and Improvement',
+'redesign_hero_subtitle' => 'Take your existing website to the next level.',
+'redesign_hero_description' => 'Not happy with your website’s appearance? Is the user experience poor, the loading speed slow, or content management difficult? We can review your existing website and redesign or optimize it based on your needs, without unnecessary changes.',
+'redesign_hero_consultation' => 'Free Consultation',
+'redesign_hero_pricing' => 'Compare Plans and Pricing',
+'redesign_hero_result' => 'Responsive and Ready to Launch',
+
+'redesign_types_title' => 'What Types of Websites Can We Improve?',
+
+'redesign_type_1_title' => 'WordPress Websites',
+'redesign_type_1_description' => 'Theme redesign, improved user experience, and fixes for technical and performance issues.',
+
+'redesign_type_2_title' => 'Custom-Built Websites',
+'redesign_type_2_description' => 'Improved visual design, technical structure, and development of the features your website needs.',
+
+'redesign_type_3_title' => 'E-commerce Websites',
+'redesign_type_3_description' => 'Optimization of product pages, shopping carts, and the checkout process.',
+
+'redesign_type_4_title' => 'Admin Dashboards and Web Applications',
+'redesign_type_4_description' => 'Simplified management interfaces and workflows for a smoother experience.',
+
+'redesign_deliverables_title' => 'What Will You Receive at the End of the Project?',
+
+'redesign_deliverable_1_title' => 'Improved User Interface',
+'redesign_deliverable_1_description' => 'Redesigned pages tailored to your users’ needs and brand identity.',
+
+'redesign_deliverable_2_title' => 'Better User Experience',
+'redesign_deliverable_2_description' => 'Clearer navigation and smoother paths to information and important actions.',
+
+'redesign_deliverable_3_title' => 'Responsive Design',
+'redesign_deliverable_3_description' => 'Layouts adapted to mobile devices, tablets, and larger screens, based on the project scope.',
+
+'redesign_deliverable_4_title' => 'Simplified Management',
+'redesign_deliverable_4_description' => 'Improvements to the admin dashboard and everyday workflows when needed.',
+
+'redesign_deliverable_5_title' => 'Targeted Technical Improvements',
+'redesign_deliverable_5_description' => 'Priority technical and performance issues addressed based on the website assessment.',
+
+'redesign_deliverable_6_title' => 'A Clear Improvement Plan',
+'redesign_deliverable_6_description' => 'Project scope, priorities, and important considerations defined before implementation.',
+
+'redesign_process_title' => 'Our Website Redesign Process',
+
+'redesign_process_1_title' => 'Website Assessment',
+'redesign_process_1_description' => 'We review your website’s appearance, functionality, and existing issues.',
+
+'redesign_process_2_title' => 'Choosing the Right Approach',
+'redesign_process_2_description' => 'We determine the best approach to redesign and improve your website.',
+
+'redesign_process_3_title' => 'Design and Implementation',
+'redesign_process_3_description' => 'We implement the necessary changes and rebuild the sections that need improvement.',
+
+'redesign_process_4_title' => 'Testing and Delivery',
+'redesign_process_4_description' => 'We test your website, fix any remaining issues, and deliver the improved version.',
+
+'redesign_process_cta_question' => 'Still not sure which service is right for you?',
+'redesign_process_cta_link' => 'Contact us for a free consultation.',
+
+'redesign_related_projects_title' => 'Related Projects',
+'redesign_related_projects_description' => 'Explore more of our work in this field.',
+'redesign_related_projects_all' => 'View All Projects',
+'redesign_related_projects_details' => 'View Details',
+
+'redesign_related_services_title' => 'You May Also Be Interested in These Services',
+
+'redesign_related_service_1_title' => 'Website Design',
+'redesign_related_service_1_description' => 'If you need a new website instead of improving your existing one, explore our website design service.',
+
+'redesign_related_service_2_title' => 'Website Technical Consultation',
+'redesign_related_service_2_description' => 'Not sure whether your website needs a redesign, optimization, or a rebuild? Let’s discuss the best approach first.',
+
+'redesign_related_service_link' => 'Explore Services',
+'redesign_related_service_consultation' => 'Get a Consultation',
+
+
+'custom_systems_page_title' => 'Custom Software Development | Moradix Studio',
+'custom_systems_page_description' => 'Design and development of custom software systems for workflow management, business automation, data analysis, and solving complex operational challenges.',
+
+'custom_systems_breadcrumb_label' => 'Breadcrumb',
+'custom_systems_breadcrumb_home' => 'Home',
+'custom_systems_breadcrumb_services' => 'Services',
+'custom_systems_breadcrumb_current' => 'Custom Software Development',
+
+'custom_systems_hero_title' => 'Custom Software Development',
+'custom_systems_hero_subtitle' => 'When your business needs more than an ordinary website',
+'custom_systems_hero_description' => 'We build software tailored to your business processes, from operations management and automation to data analysis and future feature development.',
+'custom_systems_hero_consultation' => 'Free Consultation',
+'custom_systems_hero_pricing' => 'Compare Plans and Pricing',
+'custom_systems_hero_result' => 'Responsive and Ready to Launch',
+
+'custom_systems_changes_title' => 'What Can a Custom System Change?',
+'custom_systems_change_1' => 'Manage your information and activities in one organized place.',
+'custom_systems_change_2' => 'Automate repetitive tasks and save valuable time.',
+'custom_systems_change_3' => 'Monitor performance and workflows with actionable reports.',
+'custom_systems_change_4' => 'Manage user access and activity records with greater control.',
+'custom_systems_changes_note' => 'We start by understanding your challenges and workflows, then identify which parts genuinely need a custom software solution.',
+
+'custom_systems_fit_title' => 'This Service Is Right for You If...',
+'custom_systems_fit_yes_title' => 'A Good Fit',
+'custom_systems_fit_yes_1' => 'You have complex business processes that are difficult to manage with your current files and tools.',
+'custom_systems_fit_yes_2' => 'You need multi-step workflows, request approvals, or automatic task assignments.',
+'custom_systems_fit_yes_3' => 'You want to connect information across departments and generate operational reports.',
+'custom_systems_fit_yes_4' => 'Your business has specific rules and calculations that general-purpose tools cannot handle.',
+
+'custom_systems_fit_no_title' => 'This May Not Be Right for You If...',
+'custom_systems_fit_no_1_before' => 'You only need a website to introduce your company and services;',
+'custom_systems_fit_no_1_link' => 'Website Design',
+'custom_systems_fit_no_1_after' => 'may be a better choice.',
+'custom_systems_fit_no_2_before' => 'You only want to improve the appearance or performance of your existing website;',
+'custom_systems_fit_no_2_link' => 'Website Redesign and Improvement',
+'custom_systems_fit_no_2_after' => 'may be more suitable.',
+'custom_systems_fit_no_3' => 'An affordable off-the-shelf tool can already meet your needs, without the added value of custom development.',
+
+'custom_systems_types_title' => 'What Types of Systems Can We Build?',
+'custom_systems_type_1_title' => 'Management Systems',
+'custom_systems_type_1_description' => 'Manage requests, tasks, projects, resources, and information flow across your team.',
+'custom_systems_type_2_title' => 'Workflow Automation',
+'custom_systems_type_2_description' => 'Automate business rules, deadline reminders, task assignments, and operational follow-ups.',
+'custom_systems_type_3_title' => 'Analytics and Reporting',
+'custom_systems_type_3_description' => 'Combine data, calculate performance indicators, identify delays, and generate reports for better decisions.',
+'custom_systems_type_4_title' => 'Specialized Platforms',
+'custom_systems_type_4_description' => 'Connect multiple user groups, manage orders or requests, and apply rules tailored to each party.',
+
+'custom_systems_deliverables_title' => 'What Will You Receive at the End?',
+'custom_systems_deliverable_1_title' => 'Clearly Defined Business Logic',
+'custom_systems_deliverable_1_description' => 'Rules and workflows designed around your project requirements.',
+'custom_systems_deliverable_2_title' => 'User Management',
+'custom_systems_deliverable_2_description' => 'Roles and permissions tailored to each user’s responsibilities.',
+'custom_systems_deliverable_3_title' => 'Actionable Reports',
+'custom_systems_deliverable_3_description' => 'Clear views of operational status and the information needed for decision-making.',
+'custom_systems_deliverable_4_title' => 'Activity Records',
+'custom_systems_deliverable_4_description' => 'Tracking important changes and maintaining activity history.',
+'custom_systems_deliverable_5_title' => 'Scalable Architecture',
+'custom_systems_deliverable_5_description' => 'A flexible foundation for adding new features in future stages.',
+'custom_systems_deliverable_6_title' => 'Documentation and Training',
+'custom_systems_deliverable_6_description' => 'Usage guides and explanations of the system’s main features.',
+
+'custom_systems_process_title' => 'Our System Design and Development Process',
+'custom_systems_process_1_title' => 'Understanding Your Needs',
+'custom_systems_process_1_description' => 'Reviewing users, information, and existing workflows.',
+'custom_systems_process_2_title' => 'Defining the Scope and Solution',
+'custom_systems_process_2_description' => 'Identifying essential features, business rules, and timelines.',
+'custom_systems_process_3_title' => 'Phased Development',
+'custom_systems_process_3_description' => 'Implementing features and reviewing the results at each stage.',
+'custom_systems_process_4_title' => 'Testing and Delivery',
+'custom_systems_process_4_description' => 'Testing scenarios, training users, and delivering the system.',
+
+'custom_systems_process_cta_question' => 'Still not sure which service is right for you?',
+'custom_systems_process_cta_link' => 'Contact us for a free consultation.',
+
+'custom_systems_related_projects_title' => 'Related Projects',
+'custom_systems_related_projects_description' => 'Explore more of our work in this field.',
+'custom_systems_related_projects_all' => 'View All Projects',
+'custom_systems_related_projects_details' => 'View Details',
+
+'custom_systems_related_services_title' => 'Related Services',
+'custom_systems_related_service_1_title' => 'Website Design',
+'custom_systems_related_service_1_description' => 'For introducing your company, services, or products.',
+'custom_systems_related_service_2_title' => 'Website Redesign and Improvement',
+'custom_systems_related_service_2_description' => 'For improving and extending your existing website or system.',
+
+
+'seo_page_title' => 'SEO Services | Moradix Studio',
+'seo_page_description' => 'Monthly SEO services, from keyword research and technical SEO to content optimization, competitor analysis, and improving targeted organic traffic from Google.',
+
+'seo_breadcrumb_label' => 'Breadcrumb',
+'seo_breadcrumb_home' => 'Home',
+'seo_breadcrumb_services' => 'Services',
+'seo_breadcrumb_current' => 'SEO Services',
+
+'seo_hero_title' => 'SEO Services',
+'seo_hero_subtitle' => 'Getting noticed is not enough. What matters is being found by the right audience.',
+'seo_hero_description' => 'Through keyword research, technical and content optimization, and competitor analysis, we help improve your website’s visibility and rankings in Google search results.',
+'seo_hero_consultation' => 'SEO Consultation',
+'seo_hero_pricing' => 'Compare Plans and Pricing',
+'seo_hero_result' => 'Responsive and Ready to Launch',
+
+'seo_changes_title' => 'What Business Challenges Can SEO Solve?',
+'seo_change_1' => 'Attract targeted visitors through relevant Google searches.',
+'seo_change_2' => 'Improve the search rankings of important service and product pages.',
+'seo_change_3' => 'Use ongoing planning and data analysis to improve SEO performance.',
+'seo_change_4' => 'SEO covers everything from analyzing your website to optimization and performance evaluation.',
+'seo_changes_note' => 'SEO is an ongoing process. We work alongside you, from reviewing your website’s current status to evaluating the results.',
+
+'seo_fit_title' => 'SEO Is Right for You If...',
+'seo_fit_yes_title' => 'SEO Is a Good Fit',
+'seo_fit_yes_1' => 'You have a website and want potential customers to discover your business through Google searches.',
+'seo_fit_yes_2' => 'Your service or product pages are not getting enough traffic or ranking well in search results.',
+'seo_fit_yes_3' => 'You are ready to invest in targeted content and ongoing website improvements.',
+'seo_fit_yes_4' => 'You want to measure website performance using data such as clicks, impressions, rankings, and incoming leads.',
+
+'seo_fit_no_title' => 'You May Need Another Service First',
+'seo_fit_no_1_before' => 'You do not have a website yet and need website design and development to get started.',
+'seo_fit_no_1_link' => 'Website Design ←',
+'seo_fit_no_2' => 'Your website has major accessibility, performance, or structural issues that should be fixed before starting SEO.',
+'seo_fit_no_3' => 'You expect guaranteed and immediate results without ongoing time, budget, and collaboration.',
+
+'seo_types_title' => 'What Do Our SEO Services Include?',
+'seo_type_1_title' => 'Technical SEO',
+'seo_type_1_description' => 'Reviewing website speed, structure, page indexing, and technical issues that affect SEO performance.',
+'seo_type_2_title' => 'Keyword Research',
+'seo_type_2_description' => 'Identifying searches relevant to your services and opportunities to attract the right audience.',
+'seo_type_3_title' => 'Competitor Analysis',
+'seo_type_3_description' => 'Analyzing competitor performance and identifying opportunities to improve your website’s search rankings.',
+'seo_type_4_title' => 'Performance Monitoring and Analysis',
+'seo_type_4_description' => 'Evaluating organic Google traffic, page performance, and progress across SEO activities.',
+
+'seo_deliverables_title' => 'What Do You Get from an SEO Partnership?',
+'seo_deliverable_1_title' => 'Website Analysis and Roadmap',
+'seo_deliverable_1_description' => 'Reviewing your website’s current status and defining SEO priorities.',
+'seo_deliverable_2_title' => 'Keyword Research',
+'seo_deliverable_2_description' => 'Identifying search terms relevant to your business.',
+'seo_deliverable_3_title' => 'Page and Content Optimization',
+'seo_deliverable_3_description' => 'Improving content, page titles, and internal links.',
+'seo_deliverable_4_title' => 'Technical Website Audit',
+'seo_deliverable_4_description' => 'Identifying technical issues that affect SEO performance.',
+'seo_deliverable_5_title' => 'Performance Reports',
+'seo_deliverable_5_description' => 'Evaluating clicks, impressions, and page performance.',
+'seo_deliverable_6_title' => 'Next-Step Action Plan',
+'seo_deliverable_6_description' => 'Setting priorities for the next stages of optimization.',
+
+'seo_process_title' => 'Our SEO Process',
+'seo_process_1_title' => 'Website Review and Discovery',
+'seo_process_1_description' => 'Understanding your business and assessing your website’s current status.',
+'seo_process_2_title' => 'Research and Planning',
+'seo_process_2_description' => 'Analyzing keywords and defining optimization priorities.',
+'seo_process_3_title' => 'Implementation and Optimization',
+'seo_process_3_description' => 'Fixing technical issues and improving website pages.',
+'seo_process_4_title' => 'Performance Review and Next Steps',
+'seo_process_4_description' => 'Analyzing performance and planning the next actions.',
+
+'seo_process_cta_question' => 'Still not sure which service is right for you?',
+'seo_process_cta_link' => 'Contact us for a free consultation.',
+
+'seo_related_projects_title' => 'Related Projects',
+'seo_related_projects_description' => 'Explore more of our work in this field.',
+'seo_related_projects_all' => 'View All Projects',
+'seo_related_projects_details' => 'View Details',
+
 
 ];

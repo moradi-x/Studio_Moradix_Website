@@ -126,6 +126,20 @@
                             @enderror
                         </div>
 
+                        {{-- English Slug --}}
+                        <div class="admin-project-create-field">
+                            <label for="project-slug-en">
+                                اسلاگ انگلیسی پروژه
+                            </label>
+
+                            <input type="text" id="project-slug-en" name="slug_en" value="{{ old('slug_en') }}"
+                                placeholder="ecommerce-website" dir="ltr">
+
+                            @error('slug_en')
+                                <p class="admin-project-create-field-error">{{ $message }}</p>
+                            @enderror
+                        </div>
+
                         {{-- English Short Description --}}
                         <div class="admin-project-create-field admin-project-create-full">
                             <label for="short-description-en">

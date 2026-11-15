@@ -72,17 +72,26 @@
                     </div>
 
                     <div class="admin-project-show-field">
+                        <label>اسلاگ انگلیسی پروژه</label>
+                        <div dir="ltr">{{ $project->slug_en ?: 'ثبت نشده' }}</div>
+                    </div>
+
+                    <div class="admin-project-show-field">
                         <label>توضیح کوتاه (انگلیسی)</label>
-                        <div class="admin-project-show-description" dir="ltr">{{ $project->short_description_en ?: 'ثبت نشده' }}</div>
+                        <div class="admin-project-show-description" dir="ltr">
+                            {{ $project->short_description_en ?: 'ثبت نشده' }}
+                        </div>
                     </div>
 
                     <div class="admin-project-show-field">
                         <label>توضیحات کامل (انگلیسی)</label>
-                        <div class="admin-project-show-description" dir="ltr">{{ $project->description_en ?: 'ثبت نشده' }}</div>
+                        <div class="admin-project-show-description" dir="ltr">
+                            {{ $project->description_en ?: 'ثبت نشده' }}
+                        </div>
                     </div>
 
                 </div>
-                
+
             </section>
 
             {{-- Project Links --}}

@@ -1,131 +1,131 @@
+
 @extends('Home.Layouts.layout')
 
-@section('title', 'خدمات سئو سایت | Moradix Studio')
+@section('title', __('site.seo_page_title'))
 
-@section('description',
-    'خدمات سئو سایت به‌صورت ماهانه؛ از تحقیق کلمات کلیدی و سئوی تکنیکال تا بهینه‌سازی محتوا، تحلیل
-    رقبا و بهبود ورودی هدفمند گوگل.')
+@section('description', __('site.seo_page_description'))
 
-    @push('styles')
-        <link rel="stylesheet" href="{{ asset('site/css/Home/services/service-page.css') }}">
-    @endpush
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('site/css/Home/services/service-page.css') }}">
+@endpush
 
 @section('content')
     <div class="sv-page">
 
         {{-- Breadcrumb --}}
-
-        <nav class="sv-breadcrumb" aria-label="مسیر صفحه">
+        <nav class="sv-breadcrumb" aria-label="{{ __('site.seo_breadcrumb_label') }}">
             <div class="container">
                 <ol class="sv-breadcrumb-list">
                     <li class="sv-breadcrumb-item">
-                        <a href="{{ route('home') }}">صفحه اصلی</a>
+                        <a href="{{ app()->getLocale() === 'en' ? route('en.home') : route('home') }}">
+                            {{ __('site.seo_breadcrumb_home') }}
+                        </a>
                     </li>
                     <li class="sv-breadcrumb-item">
-                        <a href="{{ route('services') }}">خدمات</a>
+                        <a href="{{ app()->getLocale() === 'en' ? route('en.services') : route('services') }}">
+                            {{ __('site.seo_breadcrumb_services') }}
+                        </a>
                     </li>
                     <li class="sv-breadcrumb-item" aria-current="page">
-                        خدمات سئو سایت
+                        {{ __('site.seo_breadcrumb_current') }}
                     </li>
                 </ol>
             </div>
         </nav>
-
 
         {{-- Hero Section --}}
         <section class="sv-hero">
             <div class="container">
                 <div class="sv-hero-content">
                     <div class="sv-hero-text">
-                        <h1 class="sv-hero-title">خدمات سئو سایت</h1>
+                        <h1 class="sv-hero-title">{{ __('site.seo_hero_title') }}</h1>
 
                         <p class="sv-hero-subtitle">
-                            فقط دیده‌شدن کافی نیست؛ مهم این است که مخاطب درست شما را پیدا کند.
+                            {{ __('site.seo_hero_subtitle') }}
                         </p>
 
-                       
-                        <p class="sv-hero-desc">با تحقیق کلمات کلیدی، بهینه‌سازی فنی و محتوایی و تحلیل رقبا، به بهبود جایگاه سایت شما در نتایج گوگل کمک می‌کنیم.</p>
+                        <p class="sv-hero-desc">
+                            {{ __('site.seo_hero_description') }}
+                        </p>
 
                         <div class="sv-hero-buttons">
-                            <a href="{{ route('contact') }}" class="btn btn-primary">
-                                مشاوره سئو سایت
+                            <a href="{{ app()->getLocale() === 'en' ? route('en.contact') : route('contact') }}"
+                                class="btn btn-primary">
+                                {{ __('site.seo_hero_consultation') }}
                             </a>
 
-                            <a href="{{ route('pricing') }}" class="btn btn-outline">مقایسه‌ی پلن‌ها و تعرفه‌ها</a>
-
+                            <a href="{{ app()->getLocale() === 'en' ? route('en.pricing') : route('pricing') }}"
+                                class="btn btn-outline">
+                                {{ __('site.seo_hero_pricing') }}
+                            </a>
                         </div>
                     </div>
 
-                    {{-- جایگزین mockup قدیمی داخل هیروی web-design.blade.php (فقط همان بخش تصویر، نه کل هیرو) --}}
+                    {{-- Hero Art --}}
                     <div class="wd-art" aria-hidden="true">
                         <span class="wd-glow"></span>
 
-                        {{-- مرورگر: سایت از وایرفریم تا طراحی نهایی ساخته می‌شود --}}
                         <div class="wd-win">
-                            <div class="wd-bar"><i></i><i></i><i></i><span dir="ltr">your-website.ir</span></div>
+                            <div class="wd-bar">
+                                <i></i><i></i><i></i>
+                                <span dir="ltr">your-website.ir</span>
+                            </div>
 
-                            <div class="wd-screen" dir="rtl">
+                            <div class="wd-screen" dir="{{ app()->getLocale() === 'en' ? 'ltr' : 'rtl' }}">
                                 <span class="wd-grid"></span>
 
                                 {{-- نوار بالا --}}
-                                <div class="wd-blk" style="--k:0;--s:6;--t:6;--w:15;--h:6"><span
-                                        class="wd-fill wd-f-bar is-dark"></span></div>
-                                <div class="wd-blk" style="--k:1;--s:28;--t:7.5;--w:7;--h:3"><span
-                                        class="wd-fill wd-f-bar is-gray"></span></div>
-                                <div class="wd-blk" style="--k:2;--s:37;--t:7.5;--w:7;--h:3"><span
-                                        class="wd-fill wd-f-bar is-gray"></span></div>
-                                <div class="wd-blk" style="--k:3;--s:46;--t:7.5;--w:7;--h:3"><span
-                                        class="wd-fill wd-f-bar is-gray"></span></div>
-                                <div class="wd-blk" style="--k:4;--s:80;--t:5.5;--w:14;--h:7;--r:99px"><span
-                                        class="wd-fill wd-f-pill is-teal"></span></div>
+                                <div class="wd-blk" style="--k:0;--s:6;--t:6;--w:15;--h:6"><span class="wd-fill wd-f-bar is-dark"></span></div>
+                                <div class="wd-blk" style="--k:1;--s:28;--t:7.5;--w:7;--h:3"><span class="wd-fill wd-f-bar is-gray"></span></div>
+                                <div class="wd-blk" style="--k:2;--s:37;--t:7.5;--w:7;--h:3"><span class="wd-fill wd-f-bar is-gray"></span></div>
+                                <div class="wd-blk" style="--k:3;--s:46;--t:7.5;--w:7;--h:3"><span class="wd-fill wd-f-bar is-gray"></span></div>
+                                <div class="wd-blk" style="--k:4;--s:80;--t:5.5;--w:14;--h:7;--r:99px"><span class="wd-fill wd-f-pill is-teal"></span></div>
 
                                 {{-- تیتر و متن --}}
-                                <div class="wd-blk" style="--k:5;--s:6;--t:24;--w:50;--h:8"><span
-                                        class="wd-fill wd-f-bar is-dark"></span></div>
-                                <div class="wd-blk" style="--k:6;--s:6;--t:35;--w:34;--h:8"><span
-                                        class="wd-fill wd-f-bar is-dark"></span></div>
-                                <div class="wd-blk" style="--k:7;--s:6;--t:48;--w:46;--h:2.6;--r:4px"><span
-                                        class="wd-fill wd-f-bar is-gray"></span></div>
-                                <div class="wd-blk" style="--k:8;--s:6;--t:53;--w:38;--h:2.6;--r:4px"><span
-                                        class="wd-fill wd-f-bar is-gray"></span></div>
+                                <div class="wd-blk" style="--k:5;--s:6;--t:24;--w:50;--h:8"><span class="wd-fill wd-f-bar is-dark"></span></div>
+                                <div class="wd-blk" style="--k:6;--s:6;--t:35;--w:34;--h:8"><span class="wd-fill wd-f-bar is-dark"></span></div>
+                                <div class="wd-blk" style="--k:7;--s:6;--t:48;--w:46;--h:2.6;--r:4px"><span class="wd-fill wd-f-bar is-gray"></span></div>
+                                <div class="wd-blk" style="--k:8;--s:6;--t:53;--w:38;--h:2.6;--r:4px"><span class="wd-fill wd-f-bar is-gray"></span></div>
 
                                 {{-- دکمه‌ها --}}
-                                <div class="wd-blk" style="--k:9;--s:6;--t:62;--w:16;--h:8;--r:99px"><span
-                                        class="wd-fill wd-f-pill is-teal"></span></div>
-                                <div class="wd-blk" style="--k:10;--s:24;--t:62;--w:16;--h:8;--r:99px"><span
-                                        class="wd-fill wd-f-pill is-line"></span></div>
+                                <div class="wd-blk" style="--k:9;--s:6;--t:62;--w:16;--h:8;--r:99px"><span class="wd-fill wd-f-pill is-teal"></span></div>
+                                <div class="wd-blk" style="--k:10;--s:24;--t:62;--w:16;--h:8;--r:99px"><span class="wd-fill wd-f-pill is-line"></span></div>
 
                                 {{-- تصویر اصلی هیرو --}}
                                 <div class="wd-blk" style="--k:11;--s:58;--t:20;--w:36;--h:46;--r:16px">
                                     <span class="wd-fill wd-f-img">
                                         <span class="wd-circle"></span>
-                                        <span class="wd-chart"><i style="--h:42%"></i><i style="--h:68%"></i><i
-                                                style="--h:54%"></i><i style="--h:86%"></i></span>
+                                        <span class="wd-chart">
+                                            <i style="--h:42%"></i><i style="--h:68%"></i>
+                                            <i style="--h:54%"></i><i style="--h:86%"></i>
+                                        </span>
                                         <span class="wd-glass"><b></b><b class="s"></b></span>
                                     </span>
                                 </div>
 
                                 {{-- کارت‌ها --}}
-                                <div class="wd-blk" style="--k:12;--s:6;--t:76;--w:27;--h:18;--r:12px"><span
-                                        class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b class="s"></b></span>
+                                <div class="wd-blk" style="--k:12;--s:6;--t:76;--w:27;--h:18;--r:12px">
+                                    <span class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b class="s"></b></span>
                                 </div>
-                                <div class="wd-blk" style="--k:13;--s:36.5;--t:76;--w:27;--h:18;--r:12px"><span
-                                        class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b class="s"></b></span>
+                                <div class="wd-blk" style="--k:13;--s:36.5;--t:76;--w:27;--h:18;--r:12px">
+                                    <span class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b class="s"></b></span>
                                 </div>
-                                <div class="wd-blk" style="--k:14;--s:67;--t:76;--w:27;--h:18;--r:12px"><span
-                                        class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b class="s"></b></span>
+                                <div class="wd-blk" style="--k:14;--s:67;--t:76;--w:27;--h:18;--r:12px">
+                                    <span class="wd-fill wd-f-card"><i class="wd-ic"></i><b></b><b class="s"></b></span>
                                 </div>
 
-                                {{-- ابزار طراحی: کادر انتخاب و نشانگر --}}
+                                {{-- ابزار طراحی --}}
                                 <span class="wd-sel"></span>
-                                <span class="wd-cursor"><svg viewBox="0 0 24 24">
-                                        <path d="M5 3l14 7-6 2-2 6z" fill="#0A0A0A" stroke="#fff" stroke-width="1.6"
-                                            stroke-linejoin="round" />
-                                    </svg></span>
+                                <span class="wd-cursor">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M5 3l14 7-6 2-2 6z" fill="#0A0A0A" stroke="#fff"
+                                            stroke-width="1.6" stroke-linejoin="round" />
+                                    </svg>
+                                </span>
                             </div>
                         </div>
 
-                        {{-- نسخه‌ی موبایل --}}
+                        {{-- نسخه موبایل --}}
                         <div class="wd-phone">
                             <span class="wd-ph-notch"></span>
                             <span class="wd-ph-bar"></span>
@@ -147,87 +147,64 @@
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path d="m5 12 4 4L19 6" />
                             </svg>
-                            ریسپانسیو و آماده‌ی انتشار
+                            {{ __('site.seo_hero_result') }}
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-
         {{-- What SEO Improves --}}
         <section class="sv-section sv-changes">
             <div class="container">
 
                 <h2 class="sv-section-title">
-                    سئو چه مشکلاتی از کسب‌وکار شما را حل می‌کند؟
+                    {{ __('site.seo_changes_title') }}
                 </h2>
 
                 <div class="sv-changes-grid">
 
                     <div class="sv-change-card">
-                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
+                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <circle cx="10.5" cy="10.5" r="6.5" stroke-width="1.8" />
                             <path d="M15.5 15.5 21 21" stroke-width="1.8" stroke-linecap="round" />
                             <path d="M7.5 10.5h6" stroke-width="1.8" stroke-linecap="round" />
                             <path d="M10.5 7.5v6" stroke-width="1.8" stroke-linecap="round" />
                         </svg>
-
-                        <p>
-                            جذب بازدیدکنندگان هدفمند از طریق جست‌وجوهای مرتبط در گوگل.
-                        </p>
+                        <p>{{ __('site.seo_change_1') }}</p>
                     </div>
 
                     <div class="sv-change-card">
-                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
+                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M4 19V5M4 19h16" stroke-width="1.8" stroke-linecap="round" />
-                            <path d="m7 15 4-4 3 2 5-7" stroke-width="1.8" stroke-linecap="round"
-                                stroke-linejoin="round" />
+                            <path d="m7 15 4-4 3 2 5-7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                             <path d="M15.5 6H19v3.5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-
-
-
-                        <p>
-                            بهبود جایگاه صفحات مهم خدمات و محصولات در نتایج جست‌وجو.
-                        </p>
+                        <p>{{ __('site.seo_change_2') }}</p>
                     </div>
 
                     <div class="sv-change-card">
-                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
+                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M4 5.5h16v13H4z" stroke-width="1.8" stroke-linejoin="round" />
                             <path d="M8 9h8M8 12h5" stroke-width="1.8" stroke-linecap="round" />
                             <path d="m14 16 2 2 4-4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-
-                        <p>
-                            برنامه‌ریزی مستمر و تحلیل داده‌ها برای بهبود عملکرد سئو.
-                        </p>
+                        <p>{{ __('site.seo_change_3') }}</p>
                     </div>
 
                     <div class="sv-change-card">
-                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
+                        <svg class="sv-change-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <circle cx="12" cy="12" r="9" stroke-width="1.8" />
                             <path d="M12 7v5l3.5 2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                             <path d="M7 3.8 5.5 5.3M17 3.8l1.5 1.5" stroke-width="1.8" stroke-linecap="round" />
                         </svg>
-
-                        <p>
-                            سئو؛ از تحلیل وضعیت سایت تا بهینه‌سازی و بررسی نتایج.
-
-                        </p>
+                        <p>{{ __('site.seo_change_4') }}</p>
                     </div>
 
                 </div>
 
                 <p class="sv-changes-note">
-                    سئو یک فرایند مستمر است؛ از بررسی وضعیت فعلی سایت تا
-
-                    ارزیابی نتایج، در کنار شما هستیم.
+                    {{ __('site.seo_changes_note') }}
                 </p>
 
             </div>
@@ -236,101 +213,54 @@
         {{-- Is This For You Section --}}
         <section class="sv-section sv-fit">
             <div class="container">
-                <h2 class="sv-section-title">سئو برای شما مناسب است اگر...</h2>
+                <h2 class="sv-section-title">{{ __('site.seo_fit_title') }}</h2>
 
                 <div class="sv-fit-grid">
 
                     {{-- Good Fit --}}
                     <div class="sv-fit-card sv-fit-yes">
-                        <h3 class="sv-fit-title">سئو مناسب توئه</h3>
+                        <h3 class="sv-fit-title">{{ __('site.seo_fit_yes_title') }}</h3>
 
                         <ul class="sv-fit-list">
-                            <li>
-                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>
-                                    سایت دارید و می‌خواهید مشتریان بالقوه از طریق جست‌وجوی گوگل شما را پیدا کنند.
-                                </span>
-                            </li>
-
-                            <li>
-                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>
-                                    صفحات خدمات یا محصولاتتان بازدید و جایگاه مناسبی در نتایج جست‌وجو ندارند.
-                                </span>
-                            </li>
-
-                            <li>
-                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>
-                                    برای تولید محتوای هدفمند و بهبود مستمر سایت آمادگی دارید.
-                                </span>
-                            </li>
-
-                            <li>
-                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>
-                                    می‌خواهید عملکرد سایت را با داده‌هایی مانند کلیک، نمایش، رتبه و سرنخ‌های ورودی ارزیابی
-                                    کنید.
-                                </span>
-                            </li>
+                            @foreach (range(1, 4) as $i)
+                                <li>
+                                    <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>{{ __("site.seo_fit_yes_{$i}") }}</span>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
 
                     {{-- Not a Fit --}}
                     <div class="sv-fit-card sv-fit-no">
-                        <h3 class="sv-fit-title">شاید ابتدا به خدمت دیگری نیاز دارید</h3>
+                        <h3 class="sv-fit-title">{{ __('site.seo_fit_no_title') }}</h3>
 
                         <ul class="sv-fit-list">
                             <li>
-                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 6l12 12M18 6L6 18" />
+                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6l12 12M18 6L6 18" />
                                 </svg>
                                 <span>
-                                    هنوز سایت ندارید و برای شروع به طراحی و توسعه وب‌سایت نیاز دارید.
-                                    <a href="{{ route('services.web-design') }}" class="sv-alt-link">
-                                        طراحی سایت ←
-                                    </a>
+                                    {{ __('site.seo_fit_no_1_before') }}
+                                    <a href="{{ app()->getLocale() === 'en' ? route('en.services.web-design') : route('services.web-design') }}"
+                                        class="sv-alt-link">{{ app()->getLocale() === 'en' ? 'Website Design →' : 'طراحی وب‌سایت ←' }}</a>
                                 </span>
                             </li>
 
                             <li>
-                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 6l12 12M18 6L6 18" />
+                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6l12 12M18 6L6 18" />
                                 </svg>
-                                <span>
-                                    سایت مشکلات اساسی در دسترسی، عملکرد یا ساختار دارد و پیش از سئو باید اصلاح شود.
-                                </span>
+                                <span>{{ __('site.seo_fit_no_2') }}</span>
                             </li>
 
                             <li>
-                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 6l12 12M18 6L6 18" />
+                                <svg class="sv-fit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6l12 12M18 6L6 18" />
                                 </svg>
-                                <span>
-                                    انتظار دارید بدون زمان، بودجه و همکاری مستمر، نتیجه قطعی و فوری به دست آورید.
-                                </span>
+                                <span>{{ __('site.seo_fit_no_3') }}</span>
                             </li>
                         </ul>
                     </div>
@@ -340,149 +270,119 @@
         </section>
 
         {{-- SEO Services --}}
-
-
         <section class="sv-section sv-types">
             <div class="container">
 
                 <h2 class="sv-section-title">
-                    خدمات سئو سایت شامل چه مواردی است؟
+                    {{ __('site.seo_types_title') }}
                 </h2>
 
                 <div class="sv-types-grid">
 
                     <div class="sv-type-card">
-                        <svg class="sv-type-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
+                        <svg class="sv-type-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7l-8-4z" />
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 12 2 2 4-4" />
                         </svg>
-
-                        <h3>سئوی فنی</h3>
-                        <p>
-                            بررسی سرعت، ساختار سایت، ایندکس صفحات و مشکلات فنی مؤثر بر سئو.
-                        </p>
+                        <h3>{{ __('site.seo_type_1_title') }}</h3>
+                        <p>{{ __('site.seo_type_1_description') }}</p>
                     </div>
 
                     <div class="sv-type-card">
-                        <svg class="sv-type-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
+                        <svg class="sv-type-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 5h16v14H4zM8 9h8M8 13h6M8 16h4" />
                         </svg>
-
-                        <h3>تحقیق کلمات کلیدی</h3>
-                        <p>
-                            شناسایی جست‌وجوهای مرتبط با خدمات شما و فرصت‌های جذب مخاطب هدفمند.
-                        </p>
+                        <h3>{{ __('site.seo_type_2_title') }}</h3>
+                        <p>{{ __('site.seo_type_2_description') }}</p>
                     </div>
 
-
-
                     <div class="sv-type-card">
-                        <svg class="sv-type-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
+                        <svg class="sv-type-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <circle cx="10.5" cy="10.5" r="6.5" stroke-width="2" />
                             <path d="m15.5 15.5 5 5" stroke-width="2" stroke-linecap="round" />
                             <path d="M8 10.5h5M10.5 8v5" stroke-width="2" stroke-linecap="round" />
                         </svg>
-
-                        <h3>تحلیل رقبا</h3>
-                        <p>
-                            بررسی عملکرد رقبا و شناسایی فرصت‌های بهبود جایگاه صفحات سایت.
-                        </p>
+                        <h3>{{ __('site.seo_type_3_title') }}</h3>
+                        <p>{{ __('site.seo_type_3_description') }}</p>
                     </div>
 
                     <div class="sv-type-card">
-                        <svg class="sv-type-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
+                        <svg class="sv-type-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 19V5M4 19h16M7 15l4-4 3 2 5-7" />
                         </svg>
-
-                        <h3>پایش و تحلیل نتایج</h3>
-                        <p>
-                            ارزیابی ورودی گوگل، عملکرد صفحات و روند پیشرفت اقدامات سئو.
-                        </p>
+                        <h3>{{ __('site.seo_type_4_title') }}</h3>
+                        <p>{{ __('site.seo_type_4_description') }}</p>
                     </div>
-
-
 
                 </div>
             </div>
         </section>
-
-
 
         {{-- Deliverables --}}
         <section class="sv-section sv-deliverables">
             <div class="container">
 
                 <h2 class="sv-section-title">
-                    در همکاری سئو چه چیزهایی دریافت می‌کنید؟
+                    {{ __('site.seo_deliverables_title') }}
                 </h2>
 
                 <div class="sv-deliverables-grid">
 
                     <div class="sv-deliverable-card">
-                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
+                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <circle cx="10.5" cy="10.5" r="6.5" stroke-width="2" />
                             <path d="m15.5 15.5 5 5" stroke-width="2" stroke-linecap="round" />
                         </svg>
-                        <h3>تحلیل سایت و نقشه راه</h3>
-                        <p>بررسی وضعیت فعلی و تعیین اولویت‌های سئو</p>
+                        <h3>{{ __('site.seo_deliverable_1_title') }}</h3>
+                        <p>{{ __('site.seo_deliverable_1_description') }}</p>
                     </div>
 
                     <div class="sv-deliverable-card">
-                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
+                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5" />
                         </svg>
-                        <h3>تحقیق کلمات کلیدی</h3>
-                        <p>شناسایی جست‌وجوهای مرتبط با کسب‌وکار شما</p>
+                        <h3>{{ __('site.seo_deliverable_2_title') }}</h3>
+                        <p>{{ __('site.seo_deliverable_2_description') }}</p>
                     </div>
 
                     <div class="sv-deliverable-card">
-                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
+                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 5h16v14H4zM8 9h8M8 12h6M8 15h4" />
                         </svg>
-                        <h3>بهینه‌سازی صفحات و محتوا</h3>
-                        <p>بهبود محتوا، عنوان‌ها و لینک‌های داخلی</p>
+                        <h3>{{ __('site.seo_deliverable_3_title') }}</h3>
+                        <p>{{ __('site.seo_deliverable_3_description') }}</p>
                     </div>
 
                     <div class="sv-deliverable-card">
-                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
+                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 3 20 7.5v9L12 21l-8-4.5v-9L12 3zM4.5 7.8l7.5 4.4 7.5-4.4M12 12.2V20" />
                         </svg>
-                        <h3>بررسی فنی سایت</h3>
-                        <p>شناسایی مشکلات فنی مؤثر بر عملکرد سئو</p>
+                        <h3>{{ __('site.seo_deliverable_4_title') }}</h3>
+                        <p>{{ __('site.seo_deliverable_4_description') }}</p>
                     </div>
 
                     <div class="sv-deliverable-card">
-                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
+                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 19V5M4 19h16m-13-4 4-4 3 2 5-7" />
                         </svg>
-                        <h3>گزارش عملکرد</h3>
-                        <p>ارزیابی کلیک‌ها، نمایش‌ها و وضعیت صفحات</p>
+                        <h3>{{ __('site.seo_deliverable_5_title') }}</h3>
+                        <p>{{ __('site.seo_deliverable_5_description') }}</p>
                     </div>
 
                     <div class="sv-deliverable-card">
-                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
+                        <svg class="sv-deliverable-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <circle cx="12" cy="12" r="9" stroke-width="2" />
                             <path d="M12 7v5l3 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        <h3>برنامه اقدامات بعدی</h3>
-                        <p>تعیین اولویت‌های ادامه مسیر بهینه‌سازی</p>
+                        <h3>{{ __('site.seo_deliverable_6_title') }}</h3>
+                        <p>{{ __('site.seo_deliverable_6_description') }}</p>
                     </div>
 
                 </div>
@@ -493,58 +393,43 @@
         <section class="sv-section sv-process" id="seo-process">
             <div class="container">
 
-                <h2 class="sv-section-title">مراحل انجام سئو</h2>
+                <h2 class="sv-section-title">{{ __('site.seo_process_title') }}</h2>
 
                 <div class="sv-process-steps">
 
-                    <div class="sv-process-step">
-                        <div class="sv-step-number">۱</div>
-                        <h3>بررسی سایت و نیازسنجی</h3>
-                        <p>شناخت کسب‌وکار و وضعیت فعلی سایت</p>
-                    </div>
-
-                    <div class="sv-process-step">
-                        <div class="sv-step-number">۲</div>
-                        <h3>تحقیق و برنامه‌ریزی</h3>
-                        <p>تحلیل کلمات کلیدی و تعیین اولویت‌ها</p>
-                    </div>
-
-                    <div class="sv-process-step">
-                        <div class="sv-step-number">۳</div>
-                        <h3>اجرا و بهینه‌سازی</h3>
-                        <p>اصلاح فنی و بهبود صفحات سایت</p>
-                    </div>
-
-                    <div class="sv-process-step">
-                        <div class="sv-step-number">۴</div>
-                        <h3>بررسی نتایج و ادامه مسیر</h3>
-                        <p>تحلیل عملکرد و تنظیم برنامه بعدی</p>
-                    </div>
+                    @foreach (range(1, 4) as $i)
+                        <div class="sv-process-step">
+                            <div class="sv-step-number">{{ app()->getLocale() === 'en' ? $i : ['۱', '۲', '۳', '۴'][$i - 1] }}</div>
+                            <h3>{{ __("site.seo_process_{$i}_title") }}</h3>
+                            <p>{{ __("site.seo_process_{$i}_description") }}</p>
+                        </div>
+                    @endforeach
 
                 </div>
+
                 <p class="sv-process-cta">
-                    هنوز نمی‌دونی کدوم خدمت برات مناسبه؟
-                    <a href="{{ route('contact') }}">برای مشاوره رایگان با ما در ارتباط باش.</a>
+                    {{ __('site.seo_process_cta_question') }}
+                    <a href="{{ app()->getLocale() === 'en' ? route('en.contact') : route('contact') }}">
+                        {{ __('site.seo_process_cta_link') }}
+                    </a>
                 </p>
             </div>
         </section>
-
 
         {{-- Portfolio Section --}}
         @if (isset($relatedProjects) && $relatedProjects->isNotEmpty())
             <section class="pf-related-section" id="related-projects">
                 <div class="container">
 
-                    <div class="pf-related-heading">
+                    <div class="pf-related-heading {{ app()->getLocale() === 'en' ? 'is-en' : 'is-fa' }}">
                         <div>
-                            <h2>پروژه‌های مرتبط</h2>
-                            <p>
-                                نمونه‌کارهای بیشتری را در همین زمینه بررسی کنید.
-                            </p>
+                            <h2>{{ __('site.seo_related_projects_title') }}</h2>
+                            <p>{{ __('site.seo_related_projects_description') }}</p>
                         </div>
 
-                        <a href="{{ route('portfolio') }}" class="pf-related-all">
-                            مشاهده همه پروژه‌ها
+                        <a href="{{ app()->getLocale() === 'en' ? route('en.portfolio') : route('portfolio') }}"
+                            class="pf-related-all">
+                            {{ __('site.seo_related_projects_all') }}
                             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                 <path d="M19 12H5M11 18l-6-6 6-6" />
                             </svg>
@@ -558,7 +443,8 @@
                                 <div class="pf-related-image">
                                     @if ($relatedProject->primary_image)
                                         <img src="{{ asset('uploads/projects/images/' . $relatedProject->primary_image) }}"
-                                            alt="{{ $relatedProject->title }}" loading="lazy">
+                                            alt="{{ app()->getLocale() === 'en' ? ($relatedProject->title_en ?: $relatedProject->title) : $relatedProject->title }}"
+                                            loading="lazy">
                                     @else
                                         <div class="pf-related-placeholder">
                                             <span>Moradix Studio</span>
@@ -572,22 +458,27 @@
                                     </span>
                                 </div>
 
-                                <div class="pf-related-content">
+                                <div class="pf-related-content {{ app()->getLocale() === 'en' ? 'is-en' : 'is-fa' }}">
                                     @if ($relatedProject->category)
                                         <span class="pf-related-category">
-                                            {{ $relatedProject->category->name }}
+                                            {{ app()->getLocale() === 'en' ? $relatedProject->category->slug : $relatedProject->category->name }}
                                         </span>
                                     @endif
 
-                                    <h3>{{ $relatedProject->title }}</h3>
+                                    <h3>
+                                        {{ app()->getLocale() === 'en' ? ($relatedProject->title_en ?: $relatedProject->title) : $relatedProject->title }}
+                                    </h3>
 
-                                    @if ($relatedProject->short_description)
-                                        <p>{{ $relatedProject->short_description }}</p>
+                                    @if ($relatedProject->short_description || $relatedProject->short_description_en)
+                                        <p>
+                                            {{ app()->getLocale() === 'en' ? ($relatedProject->short_description_en ?: $relatedProject->short_description) : $relatedProject->short_description }}
+                                        </p>
                                     @endif
                                 </div>
 
-                                <a href="{{ route('portfolio.show', $relatedProject->slug) }}" class="pf-related-link">
-                                    مشاهده جزئیات
+                                <a href="{{ app()->getLocale() === 'en' ? route('en.portfolio.show', $relatedProject->slug) : route('portfolio.show', $relatedProject->slug) }}"
+                                    class="pf-related-link">
+                                    {{ __('site.seo_related_projects_details') }}
                                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                         <path d="M19 12H5M11 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8"
                                             stroke-linecap="round" stroke-linejoin="round" />
@@ -600,7 +491,6 @@
                 </div>
             </section>
         @endif
-
 
     </div>
 @endsection

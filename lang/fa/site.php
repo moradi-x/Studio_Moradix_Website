@@ -681,6 +681,342 @@ return [
 'web_design_related_service_1_description' => 'برای فروش آنلاین محصولات.',
 'web_design_related_service_2_title' => 'سئو و بهینه‌سازی',
 'web_design_related_service_2_description' => 'برای دیده‌شدن بهتر و عملکرد بالاتر وب‌سایت.',
+'web_design_fit_ecommerce_link' => 'فروشگاه اینترنتی مناسب‌تره',
+'web_design_fit_redesign_link' => 'بازطراحی و ارتقا',
+'web_design_fit_seo_link' => 'سئو',
 
+// Ecommerce Design Page
+
+'ecommerce_page_title' => 'طراحی وب‌سایت فروشگاهی',
+'ecommerce_page_description' => 'طراحی و توسعه فروشگاه اینترنتی اختصاصی با Laravel؛ از مدیریت محصولات و سبد خرید تا پرداخت آنلاین و پنل مدیریت. مشاوره رایگان برای راه‌اندازی فروش آنلاین.',
+
+'ecommerce_breadcrumb_home' => 'صفحه اصلی',
+'ecommerce_breadcrumb_services' => 'خدمات',
+'ecommerce_breadcrumb_current' => 'طراحی وب‌سایت فروشگاهی',
+
+'ecommerce_hero_title' => 'طراحی وب‌سایت فروشگاهی',
+'ecommerce_hero_subtitle' => 'فروشگاهی بساز که محصولاتت رو حرفه‌ای نمایش بده و مسیر خرید رو برای مشتری ساده کنه',
+'ecommerce_hero_description' => 'از نمایش حرفه‌ای محصولات تا سبد خرید، پرداخت آنلاین و مدیریت سفارش‌ها؛ فروشگاهی متناسب با کسب‌وکارت طراحی می‌کنیم و از مشاوره تا تحویل کنارتیم.',
+'ecommerce_hero_consultation' => 'مشاوره رایگان',
+'ecommerce_hero_pricing' => 'مشاهده پلن‌ها و تعرفه‌ها',
+'ecommerce_hero_result' => 'ریسپانسیو و آماده انتشار',
+
+'ecommerce_changes_title' => 'فروشگاه اینترنتی چه چیزی رو برای کسب‌وکارت عوض می‌کنه؟',
+'ecommerce_change_1' => 'مشتری‌ها در هر ساعت از شبانه‌روز می‌تونن محصولاتت رو ببینن و سفارش بدن.',
+'ecommerce_change_2' => 'تصاویر، قیمت و مشخصات محصولاتت رو یک‌جا و مرتب نمایش بده.',
+'ecommerce_change_3' => 'با صفحه محصولات حرفه‌ای و فرایند خرید ساده، اعتماد مشتری‌ها رو جلب کن.',
+'ecommerce_change_4' => 'سفارش‌ها رو منظم‌تر مدیریت کن و وابستگی به پیام‌های پراکنده رو کاهش بده.',
+'ecommerce_changes_note' => 'لازم نیست از مسائل فنی سر دربیاری؛ از بررسی نیازها تا راه‌اندازی فروشگاه، قدم‌به‌قدم کنارتیم.',
+
+'ecommerce_fit_title' => 'فروشگاه اینترنتی مناسب توئه اگه...',
+'ecommerce_fit_yes_title' => 'مناسب توئه',
+'ecommerce_fit_yes_1' => 'محصول فیزیکی یا دیجیتال داری و می‌خوای آنلاین بفروشیش.',
+'ecommerce_fit_yes_2' => 'می‌خوای فروشگاهت رو از صفر راه‌اندازی کنی و زیرساخت قابل توسعه داشته باشی.',
+'ecommerce_fit_yes_3' => 'می‌خوای محصولات، دسته‌بندی‌ها، قیمت‌ها و موجودی رو از پنل مدیریت کنی.',
+'ecommerce_fit_yes_4' => 'می‌خوای مشتری محصول رو انتخاب کنه، سفارش ثبت کنه و آنلاین پرداخت کنه.',
+'ecommerce_fit_no_title' => 'شاید راهکار دیگه‌ای مناسب‌تر باشه اگه...',
+'ecommerce_fit_no_1' => 'فقط به یک سایت معرفی ساده نیاز داری؛',
+'ecommerce_fit_no_2' => 'فروشگاه فعلی داری و فقط ظاهرش قدیمیه؛',
+'ecommerce_fit_no_3' => 'فروشگاهت در جست‌وجوها دیده نمی‌شه؛',
+'ecommerce_fit_web_design' => 'طراحی وب‌سایت شرکتی',
+'ecommerce_fit_redesign' => 'بازطراحی و ارتقای سایت',
+'ecommerce_fit_seo' => 'سئو و بهینه‌سازی',
+
+'ecommerce_types_title' => 'چه محصولاتی رو می‌تونی آنلاین بفروشی؟',
+'ecommerce_type_1_title' => 'پوشاک و اکسسوری',
+'ecommerce_type_1_description' => 'نمایش محصولات، رنگ‌ها، سایزها و جزئیات سفارش',
+'ecommerce_type_2_title' => 'کالای فیزیکی',
+'ecommerce_type_2_description' => 'فروش محصولات با دسته‌بندی، موجودی و اطلاعات ارسال',
+'ecommerce_type_3_title' => 'محصولات دیجیتال',
+'ecommerce_type_3_description' => 'فروش فایل، دوره یا محتوای دانلودی متناسب با نیاز پروژه',
+'ecommerce_type_4_title' => 'محصولات دست‌ساز و تخصصی',
+'ecommerce_type_4_description' => 'معرفی دقیق محصولات خاص و دریافت سفارش آنلاین',
+
+'ecommerce_deliverables_title' => 'فروشگاهت با چه امکاناتی تحویل داده می‌شه؟',
+'ecommerce_deliverable_1_title' => 'طراحی سازگار با موبایل',
+'ecommerce_deliverable_1_description' => 'خرید آسان از موبایل، تبلت و دسکتاپ',
+'ecommerce_deliverable_2_title' => 'زیرساخت اختصاصی و قابل توسعه',
+'ecommerce_deliverable_2_description' => 'آماده برای اضافه‌شدن امکانات آینده',
+'ecommerce_deliverable_3_title' => 'پنل مدیریت فروشگاه',
+'ecommerce_deliverable_3_description' => 'مدیریت محصولات، قیمت‌ها و سفارش‌ها',
+'ecommerce_deliverable_4_title' => 'آموزش مدیریت فروشگاه',
+'ecommerce_deliverable_4_description' => 'آشنایی با مدیریت محصولات و سفارش‌ها',
+'ecommerce_deliverable_5_title' => 'محدوده کار و زمان‌بندی شفاف',
+'ecommerce_deliverable_5_description' => 'پیش از شروع پروژه',
+'ecommerce_deliverable_6_title' => 'پشتیبانی پس از تحویل',
+'ecommerce_deliverable_6_description' => 'طبق شرایط توافق‌شده پروژه',
+
+'ecommerce_process_title' => 'مراحل راه‌اندازی فروشگاه اینترنتی',
+'ecommerce_process_1_title' => 'نیازسنجی و مشاوره رایگان',
+'ecommerce_process_1_description' => 'محصولات، مشتری‌ها و نیازهای فروشگاهت رو بررسی می‌کنیم.',
+'ecommerce_process_2_title' => 'تعیین محدوده و هزینه',
+'ecommerce_process_2_description' => 'قابلیت‌ها، زمان‌بندی و هزینه رو مشخص می‌کنیم.',
+'ecommerce_process_3_title' => 'طراحی و توسعه',
+'ecommerce_process_3_description' => 'فروشگاه رو طراحی می‌کنیم و امکانات موردنیاز رو پیاده‌سازی می‌کنیم.',
+'ecommerce_process_4_title' => 'تست و تحویل',
+'ecommerce_process_4_description' => 'مسیر خرید رو بررسی می‌کنیم، پنل رو آموزش می‌دیم و فروشگاه رو تحویل می‌دیم.',
+'ecommerce_process_cta_question' => 'هنوز نمی‌دونی کدوم خدمت برات مناسبه؟',
+'ecommerce_process_cta_link' => 'برای مشاوره رایگان با ما در ارتباط باش.',
+
+'ecommerce_related_projects_title' => 'پروژه‌های مرتبط',
+'ecommerce_related_projects_description' => 'نمونه‌کارهای بیشتری را در همین زمینه بررسی کنید.',
+'ecommerce_related_projects_all' => 'مشاهده همه پروژه‌ها',
+'ecommerce_related_projects_details' => 'مشاهده جزئیات',
+
+'ecommerce_related_services_title' => 'خدمات مکمل فروشگاه اینترنتی',
+'ecommerce_related_service_1_title' => 'طراحی وب‌سایت',
+'ecommerce_related_service_1_description' => 'برای معرفی برند و خدمات',
+'ecommerce_related_service_2_title' => 'سئو و بهینه‌سازی فروشگاه',
+'ecommerce_related_service_2_description' => 'برای جذب ورودی و بهبود تجربه خرید',
+
+
+// Redesign Page
+'redesign_page_title' => 'بازطراحی و ارتقای سایت | استودیو مورادیکس',
+'redesign_page_description' => 'بازطراحی سایت و بهبود رابط کاربری، تجربه کاربری، سرعت و پنل مدیریت سایت فعلی شما. قبل از ساخت مجدد، بهترین مسیر برای ارتقای سایتتان را بررسی می‌کنیم.',
+
+'redesign_breadcrumb_label' => 'مسیر صفحه',
+'redesign_breadcrumb_home' => 'صفحه اصلی',
+'redesign_breadcrumb_services' => 'خدمات',
+'redesign_breadcrumb_current' => 'بازطراحی و ارتقای سایت',
+
+'redesign_hero_title' => 'بازطراحی و ارتقای سایت',
+'redesign_hero_subtitle' => 'یک قدم جلوتر از سایت فعلی‌ات',
+'redesign_hero_description' => 'اگر از ظاهر سایتت راضی نیستی، تجربه کاربری خوبی نداره، سرعتش پایینه یا مدیریت محتوای اون برات سخت شده، می‌تونیم سایت فعلی‌ات رو بررسی کنیم و متناسب با نیازت بازطراحی یا بهینه‌سازی کنیم؛ بدون تغییرات غیرضروری.',
+'redesign_hero_consultation' => 'مشاوره رایگان',
+'redesign_hero_pricing' => 'مقایسه پلن‌ها و تعرفه‌ها',
+'redesign_hero_result' => 'ریسپانسیو و آماده انتشار',
+
+'redesign_types_title' => 'چه نوع سایت‌هایی رو می‌تونیم ارتقا بدیم؟',
+
+'redesign_type_1_title' => 'سایت‌های وردپرسی',
+'redesign_type_1_description' => 'بازطراحی قالب، بهبود تجربه کاربری و رفع مشکلات فنی و سرعت سایت.',
+
+'redesign_type_2_title' => 'سایت‌های اختصاصی',
+'redesign_type_2_description' => 'بهبود ظاهر، ساختار فنی و توسعه امکانات موردنیاز سایت.',
+
+'redesign_type_3_title' => 'فروشگاه‌های اینترنتی',
+'redesign_type_3_description' => 'بهینه‌سازی صفحات محصول، سبد خرید و فرایند ثبت سفارش.',
+
+'redesign_type_4_title' => 'پنل‌های مدیریت و سامانه‌ها',
+'redesign_type_4_description' => 'ساده‌سازی محیط مدیریت و فرایندهای کاری برای استفاده راحت‌تر.',
+
+'redesign_deliverables_title' => 'در پایان پروژه چه چیزهایی تحویل می‌گیری؟',
+
+'redesign_deliverable_1_title' => 'رابط کاربری بهبودیافته',
+'redesign_deliverable_1_description' => 'صفحات بازطراحی‌شده متناسب با نیاز کاربران و هویت برند.',
+
+'redesign_deliverable_2_title' => 'تجربه کاربری بهتر',
+'redesign_deliverable_2_description' => 'مسیرهای روشن‌تر برای دسترسی به اطلاعات و انجام کارهای مهم.',
+
+'redesign_deliverable_3_title' => 'نمایش واکنش‌گرا',
+'redesign_deliverable_3_description' => 'چیدمان سازگار با موبایل، تبلت و نمایشگرهای بزرگ‌تر، متناسب با محدوده پروژه.',
+
+'redesign_deliverable_4_title' => 'مدیریت ساده‌تر',
+'redesign_deliverable_4_description' => 'در صورت نیاز، بهبود پنل مدیریت و فرایندهای روزمره برای استفاده راحت‌تر.',
+
+'redesign_deliverable_5_title' => 'بهبودهای فنی هدفمند',
+'redesign_deliverable_5_description' => 'اصلاح مشکلات اولویت‌دار فنی و عملکردی بر اساس نتیجه بررسی سایت.',
+
+'redesign_deliverable_6_title' => 'برنامه تغییرات مشخص',
+'redesign_deliverable_6_description' => 'تعیین محدوده کار، اولویت‌ها و ملاحظات مهم پیش از شروع اجرا.',
+
+'redesign_process_title' => 'مراحل بازطراحی و ارتقای سایت',
+
+'redesign_process_1_title' => 'بررسی سایت فعلی',
+'redesign_process_1_description' => 'ظاهر، عملکرد و مشکلات سایت رو بررسی می‌کنیم.',
+
+'redesign_process_2_title' => 'تعیین مسیر مناسب',
+'redesign_process_2_description' => 'بهترین روش برای بازطراحی و ارتقای سایت رو مشخص می‌کنیم.',
+
+'redesign_process_3_title' => 'طراحی و پیاده‌سازی',
+'redesign_process_3_description' => 'تغییرات موردنیاز رو اجرا و بخش‌های لازم رو بازسازی می‌کنیم.',
+
+'redesign_process_4_title' => 'آزمایش و تحویل',
+'redesign_process_4_description' => 'عملکرد سایت رو بررسی می‌کنیم و پس از رفع ایرادها تحویل می‌دیم.',
+
+'redesign_process_cta_question' => 'هنوز نمی‌دونی کدوم خدمت برات مناسبه؟',
+'redesign_process_cta_link' => 'برای مشاوره رایگان با ما در ارتباط باش.',
+
+'redesign_related_projects_title' => 'پروژه‌های مرتبط',
+'redesign_related_projects_description' => 'نمونه‌کارهای بیشتری را در همین زمینه بررسی کنید.',
+'redesign_related_projects_all' => 'مشاهده همه پروژه‌ها',
+'redesign_related_projects_details' => 'مشاهده جزئیات',
+
+'redesign_related_services_title' => 'شاید این خدمات هم به کارت بیان',
+
+'redesign_related_service_1_title' => 'طراحی وب‌سایت',
+'redesign_related_service_1_description' => 'اگر به‌جای ارتقای سایت فعلی، به یک وب‌سایت جدید نیاز داری، مسیر طراحی سایت رو بررسی کن.',
+
+'redesign_related_service_2_title' => 'مشاوره فنی سایت',
+'redesign_related_service_2_description' => 'اگر مطمئن نیستی سایت فعلیت به بازطراحی، بهینه‌سازی یا بازسازی نیاز داره، ابتدا مشورت کن.',
+
+'redesign_related_service_link' => 'مشاهده خدمات',
+'redesign_related_service_consultation' => 'دریافت مشاوره',
+
+
+'custom_systems_page_title' => 'طراحی سامانه‌های اختصاصی | Moradix Studio',
+'custom_systems_page_description' => 'طراحی و توسعه سامانه‌های نرم‌افزاری اختصاصی برای مدیریت فرایندها، اتوماسیون کسب‌وکار، تحلیل اطلاعات و حل مسائل پیچیده عملیاتی.',
+
+'custom_systems_breadcrumb_label' => 'مسیر صفحه',
+'custom_systems_breadcrumb_home' => 'صفحه اصلی',
+'custom_systems_breadcrumb_services' => 'خدمات',
+'custom_systems_breadcrumb_current' => 'طراحی سامانه‌های اختصاصی',
+
+'custom_systems_hero_title' => 'طراحی سامانه‌های اختصاصی',
+'custom_systems_hero_subtitle' => 'وقتی کسب‌وکارت به راهکاری فراتر از یک سایت معمولی نیاز داره',
+'custom_systems_hero_description' => 'سامانه‌ای متناسب با فرایندهای کسب‌وکارت طراحی می‌کنیم؛ از مدیریت عملیات و اتوماسیون تا تحلیل اطلاعات و توسعه امکانات آینده.',
+'custom_systems_hero_consultation' => 'مشاوره رایگان',
+'custom_systems_hero_pricing' => 'مقایسه پلن‌ها و تعرفه‌ها',
+'custom_systems_hero_result' => 'ریسپانسیو و آماده‌ی انتشار',
+
+'custom_systems_changes_title' => 'سامانه اختصاصی چه چیزی رو تغییر می‌ده؟',
+'custom_systems_change_1' => 'اطلاعات و فعالیت‌ها رو یکپارچه و منظم مدیریت کن.',
+'custom_systems_change_2' => 'کارهای تکراری رو خودکار کن و در زمان صرفه‌جویی کن.',
+'custom_systems_change_3' => 'با گزارش‌های کاربردی، عملکرد و روند کارها رو بررسی کن.',
+'custom_systems_change_4' => 'دسترسی کاربران و سوابق فعالیت‌ها رو دقیق مدیریت کن.',
+'custom_systems_changes_note' => 'اول مسئله و فرایند کاری رو بررسی می‌کنیم؛ بعد مشخص می‌کنیم چه بخش‌هایی واقعاً به نرم‌افزار اختصاصی نیاز دارن.',
+
+'custom_systems_fit_title' => 'این خدمت مناسب توئه اگه...',
+'custom_systems_fit_yes_title' => 'مناسب توئه',
+'custom_systems_fit_yes_1' => 'فرایندهای کاری پیچیده‌ای داری که با فایل‌ها و ابزارهای فعلی به‌سختی مدیریت می‌شن.',
+'custom_systems_fit_yes_2' => 'به گردش کار چندمرحله‌ای، تأیید درخواست‌ها یا تخصیص خودکار وظایف نیاز داری.',
+'custom_systems_fit_yes_3' => 'می‌خوای اطلاعات چند بخش رو به هم متصل کنی و گزارش‌های عملیاتی بگیری.',
+'custom_systems_fit_yes_4' => 'قوانین و محاسبات کسب‌وکارت خاصه و ابزارهای عمومی پاسخ‌گوی نیازت نیستن.',
+
+'custom_systems_fit_no_title' => 'احتمالاً مناسب تو نیست اگه...',
+'custom_systems_fit_no_1_before' => 'فقط به معرفی شرکت و خدمات نیاز داری؛',
+'custom_systems_fit_no_1_link' => 'طراحی وب‌سایت',
+'custom_systems_fit_no_1_after' => 'انتخاب مناسب‌تریه.',
+'custom_systems_fit_no_2_before' => 'فقط می‌خوای ظاهر یا عملکرد سایت فعلیت بهتر بشه؛',
+'custom_systems_fit_no_2_link' => 'بازطراحی و ارتقای سایت',
+'custom_systems_fit_no_2_after' => 'رو بررسی کن.',
+'custom_systems_fit_no_3' => 'نیازت با یک ابزار آماده و کم‌هزینه به‌خوبی برطرف می‌شه و توسعه اختصاصی ارزش اضافه‌ای ایجاد نمی‌کنه.',
+
+'custom_systems_types_title' => 'چه نوع سامانه‌هایی می‌تونیم بسازیم؟',
+'custom_systems_type_1_title' => 'سامانه‌های مدیریتی',
+'custom_systems_type_1_description' => 'مدیریت درخواست‌ها، وظایف، پروژه‌ها، منابع و گردش اطلاعات بین اعضای تیم.',
+'custom_systems_type_2_title' => 'اتوماسیون فرایندها',
+'custom_systems_type_2_description' => 'اجرای خودکار قوانین، یادآوری موعدها، ارجاع کارها و پیگیری مراحل انجام عملیات.',
+'custom_systems_type_3_title' => 'تحلیل و گزارش‌گیری',
+'custom_systems_type_3_description' => 'ترکیب داده‌ها، محاسبه شاخص‌ها، شناسایی تأخیرها و ارائه گزارش برای تصمیم‌گیری.',
+'custom_systems_type_4_title' => 'پلتفرم‌های تخصصی',
+'custom_systems_type_4_description' => 'ارتباط چند گروه کاربری، مدیریت سفارش‌ها یا درخواست‌ها و اجرای قوانین متناسب با هر طرف.',
+
+'custom_systems_deliverables_title' => 'در پایان چه چیزی تحویل می‌گیری؟',
+'custom_systems_deliverable_1_title' => 'منطق کاری مشخص',
+'custom_systems_deliverable_1_description' => 'قوانین و فرایندهای تعریف‌شده بر اساس نیاز پروژه',
+'custom_systems_deliverable_2_title' => 'مدیریت کاربران',
+'custom_systems_deliverable_2_description' => 'نقش‌ها و دسترسی‌های متناسب با مسئولیت افراد',
+'custom_systems_deliverable_3_title' => 'گزارش‌های کاربردی',
+'custom_systems_deliverable_3_description' => 'نمایش وضعیت کارها و اطلاعات موردنیاز تصمیم‌گیری',
+'custom_systems_deliverable_4_title' => 'ثبت سوابق عملیات',
+'custom_systems_deliverable_4_description' => 'پیگیری تغییرات مهم و تاریخچه فعالیت‌ها',
+'custom_systems_deliverable_5_title' => 'ساختار توسعه‌پذیر',
+'custom_systems_deliverable_5_description' => 'امکان افزودن قابلیت‌های جدید در مراحل بعدی',
+'custom_systems_deliverable_6_title' => 'مستندات و آموزش',
+'custom_systems_deliverable_6_description' => 'راهنمای استفاده و توضیح بخش‌های اصلی سامانه',
+
+'custom_systems_process_title' => 'مراحل طراحی و توسعه سامانه',
+'custom_systems_process_1_title' => 'شناخت مسئله و نیازسنجی',
+'custom_systems_process_1_description' => 'بررسی کاربران، اطلاعات و فرایندهای فعلی',
+'custom_systems_process_2_title' => 'تعریف محدوده و راهکار',
+'custom_systems_process_2_description' => 'تعیین قابلیت‌های ضروری، قوانین و زمان‌بندی',
+'custom_systems_process_3_title' => 'توسعه مرحله‌ای',
+'custom_systems_process_3_description' => 'پیاده‌سازی قابلیت‌ها و بررسی نتیجه هر مرحله',
+'custom_systems_process_4_title' => 'آزمایش و تحویل',
+'custom_systems_process_4_description' => 'بررسی سناریوها، آموزش کاربران و تحویل سامانه',
+
+'custom_systems_process_cta_question' => 'هنوز نمی‌دونی کدوم خدمت برات مناسبه؟',
+'custom_systems_process_cta_link' => 'برای مشاوره رایگان با ما در ارتباط باش.',
+
+'custom_systems_related_projects_title' => 'پروژه‌های مرتبط',
+'custom_systems_related_projects_description' => 'نمونه‌کارهای بیشتری را در همین زمینه بررسی کنید.',
+'custom_systems_related_projects_all' => 'مشاهده همه پروژه‌ها',
+'custom_systems_related_projects_details' => 'مشاهده جزئیات',
+
+'custom_systems_related_services_title' => 'خدمات مرتبط',
+'custom_systems_related_service_1_title' => 'طراحی وب‌سایت',
+'custom_systems_related_service_1_description' => 'برای معرفی خدمات، شرکت یا محصولات',
+'custom_systems_related_service_2_title' => 'بازطراحی و ارتقای سایت',
+'custom_systems_related_service_2_description' => 'برای اصلاح و توسعه سامانه یا سایت فعلی',
+
+
+
+'seo_page_title' => 'خدمات سئو سایت | Moradix Studio',
+'seo_page_description' => 'خدمات سئو سایت به‌صورت ماهانه؛ از تحقیق کلمات کلیدی و سئوی تکنیکال تا بهینه‌سازی محتوا، تحلیل رقبا و بهبود ورودی هدفمند گوگل.',
+
+'seo_breadcrumb_label' => 'مسیر صفحه',
+'seo_breadcrumb_home' => 'صفحه اصلی',
+'seo_breadcrumb_services' => 'خدمات',
+'seo_breadcrumb_current' => 'خدمات سئو سایت',
+
+'seo_hero_title' => 'خدمات سئو سایت',
+'seo_hero_subtitle' => 'فقط دیده‌شدن کافی نیست؛ مهم این است که مخاطب درست شما را پیدا کند.',
+'seo_hero_description' => 'با تحقیق کلمات کلیدی، بهینه‌سازی فنی و محتوایی و تحلیل رقبا، به بهبود جایگاه سایت شما در نتایج گوگل کمک می‌کنیم.',
+'seo_hero_consultation' => 'مشاوره سئو سایت',
+'seo_hero_pricing' => 'مقایسه‌ی پلن‌ها و تعرفه‌ها',
+'seo_hero_result' => 'ریسپانسیو و آماده‌ی انتشار',
+
+'seo_changes_title' => 'سئو چه مشکلاتی از کسب‌وکار شما را حل می‌کند؟',
+'seo_change_1' => 'جذب بازدیدکنندگان هدفمند از طریق جست‌وجوهای مرتبط در گوگل.',
+'seo_change_2' => 'بهبود جایگاه صفحات مهم خدمات و محصولات در نتایج جست‌وجو.',
+'seo_change_3' => 'برنامه‌ریزی مستمر و تحلیل داده‌ها برای بهبود عملکرد سئو.',
+'seo_change_4' => 'سئو؛ از تحلیل وضعیت سایت تا بهینه‌سازی و بررسی نتایج.',
+'seo_changes_note' => 'سئو یک فرایند مستمر است؛ از بررسی وضعیت فعلی سایت تا ارزیابی نتایج، در کنار شما هستیم.',
+
+'seo_fit_title' => 'سئو برای شما مناسب است اگر...',
+'seo_fit_yes_title' => 'سئو مناسب توئه',
+'seo_fit_yes_1' => 'سایت دارید و می‌خواهید مشتریان بالقوه از طریق جست‌وجوی گوگل شما را پیدا کنند.',
+'seo_fit_yes_2' => 'صفحات خدمات یا محصولاتتان بازدید و جایگاه مناسبی در نتایج جست‌وجو ندارند.',
+'seo_fit_yes_3' => 'برای تولید محتوای هدفمند و بهبود مستمر سایت آمادگی دارید.',
+'seo_fit_yes_4' => 'می‌خواهید عملکرد سایت را با داده‌هایی مانند کلیک، نمایش، رتبه و سرنخ‌های ورودی ارزیابی کنید.',
+
+'seo_fit_no_title' => 'شاید ابتدا به خدمت دیگری نیاز دارید',
+'seo_fit_no_1_before' => 'هنوز سایت ندارید و برای شروع به طراحی و توسعه وب‌سایت نیاز دارید.',
+'seo_fit_no_1_link' => 'طراحی سایت ←',
+'seo_fit_no_2' => 'سایت مشکلات اساسی در دسترسی، عملکرد یا ساختار دارد و پیش از سئو باید اصلاح شود.',
+'seo_fit_no_3' => 'انتظار دارید بدون زمان، بودجه و همکاری مستمر، نتیجه قطعی و فوری به دست آورید.',
+
+'seo_types_title' => 'خدمات سئو سایت شامل چه مواردی است؟',
+'seo_type_1_title' => 'سئوی فنی',
+'seo_type_1_description' => 'بررسی سرعت، ساختار سایت، ایندکس صفحات و مشکلات فنی مؤثر بر سئو.',
+'seo_type_2_title' => 'تحقیق کلمات کلیدی',
+'seo_type_2_description' => 'شناسایی جست‌وجوهای مرتبط با خدمات شما و فرصت‌های جذب مخاطب هدفمند.',
+'seo_type_3_title' => 'تحلیل رقبا',
+'seo_type_3_description' => 'بررسی عملکرد رقبا و شناسایی فرصت‌های بهبود جایگاه صفحات سایت.',
+'seo_type_4_title' => 'پایش و تحلیل نتایج',
+'seo_type_4_description' => 'ارزیابی ورودی گوگل، عملکرد صفحات و روند پیشرفت اقدامات سئو.',
+
+'seo_deliverables_title' => 'در همکاری سئو چه چیزهایی دریافت می‌کنید؟',
+'seo_deliverable_1_title' => 'تحلیل سایت و نقشه راه',
+'seo_deliverable_1_description' => 'بررسی وضعیت فعلی و تعیین اولویت‌های سئو',
+'seo_deliverable_2_title' => 'تحقیق کلمات کلیدی',
+'seo_deliverable_2_description' => 'شناسایی جست‌وجوهای مرتبط با کسب‌وکار شما',
+'seo_deliverable_3_title' => 'بهینه‌سازی صفحات و محتوا',
+'seo_deliverable_3_description' => 'بهبود محتوا، عنوان‌ها و لینک‌های داخلی',
+'seo_deliverable_4_title' => 'بررسی فنی سایت',
+'seo_deliverable_4_description' => 'شناسایی مشکلات فنی مؤثر بر عملکرد سئو',
+'seo_deliverable_5_title' => 'گزارش عملکرد',
+'seo_deliverable_5_description' => 'ارزیابی کلیک‌ها، نمایش‌ها و وضعیت صفحات',
+'seo_deliverable_6_title' => 'برنامه اقدامات بعدی',
+'seo_deliverable_6_description' => 'تعیین اولویت‌های ادامه مسیر بهینه‌سازی',
+
+'seo_process_title' => 'مراحل انجام سئو',
+'seo_process_1_title' => 'بررسی سایت و نیازسنجی',
+'seo_process_1_description' => 'شناخت کسب‌وکار و وضعیت فعلی سایت',
+'seo_process_2_title' => 'تحقیق و برنامه‌ریزی',
+'seo_process_2_description' => 'تحلیل کلمات کلیدی و تعیین اولویت‌ها',
+'seo_process_3_title' => 'اجرا و بهینه‌سازی',
+'seo_process_3_description' => 'اصلاح فنی و بهبود صفحات سایت',
+'seo_process_4_title' => 'بررسی نتایج و ادامه مسیر',
+'seo_process_4_description' => 'تحلیل عملکرد و تنظیم برنامه بعدی',
+
+'seo_process_cta_question' => 'هنوز نمی‌دونی کدوم خدمت برات مناسبه؟',
+'seo_process_cta_link' => 'برای مشاوره رایگان با ما در ارتباط باش.',
+
+'seo_related_projects_title' => 'پروژه‌های مرتبط',
+'seo_related_projects_description' => 'نمونه‌کارهای بیشتری را در همین زمینه بررسی کنید.',
+'seo_related_projects_all' => 'مشاهده همه پروژه‌ها',
+'seo_related_projects_details' => 'مشاهده جزئیات',
 
 ];

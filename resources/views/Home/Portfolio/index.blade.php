@@ -224,7 +224,8 @@
                                 <div class="pf-project-meta">
                                     <span class="pf-project-category">
                                         {{ app()->getLocale() === 'en'
-                                            ? $project->category?->slug ?? __('site.portfolio_category_default')
+                                            ? ($project->category?->name_en ?:
+                                                $project->category?->name ?? __('site.portfolio_category_default'))
                                             : $project->category?->name ?? __('site.portfolio_category_default') }}
                                     </span>
 
@@ -253,7 +254,10 @@
                                     </div>
                                 @endif
 
-                                <a href="{{ route(app()->getLocale() === 'en' ? 'en.portfolio.show' : 'portfolio.show', $project->slug) }}"
+                                <a href="{{ route(
+                                    app()->getLocale() === 'en' ? 'en.portfolio.show' : 'portfolio.show',
+                                    app()->getLocale() === 'en' ? ($project->slug_en ?: $project->slug) : $project->slug,
+                                ) }}"
                                     class="pf-project-link" target="_blank" rel="noopener noreferrer">
                                     {{ __('site.portfolio_project_details') }}
                                 </a>

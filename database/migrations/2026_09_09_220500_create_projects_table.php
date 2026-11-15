@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('title_en')->nullable();
 
             $table->string('slug')->unique();
-
+            $table->string('slug_en')->nullable()->unique();
             // توضیح کوتاه فارسی و انگلیسی
             $table->text('short_description');
             $table->text('short_description_en')->nullable();
