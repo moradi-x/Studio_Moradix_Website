@@ -22,7 +22,7 @@ class AdminMiddleware
                 'request_id' => $request->attributes->get('request_id'),
             ]);
 
-            return redirect()->route('admin.login');
+            abort(404);
         }
 
         return $next($request);

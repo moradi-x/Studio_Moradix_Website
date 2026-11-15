@@ -2,11 +2,9 @@
 
 @extends('Home.Layouts.layout')
 
-@section('title', 'خدمات | Moradix Studio')
+@section('title', __('site.services_page_title'))
 
-@section('description',
-    'خدمات توسعه وب Moradix Studio: طراحی وب‌سایت، فروشگاه اینترنتی، ارتقای سایت وردپرسی، بازطراحی
-    UI/UX، سئو و بهینه‌سازی، و سیستم‌های اختصاصی با Laravel')
+@section('description', __('site.services_page_meta_description'))
 
     @push('styles')
         <link rel="stylesheet" href="{{ asset('site/css/Home/services/services-index.css') }}">

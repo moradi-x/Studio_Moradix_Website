@@ -1,9 +1,8 @@
 @extends('Home.Layouts.layout')
 
-@section('title', $project->title . ' | نمونه‌کارهای Moradix Studio')
+@section('title', (app()->getLocale() === 'en' ? ($project->title_en ?: $project->title) : $project->title) . ' | Moradix Studio')
 
-@section('description', $project->short_description ?: \Illuminate\Support\Str::limit(strip_tags($project->description
-    ?? ''), 155))
+@section('description', \Illuminate\Support\Str::limit(strip_tags($shortDescription ?: $description), 155))
 
     @push('styles')
         <link rel="stylesheet" href="{{ asset('site/css/Home/portfolio/portfolio-show.css') }}">

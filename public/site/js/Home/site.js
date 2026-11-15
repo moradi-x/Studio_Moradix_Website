@@ -717,3 +717,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+/* هیروی صفحه‌ی اصلی: چرخش کلمه‌ی کلیدی تیتر */
+(function () {
+    'use strict';
+    var rot = document.querySelector('[data-rot]');
+    if (!rot) return;
+    var words = Array.prototype.slice.call(rot.querySelectorAll('.hh-w'));
+    if (words.length < 2) return;
+    // با reduced-motion همان کلمه‌ی اول ثابت می‌ماند
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var i = 0, timer = null, visible = true;
+
+    function next() {
+        var cur = words[i];
+        i = (i + 1) % words.length;
+        cur.classList.remove('is-on');
+        cur.classList.add('is-out');
+        words[i].classList.remove('is-out');
+        words[i].classList.add('is-on');
+        // کلمه‌ی قبلی بعد از خروج برای دور بعد آماده شود
+        setTimeout(function () { cur.classList.remove('is-out'); }, 600);
+    }
+    function start() { if (!timer && visible && !document.hidden) timer = setInterval(next, 2800); }
+    function stop() { clearInterval(timer); timer = null; }
+
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+            visible = entries[0].isIntersecting;
+            visible ? start() : stop();
+        }, { threshold: 0.2 }).observe(rot);
+    }
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+    start();
+})();

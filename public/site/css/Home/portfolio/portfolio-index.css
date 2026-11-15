@@ -358,16 +358,6 @@
     box-shadow: 0 13px 30px rgba(15, 118, 110, .24);
 }
 
-.pfh-btn--primary span {
-    display: inline-block;
-    font-size: 19px;
-    line-height: 1;
-    transition: transform .3s var(--pfh-ease);
-}
-
-.pfh-btn--primary:hover span {
-    transform: translateX(-4px);
-}
 
 .pfh-btn--ghost {
     color: #26322f;
@@ -2452,10 +2442,7 @@ html[dir="ltr"] .sv-breadcrumb-item:not(:last-child)::after {
     transform: rotate(180deg);
 }
 
-/* Reverse Hero primary button arrow in English */
-html[dir="ltr"] .pfh-btn--primary span {
-    transform: rotate(180deg);
-}
+
 
 /* Align process numbers to the left in English */
 html[dir="ltr"] .pf-process-number {
@@ -2576,10 +2563,7 @@ html[lang="en"] .pfh-btn--primary {
     direction: rtl;
 }
 
-html[lang="en"] .pfh-btn--primary span {
-    display: inline-block;
-    transform: rotate(180deg);
-}
+
 
 /* Center Portfolio Hero Text on Mobile */
 @media (max-width: 767px) {
@@ -2648,4 +2632,43 @@ html[dir="ltr"] .pf-process-top {
 .pf-process-item p {
     direction: ltr;
     text-align: left;
+}
+
+.pfh-actions .pfh-btn--primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+}
+
+.pfh-actions .pfh-btn--primary svg {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    transition: translate .25s ease;
+}
+
+.pfh-actions .pfh-btn--primary:hover svg {
+    translate: -4px 0;
+}
+
+.pfh-actions .pfh-arrow {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    transition: transform .25s ease;
+}
+
+.pfh-actions .pfh-arrow--rtl {
+    transform: scaleX(-1);
+}
+
+.pfh-actions .pfh-btn--primary:hover .pfh-arrow {
+    transform: translateX(-4px);
+}
+
+.pfh-actions .pfh-btn--primary:hover .pfh-arrow--rtl {
+    transform: scaleX(-1) translateX(-4px);
 }

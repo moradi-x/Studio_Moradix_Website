@@ -1,28 +1,61 @@
 @extends('Home.Layouts.layout')
 
+@section('title', __('site.home_seo_title'))
+@section('description', __('site.home_seo_description'))
+
 @section('content')
     <!-- ==================== Hero Section ==================== -->
     <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1>
-                        {{ __('site.home_hero_title') }}
 
+                @php
+                    $heroWords = (array) __('site.home_hero_words'); // کلمه‌های چرخان تیتر
+                @endphp
+
+                <div class="hero-text hh">
+
+
+                    <h1 class="hh-title">
+                        <span>{{ __('site.home_hero_title_pre') }}</span>
+                        <span class="hh-rot" data-rot>
+                            @foreach ($heroWords as $i => $word)
+                                <span class="hh-w @if ($i === 0) is-on @endif"
+                                    @if ($i > 0) aria-hidden="true" @endif>{{ $word }}</span>
+                            @endforeach
+                        </span>
+                        <span>{{ __('site.home_hero_title_post') }}</span>
                     </h1>
-                    <p>
-                        {{ __('site.home_hero_description') }}
-                    </p>
-                    <div class="hero-buttons">
+
+                    <p class="hh-desc">{{ __('site.home_hero_description') }}</p>
+
+                    <div class="hero-buttons hh-actions">
                         <a href="{{ app()->getLocale() === 'en' ? route('en.contact') : route('contact') }}"
                             class="btn btn-primary">
                             {{ __('site.home_hero_cta_primary') }}
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                                style="{{ app()->getLocale() === 'en' ? 'transform: scaleX(-1);' : '' }}">
+                                <path d="M19 12H5M11 6l-6 6 6 6" />
+                            </svg>
                         </a>
                         <a href="{{ app()->getLocale() === 'en' ? route('en.portfolio') : route('portfolio') }}"
                             class="btn btn-outline">
                             {{ __('site.home_hero_cta_secondary') }}
                         </a>
                     </div>
+
+                    <ul class="hh-points">
+                        @foreach ([1, 2, 3] as $n)
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="m5 12 4 4L19 6" />
+                                </svg>
+                                {{ __('site.home_hero_point_' . $n) }}
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
 
                 {{-- جایگزین تصویر/mockup قدیمی هیروی صفحه‌ی اصلی (فقط ستون تصویر) --}}

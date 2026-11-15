@@ -6,7 +6,7 @@
     $routePrefix = app()->getLocale() === 'en' ? 'en.' : '';
 @endphp
 
-@section('title', __('site.contact_page_title') . ' | Moradix Studio')
+@section('title', __('site.contact_meta_title'))
 
 @section('description', __('site.contact_page_description'))
 
@@ -26,8 +26,7 @@
                         <a href="{{ route($routePrefix . 'home') }}">{{ __('site.home') }}</a>
                     </li>
                     <li class="sv-breadcrumb-item" aria-current="page">
-                        {{ __('site.contact_page_title') }}
-                    </li>
+                        {{ __('site.contact_breadcrumb_title') }} </li>
                 </ol>
             </div>
         </nav>
@@ -59,17 +58,17 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
                             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2
-                                                19.79 19.79 0 0 1-8.63-3.07
-                                                19.5 19.5 0 0 1-6-6
-                                                A19.79 19.79 0 0 1 2.12 4.18
-                                                2 2 0 0 1 4.11 2h3
-                                                a2 2 0 0 1 2 1.72
-                                                c.12.96.36 1.9.7 2.8
-                                                a2 2 0 0 1-.45 2.11L8.09 9.91
-                                                a16 16 0 0 0 6 6l1.27-1.27
-                                                a2 2 0 0 1 2.11-.45
-                                                c.9.34 1.84.58 2.8.7
-                                                a2 2 0 0 1 1.73 2.03Z" />
+                                                    19.79 19.79 0 0 1-8.63-3.07
+                                                    19.5 19.5 0 0 1-6-6
+                                                    A19.79 19.79 0 0 1 2.12 4.18
+                                                    2 2 0 0 1 4.11 2h3
+                                                    a2 2 0 0 1 2 1.72
+                                                    c.12.96.36 1.9.7 2.8
+                                                    a2 2 0 0 1-.45 2.11L8.09 9.91
+                                                    a16 16 0 0 0 6 6l1.27-1.27
+                                                    a2 2 0 0 1 2.11-.45
+                                                    c.9.34 1.84.58 2.8.7
+                                                    a2 2 0 0 1 1.73 2.03Z" />
                         </svg>
                         {{ __('site.contact_methods') }}
                     </a>
@@ -280,16 +279,16 @@
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
                                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <path d="M21 16.5v3a1.5 1.5 0 0 1-1.65 1.5
-                                        18.5 18.5 0 0 1-8.1-2.88
-                                        18.2 18.2 0 0 1-5.65-5.65
-                                        18.5 18.5 0 0 1-2.88-8.12
-                                        A1.5 1.5 0 0 1 4.22 2.7h3
-                                        a1.5 1.5 0 0 1 1.5 1.3
-                                        c.1.8.42 3.5.95 5.1
-                                        a1.5 1.5 0 0 1-.34 1.58l-1.27 1.27
-                                        a14.5 14.5 0 0 0 5.65 5.65l1.27-1.27
-                                        a1.5 1.5 0 0 1 1.58-.34
-                                        c1.6.53 3.3.85 5.1.95" />
+                                            18.5 18.5 0 0 1-8.1-2.88
+                                            18.2 18.2 0 0 1-5.65-5.65
+                                            18.5 18.5 0 0 1-2.88-8.12
+                                            A1.5 1.5 0 0 1 4.22 2.7h3
+                                            a1.5 1.5 0 0 1 1.5 1.3
+                                            c.1.8.42 3.5.95 5.1
+                                            a1.5 1.5 0 0 1-.34 1.58l-1.27 1.27
+                                            a14.5 14.5 0 0 0 5.65 5.65l1.27-1.27
+                                            a1.5 1.5 0 0 1 1.58-.34
+                                            c1.6.53 3.3.85 5.1.95" />
                                 </svg>
                             </div>
 

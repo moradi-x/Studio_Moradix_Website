@@ -54,7 +54,12 @@
                     <div class="pfh-actions">
                         <a href="#pf-projects" class="pfh-btn pfh-btn--primary">
                             {{ __('site.portfolio_hero_projects_button') }}
-                            <span aria-hidden="true">←</span>
+
+                            <svg class="pfh-arrow {{ app()->getLocale() === 'en' ? 'pfh-arrow--rtl' : '' }}"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M19 12H5M11 6l-6 6 6 6" />
+                            </svg>
                         </a>
 
                         <a href="{{ route(app()->getLocale() === 'en' ? 'en.contact' : 'contact') }}"

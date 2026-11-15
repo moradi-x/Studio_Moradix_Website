@@ -5812,11 +5812,6 @@
      border-color: #fff;
  }
 
- #hero .hero-buttons .btn-primary::after {
-     content: "←";
-     font-size: 19px;
-     line-height: 1;
- }
 
  #hero .hero-buttons .btn-primary:hover {
      background: #0f766e;
@@ -5943,11 +5938,6 @@
      box-shadow: 0 8px 20px rgba(15, 118, 110, .15);
  }
 
- #hero .hero-buttons a.btn-primary::after {
-     content: "←";
-     font-size: 19px;
-     line-height: 1;
- }
 
  #hero .hero-buttons a.btn-outline {
      color: #26322f;
@@ -6741,3 +6731,100 @@
      }
  }
 
+/* ==========================================================
+   هیروی صفحه‌ی اصلی — ستون متن + پس‌زمینه (پیشوند hh-)
+   کنار home-hero.css (تصویر) لود می‌شود
+   ========================================================== */
+section.hero {
+    --hh-teal: var(--color-primary, #0F766E);
+    --hh-bright: #2DD4BF;
+    --hh-dark: var(--color-dark, #0A0A0A);
+    position: relative; isolation: isolate; overflow: hidden;
+    padding-block: clamp(36px, 6vw, 88px) clamp(48px, 7vw, 100px);
+    background: #fff;
+}
+/* شبکه‌ی نقطه‌ای محو + هاله‌ی Teal */
+section.hero::before {
+    content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background-image: radial-gradient(rgba(15, 118, 110, .2) 1px, transparent 1.2px); background-size: 26px 26px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 75% 35%, #000, transparent 75%); mask-image: radial-gradient(ellipse 70% 60% at 75% 35%, #000, transparent 75%);
+}
+section.hero::after {
+    content: ""; position: absolute; z-index: -1; pointer-events: none; width: 520px; height: 520px; inset-block-start: -220px; inset-inline-start: -140px;
+    background: radial-gradient(circle, rgba(45, 212, 191, .2), transparent 68%);
+}
+
+/* ---------- چیدمان ---------- */
+section.hero .hero-content { display: grid; grid-template-columns: 1fr; gap: clamp(28px, 5vw, 56px); align-items: center; }
+@media (min-width: 960px) { section.hero .hero-content { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); } }
+
+.hh { display: flex; flex-direction: column; align-items: flex-start; gap: 0; }
+.hh > * { margin: 0; }
+
+/* ---------- نشان بالای تیتر ---------- */
+.hh-kicker {
+    display: inline-flex; align-items: center; gap: .6rem; padding: .35rem .9rem .35rem 1rem; margin-block-end: 1.25rem;
+    font-size: .88rem; font-weight: 500; color: var(--hh-teal);
+    background: var(--color-primary-soft, #F0FDFA); border: 1px solid rgba(15, 118, 110, .22); border-radius: 999px;
+}
+.hh-dot { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--hh-teal); }
+.hh-dot::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 1.5px solid var(--hh-bright); animation: hh-ping 2.2s ease-out infinite; }
+@keyframes hh-ping { from { transform: scale(.6); opacity: .9; } to { transform: scale(1.7); opacity: 0; } }
+
+/* ---------- تیتر ---------- */
+.hh-title {
+    font-size: clamp(2.05rem, 5.2vw, 3.7rem); font-weight: 800; line-height: 1.5; letter-spacing: -.005em; color: var(--hh-dark);
+    text-wrap: balance;
+}
+/* کلمه‌ی چرخان: همه‌ی کلمه‌ها روی هم، پس عرض = پهن‌ترین و صفحه نمی‌پرد */
+.hh-rot { display: inline-grid; vertical-align: bottom; position: relative; }
+.hh-w {
+    grid-area: 1 / 1; white-space: nowrap; color: var(--hh-teal);
+    background: linear-gradient(transparent 70%, rgba(45, 212, 191, .3) 70% 92%, transparent 92%);
+    opacity: 0; translate: 0 .45em; filter: blur(5px);
+    transition: opacity .5s ease, translate .55s cubic-bezier(.2, .8, .2, 1), filter .5s ease;
+}
+.hh-w.is-on { opacity: 1; translate: 0 0; filter: none; }
+.hh-w.is-out { translate: 0 -.45em; }
+
+/* ---------- توضیح ---------- */
+.hh-desc { margin-block-start: 1.25rem !important; max-width: 52ch; font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 2.05; color: var(--color-text-muted, #57534E); }
+
+/* ---------- دکمه‌ها ---------- */
+.hh-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-block-start: 1.75rem !important; width: 100%; }
+section.hero .hh-actions .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 52px; padding-inline: 1.6rem;
+    border-radius: 14px; font-weight: 600; text-decoration: none;
+    transition: transform .25s cubic-bezier(.2, .8, .2, 1), box-shadow .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+}
+section.hero .hh-actions .btn svg { width: 18px; height: 18px; transition: translate .25s ease; }
+section.hero .hh-actions .btn-primary { background: var(--hh-teal); color: #fff; border: 1px solid var(--hh-teal); box-shadow: 0 12px 28px rgba(15, 118, 110, .32); }
+section.hero .hh-actions .btn-primary:hover { background: #115E59; transform: translateY(-2px); box-shadow: 0 16px 34px rgba(15, 118, 110, .4); }
+section.hero .hh-actions .btn-primary:hover svg { translate: -4px 0; }
+section.hero .hh-actions .btn-outline { background: transparent; color: var(--hh-dark); border: 1.5px solid var(--hh-dark); }
+section.hero .hh-actions .btn-outline:hover { background: var(--hh-dark); color: #fff; transform: translateY(-2px); }
+section.hero .hh-actions .btn:focus-visible { outline: 3px solid var(--hh-bright); outline-offset: 3px; }
+
+/* ---------- نکته‌های اعتماد ---------- */
+.hh-points { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin: 1.75rem 0 0 !important; padding: 0; list-style: none; }
+.hh-points li { display: inline-flex; align-items: center; gap: .5rem; font-size: .93rem; color: var(--color-text, #1C1917); }
+.hh-points svg { width: 20px; height: 20px; padding: 4px; flex-shrink: 0; color: var(--hh-teal); background: var(--color-primary-soft, #F0FDFA); border-radius: 50%; }
+
+/* ---------- ورود ---------- */
+@media (prefers-reduced-motion: no-preference) {
+    .hh > * { animation: hh-rise .8s cubic-bezier(.2, .8, .2, 1) both; }
+    .hh > :nth-child(2) { animation-delay: .08s; } .hh > :nth-child(3) { animation-delay: .16s; }
+    .hh > :nth-child(4) { animation-delay: .24s; } .hh > :nth-child(5) { animation-delay: .32s; }
+    section.hero .hv { animation: hh-rise 1s cubic-bezier(.2, .8, .2, 1) .2s both; }
+}
+@keyframes hh-rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) { .hh-dot::after { animation: none; } .hh-w { transition: none; } }
+
+/* ---------- موبایل ---------- */
+@media (max-width: 639px) {
+    .hh-actions { flex-direction: column; }
+    section.hero .hh-actions .btn { width: 100%; }
+    .hh-kicker { font-size: .8rem; }
+    .hh-points { flex-direction: column; gap: .5rem; }
+}

@@ -4,7 +4,8 @@
     $routePrefix = app()->getLocale() === 'en' ? 'en.' : '';
 @endphp
 
-@section('title', __('site.about_page_title') . ' | Moradix Studio')
+@section('title', __('site.about_meta_title'))
+@section('description', __('site.about_meta_description'))
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('site/css/Home/about.css') }}">

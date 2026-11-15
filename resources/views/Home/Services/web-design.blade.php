@@ -2,11 +2,9 @@
 
 @extends('Home.Layouts.layout')
 
-@section('title', 'طراحی وب‌سایت | Moradix Studio')
+@section('title', __('site.web_design_meta_title'))
 
-@section('description',
-    'خدمات طراحی و توسعه‌ی وب‌سایت با Laravel و کدنویسی اختصاصی. برای شرکت‌ها، آموزشگاه‌ها، دفاتر
-    گردشگری و نمونه‌کار شخصی. مشاوره‌ی رایگان.')
+@section('description', __('site.web_design_meta_description'))
 
     @push('styles')
         <link rel="stylesheet" href="{{ asset('site/css/Home/services/service-page.css') }}">

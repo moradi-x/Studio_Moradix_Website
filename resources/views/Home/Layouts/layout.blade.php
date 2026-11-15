@@ -67,8 +67,7 @@
 
 
     {{-- لینک پرش به محتوا (دسترس‌پذیری) --}}
-    <a href="#main-content" class="skip-link"</a>
-
+<a href="#main-content" class="skip-link"></a>
         @include('Home.Sections.header')
 
         @include('Home.Sections.messages')

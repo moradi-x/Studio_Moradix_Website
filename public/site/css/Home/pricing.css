@@ -188,13 +188,6 @@
     box-shadow: 0 5px 14px rgba(15, 118, 110, 0.12);
 }
 
-.ph-btn--primary::after {
-    content: "←";
-    font-size: 1.05rem;
-    line-height: 1;
-    transition: transform 0.22s ease;
-}
-
 .ph-btn--primary:hover {
     transform: translateY(-2px);
     background: var(--ph-primary-dark);
@@ -202,9 +195,6 @@
     box-shadow: 0 8px 20px rgba(15, 118, 110, 0.2);
 }
 
-.ph-btn--primary:hover::after {
-    transform: translateX(-3px);
-}
 
 .ph-btn--ghost {
     border-color: #dfe5e3;
@@ -665,14 +655,6 @@
 
 /* Reduced motion */
 
-@media (prefers-reduced-motion: reduce) {
-
-    .ph-card,
-    .ph-btn,
-    .ph-btn--primary::after {
-        transition: none;
-    }
-}
 
 
 
@@ -3145,14 +3127,7 @@ html[dir="ltr"] .sv-breadcrumb-item:not(:last-child)::after {
 }
 
 
-/* English Hero Button Arrow */
-html[dir="ltr"] .ph-btn--primary::after {
-    content: "→";
-}
 
-html[dir="ltr"] .ph-btn--primary:hover::after {
-    transform: translateX(3px);
-}
 
 
 
@@ -3302,4 +3277,31 @@ html[lang="en"] .pr-faq .pr-faq-answer-content,
 html[lang="en"] .pr-faq .pr-faq-answer-content p {
     direction: ltr;
     text-align: left;
+}
+
+.ph-actions .ph-btn--primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+}
+
+.ph-actions .ph-arrow {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    transition: transform .25s ease;
+}
+
+.ph-actions .ph-arrow--rtl {
+    transform: scaleX(-1);
+}
+
+.ph-actions .ph-btn--primary:hover .ph-arrow {
+    transform: translateX(-4px);
+}
+
+.ph-actions .ph-btn--primary:hover .ph-arrow--rtl {
+    transform: scaleX(-1) translateX(-4px);
 }
