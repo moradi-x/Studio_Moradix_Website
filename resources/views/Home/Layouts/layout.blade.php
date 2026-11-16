@@ -12,8 +12,11 @@
     {{-- OpenGraph and Twitter SEO Tags --}}
     {!! seo(
         new \RalphJSmit\Laravel\SEO\Support\SEOData(
-            title: trim($__env->yieldContent('title')) ?: 'Studio Moradix',
-            description: trim($__env->yieldContent('description')) ?: null,
+            title: html_entity_decode(trim($__env->yieldContent('title')), ENT_QUOTES | ENT_HTML5, 'UTF-8') ?:
+            'Studio Moradix',
+    
+            description: html_entity_decode(trim($__env->yieldContent('description')), ENT_QUOTES | ENT_HTML5, 'UTF-8') ?:
+            null,
             type: 'website',
         ),
     ) !!}

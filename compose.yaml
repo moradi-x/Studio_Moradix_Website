@@ -1,0 +1,98 @@
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: app
+    container_name: moradix-app
+    restart: unless-stopped
+    working_dir: /var/www/html
+    env_file:
+      - .env
+    environment:
+      APP_URL: http://localhost:8080
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: ${DB_DATABASE:-moradix}
+      DB_USERNAME: ${DB_USERNAME:-root}
+      DB_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+    volumes:
+      - app_storage:/var/www/html/storage
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - moradix-network
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: web
+    container_name: moradix-nginx
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - app_storage:/var/www/html/storage:ro
+    depends_on:
+      - app
+    networks:
+      - moradix-network
+
+  db:
+    image: mysql:8.0
+    container_name: moradix-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE:-moradix}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./storage/app/backups/moradix_2026-11-16_13-42-15.sql:/docker-entrypoint-initdb.d/01-moradix.sql:ro
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - mysqladmin ping -h 127.0.0.1 -uroot -p"$${MYSQL_ROOT_PASSWORD}" --silent
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    networks:
+      - moradix-network
+
+  queue:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: app
+    container_name: moradix-queue
+    restart: unless-stopped
+    working_dir: /var/www/html
+    env_file:
+      - .env
+    environment:
+      APP_URL: http://localhost:8080
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: ${DB_DATABASE:-moradix}
+      DB_USERNAME: ${DB_USERNAME:-root}
+      DB_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+    command: php artisan queue:work database --sleep=3 --tries=3 --timeout=90
+    volumes:
+      - app_storage:/var/www/html/storage
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - moradix-network
+
+volumes:
+  db_data:
+  app_storage:
+
+networks:
+  moradix-network:
+    driver: bridge
