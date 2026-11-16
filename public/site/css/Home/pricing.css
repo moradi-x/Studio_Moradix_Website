@@ -3305,3 +3305,10 @@ html[lang="en"] .pr-faq .pr-faq-answer-content p {
 .ph-actions .ph-btn--primary:hover .ph-arrow--rtl {
     transform: scaleX(-1) translateX(-4px);
 }
+
+/* English hero title - desktop only */
+@media (min-width: 769px) {
+    .ph.ph--en #ph-title {
+        text-align: left !important;
+    }
+}

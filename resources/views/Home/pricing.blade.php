@@ -35,7 +35,7 @@
 
         {{-- Hero Section --}}
 
-        <section class="ph" aria-labelledby="ph-title">
+        <section class="ph {{ app()->getLocale() === 'en' ? 'ph--en' : 'ph--fa' }}" aria-labelledby="ph-title">
             <div class="container ph-inner">
 
                 <div class="ph-text">
@@ -55,22 +55,15 @@
                     </p>
 
                     <div class="ph-actions">
-                      <a href="#plans" class="ph-btn ph-btn--primary">
-    {{ __('site.pricing_hero_button') }}
+                        <a href="#plans" class="ph-btn ph-btn--primary">
+                            {{ __('site.pricing_hero_button') }}
 
-    <svg
-        class="ph-arrow {{ app()->getLocale() === 'en' ? 'ph-arrow--rtl' : '' }}"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2.2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-    >
-        <path d="M19 12H5M11 6l-6 6 6 6" />
-    </svg>
-</a>
+                            <svg class="ph-arrow {{ app()->getLocale() === 'en' ? 'ph-arrow--rtl' : '' }}"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M19 12H5M11 6l-6 6 6 6" />
+                            </svg>
+                        </a>
 
                         <a href="{{ route($routePrefix . 'contact') }}" class="ph-btn ph-btn--ghost">
                             {{ __('site.pricing_hero_contact') }}

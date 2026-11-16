@@ -58,7 +58,12 @@
 
                     <div class="footer-contact-item">
                         <span>📞</span>
-                        <span>{{ __('site.phone') }}: 09926245951 </span>
+                        <span>
+                            {{ __('site.phone') }}:
+                            <a href="tel:+989926245951" dir="ltr">
+                                09926245951
+                            </a>
+                        </span>
                     </div>
 
                     <div class="footer-contact-item">

@@ -134,6 +134,8 @@ Route::prefix('en')
         Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
         Route::post('/contact-us-form', [HomeController::class, 'contactUsForm'])->name('contact-us.form');
     });
-
+// XML Sitemap
+Route::get('/sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])
+    ->name('sitemap');
 
     

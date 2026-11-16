@@ -302,7 +302,7 @@
                     <article class="about-person-card">
                         <div class="about-person-image-wrap">
 
-                            <img src="{{ asset('site/images/profile.jpg') }}"
+                            <img src="{{ asset('site/images/profile.webp') }}"
                                 alt="محمد مرادی، مدیر Studio Moradix Studio" class="about-person-image" loading="lazy">
 
                             <span class="about-person-index">M / 01</span>

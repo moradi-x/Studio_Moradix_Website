@@ -50,6 +50,15 @@ class AppServiceProvider extends ServiceProvider
             return false;
         });
 
+        View::composer('Home.Layouts.layout', function ($view) {
+            $languageController = app(LanguageController::class);
+
+            $view->with(
+                'seoUrls',
+                $languageController->getSeoUrls()
+            );
+        });
+
         View::composer('Home.Sections.header', function ($view) {
             $languageController = app(LanguageController::class);
 

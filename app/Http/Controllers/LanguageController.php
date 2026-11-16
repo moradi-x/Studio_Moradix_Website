@@ -115,4 +115,87 @@ class LanguageController extends Controller
 
         return $urls;
     }
+
+        /**
+     * Generate canonical and hreflang URLs for SEO.
+     */
+    public function getSeoUrls(): array
+    {
+        $currentLocale = app()->getLocale();
+        $currentRoute = request()->route();
+
+        $currentRouteName = $currentRoute?->getName();
+
+        // Fallback: current URL without query parameters.
+        $canonical = request()->url();
+        $alternates = [];
+
+        if (!$currentRouteName) {
+            return [
+                'canonical' => $canonical,
+                'alternates' => $alternates,
+            ];
+        }
+
+        $baseRouteName = str_starts_with($currentRouteName, 'en.')
+            ? substr($currentRouteName, 3)
+            : $currentRouteName;
+
+        $parameters = $currentRoute->parameters();
+
+        // Portfolio detail pages need their real translated slugs.
+        if ($baseRouteName === 'portfolio.show') {
+            $project = Project::where(
+                $currentLocale === 'en' ? 'slug_en' : 'slug',
+                $parameters['slug'] ?? ''
+            )->first();
+
+            if (!$project || !filled($project->slug) || !filled($project->slug_en)) {
+                return [
+                    'canonical' => $canonical,
+                    'alternates' => $alternates,
+                ];
+            }
+
+            $faUrl = route('portfolio.show', ['slug' => $project->slug]);
+            $enUrl = route('en.portfolio.show', ['slug' => $project->slug_en]);
+
+            $canonical = $currentLocale === 'en' ? $enUrl : $faUrl;
+
+            $alternates = [
+                'fa' => $faUrl,
+                'en' => $enUrl,
+                'x-default' => $faUrl,
+            ];
+
+            return [
+                'canonical' => $canonical,
+                'alternates' => $alternates,
+            ];
+        }
+
+        // Static pages: use matching named routes in both locales.
+        $faRouteName = $baseRouteName;
+        $enRouteName = 'en.' . $baseRouteName;
+
+        if (Route::has($faRouteName) && Route::has($enRouteName)) {
+            $faUrl = route($faRouteName, $parameters);
+            $enUrl = route($enRouteName, $parameters);
+
+            $canonical = $currentLocale === 'en' ? $enUrl : $faUrl;
+
+            $alternates = [
+                'fa' => $faUrl,
+                'en' => $enUrl,
+                'x-default' => $faUrl,
+            ];
+        } elseif (Route::has($currentRouteName)) {
+            $canonical = route($currentRouteName, $parameters);
+        }
+
+        return [
+            'canonical' => $canonical,
+            'alternates' => $alternates,
+        ];
+    }
 }

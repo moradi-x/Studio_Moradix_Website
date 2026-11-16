@@ -9,6 +9,16 @@
     <title>@yield('title', 'Moradix Studio | مرادیکس استودیو')</title>
     <meta name="description" content="@yield('description', 'استودیوی توسعه وب با Laravel: طراحی فروشگاه اینترنتی، سایت شرکتی و پنل مدیریت اختصاصی')">
 
+    {{-- Canonical URL --}}
+    <link rel="canonical" href="{{ $seoUrls['canonical'] }}">
+
+    {{-- Hreflang URLs --}}
+    @if (!empty($seoUrls['alternates']))
+        @foreach ($seoUrls['alternates'] as $locale => $url)
+            <link rel="alternate" hreflang="{{ $locale }}" href="{{ $url }}">
+        @endforeach
+    @endif
+
     {{-- فونت Vazirmatn --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,28 +77,28 @@
 
 
     {{-- لینک پرش به محتوا (دسترس‌پذیری) --}}
-<a href="#main-content" class="skip-link"></a>
-        @include('Home.Sections.header')
+    <a href="#main-content" class="skip-link"></a>
+    @include('Home.Sections.header')
 
-        @include('Home.Sections.messages')
-        @include('Home.Sections.errors')
+    @include('Home.Sections.messages')
+    @include('Home.Sections.errors')
 
-        <main id="main-content">
-            @yield('content')
-        </main>
+    <main id="main-content">
+        @yield('content')
+    </main>
 
-        @include('Home.Sections.footer')
+    @include('Home.Sections.footer')
 
-        {{-- دکمه شناور تماس (واتساپ/تلگرام) --}}
-        @include('Home.Sections.floating-contact')
+    {{-- دکمه شناور تماس (واتساپ/تلگرام) --}}
+    @include('Home.Sections.floating-contact')
 
-        @include('Home.Sections.scroll-top')
+    @include('Home.Sections.scroll-top')
 
-        <script src="{{ asset('site/js/Home/site.js') }}" defer></script>
-        <script src="{{ asset('site/js/Home/loader.js') }}" defer></script>
+    <script src="{{ asset('site/js/Home/site.js') }}" defer></script>
+    <script src="{{ asset('site/js/Home/loader.js') }}" defer></script>
 
-        @stack('scripts')
-        {{-- @sweetAlert --}}
+    @stack('scripts')
+    {{-- @sweetAlert --}}
 </body>
 
 </html>
