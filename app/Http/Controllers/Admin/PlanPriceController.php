@@ -50,13 +50,18 @@ class PlanPriceController extends Controller
         ]);
 
         $request->merge([
-            'basic_price' => $convertNumbers($request->input('basic_price')),
-            'professional_price' => $convertNumbers($request->input('professional_price')),
+            'basic_price' => filled($request->input('basic_price'))
+                ? $convertNumbers($request->input('basic_price'))
+                : null,
+
+            'professional_price' => filled($request->input('professional_price'))
+                ? $convertNumbers($request->input('professional_price'))
+                : null,
         ]);
 
         $validated = $request->validate([
-            'basic_price' => ['required', 'integer', 'min:0'],
-            'professional_price' => ['required', 'integer', 'min:0'],
+            'basic_price' => ['nullable', 'integer', 'min:0'],
+            'professional_price' => ['nullable', 'integer', 'min:0'],
         ]);
 
         $planPrice->update($validated);

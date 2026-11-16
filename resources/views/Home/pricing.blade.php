@@ -169,11 +169,15 @@
                             </div>
 
                             <div class="pr-plan-price">
-                                {{-- PRICE: قیمت  طراحی سایت پایه --}}
-                                <span class="pr-price-label">{{ __('site.pricing_from') }}</span> <span
-                                    class="pr-price-amount">{{ $plans->get('website')?->basic_price_formatted ?? '۰' }}
-                                </span>
-                                <span class="pr-price-currency">{{ __('site.pricing_currency') }}</span>
+                                @if (filled($plans->get('website')?->basic_price))
+                                    <span class="pr-price-label">{{ __('site.pricing_from') }}</span>
+                                    <span class="pr-price-amount">
+                                        {{ $plans->get('website')->basic_price_formatted }}
+                                    </span>
+                                    <span class="pr-price-currency">{{ __('site.pricing_currency') }}</span>
+                                @else
+                                    <span class="pr-price-amount">{{ __('site.contact_for_price') }}</span>
+                                @endif
                             </div>
 
 
@@ -285,13 +289,15 @@
                             </div>
 
                             <div class="pr-plan-price">
-                                {{-- PRICE: قیمت  طراحی سایت حرفه‌ای --}}
-                                <span class="pr-price-label">{{ __('site.pricing_from') }}</span> <span
-                                    class="pr-price-amount">{{ $plans->get('website')?->professional_price_formatted ?? '۰' }}
-
-
-                                </span>
-                                <span class="pr-price-currency">{{ __('site.pricing_currency') }}</span>
+                                @if (filled($plans->get('website')?->professional_price))
+                                    <span class="pr-price-label">{{ __('site.pricing_from') }}</span>
+                                    <span class="pr-price-amount">
+                                        {{ $plans->get('website')->professional_price_formatted }}
+                                    </span>
+                                    <span class="pr-price-currency">{{ __('site.pricing_currency') }}</span>
+                                @else
+                                    <span class="pr-price-amount">{{ __('site.contact_for_price') }}</span>
+                                @endif
                             </div>
 
 
@@ -399,13 +405,15 @@
                             </div>
 
                             <div class="pr-plan-price">
-                                {{-- PRICE: قیمت پایه فروشگاهی --}}
-                                <span class="pr-price-label">{{ __('site.pricing_from') }}</span> <span
-                                    class="pr-price-amount">{{ $plans->get('ecommerce')?->basic_price_formatted ?? '۰' }}
-
-
-                                </span>
-                                <span class="pr-price-currency">{{ __('site.pricing_currency') }}</span>
+                                @if (filled($plans->get('ecommerce')?->basic_price))
+                                    <span class="pr-price-label">{{ __('site.pricing_from') }}</span>
+                                    <span class="pr-price-amount">
+                                        {{ $plans->get('ecommerce')->basic_price_formatted }}
+                                    </span>
+                                    <span class="pr-price-currency">{{ __('site.pricing_currency') }}</span>
+                                @else
+                                    <span class="pr-price-amount">{{ __('site.contact_for_price') }}</span>
+                                @endif
                             </div>
 
 
@@ -523,12 +531,15 @@
                             </div>
 
                             <div class="pr-plan-price">
-                                {{-- PRICE: قیمت  فروشگاه حرفه‌ای --}}
-                                <span class="pr-price-label">{{ __('site.pricing_from') }}</span> <span
-                                    class="pr-price-amount">
-                                    {{ $plans->get('ecommerce')?->professional_price_formatted ?? '۰' }}
-                                </span>
-                                <span class="pr-price-currency">{{ __('site.pricing_currency') }}</span>
+                                @if (filled($plans->get('ecommerce')?->professional_price))
+                                    <span class="pr-price-label">{{ __('site.pricing_from') }}</span>
+                                    <span class="pr-price-amount">
+                                        {{ $plans->get('ecommerce')->professional_price_formatted }}
+                                    </span>
+                                    <span class="pr-price-currency">{{ __('site.pricing_currency') }}</span>
+                                @else
+                                    <span class="pr-price-amount">{{ __('site.contact_for_price') }}</span>
+                                @endif
                             </div>
 
 

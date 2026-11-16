@@ -1,5 +1,43 @@
 @extends('Home.Layouts.layout')
 
+
+@php
+    $isEnglish = app()->getLocale() === 'en';
+
+    $projectTitle = $isEnglish
+        ? ($project->title_en ?: $project->title)
+        : $project->title;
+
+    $projectDescription = \Illuminate\Support\Str::limit(
+        strip_tags($shortDescription ?: $description),
+        500
+    );
+@endphp
+
+@section('structured_data')
+    <script type="application/ld+json">
+    {
+        "@@context": "https://schema.org",
+        "@@type": "CreativeWork",
+        "@@id": "{{ url()->current() }}#creativework",
+        "name": @json($projectTitle),
+        "description": @json($projectDescription),
+        "inLanguage": "{{ $isEnglish ? 'en' : 'fa' }}",
+        "url": "{{ url()->current() }}",
+        "author": {
+            "@@id": "{{ rtrim(config('app.url'), '/') }}/#organization"
+        }
+        @if($heroImage)
+        ,"image": @json($heroImage)
+        @endif
+        @if($project->project_url)
+        ,"mainEntityOfPage": @json($project->project_url)
+        @endif
+    }
+    </script>
+@endsection
+
+
 @section('title', (app()->getLocale() === 'en' ? ($project->title_en ?: $project->title) : $project->title) . ' | Moradix Studio')
 
 @section('description', \Illuminate\Support\Str::limit(strip_tags($shortDescription ?: $description), 155))

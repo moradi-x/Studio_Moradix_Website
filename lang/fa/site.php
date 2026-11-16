@@ -66,7 +66,7 @@ return [
     'view_services' => 'صفحه خدمات را نگاه کن',
     'contact_limit' => 'تعداد درخواست‌های شما بیش از حد مجاز است. لطفاً بعداً دوباره تلاش کنید.',
 
-   
+
 
     'pricing_meta_title' => 'تعرفه طراحی سایت و فروشگاه اینترنتی | Moradix Studio',
     'pricing_meta_description' => 'تعرفه طراحی سایت و فروشگاه اینترنتی مورادیکس را مقایسه کنید. پلن‌های متنوع، قیمت‌گذاری شفاف و راهکارهای اختصاصی متناسب با نیاز کسب‌وکار شما.',
@@ -277,10 +277,9 @@ return [
     // Portfolio Index Page
 
     // Meta
-   'portfolio_page_title' => 'نمونه کار طراحی سایت و فروشگاه اینترنتی | Moradix Studio',
-'portfolio_page_description' => 'نمونه‌کارهای طراحی سایت، فروشگاه اینترنتی و پروژه‌های اختصاصی Moradix Studio را ببینید و با کیفیت طراحی و راهکارهای دیجیتال ما آشنا شوید.',
-
-    // Breadcrumb
+    'portfolio_page_title' => 'نمونه کار طراحی سایت و فروشگاه اینترنتی | Moradix Studio',
+    'portfolio_page_description' => 'نمونه‌کارهای طراحی سایت، فروشگاه اینترنتی و پروژه‌های اختصاصی Moradix Studio را ببینید و با کیفیت طراحی و راهکارهای دیجیتال ما آشنا شوید.',
+'contact_for_price' => 'برای قیمت تماس بگیرید',    // Breadcrumb
     'portfolio_breadcrumb_label' => 'مسیر صفحه',
     'portfolio_breadcrumb_home' => 'صفحه اصلی',
     'portfolio_breadcrumb_current' => 'نمونه‌کارها',

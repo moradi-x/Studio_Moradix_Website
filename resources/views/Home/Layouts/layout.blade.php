@@ -9,6 +9,15 @@
     <title>@yield('title', 'Moradix Studio | مرادیکس استودیو')</title>
     <meta name="description" content="@yield('description', 'استودیوی توسعه وب با Laravel: طراحی فروشگاه اینترنتی، سایت شرکتی و پنل مدیریت اختصاصی')">
 
+    {{-- OpenGraph and Twitter SEO Tags --}}
+    {!! seo(
+        new \RalphJSmit\Laravel\SEO\Support\SEOData(
+            title: trim($__env->yieldContent('title')) ?: 'Studio Moradix',
+            description: trim($__env->yieldContent('description')) ?: null,
+            type: 'website',
+        ),
+    ) !!}
+
     {{-- Canonical URL --}}
     <link rel="canonical" href="{{ $seoUrls['canonical'] }}">
 
@@ -18,6 +27,51 @@
             <link rel="alternate" hreflang="{{ $locale }}" href="{{ $url }}">
         @endforeach
     @endif
+
+
+    {{-- Organization Schema --}}
+    <script type="application/ld+json">
+    {
+        "@@context": "https://schema.org",
+        "@@type": "Organization",
+        "@@id": "{{ rtrim(config('app.url'), '/') }}/#organization",
+        "name": "Studio Moradix",
+        "alternateName": "Moradix Studio",
+        "url": "{{ rtrim(config('app.url'), '/') }}",
+        "logo": "{{ asset('site/images/logo.webp') }}",
+        "email": "moraix.2004@gmail.com",
+        "sameAs": [
+            "https://t.me/studio_moradix"
+        ]
+    }
+    </script>
+
+    {{-- Service Schema --}}
+    @if (request()->routeIs(
+            'services.web-design',
+            'services.ecommerce',
+            'services.seo',
+            'services.redesign',
+            'services.custom-systems',
+            'en.services.web-design',
+            'en.services.ecommerce',
+            'en.services.seo',
+            'en.services.redesign',
+            'en.services.custom-systems'))
+        <script type="application/ld+json">
+        {
+            "@@context": "https://schema.org",
+            "@@type": "Service",
+            "name": @json(trim($__env->yieldContent('title'))),
+            "description": @json(trim($__env->yieldContent('description'))),
+            "url": "{{ url()->current() }}",
+            "provider": {
+                "@@id": "{{ rtrim(config('app.url'), '/') }}/#organization"
+            }
+        }
+        </script>
+    @endif
+
 
     {{-- فونت Vazirmatn --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,6 +88,7 @@
     <link rel="stylesheet" href="{{ asset('site/css/Home/loader.css') }}">
 
     @stack('styles')
+    @yield('structured_data')
 </head>
 
 <body>

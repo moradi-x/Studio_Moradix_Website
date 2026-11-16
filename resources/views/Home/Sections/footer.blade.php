@@ -68,7 +68,7 @@
 
                     <div class="footer-contact-item">
                         <span>✉️</span>
-                        <span>{{ __('site.email') }}: moraix.2004@gmail</span>
+                        <span>{{ __('site.email') }}: moraix.2004@gmail.com</span>
                     </div>
 
                     <div class="footer-contact-item">

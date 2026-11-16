@@ -6828,3 +6828,15 @@ section.hero .hh-actions .btn:focus-visible { outline: 3px solid var(--hh-bright
     .hh-kicker { font-size: .8rem; }
     .hh-points { flex-direction: column; gap: .5rem; }
 }
+
+/* English desktop navigation dropdown alignment */
+html[lang="en"] .nav-desktop .has-dropdown .dropdown {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] .nav-desktop .has-dropdown .dropdown a {
+    direction: ltr;
+    text-align: left;
+    justify-content: flex-start;
+}

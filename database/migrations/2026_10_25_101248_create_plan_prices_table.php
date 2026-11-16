@@ -9,16 +9,16 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-   public function up(): void
-{
-    Schema::create('plan_prices', function (Blueprint $table) {
-        $table->id();
-        $table->string('service_type')->unique();
-        $table->unsignedBigInteger('basic_price')->default(0);
-        $table->unsignedBigInteger('professional_price')->default(0);
-        $table->timestamps();
-    });
-}
+    public function up(): void
+    {
+        Schema::create('plan_prices', function (Blueprint $table) {
+            $table->id();
+            $table->string('service_type')->unique();
+            $table->unsignedBigInteger('basic_price')->nullable()->default(null);
+            $table->unsignedBigInteger('professional_price')->nullable()->default(null);
+            $table->timestamps();
+        });
+    }
     /*
      * Reverse the migrations.
      */

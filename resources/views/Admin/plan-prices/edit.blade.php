@@ -7,7 +7,6 @@
 
     <div class="admin-plan-edit">
 
-        @include('admin.sections.errors')
 
         <div class="admin-plan-edit-header">
             <h1 class="admin-plan-edit-title">ویرایش قیمت‌ها</h1>
@@ -39,7 +38,7 @@
                         name="basic_price"
                         min="0"
                         step="1"
-                        required
+                        
                         value="{{ old('basic_price', $planPrice->basic_price_persian) }}"
                     >
 
@@ -60,7 +59,7 @@
                         name="professional_price"
                         min="0"
                         step="1"
-                        required
+                        
                         value="{{ old('professional_price', $planPrice->professional_price_persian) }}"
                     >
 

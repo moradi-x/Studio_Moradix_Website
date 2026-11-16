@@ -33,7 +33,7 @@ return [
     'pricing_meta_title' => 'Website Design & E-commerce Pricing | Moradix Studio',
     'pricing_meta_description' => 'Explore Moradix Studio website design and e-commerce pricing plans. Compare options, understand project costs, and find a solution tailored to your business.',
 
-    
+
     // Contact page
     'contact_breadcrumb_title' => 'Contact Us',
     'contact_page_title' => 'Contact Moradix Studio | Website Design & Development',
@@ -274,11 +274,12 @@ return [
     'pricing_faq_a5' => 'Payment terms are determined by mutual agreement and specified in the contract. Typically, part of the payment is made upfront, with the remainder paid at agreed milestones or upon project completion. We will discuss the details after the initial consultation.',
     'footer_address' => 'Tehran, Iran',
 
-    // Portfolio Index Page
+
+'contact_for_price' => 'Contact Us for Pricing',    // Portfolio Index Page
 
     // Meta
-   'portfolio_page_title' => 'Website Design Portfolio & Projects | Moradix Studio',
-'portfolio_page_description' => 'Explore Moradix Studio projects in website design, e-commerce development, and custom web solutions. Discover our work and approach to digital experiences.',
+    'portfolio_page_title' => 'Website Design Portfolio & Projects | Moradix Studio',
+    'portfolio_page_description' => 'Explore Moradix Studio projects in website design, e-commerce development, and custom web solutions. Discover our work and approach to digital experiences.',
 
     // Breadcrumb
     'portfolio_breadcrumb_label' => 'Breadcrumb',

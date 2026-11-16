@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 use Opcodes\LogViewer\Facades\LogViewer;
 use Illuminate\Support\Facades\Gate;
+use RalphJSmit\Laravel\SEO\Facades\SEOManager;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,6 +23,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Vite::prefetch(concurrency: 3);
+
+        SEOManager::tagTransformer(function ($tags) {
+            return $tags->filter(function ($tag) {
+                return $tag instanceof \RalphJSmit\Laravel\SEO\Tags\OpenGraphTags
+                    || $tag instanceof \RalphJSmit\Laravel\SEO\Tags\TwitterCardTags;
+            });
+        });
 
         // Unread admin notifications count
         View::composer('admin.*', function ($view) {

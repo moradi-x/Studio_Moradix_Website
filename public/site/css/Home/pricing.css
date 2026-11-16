@@ -3312,3 +3312,11 @@ html[lang="en"] .pr-faq .pr-faq-answer-content p {
         text-align: left !important;
     }
 }
+
+.pr-plan-price .pr-price-amount {
+    white-space: nowrap;
+}
+
+.pr-plan-price .pr-price-amount:only-child {
+    font-size: 1.1em;
+}
