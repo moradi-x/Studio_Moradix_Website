@@ -1,4 +1,4 @@
-@extends('Home.Layouts.layout')
+@extends('home.layouts.layout')
 
 @php
     $routePrefix = app()->getLocale() === 'en' ? 'en.' : '';

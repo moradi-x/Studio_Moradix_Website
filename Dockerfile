@@ -17,24 +17,39 @@ RUN apt-get -o Acquire::Retries=10 -o Acquire::http::Timeout=120 update \
     && docker-php-ext-configure gd \
         --with-freetype \
         --with-jpeg \
-   && docker-php-ext-install bcmath \
-    && docker-php-ext-install gd \
-    && docker-php-ext-install intl \
-    && docker-php-ext-install pdo_mysql \
-    && docker-php-ext-install zip \
+    && docker-php-ext-install -j$(nproc) \
+        bcmath \
+        gd \
+        intl \
+        pdo_mysql \
+        zip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 # Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Application files
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
+# Copy Composer files first for build cache
+COPY composer.json composer.lock ./
 COPY . .
 
 
-
-# Copy built frontend assets
-COPY public/build ./public/build
+# Install production dependencies and discover Laravel packages
+RUN composer install \
+        --no-dev \
+        --no-interaction \
+        --prefer-dist \
+        --no-progress \
+        --no-scripts \
+    && rm -f bootstrap/cache/packages.php bootstrap/cache/services.php \
+    && composer dump-autoload \
+        --no-dev \
+        --optimize \
+        --no-scripts \
+    && php artisan package:discover --ansi \
+    && composer check-platform-reqs --no-dev
 
 # Create Laravel storage directories and public storage link
 RUN mkdir -p \

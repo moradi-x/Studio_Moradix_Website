@@ -136,21 +136,21 @@
 
     {{-- لینک پرش به محتوا (دسترس‌پذیری) --}}
     <a href="#main-content" class="skip-link"></a>
-    @include('Home.Sections.header')
+    @include('home.sections.header')
 
-    @include('Home.Sections.messages')
-    @include('Home.Sections.errors')
+    @include('home.sections.messages')
+    @include('home.sections.errors')
 
     <main id="main-content">
         @yield('content')
     </main>
 
-    @include('Home.Sections.footer')
+    @include('home.sections.footer')
 
     {{-- دکمه شناور تماس (واتساپ/تلگرام) --}}
-    @include('Home.Sections.floating-contact')
+    @include('home.sections.floating-contact')
 
-    @include('Home.Sections.scroll-top')
+    @include('home.sections.scroll-top')
 
     <script src="{{ asset('site/js/Home/site.js') }}" defer></script>
     <script src="{{ asset('site/js/Home/loader.js') }}" defer></script>

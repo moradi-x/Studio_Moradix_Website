@@ -1,6 +1,6 @@
 {{-- resources/views/Home/contact.blade.php --}}
 
-@extends('Home.Layouts.layout')
+@extends('home.layouts.layout')
 
 @php
     $routePrefix = app()->getLocale() === 'en' ? 'en.' : '';

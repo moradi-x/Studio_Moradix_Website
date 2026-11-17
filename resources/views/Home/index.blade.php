@@ -1,4 +1,4 @@
-@extends('Home.Layouts.layout')
+@extends('home.layouts.layout')
 
 @section('title', __('site.home_seo_title'))
 @section('description', __('site.home_seo_description'))

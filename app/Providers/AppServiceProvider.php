@@ -58,7 +58,7 @@ class AppServiceProvider extends ServiceProvider
             return false;
         });
 
-        View::composer('Home.Layouts.layout', function ($view) {
+        View::composer('home.layouts.layout', function ($view) {
             $languageController = app(LanguageController::class);
 
             $view->with(
@@ -67,7 +67,7 @@ class AppServiceProvider extends ServiceProvider
             );
         });
 
-        View::composer('Home.Sections.header', function ($view) {
+        View::composer('home.sections.header', function ($view) {
             $languageController = app(LanguageController::class);
 
             $view->with([

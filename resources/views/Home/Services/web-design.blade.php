@@ -1,6 +1,6 @@
 {{-- resources/views/Home/Services/web-design.blade.php --}}
 
-@extends('Home.Layouts.layout')
+@extends('home.layouts.layout')
 
 @section('title', __('site.web_design_meta_title'))
 

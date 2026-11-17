@@ -1,4 +1,4 @@
-@extends('Home.Layouts.layout')
+@extends('home.layouts.layout')
 
 @section('title', __('site.redesign_page_title'))
 

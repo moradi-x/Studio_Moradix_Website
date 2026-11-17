@@ -1,6 +1,6 @@
 {{-- resources/views/Home/services.blade.php --}}
 
-@extends('Home.Layouts.layout')
+@extends('home.layouts.layout')
 
 @section('title', __('site.services_page_title'))
 
