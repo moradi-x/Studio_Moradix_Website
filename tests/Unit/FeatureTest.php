@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use App\Models\Feature;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 

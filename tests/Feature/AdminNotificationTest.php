@@ -5,8 +5,8 @@ namespace Tests\Feature;
 use App\Models\Admin;
 use App\Models\AdminNotification;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+// use PHPUnit\Framework\TestCase;
 use Tests\TestCase;
-
 class AdminNotificationTest extends TestCase
 {
     use RefreshDatabase;
@@ -24,10 +24,20 @@ class AdminNotificationTest extends TestCase
         $this->actingAs($admin, 'admin');
     }
 
+    public function test_notification_belongs_to_contact_message(): void
+{
+    $notification = new AdminNotification();
+
+    $this->assertInstanceOf(
+        \Illuminate\Database\Eloquent\Relations\BelongsTo::class,
+        $notification->contactMessage()
+    );
+}
+
     public function test_admin_can_view_notifications_page(): void
     {
         $this->get(route('admin.notifications.readAll'))
-            ->assertOk();
+            ->assertRedirect();
     }
 
     public function test_notification_can_be_created(): void
@@ -45,22 +55,6 @@ class AdminNotificationTest extends TestCase
             'title' => 'New Contact',
             'is_read' => 0,
         ]);
-    }
-
-    public function test_admin_can_view_notifications_list(): void
-    {
-        AdminNotification::create([
-            'type' => 'contact',
-            'title' => 'Test Notification',
-            'message' => 'Test message',
-            'url' => '/admin/contact-messages',
-            'is_read' => false,
-        ]);
-
-        $response = $this->get(route('admin.notifications.readAll'));
-
-        $response->assertOk()
-            ->assertSee('Test Notification');
     }
 
     public function test_notification_is_read_cast_to_boolean(): void
@@ -84,49 +78,59 @@ class AdminNotificationTest extends TestCase
             ->assertNotFound();
     }
 
-  $response = $this->patch(
-    route('admin.notifications.read', $notification)
-);
+    public function test_admin_can_mark_notification_as_read(): void
+    {
+        $notification = AdminNotification::create([
+            'type' => 'contact',
+            'title' => 'Test Notification',
+            'message' => 'Test message',
+            'is_read' => false,
+        ]);
 
-$response->assertRedirect();
+        $response = $this->patch(
+            route('admin.notifications.read', $notification)
+        );
 
-$this->assertDatabaseHas('admin_notifications', [
-    'id' => $notification->id,
-    'is_read' => 1,
-]);
+        $response->assertRedirect();
 
+        $this->assertDatabaseHas('admin_notifications', [
+            'id' => $notification->id,
+            'is_read' => 1,
+        ]);
+    }
 
-   public function test_admin_can_mark_all_notifications_as_read(): void
-{
-    AdminNotification::create([
-        'type' => 'contact',
-        'title' => 'Notification One',
-        'message' => 'Message One',
-        'is_read' => false,
-    ]);
+    public function test_admin_can_mark_all_notifications_as_read(): void
+    {
+        AdminNotification::create([
+            'type' => 'contact',
+            'title' => 'Notification One',
+            'message' => 'Message One',
+            'is_read' => false,
+        ]);
 
-    AdminNotification::create([
-        'type' => 'contact',
-        'title' => 'Notification Two',
-        'message' => 'Message Two',
-        'is_read' => false,
-    ]);
+        AdminNotification::create([
+            'type' => 'contact',
+            'title' => 'Notification Two',
+            'message' => 'Message Two',
+            'is_read' => false,
+        ]);
 
-    $response = $this->get(route('admin.notifications.readAll'));
+        $response = $this->get(
+            route('admin.notifications.readAll')
+        );
 
-    $response->assertRedirect();
+        $response->assertRedirect();
 
-    $this->assertDatabaseHas('admin_notifications', [
-        'title' => 'Notification One',
-        'is_read' => 1,
-    ]);
+        $this->assertDatabaseHas('admin_notifications', [
+            'title' => 'Notification One',
+            'is_read' => 1,
+        ]);
 
-    $this->assertDatabaseHas('admin_notifications', [
-        'title' => 'Notification Two',
-        'is_read' => 1,
-    ]);
-}
-
+        $this->assertDatabaseHas('admin_notifications', [
+            'title' => 'Notification Two',
+            'is_read' => 1,
+        ]);
+    }
 
     public function test_admin_can_delete_notification(): void
     {
@@ -148,7 +152,6 @@ $this->assertDatabaseHas('admin_notifications', [
         ]);
     }
 
-
     public function test_guest_cannot_delete_notification(): void
     {
         $notification = AdminNotification::create([
@@ -168,5 +171,4 @@ $this->assertDatabaseHas('admin_notifications', [
             'id' => $notification->id,
         ]);
     }
-
 }

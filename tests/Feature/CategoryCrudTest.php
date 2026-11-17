@@ -187,6 +187,7 @@ class CategoryCrudTest extends TestCase
             'slug' => 'old-title',
             'short_description' => 'Old description',
             'description' => 'Old full description',
+            'primary_image' => 'test-image.jpg',
             'status' => 1,
         ]);
 

@@ -25,15 +25,7 @@ class AdminNotificationTest extends TestCase
 
         $this->assertFalse($notification->is_read);
     }
-    public function test_notification_belongs_to_contact_message(): void
-    {
-        $notification = new \App\Models\AdminNotification();
-
-        $this->assertInstanceOf(
-            \Illuminate\Database\Eloquent\Relations\BelongsTo::class,
-            $notification->contactMessage()
-        );
-    }
+  
 
     public function test_notification_fillable_fields_are_defined(): void
     {

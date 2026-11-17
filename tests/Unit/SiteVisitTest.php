@@ -3,7 +3,8 @@
 namespace Tests\Unit;
 
 use App\Models\SiteVisit;
-use PHPUnit\Framework\TestCase;
+// use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class SiteVisitTest extends TestCase
 {

@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use App\Models\FeatureCategory;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class FeatureCategoryTest extends TestCase

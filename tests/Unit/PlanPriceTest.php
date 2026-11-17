@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use App\Models\PlanPrice;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class PlanPriceTest extends TestCase
 {
