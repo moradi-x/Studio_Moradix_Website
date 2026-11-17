@@ -20,6 +20,7 @@ services:
       DB_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
     volumes:
       - app_storage:/var/www/html/storage
+      - project_images:/var/www/html/public/uploads/projects/images
     depends_on:
       db:
         condition: service_healthy
@@ -37,6 +38,7 @@ services:
       - "8080:80"
     volumes:
       - app_storage:/var/www/html/storage:ro
+      - project_images:/var/www/html/public/uploads/projects/images:ro
     depends_on:
       - app
     networks:
@@ -92,6 +94,9 @@ services:
 volumes:
   db_data:
   app_storage:
+  project_images:
+    external: true
+    name: moradix_project_images
 
 networks:
   moradix-network:

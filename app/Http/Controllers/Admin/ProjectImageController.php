@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class ProjectImageController extends Controller
 {
@@ -176,14 +177,12 @@ class ProjectImageController extends Controller
         $request->validate([
             'image_id' => [
                 'required',
-                'exists:project_images,id',
+                Rule::exists('project_images', 'id')
+                    ->where('project_id', $project->id),
             ],
         ]);
 
-        $projectImage = ProjectImage::where(
-            'project_id',
-            $project->id
-        )->findOrFail($request->image_id);
+        $projectImage = ProjectImage::findOrFail($request->image_id);
 
         $imagePath = public_path(
             env('PROJECT_IMAGES_UPLOAD_PATH')
