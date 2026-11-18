@@ -54,11 +54,12 @@ class HomeController extends Controller
         ));
     }
 
-    public function about()
-    {
-        return view('home.about');
-    }
+ public function about()
+{
+    $settings = Setting::pluck('value', 'key')->toArray();
 
+    return view('home.about', compact('settings'));
+}
     // app/Http/Controllers/Home/HomeController.php
     public function contact()
     {

@@ -302,7 +302,7 @@
                     <article class="about-person-card">
                         <div class="about-person-image-wrap">
 
-                            <img src="{{ asset('site/images/profile.webp') }}"
+                            <img src="{{ !empty($settings['profile_image']) ? asset('storage/' . $settings['profile_image']) : asset('site/images/profile.webp') }}"
                                 alt="محمد مرادی، مدیر Studio Moradix Studio" class="about-person-image" loading="lazy">
 
                             <span class="about-person-index">M / 01</span>
@@ -370,7 +370,8 @@
                                 </svg>
                             </a>
 
-                          <a href="{{ route(app()->getLocale() === 'en' ? 'en.services' : 'services') }}" class="si-cta-secondary">
+                            <a href="{{ route(app()->getLocale() === 'en' ? 'en.services' : 'services') }}"
+                                class="si-cta-secondary">
                                 {{ __('site.about_cta_services') }} </a>
                         </div>
 

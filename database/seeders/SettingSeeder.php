@@ -1,3 +1,4 @@
+
 <?php
 
 namespace Database\Seeders;
@@ -9,29 +10,20 @@ class SettingSeeder extends Seeder
 {
     public function run(): void
     {
-        Setting::create([
-            'key' => 'site_name',
-            'value' => 'Moradix',
-        ]);
+        $settings = [
+            'site_name' => 'Moradix',
+            'site_email' => 'info@moradix.com',
+            'site_phone' => '09120000000',
+            'site_description' => 'طراحی و توسعه وب‌سایت‌های مدرن',
+            'site_status' => 'active',
+            'profile_image' => null,
+        ];
 
-        Setting::create([
-            'key' => 'site_email',
-            'value' => 'info@moradix.com',
-        ]);
-
-        Setting::create([
-            'key' => 'site_phone',
-            'value' => '09120000000',
-        ]);
-
-        Setting::create([
-            'key' => 'site_description',
-            'value' => 'طراحی و توسعه وب‌سایت‌های مدرن',
-        ]);
-
-        Setting::create([
-            'key' => 'site_status',
-            'value' => 'active',
-        ]);
+        foreach ($settings as $key => $value) {
+            Setting::updateOrCreate(
+                ['key' => $key],
+                ['value' => $value]
+            );
+        }
     }
 }

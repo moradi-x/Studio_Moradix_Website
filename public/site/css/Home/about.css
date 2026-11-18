@@ -632,7 +632,7 @@
 
 .about-person-image-wrap {
     position: relative;
-    aspect-ratio: 4 / 3.4;
+    aspect-ratio: 4 / 3.6;
     overflow: hidden;
     background:
         radial-gradient(ellipse at 50% 45%,
@@ -1285,7 +1285,7 @@
     }
 
     .about-person-image-wrap {
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 4 / 5;
     }
 
     .about-team-note {

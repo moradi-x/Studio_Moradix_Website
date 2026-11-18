@@ -458,3 +458,34 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
+
+// Profile Image Preview
+document.addEventListener('DOMContentLoaded', function () {
+    const input = document.getElementById('setting-value');
+    const preview = document.getElementById('new-image-preview');
+    const image = document.getElementById('new-profile-image');
+
+    if (!input || !preview || !image || input.type !== 'file') {
+        return;
+    }
+
+    let currentImageUrl = null;
+
+    input.addEventListener('change', function () {
+        const file = this.files[0];
+
+        if (!file) {
+            preview.hidden = true;
+            return;
+        }
+
+        if (currentImageUrl) {
+            URL.revokeObjectURL(currentImageUrl);
+        }
+
+        currentImageUrl = URL.createObjectURL(file);
+        image.src = currentImageUrl;
+        preview.hidden = false;
+    });
+});

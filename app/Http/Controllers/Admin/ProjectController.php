@@ -77,6 +77,7 @@ class ProjectController extends Controller
                 'required',
                 'image',
                 'mimes:jpg,jpeg,png,webp',
+                'max:5120',
             ],
 
             'images' => ['required', 'array'],

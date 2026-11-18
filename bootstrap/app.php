@@ -27,6 +27,18 @@ return Application::configure(basePath: dirname(__DIR__))
             'request_id' => request()->attributes->get('request_id'),
         ]);
 
+        $exceptions->render(function (
+            \Illuminate\Http\Exceptions\PostTooLargeException $e,
+            \Illuminate\Http\Request $request
+        ) {
+            if ($request->is('admin/projects') && $request->isMethod('POST')) {
+                return redirect()
+                    ->back()
+                    ->withInput()
+                    ->with('error', 'حجم عکس انتخاب‌شده بیشتر از حد مجاز است. لطفاً عکس کوچک‌تری انتخاب کنید.');
+            }
+        });
+
         $exceptions->report(function (Throwable $e) {
 
             if ($e instanceof \Illuminate\Database\QueryException) {

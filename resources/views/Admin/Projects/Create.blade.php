@@ -30,6 +30,15 @@
         {{-- Form --}}
         <div class="admin-project-create-card">
 
+            @if (session('error') || $errors->any())
+                <div class="admin-project-create-field-error" style="margin-bottom: 20px; padding: 12px 16px;">
+                    @if (session('error'))
+                        {{ session('error') }}
+                    @else
+                        حجم یکی از تصاویر بیشتر از حد مجاز است یا اطلاعات فرم معتبر نیست. لطفاً خطاهای فرم را بررسی کنید.
+                    @endif
+                </div>
+            @endif
             <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data"
                 autocomplete="off">
                 @csrf
