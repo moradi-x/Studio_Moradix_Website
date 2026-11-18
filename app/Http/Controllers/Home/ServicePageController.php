@@ -10,7 +10,7 @@ class ServicePageController extends Controller
 {
     public function index(): View
     {
-        return view('home.Services.index');
+        return view('home.services.index');
     }
 
 
@@ -29,43 +29,40 @@ class ServicePageController extends Controller
     {
 
 
-         $relatedProjects = Project::with('category')
+        $relatedProjects = Project::with('category')
             ->inRandomOrder()
             ->take(3)
             ->get();
 
         return view('home.Services.ecommerc', compact('relatedProjects'));
-
     }
 
     public function seo(): View
     {
 
-           $relatedProjects = Project::with('category')
+        $relatedProjects = Project::with('category')
             ->inRandomOrder()
             ->take(3)
             ->get();
 
         return view('home.Services.seo', compact('relatedProjects'));
-
     }
 
     public function redesign(): View
     {
 
-           $relatedProjects = Project::with('category')
+        $relatedProjects = Project::with('category')
             ->inRandomOrder()
             ->take(3)
             ->get();
 
         return view('home.Services.redesign', compact('relatedProjects'));
-
     }
 
     public function customSystems(): View
     {
 
-           $relatedProjects = Project::with('category')
+        $relatedProjects = Project::with('category')
             ->inRandomOrder()
             ->take(3)
             ->get();

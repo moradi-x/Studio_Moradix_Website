@@ -22,7 +22,7 @@ class ProjectController extends Controller
             ->latest()
             ->paginate(10);
 
-        return view('Admin.projects.index', compact('projects'));
+        return view('Admin.Projects.index', compact('projects'));
     }
 
 
@@ -41,7 +41,7 @@ class ProjectController extends Controller
             ->orderBy('sort_order')
             ->get();
 
-        return view('Admin.projects.create', compact(
+        return view('Admin.Projects.create', compact(
             'categories',
             'featureCategories'
         ));
@@ -182,7 +182,7 @@ class ProjectController extends Controller
             'images',
         ]);
 
-        return view('Admin.projects.show', compact('project'));
+        return view('Admin.Projects.show', compact('project'));
     }
 
 
@@ -202,7 +202,7 @@ class ProjectController extends Controller
 
         $project->load('features');
 
-        return view('Admin.projects.edit', compact(
+        return view('Admin.Projects.edit', compact(
             'categories',
             'featureCategories',
             'project'

@@ -15,7 +15,7 @@ class ContactMessageController extends Controller
             ->paginate(10);
 
         return view(
-            'admin.ContactMessage.index',
+            'Admin.ContactMessage.index',
             compact('contactMessages')
         );
     }
@@ -23,7 +23,7 @@ class ContactMessageController extends Controller
     public function show(ContactMessage $contactMessage)
     {
         return view(
-            'admin.ContactMessage.show',
+            'Admin.ContactMessage.show',
             compact('contactMessage')
         );
     }

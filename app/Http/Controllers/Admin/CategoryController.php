@@ -15,7 +15,7 @@ class CategoryController extends Controller
     {
         $categories = Category::latest()->paginate(4);
 
-        return view('Admin.categories.index', [
+        return view('Admin.Categories.Index', [
             'categories' => $categories
         ]);
     }
@@ -24,7 +24,7 @@ class CategoryController extends Controller
 
     public function create()
     {
-        return view('Admin.categories.create');
+        return view('Admin.Categories.Create');
     }
 
 

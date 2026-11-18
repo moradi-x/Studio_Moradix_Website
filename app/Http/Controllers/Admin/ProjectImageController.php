@@ -64,7 +64,7 @@ class ProjectImageController extends Controller
         $project->load('images');
 
         return view(
-            'admin.projects.edit_images',
+            'Admin.Projects.edit_images',
             compact('project')
         );
     }

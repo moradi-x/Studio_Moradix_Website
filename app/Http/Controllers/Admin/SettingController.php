@@ -12,12 +12,12 @@ class SettingController extends Controller
     {
         $settings = Setting::latest()->paginate(10);
 
-        return view('Admin.settings.index', compact('settings'));
+        return view('Admin.Settings.index', compact('settings'));
     }
 
     public function create()
     {
-        return view('Admin.settings.create');
+        return view('Admin.Settings.create');
     }
 
     public function store(Request $request)
@@ -41,7 +41,7 @@ class SettingController extends Controller
     {
         $page = $request->query('page', 1);
 
-        return view('Admin.settings.edit', compact('setting'));
+        return view('Admin.Settings.edit', compact('setting'));
     }
 
     public function update(Request $request, Setting $setting)

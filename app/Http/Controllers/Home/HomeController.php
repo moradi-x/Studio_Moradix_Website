@@ -203,7 +203,7 @@ class HomeController extends Controller
 
 
 
-    //     return view('home.Portfolio.index', compact(
+    //     return view('home.portfolio.index', compact(
     //         'projects',
     //         'completedProjects',
     //         'developmentProjects',
@@ -357,7 +357,7 @@ class HomeController extends Controller
             ? ($project->short_description_en ?: $project->short_description)
             : $project->short_description;
 
-        return view('home.Portfolio.show', compact(
+        return view('home.portfolio.show', compact(
             'project',
             'relatedProjects',
             'statusLabel',
@@ -415,7 +415,7 @@ class HomeController extends Controller
                 '9' => '۹',
             ]);
 
-        return view('home.Portfolio.index', compact(
+        return view('home.portfolio.index', compact(
             'projects',
             'completedProjects',
             'developmentProjects',
@@ -448,7 +448,7 @@ class HomeController extends Controller
                 '9' => '۹',
             ]);
 
-        return view('home.Portfolio.index', compact(
+        return view('home.portfolio.index', compact(
             'projects',
             'completedProjects',
             'developmentProjects',
@@ -522,7 +522,7 @@ class HomeController extends Controller
                 '9' => '۹',
             ]);
 
-        return view('home.Portfolio.index', compact(
+        return view('home.portfolio.index', compact(
             'projects',
             'completedProjects',
             'developmentProjects',
