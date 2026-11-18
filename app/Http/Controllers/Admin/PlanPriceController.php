@@ -12,12 +12,12 @@ class PlanPriceController extends Controller
     {
         $plans = PlanPrice::all()->keyBy('service_type');
 
-        return view('admin.plan-prices.index', compact('plans'));
+        return view('Admin.plan-prices.index', compact('plans'));
     }
 
     public function edit(PlanPrice $planPrice)
     {
-        return view('admin.plan-prices.edit', compact('planPrice'));
+        return view('Admin.plan-prices.edit', compact('planPrice'));
     }
 
 

@@ -56,7 +56,7 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('Home.about');
+        return view('home.about');
     }
 
     // app/Http/Controllers/Home/HomeController.php
@@ -68,7 +68,7 @@ class HomeController extends Controller
 
         // dd($settings);
 
-        return view('Home.contact', compact('settings'));
+        return view('home.contact', compact('settings'));
     }
 
     public function contactUsForm(Request $request)
@@ -172,44 +172,44 @@ class HomeController extends Controller
     {
 
         $plans = PlanPrice::all()->keyBy('service_type');
-        return view('Home.pricing', compact('plans'));
+        return view('home.pricing', compact('plans'));
     }
 
-    public function portfolioIndex()
-    {
-        $projects = Project::with(['category', 'features'])
-            ->latest()
-            ->get();
+    // public function portfolioIndex()
+    // {
+    //     $projects = Project::with(['category', 'features'])
+    //         ->latest()
+    //         ->get();
 
-        $completedProjects = $projects->where('status', 1)->count();
+    //     $completedProjects = $projects->where('status', 1)->count();
 
-        $developmentProjects = $projects->where('status', 0)->count();
-
-
-        $pfhFa = fn($n) => app()->getLocale() === 'en'
-            ? (string) $n
-            : strtr((string) $n, [
-                '0' => '۰',
-                '1' => '۱',
-                '2' => '۲',
-                '3' => '۳',
-                '4' => '۴',
-                '5' => '۵',
-                '6' => '۶',
-                '7' => '۷',
-                '8' => '۸',
-                '9' => '۹',
-            ]);
+    //     $developmentProjects = $projects->where('status', 0)->count();
 
 
+    //     $pfhFa = fn($n) => app()->getLocale() === 'en'
+    //         ? (string) $n
+    //         : strtr((string) $n, [
+    //             '0' => '۰',
+    //             '1' => '۱',
+    //             '2' => '۲',
+    //             '3' => '۳',
+    //             '4' => '۴',
+    //             '5' => '۵',
+    //             '6' => '۶',
+    //             '7' => '۷',
+    //             '8' => '۸',
+    //             '9' => '۹',
+    //         ]);
 
-        return view('Home.Portfolio.index', compact(
-            'projects',
-            'completedProjects',
-            'developmentProjects',
-            'pfhFa'
-        ));
-    }
+
+
+    //     return view('home.Portfolio.index', compact(
+    //         'projects',
+    //         'completedProjects',
+    //         'developmentProjects',
+    //         'pfhFa'
+    //     ));
+    // }
 
     public function portfolioShow(string $slug)
     {
@@ -357,7 +357,7 @@ class HomeController extends Controller
             ? ($project->short_description_en ?: $project->short_description)
             : $project->short_description;
 
-        return view('Home.Portfolio.show', compact(
+        return view('home.Portfolio.show', compact(
             'project',
             'relatedProjects',
             'statusLabel',
@@ -415,7 +415,7 @@ class HomeController extends Controller
                 '9' => '۹',
             ]);
 
-        return view('Home.Portfolio.index', compact(
+        return view('home.Portfolio.index', compact(
             'projects',
             'completedProjects',
             'developmentProjects',
@@ -448,7 +448,7 @@ class HomeController extends Controller
                 '9' => '۹',
             ]);
 
-        return view('Home.Portfolio.index', compact(
+        return view('home.Portfolio.index', compact(
             'projects',
             'completedProjects',
             'developmentProjects',
@@ -522,7 +522,7 @@ class HomeController extends Controller
                 '9' => '۹',
             ]);
 
-        return view('Home.Portfolio.index', compact(
+        return view('home.Portfolio.index', compact(
             'projects',
             'completedProjects',
             'developmentProjects',
@@ -530,10 +530,10 @@ class HomeController extends Controller
         ));
     }
 
-    // public function portfolioIndex()
-    // {
-    //     // return $this->portfolioIndexLazy();
-    //     // return $this->portfolioIndexEager();
-    //     // return $this->portfolioIndexRaw();
-    // }
+    public function portfolioIndex()
+    {
+        return $this->portfolioIndexLazy();
+        // return $this->portfolioIndexEager();
+        // return $this->portfolioIndexRaw();
+    }
 }

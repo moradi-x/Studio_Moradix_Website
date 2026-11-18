@@ -10,7 +10,7 @@ class ServicePageController extends Controller
 {
     public function index(): View
     {
-        return view('Home.Services.index');
+        return view('home.Services.index');
     }
 
 
@@ -21,7 +21,7 @@ class ServicePageController extends Controller
             ->take(3)
             ->get();
 
-        return view('Home.Services.web-design', compact('relatedProjects'));
+        return view('home.Services.web-design', compact('relatedProjects'));
     }
 
 
@@ -34,7 +34,7 @@ class ServicePageController extends Controller
             ->take(3)
             ->get();
 
-        return view('Home.Services.ecommerc', compact('relatedProjects'));
+        return view('home.Services.ecommerc', compact('relatedProjects'));
 
     }
 
@@ -46,7 +46,7 @@ class ServicePageController extends Controller
             ->take(3)
             ->get();
 
-        return view('Home.Services.seo', compact('relatedProjects'));
+        return view('home.Services.seo', compact('relatedProjects'));
 
     }
 
@@ -58,7 +58,7 @@ class ServicePageController extends Controller
             ->take(3)
             ->get();
 
-        return view('Home.Services.redesign', compact('relatedProjects'));
+        return view('home.Services.redesign', compact('relatedProjects'));
 
     }
 
@@ -70,6 +70,6 @@ class ServicePageController extends Controller
             ->take(3)
             ->get();
 
-        return view('Home.Services.custom-systems', compact('relatedProjects'));
+        return view('home.Services.custom-systems', compact('relatedProjects'));
     }
 }
