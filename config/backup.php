@@ -239,8 +239,7 @@ return [
         'notifiable' => Notifiable::class,
 
         'mail' => [
-            'to' => 'your@example.com',
-
+            'to' => env('BACKUP_NOTIFICATION_EMAIL', 'your@example.com'),
             'from' => [
                 'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
                 'name' => env('MAIL_FROM_NAME', 'Example'),
@@ -302,7 +301,7 @@ return [
             'name' => env('APP_NAME', 'laravel-backup'),
             'disks' => ['local'],
             'health_checks' => [
-                MaximumAgeInDays::class => 1,
+                MaximumAgeInDays::class => 11,
                 MaximumStorageInMegabytes::class => 5000,
             ],
         ],

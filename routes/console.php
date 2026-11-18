@@ -10,9 +10,9 @@ Artisan::command('inspire', function () {
 
 
 
-// Daily database backup at 2 AM
+// Database backup every 10 days at 2 AM
 Schedule::command('backup:run --only-db')
-    ->dailyAt('02:00');
+    ->cron('0 2 */10 * *');
 
 // Clean old backups at 3 AM
 Schedule::command('backup:clean')

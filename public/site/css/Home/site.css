@@ -5767,7 +5767,7 @@
 
  @media (max-width: 1023px) {
      .header-content>.menu-toggle {
-         transform: translateX(-15px);
+         transform: translateX(0);
      }
  }
 
